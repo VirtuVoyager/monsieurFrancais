@@ -68,7 +68,7 @@ These sections are multiple choice, so they can be measured precisely.
 
 ### 4.3 Writing and speaking: rubric scores on the TCF /20 scale
 
-- Every counted EE/EO attempt is graded by Claude on the TCF 0–20 scale against four criteria: **task fulfilment, coherence and cohesion, vocabulary range, grammatical accuracy**.
+- Every counted EE/EO attempt is graded by the GPT grader on the TCF 0–20 scale against four criteria: **task fulfilment, coherence and cohesion, vocabulary range, grammatical accuracy**.
   - Each criterion is graded **separately**, and the grader must quote evidence from your answer for each one.
   - The prompt includes the CEFR descriptors for each band and 2–3 graded example answers, taken from a *golden set* that includes samples your tutor has graded.
   - **Two independent grading passes.** If they disagree by more than 1 point, a third pass runs and the median is taken. This cuts down random swings in the score.
@@ -149,74 +149,151 @@ A **placement test** (about 40 min) runs at onboarding. It has adaptive CO/CE qu
 | **Library** | Everything learned: **words** (with gender), **sentences**, **grammar concepts**, **templates**, **your errors**. Searchable, with spaced-repetition review on demand. |
 | **Notes inbox** | Point it at your Obsidian vault's tutor-notes folder (read-only). New day notes are extracted into words, sentences and grammar points, shown for your approval, then added to the Library. |
 | **Progress** | The two progress bars, assessment history, trends. Nothing else. |
+| **Budget** (settings area) | Live Azure spend vs your monthly caps, spend per feature, Speech free allowance left, reconciliation with Azure's bill (§ 9). |
 
-## 8. Cloud and models: one provider, Microsoft Azure
+## 8. Cloud and models: Azure only, OpenAI GPT models only
 
 ### 8.1 What the app needs from AI services
 
-1. A strong **text model** for rubric grading, error tagging, feedback, content generation and notes extraction. It must output strict JSON and judge French grammar carefully.
+1. A **text model** for rubric grading, error tagging, feedback, content generation and notes extraction. It must output strict JSON.
 2. A **speech-to-speech realtime model** for the live examiner, in French, with low latency.
-3. **Speech-to-text** with word timestamps (fr-FR, fr-CA), to get speaking transcripts and fluency signals.
+3. **Speech-to-text** with word timestamps (fr-FR, fr-CA), for speaking transcripts and fluency signals.
 4. **Pronunciation assessment** in French.
 5. **Neural text-to-speech** with France **and Québec** voices, to produce listening audio.
 
-### 8.2 Comparison
+Azure is the only one of the big three clouds that covers all five on one bill. French pronunciation assessment has no equivalent on Google Cloud or AWS.
 
-| Need | Azure (Microsoft Foundry + Azure Speech) | Google Cloud (Vertex AI) | AWS (Bedrock) |
+### 8.2 Model choices (cheapest option that meets the quality bar)
+
+| Job | Default | Escalation | Notes |
 |---|---|---|---|
-| Claude for grading | **Yes:** Claude Opus 5 / Opus 5.5 / Sonnet 5, "Hosted on Azure", billed on the Azure invoice | Yes | Yes |
-| Realtime speech-to-speech in French | **gpt-realtime** (Azure OpenAI in Foundry) | Gemini Live native audio | Nova Sonic (French added 2025) |
-| STT with word timestamps, fr-FR + fr-CA | Yes | Yes | Yes |
-| **Pronunciation assessment in French** | **Yes** (fr-FR, fr-CA: accuracy, fluency, completeness; prosody and content scoring are English-only) | No equivalent | No equivalent |
-| Québec TTS voices | Several fr-CA neural voices | Some fr-CA voices | Few fr-CA voices |
+| Grading, error tagging, feedback, notes extraction, content generation and validation | **GPT-5.4 mini** (Azure OpenAI in Foundry, Global Standard) | **GPT-5.4**, only for writing/speaking grading, and only if mini fails the golden-set bar | Responses API with strict JSON schema output. Mini costs roughly 1/3 as much as the full model. The golden-set eval (§ 4.3) decides: if mini's average grading error on the /20 scale stays ≤ 1 point, it stays everywhere. |
+| Live examiner | **gpt-realtime-mini** | gpt-realtime, only if mini's French or role-play quality is noticeably worse in the phase-3 spike | WebRTC straight from the browser with a short-lived token. Mini's audio rates are about 1/3 of the full model's. Plays the examiner only, never grades. |
+| Transcripts and fluency signals | **Azure Speech STT** (fr-FR / fr-CA), word timestamps | — | Also used for dictation checks. |
+| Pronunciation | **Azure Speech pronunciation assessment** (fr-FR / fr-CA) | — | Accuracy, fluency and completeness. Prosody and content scoring are English-only, so grammar and vocabulary come from the GPT grader. |
+| Listening audio | **Azure neural TTS**, France and Québec voices, SSML for pace and pauses | — | Generated once and cached, so replays cost nothing. |
 
-**Decision: Azure.** It is the only one of the three that covers all five needs on one bill, including French pronunciation assessment and both Claude and a realtime speech model.
+Model names and versions move fast. The app reads deployment names from config, and prices from `content/pricing.yaml` (§ 9). Moving to a newer mini model means changing config, not code.
 
-### 8.3 Model choices
+The backend uses the official `openai` Python SDK against the Azure endpoint, with `Grader`, `Examiner` and `SpeechService` as the only abstractions.
 
-| Job | Model / service | Notes |
+### 8.3 Free credits for the build phase
+
+| What | Details | Catch |
 |---|---|---|
-| Grading, feedback, error tagging, content generation and validation, notes extraction | **Claude Opus 5** (`claude-opus-5`), Foundry deployment, Hosted on Azure, Global Standard | Best judgment on French grammar and rubrics, reliable structured outputs. Before phase 2 ships, run the golden-set eval against **Opus 5.5** (cheaper per token, also Hosted on Azure) and **Sonnet 5**, and pick the cheapest one that matches Opus 5's accuracy. That's your call once the numbers are in. |
-| Live examiner | **gpt-realtime** (latest version in the Foundry catalog at build time), WebRTC from the browser with a short-lived token | Plays the examiner only. It never grades. |
-| Transcripts and fluency signals | **Azure Speech STT** (fr-FR / fr-CA) with word-level timestamps | Also used for dictation checks. |
-| Pronunciation | **Azure Speech pronunciation assessment** (fr-FR / fr-CA) | Feeds the speaking rubric and shadowing feedback. |
-| Listening audio | **Azure neural TTS**, France and Québec voices, SSML for speed and pauses | Generated once and cached, so assessments replay identically. |
+| **Azure free account** | **US$200 credit for 30 days** plus a set of always-free services | Free-trial subscriptions get **zero quota for Azure OpenAI models**. You have to **upgrade to Pay-As-You-Go** to deploy GPT models. The upgrade keeps the unspent credit for its 30 days, and you pay only for usage beyond it. |
+| **Azure Speech free tier (F0)** | **5 audio hours of STT per month** and **0.5 M neural TTS characters per month** (≈ 10 h of audio), **never expires** | One F0 resource per subscription; limits can't be raised. Pronunciation-assessment support on F0 gets checked in the phase-0 spike. On the paid tier it's a +US$0.30/hour add-on for real-time use. |
+| **After the credit runs out** | GPT and realtime usage is billed per token; Speech stays free up to the F0 limits | Hard monthly budgets in the app (§ 9) keep this bounded. |
 
-**Foundry constraints to design around:**
-- No server-side refusal fallback: use the SDK's client-side fallback pattern.
-- No Message Batches API: content generation runs as background jobs making ordinary calls.
-- No Files API on Azure-hosted deployments: send content inline.
+**How to use them:**
+1. Create the free account and upgrade to Pay-As-You-Go on day 1, so GPT models can be deployed.
+2. Spend the $200 in the first 30 days on the expensive, one-off work:
+   - generating and validating the A1–A2 question bank;
+   - the grading golden-set comparison (mini vs full);
+   - the realtime examiner spike.
+3. Keep Speech on **F0 permanently** during the build, and generate TTS audio in batches so it stays under 0.5 M characters a month.
+4. Set an Azure-side budget alert as a safety net from day 1 (§ 9.4).
 
-The Anthropic Python SDK connects with `AnthropicFoundry(resource=…)`, so the grading code stays standard Claude SDK code.
+**Rough running cost after the build** (estimates, to be replaced by real metered numbers in the first month): grading one writing task with mini costs well under US$0.01. A 5-minute examiner session with gpt-realtime-mini is roughly US$0.10–0.25, because realtime re-bills the growing conversation every turn. Speech stays inside F0 for one learner. A study month with daily practice and weekly speaking sessions should land in the **low single-digit US$**. The budget screen will show the real number.
 
-## 9. Architecture
+## 9. Budget and cost tracking
+
+Paid usage comes from two places: **Azure OpenAI** (GPT-5.4 mini and gpt-realtime-mini) and **Azure Speech**. The app meters every paid call itself, stores usage and cost in Postgres, and enforces **hard monthly caps** before a call is made.
+
+### 9.1 Why the app meters locally
+
+- Azure Cost Management data **arrives late**: 8–24 h on some subscription types, up to 72 h on Pay-As-You-Go. It is also aggregated per resource, not per request.
+- **Azure budgets only send alerts.** They never stop spending.
+- So a real-time view and a hard stop both have to live in the app. Azure's own numbers are pulled in nightly as the check on the app's numbers.
+
+### 9.2 Metering
+
+- **One path for every paid call.** Each goes through `metered(service, feature, call)`, which reads usage from the provider's response and writes a `usage_events` row.
+  - **GPT (Responses API):** the `usage` block (input, cached input and output tokens).
+  - **Realtime:** each `response.done` event carries text/audio input/output tokens. With WebRTC these events reach the browser, which forwards them to `POST /usage/realtime` as they happen.
+  - **STT and pronunciation assessment:** audio seconds (from the audio's own duration, rounded the way Azure bills).
+  - **TTS:** billable characters of the SSML sent.
+- **Prices** live in `content/pricing.yaml`: per model and meter, with an effective-from date. Every usage row stores its units, computed cost and `price_version`, so history stays correct when prices change.
+- **Free allowance:** Speech F0 limits (5 h STT, 0.5 M TTS characters a month) are tracked the same way. The screen shows how much free allowance is left, and those units cost 0.
+- **Feature tags** (`grading`, `examiner`, `content_gen`, `notes`, `tts_listening`, `stt_speaking`, `pronunciation`) show what the money was spent on.
+
+### 9.3 Hard budgets
+
+- **Caps:** a monthly cap per service (Azure OpenAI, Speech) plus an overall cap, all editable on the budget screen. Alerts at 50%, 80% and 100%.
+- **Check before every call:** `BudgetGuard.reserve(service, estimated_cost)` compares month-to-date spend plus open reservations plus the estimate against the cap. If it would exceed the cap, the call is **refused** and the UI says which cap was hit. After the call, the reservation is replaced by the actual cost.
+- **Realtime sessions:**
+  - Before a session starts, the guard reserves the **worst-case** cost for the task's maximum duration: exam task length plus a small buffer, at the highest per-minute rate.
+  - The token needed to connect is only issued if that reservation fits.
+  - The browser ends the session when the reserved time runs out, or earlier if the forwarded usage reaches the reservation.
+  - At the end, actual usage settles the reservation.
+  - Because the reservation is worst-case, the cap can't be overshot by more than one session's buffer.
+- **Offline work stays free:** the Library, spaced-repetition reviews, cached audio and past results keep working when a cap is hit. Only new grading, generation and voice sessions stop.
+
+### 9.4 Checking against Azure, and Azure-side safety nets
+
+- **Nightly reconciliation job:** pulls actual cost per meter for the app's resource group from the **Cost Management Query API**. It stores it in `cost_reconciliations` and shows metered cost vs Azure-billed cost and the drift %.
+  - Azure's realtime meters are known not to match `response.done` usage exactly. So a rolling 30-day correction factor per service (billed ÷ metered) is applied to projections and worst-case reservations.
+- **Safety nets in Azure itself**, in case the app is bypassed:
+  1. An **Azure Budget** on the resource group, with email alerts at 80% and 100%.
+  2. A low **tokens-per-minute quota** on each GPT deployment, so a runaway loop can't burn much per hour.
+  3. Speech on **F0**, which stops by itself at its limits.
+
+### 9.5 Budget screen
+
+- Month-to-date spend vs cap, per service and in total. These bars are for money, not learning progress.
+- Spend by feature (grading, examiner, TTS…), with daily burn rate and a month-end projection.
+- Speech free allowance remaining.
+- Cap editor and alert thresholds.
+- A table of recent usage events (time, feature, model, units, cost), filterable.
+- The reconciliation panel: metered vs billed, drift %, date of the last Azure sync.
+- Displayed in USD (Azure list prices), with an optional INR display rate in settings. Reconciliation uses whatever currency Azure bills in.
+
+## 10. Logging and observability (free, self-hosted)
+
+The whole stack is open source, runs locally in Docker, and has no per-GB bill. Azure Monitor / Application Insights is deliberately left out, because it charges for data ingested beyond its free allowance.
+
+| Concern | Tool | Notes |
+|---|---|---|
+| App logs | **structlog** (JSON) → stdout | Every line carries `request_id`, plus `run_id` / `session_id` where relevant. Levels via config. Docker log rotation caps disk use. |
+| Traces and metrics | **OpenTelemetry** SDK with auto-instrumentation for FastAPI, SQLAlchemy, httpx and the `openai` client | GPT calls come out as spans with model, token counts and latency. Prompt/response capture is behind a flag, on in dev. |
+| Storage and UI | **`grafana/otel-lgtm`**, one container with Grafana, Loki (logs), Tempo (traces) and Prometheus (metrics) | Full-featured and free; about 1 GB RAM. Runs under a Compose profile (`docker compose --profile obs up`) so it's optional day to day. 30-day local retention. |
+| Frontend errors | Browser errors and slow-interaction reports → `POST /client-logs` → same pipeline | No third-party error-tracking SaaS. |
+| Dashboards | Provisioned from `observability/` in the repo: API latency, error rate, GPT latency and tokens, realtime session durations, budget guard refusals | Version-controlled. |
+
+Logs are for debugging. **Usage and cost live in Postgres** (§ 9), which is the durable record. Audio recordings and your writing are never written to logs.
+
+## 11. Architecture
 
 ```
  Browser (Next.js PWA)
-   │  REST/JSON + SSE              WebRTC audio (short-lived token)
+   │  REST/JSON + SSE              WebRTC audio (short-lived token, budget-checked)
    ▼                                        ▼
- FastAPI backend ───────────────────►  Azure OpenAI gpt-realtime (examiner)
+ FastAPI backend ───────────────────►  Azure OpenAI gpt-realtime-mini (examiner)
    │
-   ├── Microsoft Foundry: Claude (grading, feedback, content, notes)
+   ├── Azure OpenAI GPT-5.4 mini (grading, feedback, content, notes)
    ├── Azure Speech (STT, pronunciation assessment, TTS)
+   ├── BudgetGuard + usage metering ──► Postgres (usage_events, budgets)
+   ├── Nightly job: Azure Cost Management reconciliation
    ├── Postgres 16 + pgvector (local, Docker)
    ├── ./media (cached TTS audio, your recordings)
    ├── Obsidian vault folder (read-only notes source)
-   └── MCP server (your learning data, for Claude Desktop / claude.ai)
+   ├── MCP server (your learning data, for any MCP client)
+   └── OpenTelemetry ──► grafana/otel-lgtm (logs, traces, metrics)
 ```
 
 | Layer | Choice |
 |---|---|
 | Frontend | Next.js (App Router) + TypeScript + Tailwind + shadcn/ui + Framer Motion, TanStack Query, type-safe client generated from the API's OpenAPI spec. UI only, no business logic. |
-| Backend | Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2 + Alembic, `uv`. |
+| Backend | Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2 + Alembic, `uv`, official `openai` SDK (Azure endpoint), Azure Speech SDK. |
 | DB | Postgres 16 + pgvector (dedupe notes, find similar errors). |
 | Scoring | Rasch ability estimate for listening and reading, recency-weighted rubric aggregate for writing and speaking. Pure functions in `domain/`. |
 | Spaced repetition | FSRS (`fsrs` package) for Library reviews. |
-| Runtime | Docker Compose on this machine: `db`, `api`, `web`. Single user, so no auth beyond a local passphrase. |
+| Jobs | APScheduler inside the API process for the nightly reconciliation and content jobs. No separate queue until one is needed. |
+| Runtime | Docker Compose on this machine: `db`, `api`, `web`, plus optional `obs`. Single user, so no auth beyond a local passphrase. |
 
-### 9.1 Agentic or not?
+### 11.1 Agentic or not?
 
-**Mostly not.** The path, coverage, scoring and scheduling are deterministic code. The AI is used only where judgment is needed, and each use is a **single structured-output call**: `grade_writing`, `grade_speaking`, `tag_errors`, `extract_from_notes`, `generate_items` + `validate_items`.
+**Mostly not.** The path, coverage, scoring, budgets and scheduling are deterministic code. The AI is used only where judgment is needed, and each use is a **single structured-output call**: `grade_writing`, `grade_speaking`, `tag_errors`, `extract_from_notes`, `generate_items` + `validate_items`.
 
 - **LangGraph (phase 3), two flows only:**
   - **Repair-set builder** after a failed level-exam section: read the error clusters → pick modules and lessons → generate targeted items → pause for your review.
@@ -224,9 +301,9 @@ The Anthropic Python SDK connects with `AnthropicFoundry(resource=…)`, so the 
   Both benefit from saving state in Postgres and pausing for approval. Nothing else does.
 - **DeepAgents: no.** Nothing here is a long, open-ended planning task.
 - **A2A: no.** There's one app and no outside agents to talk to.
-- **MCP: yes, one small server.** It exposes `search_library`, `get_skill_levels`, `get_error_fingerprint`, `add_note_items`. Your TEF/TCF skill and notes chat in Claude can then read and write the same data the app uses. It's about 150 lines with FastMCP.
+- **MCP: yes, one small server.** It exposes `search_library`, `get_skill_levels`, `get_error_fingerprint`, `add_note_items`. Any MCP client, including the Claude app where your TEF/TCF skill and notes chat live, can read and write the same data the app uses. It's about 150 lines with FastMCP and adds no cloud cost.
 
-## 10. Data model (first cut)
+## 12. Data model (first cut)
 
 ```
 levels(id, cefr, order)
@@ -249,86 +326,98 @@ skill_estimates(id, skill, theta?, score, se, cefr, nclc, evidence_count, comput
 error_tags(id, tag, example, count, last_seen)
 cards(id, item_type, item_id, fsrs_state jsonb, due_at)
 notes(id, source_path, taken_on, raw_md, extracted jsonb, status)
+
+usage_events(id, occurred_at, service: openai|speech, model, feature, units jsonb, cost_usd, free_units jsonb, price_version, request_id, run_id?)
+budgets(id, month, service: openai|speech|total, cap_usd, alert_pcts int[])
+budget_reservations(id, service, feature, estimated_usd, created_at, settled_at?, usage_event_id?)
+cost_reconciliations(id, day, service, meter, billed_amount, billed_currency, metered_usd, synced_at)
 ```
 
-Exam formats, timings and score conversion tables live in versioned `content/exam_scales.yaml` with a "verified as of" date. They never live in code.
+Exam formats, timings and score tables live in versioned `content/exam_scales.yaml`. Prices live in `content/pricing.yaml`. Both carry a "verified as of" date and never live in code.
 
-## 11. Repository layout
+## 13. Repository layout
 
 ```
 api/
   app/
-    main.py  config.py  db.py
-    domain/        # pure: rasch.py, skill_estimate.py, coverage.py, scales.py, fsrs wrapper
+    main.py  config.py  db.py  observability.py
+    domain/        # pure: rasch.py, skill_estimate.py, coverage.py, scales.py, cost.py, fsrs wrapper
     models/        # SQLAlchemy
     schemas/       # Pydantic I/O
     repositories/  # DB access only
-    services/      # path, lessons, assessments, grading, library, notes, voice tokens
-    llm/           # Foundry client, prompts/, output schemas, golden-set runner
+    services/      # path, lessons, assessments, grading, library, notes, budget (guard + metering), voice tokens
+    llm/           # Azure OpenAI client, prompts/, output schemas, golden-set runner
     speech/        # Azure STT, pronunciation, TTS
-    voice/         # realtime token minting
+    jobs/          # reconcile_costs.py, content jobs
     routers/       # thin FastAPI routes
     mcp/           # MCP server
   migrations/
   tests/
 web/
-  app/             # path, module/[slug], assess/[id], drill, speak, listen, write, library, progress
-  components/      # ui (shadcn), exam (ExamShell, Timer, Mcq, Recorder, WordCounter), progress (CoverageBar, SkillBar)
+  app/             # path, module/[slug], assess/[id], drill, speak, listen, write, library, progress, budget
+  components/      # ui (shadcn), exam (ExamShell, Timer, Mcq, Recorder, WordCounter), progress (CoverageBar, SkillBar), budget
   lib/             # generated API client, hooks, audio utils
 content/
   modules/<level>/<nn-slug>/   # module.yaml, concepts/*.md, vocab.csv, sentences.csv
   templates/*.yaml
   exam_scales.yaml
+  pricing.yaml
   golden/                      # graded writing and speaking samples for grader evals
+observability/                 # Grafana dashboards + datasource provisioning
 docker-compose.yml
 CLAUDE.md
 ```
 
-## 12. Code quality rules
+## 14. Code quality rules
 
 These go into `CLAUDE.md` and are enforced by tooling:
 
-- **Python:** `ruff` (lint + format), `mypy --strict`, `pytest`. **TypeScript:** `eslint` + `prettier`, `tsc --strict`, `vitest`, `playwright` for the critical flows (lesson → module check, full checkpoint). All run in `pre-commit` and GitHub Actions.
+- **Python:** `ruff` (lint + format), `mypy --strict`, `pytest`. **TypeScript:** `eslint` + `prettier`, `tsc --strict`, `vitest`, `playwright` for the critical flows (lesson → module check, full checkpoint, budget cap refusal). All run in `pre-commit` and GitHub Actions.
 - **Layering:** routers → services → repositories. `domain/` is pure and has no I/O. Routes contain no SQL and services contain no HTTP.
+- **No paid call bypasses `metered()` + `BudgetGuard`.** A test fails if the Azure clients are constructed anywhere else.
 - **SOLID where it pays:** small interfaces only where a second implementation or a test fake exists (`Grader`, `SpeechService`, `RealtimeTokenIssuer`). No speculative abstractions.
-- **DRY:** one rubric schema for writing and speaking, one `ExamShell` for every timed experience, one generated API client.
+- **DRY:** one rubric schema for writing and speaking, one `ExamShell` for every timed experience, one generated API client, one metering path.
 - **KISS:** plain functions over classes when there's no state. No base repositories, no event bus, no service locator.
-- **Comments** explain *why* only (exam rules, scoring choices). No docstrings that restate the signature.
-- **Grader evals as tests:** `content/golden/` samples are scored in CI, and the build fails if the grader's average error rises above 1 point on the /20 scale.
+- **Comments** explain *why* only (exam rules, scoring and pricing choices). No docstrings that restate the signature.
+- **Grader evals as tests:** `content/golden/` samples are scored (on demand, and weekly in CI, within a small budget). The build fails if the grader's average error rises above 1 point on the /20 scale.
 - Small PRs, conventional commits.
 
-## 13. Delivery phases
+## 15. Delivery phases
 
 | Phase | Scope | Done when |
 |---|---|---|
-| **0. Foundations** (~1 wk) | Skeleton, Docker Compose, Postgres + migrations, FastAPI health, Next.js shell and design system, CI, `CLAUDE.md`, Azure resources (Foundry, Speech). | `docker compose up` shows the shell; CI green; a Foundry Claude call and an Azure TTS call work. |
-| **1. Path + modules + coverage** (~2–3 wks) | Level/block/module model, lesson player, module checks, coverage bar, Library + FSRS, content for A1–A2 (16 modules). | You can work through A2 modules and see coverage move. |
-| **2. Assessment engine + receptive skills** (~3 wks) | `ExamShell`, question bank with difficulty, Rasch estimator, CO/CE skill bars, placement test, block checkpoints (CO/CE parts), TTS listening audio. **Grader spike + golden set + model comparison.** | Placement sets real CO/CE estimates; a checkpoint moves the bars. |
-| **3. Writing + speaking** (~3–4 wks) | Writing desk + rubric grading (two passes), error tagging; realtime examiner; STT + pronunciation; EE/EO skill bars; level exams + gate + repair sets (LangGraph); Notes inbox from Obsidian; MCP server. | A full level exam with all four skills produces four skill bars and a gate decision. |
+| **0. Foundations** (~1 wk) | Skeleton, Docker Compose (+ `obs` profile), Postgres + migrations, FastAPI health, Next.js shell and design system, CI, `CLAUDE.md`. Azure: free account → Pay-As-You-Go, resource group, Azure OpenAI deployments (GPT-5.4 mini, gpt-realtime-mini) with low TPM quotas, Speech F0, Azure Budget alert. **Metering + BudgetGuard + `pricing.yaml` from day 1.** | `docker compose up` shows the shell; CI green; one GPT call and one TTS call are metered into `usage_events` and visible in Grafana. |
+| **1. Path + modules + coverage + budget screen** (~2–3 wks) | Level/block/module model, lesson player, module checks, coverage bar, Library + FSRS, A1–A2 content (16 modules, generated with the free credit), budget screen, nightly reconciliation. | You can work through A2 modules and see coverage move; budget screen shows live and reconciled spend. |
+| **2. Assessment engine + receptive skills** (~3 wks) | `ExamShell`, question bank with difficulty, Rasch estimator, CO/CE skill bars, placement test, block checkpoints (CO/CE parts), TTS listening audio. **Golden set + mini vs full grader comparison.** | Placement sets real CO/CE estimates; a checkpoint moves the bars. |
+| **3. Writing + speaking** (~3–4 wks) | Writing desk + rubric grading (two passes), error tagging; realtime examiner with budget-checked sessions; STT + pronunciation; EE/EO skill bars; level exams + gate + repair sets (LangGraph); Notes inbox from Obsidian; MCP server. | A full level exam with all four skills produces four skill bars and a gate decision, within budget. |
 | **4. Mocks + B1–B2 content + polish** (~3 wks) | Full TCF mocks, verdicts, monthly/weekly cadence tied to exam date, B1–B2 content (16 modules), performance and accessibility pass, PWA install. | A full 2 h 47 mock end-to-end, scored against NCLC 7. |
 | **5. C1–C2** (later) | Remaining 16 modules and higher-level question bank. | Complete A1–C2 path. |
 
-## 14. Content strategy
+## 16. Content strategy
 
 - All questions and texts are **original, written in exam format**. Nothing is copied from *Réussir le TCF* or paid mock banks.
 - Each generated item goes through a validation pass (grammar, single correct answer, CEFR level fit, difficulty estimate). It stays in `draft` until you approve it (one click).
+- Content generation is a one-off cost per item. Most of the A1–B1 bank should be generated within the first 30 days to use the free credit.
 - Grammar pages and module outlines live as markdown/YAML in `content/`, reviewed by you and optionally your tutor.
 - Your tutor's graded corrections go into `content/golden/`. This is what keeps the writing and speaking bars honest.
 
-## 15. Risks
+## 17. Risks
 
 | Risk | Mitigation |
 |---|---|
-| Writing/speaking scores drift from real examiners | Golden set with tutor-graded samples, two grading passes, CI check on error; show uncertainty bands, not single points. |
+| Writing/speaking scores drift from real examiners | Golden set with tutor-graded samples, two grading passes, eval check on error; show uncertainty bands, not single points. |
+| GPT-5.4 mini grades French writing less strictly than needed | Golden-set comparison against GPT-5.4 before phase 3; escalate grading only (not generation) if needed. |
 | Listening/reading difficulty estimates are rough with one user | Start difficulty from authored CEFR levels (a strong prior); refine only after enough answers; widen uncertainty when evidence is thin; cross-check against full mocks. |
-| Realtime voice latency or cost | Browser connects directly over WebRTC; sessions capped at task length; cost logged per session. |
+| Realtime cost surprises | Worst-case reservation before the connection token is issued, session time caps, correction factor from reconciliation, low TPM quotas, Azure budget alert. |
 | Wrong French in generated content | Generate-then-validate, draft/approve gate, tutor spot checks. |
-| Exam format changes | Everything in versioned `exam_scales.yaml`. |
+| Exam format or price changes | Versioned `exam_scales.yaml` and `pricing.yaml`. |
 
-## 16. Decided
+## 18. Decided
 
 - **Exam:** TCF Canada (TEF support can be added later by adding its scales and structure).
 - **Obsidian:** read-only notes source only.
-- **Cloud:** Microsoft Azure only (Foundry for Claude and gpt-realtime; Azure Speech).
+- **Cloud:** Microsoft Azure only. **Azure OpenAI** (GPT-5.4 mini, gpt-realtime-mini) and **Azure Speech** (F0). No Claude.
+- **Budgets:** metered locally in Postgres, hard monthly caps enforced in the app, reconciled nightly with Azure Cost Management.
+- **Logging:** structlog + OpenTelemetry → self-hosted `grafana/otel-lgtm`. No paid observability.
 - **Users:** single user; local passphrase, no accounts.
-- **No gamification:** no XP, streaks, quests or badges. Two progress bar types only.
+- **No gamification:** no XP, streaks, quests or badges. Two progress bar types only (the budget screen's spend bars are a separate admin view).
