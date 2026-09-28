@@ -1,0 +1,65 @@
+# `docker compose up` (OrbStack on macOS). Ports are bound to localhost only.
+name: monsieur-francais
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mf
+      POSTGRES_PASSWORD: ${MF_DB_PASSWORD:-mf}
+      POSTGRES_DB: mf
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mf -d mf"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      MF_DATABASE_URL: postgresql+psycopg://mf:${MF_DB_PASSWORD:-mf}@db:5432/mf
+      MF_OTEL_ENDPOINT: ${MF_OTEL_ENDPOINT:-}
+      MF_CORS_ORIGINS: '["http://localhost:3000"]'
+    volumes:
+      - ./media:/app/media
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      retries: 5
+
+  web:
+    build: ./web
+    restart: unless-stopped
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+
+  obs:
+    image: grafana/otel-lgtm:latest
+    profiles: ["obs"]
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3001:3000"
+      - "127.0.0.1:4318:4318"
+
+volumes:
+  pgdata:

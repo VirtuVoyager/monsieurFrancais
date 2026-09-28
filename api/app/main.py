@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 
 from app.config import get_settings
 from app.errors import ForbiddenError, NotFoundError
-from app.observability import configure_logging, request_context
+from app.observability import configure_logging, configure_tracing, request_context
 from app.routers import budget, health, lessons, library, path
 from app.services.budget import BudgetExceededError
 
@@ -46,6 +46,7 @@ def create_app() -> FastAPI:
     app.include_router(path.router)
     app.include_router(lessons.router)
     app.include_router(library.router)
+    configure_tracing(app, settings)
     return app
 
 
