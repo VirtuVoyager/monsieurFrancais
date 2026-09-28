@@ -1,0 +1,95 @@
+slug: a1-01-se-presenter
+level: A1
+block: 1
+order: 1
+theme: Identité
+title: Se présenter
+summary: >
+  Dire qui on est : nom, âge, origine, métier et langues. Les pronoms sujets et
+  les verbes être, avoir et s'appeler au présent.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Pronoms sujets, être, avoir et s'appeler
+    concept: pronoms-etre-avoir
+    exercises:
+      - {kind: cloze, prompt: "Je ___ étudiante.", accepted: [suis]}
+      - {kind: cloze, prompt: "Nous ___ deux enfants.", accepted: [avons]}
+      - {kind: cloze, prompt: "Elles ___ canadiennes.", accepted: [sont]}
+      - kind: mcq
+        prompt: "Comment tu ___ ?"
+        options: ["t'appelles", "s'appelle", "m'appelle"]
+        answer: 0
+        explanation: "Avec « tu », le pronom réfléchi est « te » : tu t'appelles."
+      - kind: mcq
+        prompt: "Vous ___ quel âge ?"
+        options: [êtes, avez, as]
+        answer: 1
+        explanation: "En français, l'âge s'exprime avec avoir : vous avez trente ans."
+      - {kind: order, words: ["Nadia.", "m'appelle", "Je"], answer: "Je m'appelle Nadia."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : l'identité"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour se présenter
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : Sophie se présente"
+    transcript: >
+      Bonjour ! Je m'appelle Sophie Martin. J'ai vingt-huit ans et je suis
+      française. J'habite à Lyon, mais je travaille à Genève, en Suisse. Je suis
+      infirmière dans un grand hôpital. Je parle français, anglais et un peu
+      d'espagnol. Le week-end, j'aime faire de la randonnée.
+    questions:
+      - {kind: mcq, prompt: "Quel âge a Sophie ?", options: ["18 ans", "28 ans", "38 ans"], answer: 1}
+      - {kind: mcq, prompt: "Où travaille-t-elle ?", options: ["À Lyon", "À Genève", "À Paris"], answer: 1}
+      - {kind: mcq, prompt: "Quel est son métier ?", options: [Médecin, Infirmière, Professeure], answer: 1}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : un message de Tomás"
+    text: |
+      Salut Léa,
+
+      Je m'appelle Tomás, je suis mexicain et j'ai vingt-cinq ans. Je suis étudiant
+      en informatique à Montréal. J'habite avec deux colocataires dans un
+      appartement près de l'université. Je cherche une personne pour pratiquer le
+      français le mercredi soir. Tu es disponible ?
+
+      À bientôt,
+      Tomás
+    questions:
+      - {kind: mcq, prompt: "Quelle est la nationalité de Tomás ?", options: [canadienne, mexicaine, espagnole], answer: 1}
+      - kind: mcq
+        prompt: "Que fait Tomás ?"
+        options: ["Il travaille dans une banque.", "Il étudie l'informatique.", "Il enseigne le français."]
+        answer: 1
+      - kind: mcq
+        prompt: "Pourquoi écrit-il ?"
+        options: ["Pour trouver un appartement.", "Pour pratiquer le français.", "Pour inviter Léa au restaurant."]
+        answer: 1
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : se présenter à la classe"
+    task: EE1
+    prompt: >
+      Vous venez d'arriver dans un cours de français au Canada. Écrivez un message
+      à la classe pour vous présenter : nom, âge, origine, métier et pourquoi vous
+      apprenez le français.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : l'entretien dirigé"
+    task: EO1
+    prompt: >
+      Présentez-vous : votre nom, votre origine, votre travail, votre famille et
+      vos loisirs. Parlez environ une minute, sans lire.
+    seconds: 60

@@ -1,6 +1,6 @@
 from typing import Any
 
-from sqlalchemy import ForeignKey, String, Text
+from sqlalchemy import ForeignKey, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db import Base
@@ -15,6 +15,7 @@ class Level(Base):
 
 class Block(Base):
     __tablename__ = "blocks"
+    __table_args__ = (UniqueConstraint("level_id", "order"),)
 
     id: Mapped[int] = mapped_column(primary_key=True)
     level_id: Mapped[str] = mapped_column(ForeignKey("levels.id"))
@@ -90,6 +91,7 @@ class Item(Base):
     __tablename__ = "items"
 
     id: Mapped[str] = mapped_column(String(160), primary_key=True)
+    key: Mapped[str] = mapped_column(String(160), index=True)
     version: Mapped[int] = mapped_column(default=1)
     supersedes_id: Mapped[str | None] = mapped_column(ForeignKey("items.id"))
     module_id: Mapped[str | None] = mapped_column(ForeignKey("modules.id"), index=True)

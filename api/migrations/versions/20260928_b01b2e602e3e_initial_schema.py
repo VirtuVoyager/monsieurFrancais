@@ -1,8 +1,8 @@
 """initial schema
 
-Revision ID: 45fb069dad41
+Revision ID: b01b2e602e3e
 Revises:
-Create Date: 2026-09-28 04:35:15.133439
+Create Date: 2026-09-28 04:42:08.961699
 
 """
 
@@ -13,7 +13,7 @@ from alembic import op
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = "45fb069dad41"
+revision: str = "b01b2e602e3e"
 down_revision: str | Sequence[str] | None = None
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
@@ -75,6 +75,7 @@ def upgrade() -> None:
             ["level_id"], ["levels.id"], name=op.f("fk_blocks_level_id_levels")
         ),
         sa.PrimaryKeyConstraint("id", name=op.f("pk_blocks")),
+        sa.UniqueConstraint("level_id", "order", name=op.f("uq_blocks_level_id")),
     )
     op.create_table(
         "budgets",
@@ -195,6 +196,7 @@ def upgrade() -> None:
     op.create_table(
         "items",
         sa.Column("id", sa.String(length=160), nullable=False),
+        sa.Column("key", sa.String(length=160), nullable=False),
         sa.Column("version", sa.Integer(), nullable=False),
         sa.Column("supersedes_id", sa.String(length=160), nullable=True),
         sa.Column("module_id", sa.String(length=80), nullable=True),
@@ -215,6 +217,7 @@ def upgrade() -> None:
         ),
         sa.PrimaryKeyConstraint("id", name=op.f("pk_items")),
     )
+    op.create_index(op.f("ix_items_key"), "items", ["key"], unique=False)
     op.create_index(op.f("ix_items_module_id"), "items", ["module_id"], unique=False)
     op.create_table(
         "lessons",
@@ -315,6 +318,7 @@ def downgrade() -> None:
     op.drop_index(op.f("ix_lessons_module_id"), table_name="lessons")
     op.drop_table("lessons")
     op.drop_index(op.f("ix_items_module_id"), table_name="items")
+    op.drop_index(op.f("ix_items_key"), table_name="items")
     op.drop_table("items")
     op.drop_index(op.f("ix_concepts_module_id"), table_name="concepts")
     op.drop_table("concepts")

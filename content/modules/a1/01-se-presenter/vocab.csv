@@ -1,0 +1,21 @@
+lemma,pos,gender,en,example_fr,example_en
+prénom,noun,m,first name,Mon prénom est Karim.,My first name is Karim.
+nom de famille,noun,m,surname,Quel est votre nom de famille ?,What is your surname?
+âge,noun,m,age,Quel âge avez-vous ?,How old are you?
+pays,noun,m,country,Je viens d'un grand pays.,I come from a big country.
+ville,noun,f,city; town,J'habite dans une petite ville.,I live in a small town.
+nationalité,noun,f,nationality,Quelle est votre nationalité ?,What is your nationality?
+métier,noun,m,job; trade,Quel est votre métier ?,What is your job?
+langue,noun,f,language,Je parle deux langues.,I speak two languages.
+adresse,noun,f,address,Voici mon adresse.,Here is my address.
+numéro de téléphone,noun,m,phone number,Quel est votre numéro de téléphone ?,What is your phone number?
+courriel,noun,m,email,Écrivez votre courriel ici.,Write your email here.
+s'appeler,verb,,to be called,Je m'appelle Priya.,My name is Priya.
+habiter,verb,,to live (reside),J'habite à Pune.,I live in Pune.
+parler,verb,,to speak,Nous parlons français.,We speak French.
+travailler,verb,,to work,Elle travaille dans une banque.,She works in a bank.
+venir de,verb,,to come from,Je viens d'Inde.,I come from India.
+être,verb,,to be,Je suis ingénieur.,I am an engineer.
+avoir,verb,,to have,J'ai trente ans.,I am thirty years old.
+marié,adjective,,married,Il est marié.,He is married.
+célibataire,adjective,,single,Elle est célibataire.,She is single.
