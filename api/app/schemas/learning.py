@@ -1,0 +1,208 @@
+from datetime import datetime
+from typing import Annotated, Any, Literal
+
+from pydantic import BaseModel, Field
+
+from app.domain.coverage import Status
+
+
+class CoverageOut(BaseModel):
+    covered: int
+    total: int
+    percent: float
+
+
+class ModuleSummary(BaseModel):
+    id: str
+    order: int
+    title: str
+    theme: str
+    status: Status
+    lessons_total: int
+    lessons_done: int
+    check_score: float | None
+
+
+class LevelOut(BaseModel):
+    id: str
+    covered: int
+    total: int
+    modules: list[ModuleSummary]
+
+
+class NextLesson(BaseModel):
+    module_id: str
+    module_title: str
+    lesson_id: str
+    lesson_title: str
+
+
+class PathOut(BaseModel):
+    coverage: CoverageOut
+    levels: list[LevelOut]
+    next_lesson: NextLesson | None
+
+
+class LessonSummary(BaseModel):
+    id: str
+    kind: str
+    title: str
+    done: bool
+
+
+class ModuleDetail(ModuleSummary):
+    level: str
+    summary: str
+    lessons: list[LessonSummary]
+    can_take_check: bool
+
+
+class ExerciseOut(BaseModel):
+    kind: Literal["mcq", "cloze", "order"]
+    prompt: str | None = None
+    options: list[str] | None = None
+    words: list[str] | None = None
+
+
+class WordOut(BaseModel):
+    id: str
+    lemma: str
+    pos: str
+    gender: str | None
+    en: str
+    example_fr: str
+    example_en: str
+
+
+class SentenceOut(BaseModel):
+    id: str
+    fr: str
+    en: str
+
+
+class GrammarContent(BaseModel):
+    kind: Literal["grammar"] = "grammar"
+    concept_title: str
+    concept_md: str
+    exercises: list[ExerciseOut]
+
+
+class VocabContent(BaseModel):
+    kind: Literal["vocab"] = "vocab"
+    words: list[WordOut]
+
+
+class SentencesContent(BaseModel):
+    kind: Literal["sentences"] = "sentences"
+    sentences: list[SentenceOut]
+
+
+class ListeningContent(BaseModel):
+    kind: Literal["listening"] = "listening"
+    transcript: str
+    audio_url: str | None
+    exercises: list[ExerciseOut]
+
+
+class ReadingContent(BaseModel):
+    kind: Literal["reading"] = "reading"
+    text: str
+    exercises: list[ExerciseOut]
+
+
+class WritingContent(BaseModel):
+    kind: Literal["writing"] = "writing"
+    task: str
+    prompt: str
+    min_words: int
+    max_words: int
+
+
+class SpeakingContent(BaseModel):
+    kind: Literal["speaking"] = "speaking"
+    task: str
+    prompt: str
+    seconds: int
+
+
+LessonContent = Annotated[
+    GrammarContent
+    | VocabContent
+    | SentencesContent
+    | ListeningContent
+    | ReadingContent
+    | WritingContent
+    | SpeakingContent,
+    Field(discriminator="kind"),
+]
+
+
+class LessonOut(BaseModel):
+    id: str
+    module_id: str
+    title: str
+    done: bool
+    content: LessonContent
+
+
+class ExerciseAnswer(BaseModel):
+    index: int = Field(ge=0)
+    response: dict[str, Any]
+
+
+class CheckResultOut(BaseModel):
+    correct: bool
+    expected: str
+    explanation: str | None
+
+
+class LessonCompleted(BaseModel):
+    module: ModuleSummary
+    cards_added: int
+
+
+class CheckItemOut(BaseModel):
+    id: str
+    skill: str
+    exercise: ExerciseOut
+
+
+class ModuleCheckOut(BaseModel):
+    run_id: int
+    items: list[CheckItemOut]
+
+
+class ItemAnswer(BaseModel):
+    item_id: str
+    response: dict[str, Any]
+    time_ms: int | None = None
+
+
+class CheckSubmission(BaseModel):
+    answers: list[ItemAnswer]
+
+
+class ItemResult(CheckResultOut):
+    item_id: str
+
+
+class CheckOutcome(BaseModel):
+    score: float
+    passed: bool
+    results: list[ItemResult]
+    module: ModuleSummary
+
+
+class ReviewCard(BaseModel):
+    id: int
+    item_type: str
+    prompt_en: str
+    answer_fr: str
+    gender: str | None
+    example_fr: str | None
+    due_at: datetime
+    reviews: int
+
+
+class ReviewRating(BaseModel):
+    rating: int = Field(ge=1, le=4)

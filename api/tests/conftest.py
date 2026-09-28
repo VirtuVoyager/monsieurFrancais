@@ -11,8 +11,10 @@ from fastapi.testclient import TestClient
 from sqlalchemy import Connection
 from sqlalchemy.orm import Session
 
+from app.config import get_settings
 from app.db import engine, get_session
 from app.main import create_app
+from app.services.content import seed
 
 
 @pytest.fixture(scope="session")
@@ -43,3 +45,9 @@ def client(session: Session) -> Iterator[TestClient]:
     app.dependency_overrides[get_session] = lambda: session
     with TestClient(app) as test_client:
         yield test_client
+
+
+@pytest.fixture
+def seeded(session: Session) -> Session:
+    seed(session, get_settings().content_dir)
+    return session

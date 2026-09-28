@@ -1,10 +1,13 @@
+from collections.abc import Awaitable, Callable
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.config import get_settings
+from app.errors import ForbiddenError, NotFoundError
 from app.observability import configure_logging, request_context
-from app.routers import budget, health
+from app.routers import budget, health, lessons, library, path
 from app.services.budget import BudgetExceededError
 
 
@@ -14,6 +17,13 @@ async def _budget_exceeded(_: Request, exc: Exception) -> JSONResponse:
         status_code=402,
         content={"detail": str(exc), "cap": exc.cap_name, "cap_usd": str(exc.cap)},
     )
+
+
+def _status(code: int) -> Callable[[Request, Exception], Awaitable[JSONResponse]]:
+    async def handler(_: Request, exc: Exception) -> JSONResponse:
+        return JSONResponse(status_code=code, content={"detail": str(exc)})
+
+    return handler
 
 
 def create_app() -> FastAPI:
@@ -29,8 +39,13 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
     app.exception_handler(BudgetExceededError)(_budget_exceeded)
+    app.exception_handler(NotFoundError)(_status(404))
+    app.exception_handler(ForbiddenError)(_status(403))
     app.include_router(health.router)
     app.include_router(budget.router)
+    app.include_router(path.router)
+    app.include_router(lessons.router)
+    app.include_router(library.router)
     return app
 
 
