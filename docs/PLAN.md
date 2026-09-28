@@ -262,7 +262,48 @@ The whole stack is open source, runs locally in Docker, and has no per-GB bill. 
 
 Logs are for debugging. **Usage and cost live in Postgres** (§ 9), which is the durable record. Audio recordings and your writing are never written to logs.
 
-## 11. Architecture
+## 11. Content storage: generate once, reuse for every learner
+
+**Rule: the course is a shared catalogue produced ahead of time, and learners only read it.** Lessons, questions, model answers, audio and images are generated, validated and approved once in the content pipeline, then stored permanently. A new user, or a fresh install, loads the catalogue and makes **zero** AI or Speech calls for it. Only work that is personal to a learner costs money at runtime.
+
+### 11.1 What is shared and what is personal
+
+| | Examples | Generated | Stored in | Cost per new user |
+|---|---|---|---|---|
+| **Shared catalogue: text** | Module outlines, grammar pages, vocab, sentence banks, templates, CO/CE questions and transcripts, EE/EO prompts, model answers, explanations | Once, by the content pipeline | **Git, under `content/`** (YAML / Markdown / CSV), the version-controlled source of truth; loaded into Postgres by an idempotent seed | **0** |
+| **Shared catalogue: audio** | Listening clips, dictation lines, word and sentence pronunciations, model-answer audio for shadowing | Once per unique (text, voice, settings) | **Content-addressed media store** (§ 11.2) | **0** |
+| **Shared catalogue: images** | A1–A2 picture-based listening questions, module cover illustrations (few, optional) | Once, only where the exam format needs a picture | Same media store | **0** |
+| **Personal data** | Your answers, writing, recordings, transcripts, grades, skill estimates, notes, cards | At runtime, by you | Postgres rows keyed by `user_id`; files under `media/users/<user_id>/` | Grading, the examiner and notes extraction only; unavoidable because they depend on the learner's own output |
+
+Every personal table gets a `user_id` from the start, even though there's only one user today. It costs one column now and saves a painful migration later.
+
+### 11.2 Content-addressed media store
+
+- Every generated file is named by the **hash of everything that produced it**:
+  - For audio: `sha256(engine + voice + rate + SSML text)`.
+  - For images: `sha256(model + prompt + size)`.
+- Files live at `media/catalog/<kind>/<ab>/<cd>/<hash>.<ext>`. Audio is **Opus at 48 kbps mono**, about 22 MB per hour. Images are **WebP**.
+- **Before any TTS or image call, the pipeline checks whether the hash already exists.** If it does, nothing is billed. So re-running the pipeline, rebuilding the DB, or two modules needing the same sentence never costs twice.
+- A **manifest** (`content/media_manifest.csv`: hash, kind, source text or prompt, voice, duration, bytes) is committed to git. It records exactly what exists, without committing the binaries themselves.
+- The app reads files through a small `MediaStore` interface:
+  - Today: the local-filesystem implementation.
+  - If the app is ever hosted for other users: an Azure Blob implementation, with the same keys and the same manifest, served through a CDN. No other code changes.
+
+### 11.3 Text generation cache and prompt caching
+
+- **Generation cache:** every pipeline call is keyed by `sha256(prompt template version + inputs + model)` in a `generation_cache` table. If the pipeline crashes halfway, or a batch is re-run, finished calls are reused instead of paid for again.
+- Approved items are **immutable**. An edit creates a new version, so past answers always point to exactly what was shown, and each question keeps its own difficulty estimate.
+- **Azure OpenAI prompt caching** gives a discount on repeated prompt prefixes of 1,024+ tokens. Grading prompts put the fixed part first (rubric, band descriptors, example answers) and the learner's answer last, so most grading input is billed at the cached rate.
+- **Repair sets** draw from the existing question bank first. New questions are generated only when the bank has too few for that error, and anything generated joins the shared catalogue for everyone.
+
+### 11.4 Size, portability and backups (all free)
+
+- **Rough size:** text under 50 MB; audio for A1–C2 about 1–2 GB (roughly 50–80 hours of clips); images under 200 MB.
+- **Content pack:** `make content-pack` bundles `media/catalog/` into a versioned archive (`content-pack-vX.Y.tar.zst`) and uploads it as a **GitHub Release asset** (free, up to 2 GB per file).
+  - `make content-pull` on a new machine downloads and unpacks it, checked against the manifest. Only hashes missing from the pack would ever be generated again.
+- **Backups:** a nightly `pg_dump` plus an rsync of `media/` (catalogue and personal data) to an external drive or a synced folder. There's no cloud storage bill, so Azure costs stay limited to OpenAI and Speech.
+
+## 12. Architecture
 
 ```
  Browser (Next.js PWA)
@@ -275,7 +316,7 @@ Logs are for debugging. **Usage and cost live in Postgres** (§ 9), which is the
    ├── BudgetGuard + usage metering ──► Postgres (usage_events, budgets)
    ├── Nightly job: Azure Cost Management reconciliation
    ├── Postgres 16 + pgvector (local, Docker)
-   ├── ./media (cached TTS audio, your recordings)
+   ├── media/ (catalog/: shared generated audio + images, content-addressed; users/: recordings)
    ├── Obsidian vault folder (read-only notes source)
    ├── MCP server (your learning data, for any MCP client)
    └── OpenTelemetry ──► grafana/otel-lgtm (logs, traces, metrics)
@@ -291,7 +332,7 @@ Logs are for debugging. **Usage and cost live in Postgres** (§ 9), which is the
 | Jobs | APScheduler inside the API process for the nightly reconciliation and content jobs. No separate queue until one is needed. |
 | Runtime | Docker Compose on this machine: `db`, `api`, `web`, plus optional `obs`. Single user, so no auth beyond a local passphrase. |
 
-### 11.1 Agentic or not?
+### 12.1 Agentic or not?
 
 **Mostly not.** The path, coverage, scoring, budgets and scheduling are deterministic code. The AI is used only where judgment is needed, and each use is a **single structured-output call**: `grade_writing`, `grade_speaking`, `tag_errors`, `extract_from_notes`, `generate_items` + `validate_items`.
 
@@ -303,7 +344,7 @@ Logs are for debugging. **Usage and cost live in Postgres** (§ 9), which is the
 - **A2A: no.** There's one app and no outside agents to talk to.
 - **MCP: yes, one small server.** It exposes `search_library`, `get_skill_levels`, `get_error_fingerprint`, `add_note_items`. Any MCP client, including the Claude app where your TEF/TCF skill and notes chat live, can read and write the same data the app uses. It's about 150 lines with FastMCP and adds no cloud cost.
 
-## 12. Data model (first cut)
+## 13. Data model (first cut)
 
 ```
 levels(id, cefr, order)
@@ -327,7 +368,10 @@ error_tags(id, tag, example, count, last_seen)
 cards(id, item_type, item_id, fsrs_state jsonb, due_at)
 notes(id, source_path, taken_on, raw_md, extracted jsonb, status)
 
-usage_events(id, occurred_at, service: openai|speech, model, feature, units jsonb, cost_usd, free_units jsonb, price_version, request_id, run_id?)
+media_assets(hash pk, kind: audio|image, path, source jsonb, duration_ms?, bytes, created_at)   -- mirrors content/media_manifest.csv
+generation_cache(key pk, template_version, model, output jsonb, created_at)
+
+usage_events(id, user_id?, occurred_at, service: openai|speech, model, feature, units jsonb, cost_usd, free_units jsonb, price_version, request_id, run_id?)
 budgets(id, month, service: openai|speech|total, cap_usd, alert_pcts int[])
 budget_reservations(id, service, feature, estimated_usd, created_at, settled_at?, usage_event_id?)
 cost_reconciliations(id, day, service, meter, billed_amount, billed_currency, metered_usd, synced_at)
@@ -335,7 +379,7 @@ cost_reconciliations(id, day, service, meter, billed_amount, billed_currency, me
 
 Exam formats, timings and score tables live in versioned `content/exam_scales.yaml`. Prices live in `content/pricing.yaml`. Both carry a "verified as of" date and never live in code.
 
-## 13. Repository layout
+## 14. Repository layout
 
 ```
 api/
@@ -363,17 +407,20 @@ content/
   exam_scales.yaml
   pricing.yaml
   golden/                      # graded writing and speaking samples for grader evals
+  media_manifest.csv           # every generated audio/image: hash, source, voice, duration
+media/                         # gitignored; catalog/ restored via `make content-pull`, users/ is personal
 observability/                 # Grafana dashboards + datasource provisioning
 docker-compose.yml
 CLAUDE.md
 ```
 
-## 14. Code quality rules
+## 15. Code quality rules
 
 These go into `CLAUDE.md` and are enforced by tooling:
 
 - **Python:** `ruff` (lint + format), `mypy --strict`, `pytest`. **TypeScript:** `eslint` + `prettier`, `tsc --strict`, `vitest`, `playwright` for the critical flows (lesson → module check, full checkpoint, budget cap refusal). All run in `pre-commit` and GitHub Actions.
 - **Layering:** routers → services → repositories. `domain/` is pure and has no I/O. Routes contain no SQL and services contain no HTTP.
+- **No catalogue content is generated at request time.** Learner-facing code only reads the catalogue; generation lives in the pipeline and always checks the media hash / generation cache first.
 - **No paid call bypasses `metered()` + `BudgetGuard`.** A test fails if the Azure clients are constructed anywhere else.
 - **SOLID where it pays:** small interfaces only where a second implementation or a test fake exists (`Grader`, `SpeechService`, `RealtimeTokenIssuer`). No speculative abstractions.
 - **DRY:** one rubric schema for writing and speaking, one `ExamShell` for every timed experience, one generated API client, one metering path.
@@ -382,7 +429,7 @@ These go into `CLAUDE.md` and are enforced by tooling:
 - **Grader evals as tests:** `content/golden/` samples are scored (on demand, and weekly in CI, within a small budget). The build fails if the grader's average error rises above 1 point on the /20 scale.
 - Small PRs, conventional commits.
 
-## 15. Delivery phases
+## 16. Delivery phases
 
 | Phase | Scope | Done when |
 |---|---|---|
@@ -393,7 +440,7 @@ These go into `CLAUDE.md` and are enforced by tooling:
 | **4. Mocks + B1–B2 content + polish** (~3 wks) | Full TCF mocks, verdicts, monthly/weekly cadence tied to exam date, B1–B2 content (16 modules), performance and accessibility pass, PWA install. | A full 2 h 47 mock end-to-end, scored against NCLC 7. |
 | **5. C1–C2** (later) | Remaining 16 modules and higher-level question bank. | Complete A1–C2 path. |
 
-## 16. Content strategy
+## 17. Content strategy
 
 - All questions and texts are **original, written in exam format**. Nothing is copied from *Réussir le TCF* or paid mock banks.
 - Each generated item goes through a validation pass (grammar, single correct answer, CEFR level fit, difficulty estimate). It stays in `draft` until you approve it (one click).
@@ -401,7 +448,7 @@ These go into `CLAUDE.md` and are enforced by tooling:
 - Grammar pages and module outlines live as markdown/YAML in `content/`, reviewed by you and optionally your tutor.
 - Your tutor's graded corrections go into `content/golden/`. This is what keeps the writing and speaking bars honest.
 
-## 17. Risks
+## 18. Risks
 
 | Risk | Mitigation |
 |---|---|
@@ -412,12 +459,13 @@ These go into `CLAUDE.md` and are enforced by tooling:
 | Wrong French in generated content | Generate-then-validate, draft/approve gate, tutor spot checks. |
 | Exam format or price changes | Versioned `exam_scales.yaml` and `pricing.yaml`. |
 
-## 18. Decided
+## 19. Decided
 
 - **Exam:** TCF Canada (TEF support can be added later by adding its scales and structure).
 - **Obsidian:** read-only notes source only.
 - **Cloud:** Microsoft Azure only. **Azure OpenAI** (GPT-5.4 mini, gpt-realtime-mini) and **Azure Speech** (F0). No Claude.
 - **Budgets:** metered locally in Postgres, hard monthly caps enforced in the app, reconciled nightly with Azure Cost Management.
+- **Content storage:** shared catalogue generated once (text in git, audio/images in a content-addressed local store backed up as a GitHub Release content pack); only personal work (grading, examiner, notes) costs money per learner.
 - **Logging:** structlog + OpenTelemetry → self-hosted `grafana/otel-lgtm`. No paid observability.
 - **Users:** single user; local passphrase, no accounts.
 - **No gamification:** no XP, streaks, quests or badges. Two progress bar types only (the budget screen's spend bars are a separate admin view).
