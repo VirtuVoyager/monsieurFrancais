@@ -303,7 +303,73 @@ Every personal table gets a `user_id` from the start, even though there's only o
   - `make content-pull` on a new machine downloads and unpacks it, checked against the manifest. Only hashes missing from the pack would ever be generated again.
 - **Backups:** a nightly `pg_dump` plus an rsync of `media/` (catalogue and personal data) to an external drive or a synced folder. There's no cloud storage bill, so Azure costs stay limited to OpenAI and Speech.
 
-## 12. Architecture
+## 12. Knowledge base and "Ask" assistant
+
+**Yes to a searchable knowledge base and a chatbot. No to a separate vector database. No to nightly-only embedding.**
+
+### 12.1 Why pgvector in the existing Postgres, not Qdrant / Weaviate / Milvus / Chroma
+
+- **The corpus is small.** The full A1–C2 catalogue is roughly 15–25k entries (concept sections, words, sentences, questions, templates). Personal data adds a few thousand a year. pgvector with an HNSW index handles millions of vectors, so this is nowhere near its limits.
+- **The useful questions are joins.** "What have *I* learned about the subjunctive?" means vector search **filtered by** your covered modules, your cards, your error tags and the CEFR level. In Postgres that's one SQL query. With a separate vector DB, those filters have to be copied into it and kept in sync.
+- **One fewer thing to run.** A second store means writing to both and keeping them consistent, plus another backup and another container. It would add complexity without adding capability at this size.
+- **Swap later if ever needed.** Search sits behind one `KnowledgeBase` service. If a hosted multi-user version outgrows pgvector, only that service changes.
+
+### 12.2 When things get embedded: on change, not nightly
+
+A nightly batch would leave today's lesson or note unsearchable until tomorrow. Instead:
+
+- **Catalogue content** is embedded **once, when it's approved** in the content pipeline, keyed by content hash plus embedding model. Embeddings for approved catalogue content ship in the **content pack** (§ 11.4), so a new install or new user never re-embeds the catalogue.
+- **Personal content** (approved note items, error tags, graded writing and speaking feedback) goes into an `embedding_queue` table in the same transaction that creates it. A background worker drains the queue every minute in batches.
+- A **nightly sweep** remains only as a safety net. It picks up anything the queue missed, and it handles a re-embed when the embedding model changes (entries store their `embedding_model`).
+
+### 12.3 What gets indexed
+
+Natural units instead of arbitrary text chunks. One entry per:
+- grammar concept section
+- word (lemma, gender, meaning, example)
+- sentence
+- template
+- question, with its transcript and explanation
+- model answer
+- approved note item
+- error tag, with examples of your mistakes
+- piece of grading feedback
+
+Each entry carries `kind`, `module_id`, `cefr`, `user_id` (null for catalogue), `source_ref` (a deep link into the app), `content_hash` and `embedding_model`.
+
+**Hybrid search:** pgvector similarity plus Postgres full-text search with the `french` dictionary and `unaccent`, plus `pg_trgm` for typo-tolerant word lookup. Results are merged by reciprocal rank fusion, a simple standard way to combine ranked lists. Keyword search matters here: exact grammar words like *dont*, *lequel* or *subjonctif* are where embeddings alone are weakest.
+
+### 12.4 Embedding model and cost
+
+- **Azure OpenAI `text-embedding-3-small`**, same provider and bill, reduced to 512 dimensions. It costs a few cents per million tokens. The whole catalogue is a few million tokens, so the one-off cost is well under US$1, and personal content costs almost nothing. Every call goes through `metered()` + `BudgetGuard`.
+- If you'd rather pay nothing: a local open-source multilingual model (e.g. `bge-m3`) in its own container works, at the cost of ~2 GB RAM and slower indexing. It's not the default.
+
+### 12.5 The "Ask" assistant (phase 4)
+
+- A chat panel reachable from anywhere. It answers questions like:
+  - "What did I learn about *en* vs *y*?"
+  - "Which words from the housing module do I keep missing?"
+  - "Explain why it's *que je sois* here."
+  - "Give me 5 sentences using *dont* from my lessons."
+- **One tool-calling loop** on GPT-5.4 mini (Responses API with function tools). It doesn't need LangGraph. Tools:
+  - `search_kb(query, scope: learned|catalogue|mine, kind?, cefr?)`
+  - `get_progress()`
+  - `get_error_fingerprint()`
+  - `lookup_word(lemma)`
+  - `start_practice(item_ids)`: turns an answer into a mini drill.
+- **Grounded and cited:** answers come from retrieved entries and link back to the lesson, card or feedback they came from. Explanations use exam-register French. General grammar questions outside the course are allowed but labelled as such.
+- Conversations are saved per user (`chat_threads`, `chat_messages`). Cost is budget-checked like every other call, typically a fraction of a cent per question.
+- The **MCP server** exposes the same `search_kb`, so the Claude app, where your TEF/TCF skill lives, can query the knowledge base too.
+
+### 12.6 Same index, other uses
+
+The index also powers:
+- dedupe in the content pipeline
+- clustering similar errors for repair sets
+- "related lessons" links
+- global search in the Library
+
+## 13. Architecture
 
 ```
  Browser (Next.js PWA)
@@ -326,13 +392,13 @@ Every personal table gets a `user_id` from the start, even though there's only o
 |---|---|
 | Frontend | Next.js (App Router) + TypeScript + Tailwind + shadcn/ui + Framer Motion, TanStack Query, type-safe client generated from the API's OpenAPI spec. UI only, no business logic. |
 | Backend | Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2 + Alembic, `uv`, official `openai` SDK (Azure endpoint), Azure Speech SDK. |
-| DB | Postgres 16 + pgvector (dedupe notes, find similar errors). |
+| DB | Postgres 16 + pgvector (HNSW) + full-text search (`french`, `unaccent`) + `pg_trgm`: relational data and the knowledge base in one store. |
 | Scoring | Rasch ability estimate for listening and reading, recency-weighted rubric aggregate for writing and speaking. Pure functions in `domain/`. |
 | Spaced repetition | FSRS (`fsrs` package) for Library reviews. |
 | Jobs | APScheduler inside the API process for the nightly reconciliation and content jobs. No separate queue until one is needed. |
 | Runtime | Docker Compose on this machine: `db`, `api`, `web`, plus optional `obs`. Single user, so no auth beyond a local passphrase. |
 
-### 12.1 Agentic or not?
+### 13.1 Agentic or not?
 
 **Mostly not.** The path, coverage, scoring, budgets and scheduling are deterministic code. The AI is used only where judgment is needed, and each use is a **single structured-output call**: `grade_writing`, `grade_speaking`, `tag_errors`, `extract_from_notes`, `generate_items` + `validate_items`.
 
@@ -342,9 +408,9 @@ Every personal table gets a `user_id` from the start, even though there's only o
   Both benefit from saving state in Postgres and pausing for approval. Nothing else does.
 - **DeepAgents: no.** Nothing here is a long, open-ended planning task.
 - **A2A: no.** There's one app and no outside agents to talk to.
-- **MCP: yes, one small server.** It exposes `search_library`, `get_skill_levels`, `get_error_fingerprint`, `add_note_items`. Any MCP client, including the Claude app where your TEF/TCF skill and notes chat live, can read and write the same data the app uses. It's about 150 lines with FastMCP and adds no cloud cost.
+- **MCP: yes, one small server.** It exposes `search_kb`, `get_skill_levels`, `get_error_fingerprint`, `add_note_items`. Any MCP client, including the Claude app where your TEF/TCF skill and notes chat live, can read and write the same data the app uses. It's about 150 lines with FastMCP and adds no cloud cost.
 
-## 13. Data model (first cut)
+## 14. Data model (first cut)
 
 ```
 levels(id, cefr, order)
@@ -371,6 +437,10 @@ notes(id, source_path, taken_on, raw_md, extracted jsonb, status)
 media_assets(hash pk, kind: audio|image, path, source jsonb, duration_ms?, bytes, created_at)   -- mirrors content/media_manifest.csv
 generation_cache(key pk, template_version, model, output jsonb, created_at)
 
+kb_entries(id, user_id?, kind, module_id?, cefr?, source_ref, text, tsv tsvector, embedding vector(512), embedding_model, content_hash)
+embedding_queue(id, kb_entry_id, enqueued_at, processed_at?, error?)
+chat_threads(id, user_id, title, created_at), chat_messages(id, thread_id, role, content jsonb, citations jsonb, created_at)
+
 usage_events(id, user_id?, occurred_at, service: openai|speech, model, feature, units jsonb, cost_usd, free_units jsonb, price_version, request_id, run_id?)
 budgets(id, month, service: openai|speech|total, cap_usd, alert_pcts int[])
 budget_reservations(id, service, feature, estimated_usd, created_at, settled_at?, usage_event_id?)
@@ -379,7 +449,7 @@ cost_reconciliations(id, day, service, meter, billed_amount, billed_currency, me
 
 Exam formats, timings and score tables live in versioned `content/exam_scales.yaml`. Prices live in `content/pricing.yaml`. Both carry a "verified as of" date and never live in code.
 
-## 14. Repository layout
+## 15. Repository layout
 
 ```
 api/
@@ -414,7 +484,7 @@ docker-compose.yml
 CLAUDE.md
 ```
 
-## 15. Code quality rules
+## 16. Code quality rules
 
 These go into `CLAUDE.md` and are enforced by tooling:
 
@@ -429,18 +499,18 @@ These go into `CLAUDE.md` and are enforced by tooling:
 - **Grader evals as tests:** `content/golden/` samples are scored (on demand, and weekly in CI, within a small budget). The build fails if the grader's average error rises above 1 point on the /20 scale.
 - Small PRs, conventional commits.
 
-## 16. Delivery phases
+## 17. Delivery phases
 
 | Phase | Scope | Done when |
 |---|---|---|
 | **0. Foundations** (~1 wk) | Skeleton, Docker Compose (+ `obs` profile), Postgres + migrations, FastAPI health, Next.js shell and design system, CI, `CLAUDE.md`. Azure: free account → Pay-As-You-Go, resource group, Azure OpenAI deployments (GPT-5.4 mini, gpt-realtime-mini) with low TPM quotas, Speech F0, Azure Budget alert. **Metering + BudgetGuard + `pricing.yaml` from day 1.** | `docker compose up` shows the shell; CI green; one GPT call and one TTS call are metered into `usage_events` and visible in Grafana. |
 | **1. Path + modules + coverage + budget screen** (~2–3 wks) | Level/block/module model, lesson player, module checks, coverage bar, Library + FSRS, A1–A2 content (16 modules, generated with the free credit), budget screen, nightly reconciliation. | You can work through A2 modules and see coverage move; budget screen shows live and reconciled spend. |
-| **2. Assessment engine + receptive skills** (~3 wks) | `ExamShell`, question bank with difficulty, Rasch estimator, CO/CE skill bars, placement test, block checkpoints (CO/CE parts), TTS listening audio. **Golden set + mini vs full grader comparison.** | Placement sets real CO/CE estimates; a checkpoint moves the bars. |
+| **2. Assessment engine + receptive skills** (~3 wks) | Knowledge-base index (hybrid search, embedding queue, embeddings in content pack), `ExamShell`, question bank with difficulty, Rasch estimator, CO/CE skill bars, placement test, block checkpoints (CO/CE parts), TTS listening audio. **Golden set + mini vs full grader comparison.** | Placement sets real CO/CE estimates; a checkpoint moves the bars. |
 | **3. Writing + speaking** (~3–4 wks) | Writing desk + rubric grading (two passes), error tagging; realtime examiner with budget-checked sessions; STT + pronunciation; EE/EO skill bars; level exams + gate + repair sets (LangGraph); Notes inbox from Obsidian; MCP server. | A full level exam with all four skills produces four skill bars and a gate decision, within budget. |
-| **4. Mocks + B1–B2 content + polish** (~3 wks) | Full TCF mocks, verdicts, monthly/weekly cadence tied to exam date, B1–B2 content (16 modules), performance and accessibility pass, PWA install. | A full 2 h 47 mock end-to-end, scored against NCLC 7. |
+| **4. Mocks + B1–B2 content + Ask + polish** (~3–4 wks) | "Ask" assistant over the knowledge base, full TCF mocks, verdicts, monthly/weekly cadence tied to exam date, B1–B2 content (16 modules), performance and accessibility pass, PWA install. | A full 2 h 47 mock end-to-end, scored against NCLC 7. |
 | **5. C1–C2** (later) | Remaining 16 modules and higher-level question bank. | Complete A1–C2 path. |
 
-## 17. Content strategy
+## 18. Content strategy
 
 - All questions and texts are **original, written in exam format**. Nothing is copied from *Réussir le TCF* or paid mock banks.
 - Each generated item goes through a validation pass (grammar, single correct answer, CEFR level fit, difficulty estimate). It stays in `draft` until you approve it (one click).
@@ -448,7 +518,7 @@ These go into `CLAUDE.md` and are enforced by tooling:
 - Grammar pages and module outlines live as markdown/YAML in `content/`, reviewed by you and optionally your tutor.
 - Your tutor's graded corrections go into `content/golden/`. This is what keeps the writing and speaking bars honest.
 
-## 18. Risks
+## 19. Risks
 
 | Risk | Mitigation |
 |---|---|
@@ -459,13 +529,14 @@ These go into `CLAUDE.md` and are enforced by tooling:
 | Wrong French in generated content | Generate-then-validate, draft/approve gate, tutor spot checks. |
 | Exam format or price changes | Versioned `exam_scales.yaml` and `pricing.yaml`. |
 
-## 19. Decided
+## 20. Decided
 
 - **Exam:** TCF Canada (TEF support can be added later by adding its scales and structure).
 - **Obsidian:** read-only notes source only.
 - **Cloud:** Microsoft Azure only. **Azure OpenAI** (GPT-5.4 mini, gpt-realtime-mini) and **Azure Speech** (F0). No Claude.
 - **Budgets:** metered locally in Postgres, hard monthly caps enforced in the app, reconciled nightly with Azure Cost Management.
 - **Content storage:** shared catalogue generated once (text in git, audio/images in a content-addressed local store backed up as a GitHub Release content pack); only personal work (grading, examiner, notes) costs money per learner.
+- **Knowledge base:** pgvector + French full-text search in the existing Postgres (no separate vector DB); embedded on approval/creation via a queue, nightly sweep as safety net; "Ask" assistant in phase 4.
 - **Logging:** structlog + OpenTelemetry → self-hosted `grafana/otel-lgtm`. No paid observability.
 - **Users:** single user; local passphrase, no accounts.
 - **No gamification:** no XP, streaks, quests or badges. Two progress bar types only (the budget screen's spend bars are a separate admin view).
