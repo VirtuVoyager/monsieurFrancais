@@ -1,0 +1,1960 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Monsieur Français API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/budget": {
+      "get": {
+        "tags": [
+          "budget"
+        ],
+        "summary": "Get Summary",
+        "operationId": "get_summary_budget_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BudgetSummary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/budget/caps": {
+      "put": {
+        "tags": [
+          "budget"
+        ],
+        "summary": "Update Caps",
+        "operationId": "update_caps_budget_caps_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CapsUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/budget/events": {
+      "get": {
+        "tags": [
+          "budget"
+        ],
+        "summary": "List Events",
+        "operationId": "list_events_budget_events_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Feature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsageEventOut"
+                  },
+                  "title": "Response List Events Budget Events Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/path": {
+      "get": {
+        "tags": [
+          "path"
+        ],
+        "summary": "Get Path",
+        "operationId": "get_path_path_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PathOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modules/{module_id}": {
+      "get": {
+        "tags": [
+          "path"
+        ],
+        "summary": "Get Module",
+        "operationId": "get_module_modules__module_id__get",
+        "parameters": [
+          {
+            "name": "module_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Module Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modules/{module_id}/check": {
+      "post": {
+        "tags": [
+          "path"
+        ],
+        "summary": "Start Check",
+        "operationId": "start_check_modules__module_id__check_post",
+        "parameters": [
+          {
+            "name": "module_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Module Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleCheckOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checks/{run_id}": {
+      "post": {
+        "tags": [
+          "path"
+        ],
+        "summary": "Submit Check",
+        "operationId": "submit_check_checks__run_id__post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckSubmission"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckOutcome"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lessons/{lesson_id}": {
+      "get": {
+        "tags": [
+          "lessons"
+        ],
+        "summary": "Get Lesson",
+        "operationId": "get_lesson_lessons__lesson_id__get",
+        "parameters": [
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Lesson Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lessons/{lesson_id}/check": {
+      "post": {
+        "tags": [
+          "lessons"
+        ],
+        "summary": "Check Exercise",
+        "operationId": "check_exercise_lessons__lesson_id__check_post",
+        "parameters": [
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Lesson Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExerciseAnswer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckResultOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lessons/{lesson_id}/complete": {
+      "post": {
+        "tags": [
+          "lessons"
+        ],
+        "summary": "Complete Lesson",
+        "operationId": "complete_lesson_lessons__lesson_id__complete_post",
+        "parameters": [
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Lesson Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonCompleted"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reviews/due": {
+      "get": {
+        "tags": [
+          "library"
+        ],
+        "summary": "Due Reviews",
+        "operationId": "due_reviews_reviews_due_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReviewCard"
+                  },
+                  "title": "Response Due Reviews Reviews Due Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reviews/{card_id}": {
+      "post": {
+        "tags": [
+          "library"
+        ],
+        "summary": "Rate Card",
+        "operationId": "rate_card_reviews__card_id__post",
+        "parameters": [
+          {
+            "name": "card_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Card Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRating"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewCard"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/library/words": {
+      "get": {
+        "tags": [
+          "library"
+        ],
+        "summary": "Learned Words",
+        "operationId": "learned_words_library_words_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WordOut"
+                  },
+                  "title": "Response Learned Words Library Words Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/library/sentences": {
+      "get": {
+        "tags": [
+          "library"
+        ],
+        "summary": "Learned Sentences",
+        "operationId": "learned_sentences_library_sentences_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SentenceOut"
+                  },
+                  "title": "Response Learned Sentences Library Sentences Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/library/concepts": {
+      "get": {
+        "tags": [
+          "library"
+        ],
+        "summary": "Learned Concepts",
+        "operationId": "learned_concepts_library_concepts_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ConceptOut"
+                  },
+                  "type": "array",
+                  "title": "Response Learned Concepts Library Concepts Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BudgetSummary": {
+        "properties": {
+          "month": {
+            "type": "string",
+            "title": "Month"
+          },
+          "price_version": {
+            "type": "string",
+            "title": "Price Version"
+          },
+          "services": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ServiceSpend"
+            },
+            "type": "object",
+            "title": "Services"
+          },
+          "by_feature": {
+            "items": {
+              "$ref": "#/components/schemas/FeatureSpend"
+            },
+            "type": "array",
+            "title": "By Feature"
+          },
+          "free_allowances": {
+            "items": {
+              "$ref": "#/components/schemas/FreeAllowance"
+            },
+            "type": "array",
+            "title": "Free Allowances"
+          }
+        },
+        "type": "object",
+        "required": [
+          "month",
+          "price_version",
+          "services",
+          "by_feature",
+          "free_allowances"
+        ],
+        "title": "BudgetSummary"
+      },
+      "CapsUpdate": {
+        "properties": {
+          "openai": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Openai"
+          },
+          "speech": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Speech"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string",
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+              }
+            ],
+            "title": "Total"
+          }
+        },
+        "type": "object",
+        "required": [
+          "openai",
+          "speech",
+          "total"
+        ],
+        "title": "CapsUpdate"
+      },
+      "CheckItemOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "skill": {
+            "type": "string",
+            "title": "Skill"
+          },
+          "exercise": {
+            "$ref": "#/components/schemas/ExerciseOut"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "skill",
+          "exercise"
+        ],
+        "title": "CheckItemOut"
+      },
+      "CheckOutcome": {
+        "properties": {
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "passed": {
+            "type": "boolean",
+            "title": "Passed"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/ItemResult"
+            },
+            "type": "array",
+            "title": "Results"
+          },
+          "module": {
+            "$ref": "#/components/schemas/ModuleSummary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "score",
+          "passed",
+          "results",
+          "module"
+        ],
+        "title": "CheckOutcome"
+      },
+      "CheckResultOut": {
+        "properties": {
+          "correct": {
+            "type": "boolean",
+            "title": "Correct"
+          },
+          "expected": {
+            "type": "string",
+            "title": "Expected"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "correct",
+          "expected",
+          "explanation"
+        ],
+        "title": "CheckResultOut"
+      },
+      "CheckSubmission": {
+        "properties": {
+          "answers": {
+            "items": {
+              "$ref": "#/components/schemas/ItemAnswer"
+            },
+            "type": "array",
+            "title": "Answers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "answers"
+        ],
+        "title": "CheckSubmission"
+      },
+      "ConceptOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "body_md": {
+            "type": "string",
+            "title": "Body Md"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "body_md"
+        ],
+        "title": "ConceptOut"
+      },
+      "CoverageOut": {
+        "properties": {
+          "covered": {
+            "type": "integer",
+            "title": "Covered"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "percent": {
+            "type": "number",
+            "title": "Percent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "covered",
+          "total",
+          "percent"
+        ],
+        "title": "CoverageOut"
+      },
+      "ExerciseAnswer": {
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Index"
+          },
+          "response": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Response"
+          }
+        },
+        "type": "object",
+        "required": [
+          "index",
+          "response"
+        ],
+        "title": "ExerciseAnswer"
+      },
+      "ExerciseOut": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "mcq",
+              "cloze",
+              "order"
+            ],
+            "title": "Kind"
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Options"
+          },
+          "words": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Words"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kind"
+        ],
+        "title": "ExerciseOut"
+      },
+      "FeatureSpend": {
+        "properties": {
+          "feature": {
+            "type": "string",
+            "title": "Feature"
+          },
+          "cost_usd": {
+            "type": "string",
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Cost Usd"
+          }
+        },
+        "type": "object",
+        "required": [
+          "feature",
+          "cost_usd"
+        ],
+        "title": "FeatureSpend"
+      },
+      "FreeAllowance": {
+        "properties": {
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "allowance": {
+            "type": "number",
+            "title": "Allowance"
+          },
+          "used": {
+            "type": "number",
+            "title": "Used"
+          }
+        },
+        "type": "object",
+        "required": [
+          "model",
+          "unit",
+          "allowance",
+          "used"
+        ],
+        "title": "FreeAllowance"
+      },
+      "GrammarContent": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "grammar",
+            "title": "Kind",
+            "default": "grammar"
+          },
+          "concept_title": {
+            "type": "string",
+            "title": "Concept Title"
+          },
+          "concept_md": {
+            "type": "string",
+            "title": "Concept Md"
+          },
+          "exercises": {
+            "items": {
+              "$ref": "#/components/schemas/ExerciseOut"
+            },
+            "type": "array",
+            "title": "Exercises"
+          }
+        },
+        "type": "object",
+        "required": [
+          "concept_title",
+          "concept_md",
+          "exercises"
+        ],
+        "title": "GrammarContent"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ItemAnswer": {
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "title": "Item Id"
+          },
+          "response": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Response"
+          },
+          "time_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Time Ms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "item_id",
+          "response"
+        ],
+        "title": "ItemAnswer"
+      },
+      "ItemResult": {
+        "properties": {
+          "correct": {
+            "type": "boolean",
+            "title": "Correct"
+          },
+          "expected": {
+            "type": "string",
+            "title": "Expected"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Explanation"
+          },
+          "item_id": {
+            "type": "string",
+            "title": "Item Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "correct",
+          "expected",
+          "explanation",
+          "item_id"
+        ],
+        "title": "ItemResult"
+      },
+      "LessonCompleted": {
+        "properties": {
+          "module": {
+            "$ref": "#/components/schemas/ModuleSummary"
+          },
+          "cards_added": {
+            "type": "integer",
+            "title": "Cards Added"
+          }
+        },
+        "type": "object",
+        "required": [
+          "module",
+          "cards_added"
+        ],
+        "title": "LessonCompleted"
+      },
+      "LessonOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "module_id": {
+            "type": "string",
+            "title": "Module Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "done": {
+            "type": "boolean",
+            "title": "Done"
+          },
+          "content": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GrammarContent"
+              },
+              {
+                "$ref": "#/components/schemas/VocabContent"
+              },
+              {
+                "$ref": "#/components/schemas/SentencesContent"
+              },
+              {
+                "$ref": "#/components/schemas/ListeningContent"
+              },
+              {
+                "$ref": "#/components/schemas/ReadingContent"
+              },
+              {
+                "$ref": "#/components/schemas/WritingContent"
+              },
+              {
+                "$ref": "#/components/schemas/SpeakingContent"
+              }
+            ],
+            "title": "Content",
+            "discriminator": {
+              "propertyName": "kind",
+              "mapping": {
+                "grammar": "#/components/schemas/GrammarContent",
+                "listening": "#/components/schemas/ListeningContent",
+                "reading": "#/components/schemas/ReadingContent",
+                "sentences": "#/components/schemas/SentencesContent",
+                "speaking": "#/components/schemas/SpeakingContent",
+                "vocab": "#/components/schemas/VocabContent",
+                "writing": "#/components/schemas/WritingContent"
+              }
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "module_id",
+          "title",
+          "done",
+          "content"
+        ],
+        "title": "LessonOut"
+      },
+      "LessonSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "done": {
+            "type": "boolean",
+            "title": "Done"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "title",
+          "done"
+        ],
+        "title": "LessonSummary"
+      },
+      "LevelOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "covered": {
+            "type": "integer",
+            "title": "Covered"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "modules": {
+            "items": {
+              "$ref": "#/components/schemas/ModuleSummary"
+            },
+            "type": "array",
+            "title": "Modules"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "covered",
+          "total",
+          "modules"
+        ],
+        "title": "LevelOut"
+      },
+      "ListeningContent": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "listening",
+            "title": "Kind",
+            "default": "listening"
+          },
+          "transcript": {
+            "type": "string",
+            "title": "Transcript"
+          },
+          "audio_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Url"
+          },
+          "exercises": {
+            "items": {
+              "$ref": "#/components/schemas/ExerciseOut"
+            },
+            "type": "array",
+            "title": "Exercises"
+          }
+        },
+        "type": "object",
+        "required": [
+          "transcript",
+          "audio_url",
+          "exercises"
+        ],
+        "title": "ListeningContent"
+      },
+      "ModuleCheckOut": {
+        "properties": {
+          "run_id": {
+            "type": "integer",
+            "title": "Run Id"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CheckItemOut"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "items"
+        ],
+        "title": "ModuleCheckOut"
+      },
+      "ModuleDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "order": {
+            "type": "integer",
+            "title": "Order"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "theme": {
+            "type": "string",
+            "title": "Theme"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "lessons_total": {
+            "type": "integer",
+            "title": "Lessons Total"
+          },
+          "lessons_done": {
+            "type": "integer",
+            "title": "Lessons Done"
+          },
+          "check_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Check Score"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "lessons": {
+            "items": {
+              "$ref": "#/components/schemas/LessonSummary"
+            },
+            "type": "array",
+            "title": "Lessons"
+          },
+          "can_take_check": {
+            "type": "boolean",
+            "title": "Can Take Check"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "order",
+          "title",
+          "theme",
+          "status",
+          "lessons_total",
+          "lessons_done",
+          "check_score",
+          "level",
+          "summary",
+          "lessons",
+          "can_take_check"
+        ],
+        "title": "ModuleDetail"
+      },
+      "ModuleSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "order": {
+            "type": "integer",
+            "title": "Order"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "theme": {
+            "type": "string",
+            "title": "Theme"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "lessons_total": {
+            "type": "integer",
+            "title": "Lessons Total"
+          },
+          "lessons_done": {
+            "type": "integer",
+            "title": "Lessons Done"
+          },
+          "check_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Check Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "order",
+          "title",
+          "theme",
+          "status",
+          "lessons_total",
+          "lessons_done",
+          "check_score"
+        ],
+        "title": "ModuleSummary"
+      },
+      "NextLesson": {
+        "properties": {
+          "module_id": {
+            "type": "string",
+            "title": "Module Id"
+          },
+          "module_title": {
+            "type": "string",
+            "title": "Module Title"
+          },
+          "lesson_id": {
+            "type": "string",
+            "title": "Lesson Id"
+          },
+          "lesson_title": {
+            "type": "string",
+            "title": "Lesson Title"
+          }
+        },
+        "type": "object",
+        "required": [
+          "module_id",
+          "module_title",
+          "lesson_id",
+          "lesson_title"
+        ],
+        "title": "NextLesson"
+      },
+      "PathOut": {
+        "properties": {
+          "coverage": {
+            "$ref": "#/components/schemas/CoverageOut"
+          },
+          "levels": {
+            "items": {
+              "$ref": "#/components/schemas/LevelOut"
+            },
+            "type": "array",
+            "title": "Levels"
+          },
+          "next_lesson": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NextLesson"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "coverage",
+          "levels",
+          "next_lesson"
+        ],
+        "title": "PathOut"
+      },
+      "ReadingContent": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "reading",
+            "title": "Kind",
+            "default": "reading"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "exercises": {
+            "items": {
+              "$ref": "#/components/schemas/ExerciseOut"
+            },
+            "type": "array",
+            "title": "Exercises"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "exercises"
+        ],
+        "title": "ReadingContent"
+      },
+      "ReviewCard": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "item_type": {
+            "type": "string",
+            "title": "Item Type"
+          },
+          "prompt_en": {
+            "type": "string",
+            "title": "Prompt En"
+          },
+          "answer_fr": {
+            "type": "string",
+            "title": "Answer Fr"
+          },
+          "gender": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gender"
+          },
+          "example_fr": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Example Fr"
+          },
+          "due_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Due At"
+          },
+          "reviews": {
+            "type": "integer",
+            "title": "Reviews"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "item_type",
+          "prompt_en",
+          "answer_fr",
+          "gender",
+          "example_fr",
+          "due_at",
+          "reviews"
+        ],
+        "title": "ReviewCard"
+      },
+      "ReviewRating": {
+        "properties": {
+          "rating": {
+            "type": "integer",
+            "maximum": 4.0,
+            "minimum": 1.0,
+            "title": "Rating"
+          }
+        },
+        "type": "object",
+        "required": [
+          "rating"
+        ],
+        "title": "ReviewRating"
+      },
+      "SentenceOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "fr": {
+            "type": "string",
+            "title": "Fr"
+          },
+          "en": {
+            "type": "string",
+            "title": "En"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "fr",
+          "en"
+        ],
+        "title": "SentenceOut"
+      },
+      "SentencesContent": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "sentences",
+            "title": "Kind",
+            "default": "sentences"
+          },
+          "sentences": {
+            "items": {
+              "$ref": "#/components/schemas/SentenceOut"
+            },
+            "type": "array",
+            "title": "Sentences"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sentences"
+        ],
+        "title": "SentencesContent"
+      },
+      "ServiceSpend": {
+        "properties": {
+          "cap_usd": {
+            "type": "string",
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Cap Usd"
+          },
+          "spent_usd": {
+            "type": "string",
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Spent Usd"
+          },
+          "reserved_usd": {
+            "type": "string",
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Reserved Usd"
+          },
+          "projected_usd": {
+            "type": "string",
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Projected Usd"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cap_usd",
+          "spent_usd",
+          "reserved_usd",
+          "projected_usd"
+        ],
+        "title": "ServiceSpend"
+      },
+      "SpeakingContent": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "speaking",
+            "title": "Kind",
+            "default": "speaking"
+          },
+          "task": {
+            "type": "string",
+            "title": "Task"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt"
+          },
+          "seconds": {
+            "type": "integer",
+            "title": "Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "task",
+          "prompt",
+          "seconds"
+        ],
+        "title": "SpeakingContent"
+      },
+      "Status": {
+        "type": "string",
+        "enum": [
+          "locked",
+          "open",
+          "covered",
+          "placed"
+        ],
+        "title": "Status"
+      },
+      "UsageEventOut": {
+        "properties": {
+          "occurred_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Occurred At"
+          },
+          "service": {
+            "type": "string",
+            "title": "Service"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "feature": {
+            "type": "string",
+            "title": "Feature"
+          },
+          "units": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Units"
+          },
+          "free_units": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Free Units"
+          },
+          "cost_usd": {
+            "type": "string",
+            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+            "title": "Cost Usd"
+          }
+        },
+        "type": "object",
+        "required": [
+          "occurred_at",
+          "service",
+          "model",
+          "feature",
+          "units",
+          "free_units",
+          "cost_usd"
+        ],
+        "title": "UsageEventOut"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "VocabContent": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "vocab",
+            "title": "Kind",
+            "default": "vocab"
+          },
+          "words": {
+            "items": {
+              "$ref": "#/components/schemas/WordOut"
+            },
+            "type": "array",
+            "title": "Words"
+          }
+        },
+        "type": "object",
+        "required": [
+          "words"
+        ],
+        "title": "VocabContent"
+      },
+      "WordOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "lemma": {
+            "type": "string",
+            "title": "Lemma"
+          },
+          "pos": {
+            "type": "string",
+            "title": "Pos"
+          },
+          "gender": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gender"
+          },
+          "en": {
+            "type": "string",
+            "title": "En"
+          },
+          "example_fr": {
+            "type": "string",
+            "title": "Example Fr"
+          },
+          "example_en": {
+            "type": "string",
+            "title": "Example En"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "lemma",
+          "pos",
+          "gender",
+          "en",
+          "example_fr",
+          "example_en"
+        ],
+        "title": "WordOut"
+      },
+      "WritingContent": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "writing",
+            "title": "Kind",
+            "default": "writing"
+          },
+          "task": {
+            "type": "string",
+            "title": "Task"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt"
+          },
+          "min_words": {
+            "type": "integer",
+            "title": "Min Words"
+          },
+          "max_words": {
+            "type": "integer",
+            "title": "Max Words"
+          }
+        },
+        "type": "object",
+        "required": [
+          "task",
+          "prompt",
+          "min_words",
+          "max_words"
+        ],
+        "title": "WritingContent"
+      }
+    }
+  }
+}
