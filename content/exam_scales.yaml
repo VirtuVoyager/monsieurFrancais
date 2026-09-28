@@ -1,0 +1,26 @@
+# TCF Canada score conversions. Source: IRCC language test equivalency charts.
+# Re-verify on canada.ca if this date is more than ~6 months old.
+verified_as_of: "2026-09"
+exam: TCF Canada
+
+cefr_bands:
+  receptive:   # /699, listening and reading
+    A1: [100, 199]
+    A2: [200, 299]
+    B1: [300, 399]
+    B2: [400, 499]
+    C1: [500, 599]
+    C2: [600, 699]
+  productive:  # /20, writing and speaking
+    A1: [0, 3]
+    A2: [4, 5]
+    B1: [6, 9]
+    B2: [10, 13]
+    C1: [14, 15]
+    C2: [16, 20]
+
+nclc:  # lowest score for each NCLC level, per skill
+  CO: {4: 331, 5: 369, 6: 398, 7: 458, 8: 503, 9: 523, 10: 549}
+  CE: {4: 342, 5: 375, 6: 406, 7: 453, 8: 499, 9: 524, 10: 549}
+  EE: {4: 4, 5: 6, 6: 7, 7: 10, 8: 12, 9: 14, 10: 16}
+  EO: {4: 4, 5: 6, 6: 7, 7: 10, 8: 12, 9: 14, 10: 16}
