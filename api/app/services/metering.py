@@ -1,21 +1,14 @@
 from collections.abc import Callable
-from dataclasses import dataclass
 from decimal import Decimal
 
 import structlog
 from sqlalchemy.orm import Session
 
-from app.domain.cost import Units, split_free
+from app.domain.cost import Metered, split_free
 from app.models import UsageEvent
 from app.services import budget
 
 log = structlog.get_logger()
-
-
-@dataclass(frozen=True)
-class Metered[T]:
-    value: T
-    units: Units
 
 
 def run_metered[T](

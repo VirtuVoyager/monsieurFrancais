@@ -9,6 +9,14 @@ Units = dict[str, float]
 
 
 @dataclass(frozen=True)
+class Metered[T]:
+    """A provider result plus the billable units it consumed."""
+
+    value: T
+    units: Units
+
+
+@dataclass(frozen=True)
 class Rate:
     usd: Decimal
     per: int

@@ -18,10 +18,18 @@ def tcf_from_theta(theta: float) -> float:
 
 
 @dataclass(frozen=True)
+class WritingSpec:
+    min_words: int
+    max_words: int
+    minutes: int
+
+
+@dataclass(frozen=True)
 class ExamScales:
     cefr_bands: dict[str, dict[str, tuple[float, float]]]
     nclc_floors: dict[str, dict[int, float]]
     seconds_per_item: dict[str, int]
+    writing_tasks: dict[str, WritingSpec]
 
     def cefr(self, skill: str, score: float) -> str:
         bands = self.cefr_bands["receptive" if skill in RECEPTIVE else "productive"]
@@ -48,4 +56,5 @@ def load_exam_scales(path: Path) -> ExamScales:
             for skill, floors in raw["nclc"].items()
         },
         seconds_per_item={skill: int(v) for skill, v in raw["seconds_per_item"].items()},
+        writing_tasks={task: WritingSpec(**spec) for task, spec in raw["writing_tasks"].items()},
     )

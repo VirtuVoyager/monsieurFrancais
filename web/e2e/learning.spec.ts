@@ -70,6 +70,7 @@ test("a timed reading drill fills in the reading skill bar", async ({ page }) =>
 
   await page.goto("/drills");
   await page.getByRole("button", { name: "Start" }).nth(1).click();
+  await page.getByRole("button", { name: "Begin" }).click();
   for (let i = 0; i < 10; i++) {
     await page.getByRole("radio").first().click();
     const next = page.getByRole("button", { name: "Next question" });
@@ -80,4 +81,22 @@ test("a timed reading drill fills in the reading skill bar", async ({ page }) =>
 
   await page.goto("/progress");
   await expect(page.getByText(/est\. \d+\/699/)).toBeVisible();
+});
+
+test("a timed writing drill is graded on /20 with fixes", async ({ page }) => {
+  await page.goto("/drills");
+  await page.getByRole("button", { name: "Start" }).nth(2).click();
+  await page.getByRole("button", { name: "Begin" }).click();
+  await page
+    .getByLabel("Your answer")
+    .fill(
+      "Salut Marc ! Je suis trente ans et je habite maintenant à Montréal. Mon appartement est " +
+        "petit mais lumineux, et le quartier est calme. Il y a un parc, une boulangerie et le " +
+        "métro. Viens me voir le week-end prochain, on pourra visiter la ville ensemble !",
+    );
+  await page.getByRole("button", { name: "Submit" }).click();
+
+  await expect(page.getByText("TCF /20")).toBeVisible();
+  await expect(page.getByText("Fix these first")).toBeVisible();
+  await expect(page.getByText(/Estimated \d+\/20/)).toBeVisible();
 });

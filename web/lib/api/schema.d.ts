@@ -413,6 +413,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/lessons/{lesson_id}/writing": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Submit Lesson Writing */
+        post: operations["submit_lesson_writing_lessons__lesson_id__writing_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/writing/drills": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start Writing Drill */
+        post: operations["start_writing_drill_writing_drills_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/writing/drills/{run_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Submit Writing Drill */
+        post: operations["submit_writing_drill_writing_drills__run_id__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/errors": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Error Fingerprint */
+        get: operations["error_fingerprint_errors_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -533,6 +601,17 @@ export interface components {
              */
             count: number;
         };
+        /** ErrorFingerprintOut */
+        ErrorFingerprintOut: {
+            /** Tag */
+            tag: string;
+            /** Count */
+            count: number;
+            /** Example */
+            example: string;
+            /** Correction */
+            correction: string;
+        };
         /** ExamPlanOut */
         ExamPlanOut: {
             /**
@@ -594,6 +673,15 @@ export interface components {
             feature: string;
             /** Cost Usd */
             cost_usd: string;
+        };
+        /** FixOut */
+        FixOut: {
+            /** Excerpt */
+            excerpt: string;
+            /** Correction */
+            correction: string;
+            /** Explanation */
+            explanation: string;
         };
         /** FreeAllowance */
         FreeAllowance: {
@@ -917,6 +1005,15 @@ export interface components {
          * @enum {string}
          */
         Status: "locked" | "open" | "covered" | "placed";
+        /** TaggedErrorOut */
+        TaggedErrorOut: {
+            /** Tag */
+            tag: string;
+            /** Excerpt */
+            excerpt: string;
+            /** Correction */
+            correction: string;
+        };
         /** UsageEventOut */
         UsageEventOut: {
             /**
@@ -996,6 +1093,58 @@ export interface components {
             min_words: number;
             /** Max Words */
             max_words: number;
+        };
+        /** WritingDrillOut */
+        WritingDrillOut: {
+            /** Run Id */
+            run_id: number;
+            /** Task */
+            task: string;
+            /** Prompt */
+            prompt: string;
+            /** Min Words */
+            min_words: number;
+            /** Max Words */
+            max_words: number;
+            /**
+             * Deadline
+             * Format: date-time
+             */
+            deadline: string;
+        };
+        /** WritingResult */
+        WritingResult: {
+            /** Id */
+            id: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "pending" | "graded";
+            /** Task */
+            task: string;
+            /** Word Count */
+            word_count: number;
+            /** Score */
+            score: number | null;
+            /** Criteria */
+            criteria: {
+                [key: string]: number;
+            };
+            /** Evidence */
+            evidence: {
+                [key: string]: string;
+            };
+            /** Fixes */
+            fixes: components["schemas"]["FixOut"][];
+            /** Errors */
+            errors: components["schemas"]["TaggedErrorOut"][];
+            level?: components["schemas"]["SkillLevelOut"] | null;
+        };
+        /** WritingText */
+        WritingText: {
+            /** Text */
+            text: string;
         };
     };
     responses: never;
@@ -1799,6 +1948,142 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SettingsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    submit_lesson_writing_lessons__lesson_id__writing_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                lesson_id: string;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["WritingText"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WritingResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    start_writing_drill_writing_drills_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WritingDrillOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    submit_writing_drill_writing_drills__run_id__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["WritingText"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WritingResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    error_fingerprint_errors_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorFingerprintOut"][];
                 };
             };
             /** @description Validation Error */

@@ -4,9 +4,10 @@ import pytest
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app.domain.cost import Metered
 from app.models import BudgetReservation, UsageEvent
 from app.services import budget
-from app.services.metering import Metered, run_metered
+from app.services.metering import run_metered
 from app.services.users import get_or_create_learner
 
 

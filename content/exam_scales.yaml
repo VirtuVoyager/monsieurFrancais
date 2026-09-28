@@ -28,3 +28,8 @@ nclc:  # lowest score for each NCLC level, per skill
 seconds_per_item:  # TCF pace: 39 listening items in 35 min, 39 reading items in 60 min
   CO: 54
   CE: 92
+
+writing_tasks:  # TCF Canada expression écrite: 3 tasks in 60 minutes
+  EE1: {min_words: 60, max_words: 120, minutes: 10}
+  EE2: {min_words: 120, max_words: 150, minutes: 20}
+  EE3: {min_words: 120, max_words: 180, minutes: 30}

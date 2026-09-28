@@ -1,4 +1,4 @@
-.PHONY: up down obs logs dev-api dev-web migrate seed reset-db test lint typecheck check gen-api e2e
+.PHONY: up down obs logs dev-api dev-web migrate seed reset-db grade-pending test lint typecheck check gen-api e2e
 
 up:            ## Build and start db, api and web in Docker (OrbStack)
 	docker compose up -d --build
@@ -23,6 +23,9 @@ migrate:
 
 seed:
 	cd api && uv run python -m app.jobs.seed
+
+grade-pending: ## Retry writing submissions deferred by a budget cap or grader outage
+	cd api && uv run python -m app.jobs.grade_pending
 
 reset-db:      ## Drop and recreate the local schema, then migrate and seed
 	cd api && uv run alembic downgrade base && uv run alembic upgrade head && uv run python -m app.jobs.seed

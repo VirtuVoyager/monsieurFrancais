@@ -1,6 +1,6 @@
 "use client";
 
-import { Play, Timer } from "lucide-react";
+import { Play } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { Schemas } from "@/lib/api/client";
@@ -10,6 +10,7 @@ import { speakFrench } from "@/lib/speech";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { cx } from "../ui/cx";
+import { Clock, useCountdown } from "./countdown";
 
 type Answer = Schemas["ItemAnswer"];
 
@@ -30,7 +31,6 @@ export function ExamShell({
 }) {
   const [index, setIndex] = useState(0);
   const [choices, setChoices] = useState<Record<string, number>>({});
-  const [remaining, setRemaining] = useState<number | null>(null);
   const shownAt = useRef<Record<string, number>>({});
   const timings = useRef<Record<string, number>>({});
   const submitted = useRef(false);
@@ -47,15 +47,7 @@ export function ExamShell({
     );
   }, [choices, onSubmit]);
 
-  useEffect(() => {
-    const end = new Date(deadline).getTime();
-    const id = setInterval(() => {
-      const left = Math.max(Math.round((end - Date.now()) / 1000), 0);
-      setRemaining(left);
-      if (left === 0) submit();
-    }, 250);
-    return () => clearInterval(id);
-  }, [deadline, submit]);
+  const remaining = useCountdown(deadline, submit);
 
   const item = items[index];
   useEffect(() => {
@@ -74,16 +66,7 @@ export function ExamShell({
         <span className="text-muted tabular-nums">
           Question {index + 1} / {items.length}
         </span>
-        <span
-          className={cx(
-            "inline-flex items-center gap-1 font-medium tabular-nums",
-            remaining !== null && remaining < 60 ? "text-danger" : "text-ink",
-          )}
-          aria-live="off"
-        >
-          <Timer className="size-4" aria-hidden />
-          {remaining === null ? "–:–" : formatClock(remaining)}
-        </span>
+        <Clock remaining={remaining} />
       </div>
       <Question key={item.id} item={item} choice={choices[item.id]} onChoose={choose} />
       <div className="flex justify-end">
@@ -161,8 +144,4 @@ function Question({
       </div>
     </Card>
   );
-}
-
-function formatClock(seconds: number): string {
-  return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 }

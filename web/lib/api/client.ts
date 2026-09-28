@@ -19,9 +19,10 @@ export async function unwrap<T>(
   request: Promise<{ data?: T; error?: unknown; response: Response }>,
 ): Promise<T> {
   const { data, error, response } = await request;
-  if (error !== undefined || data === undefined) {
+  if (error !== undefined || !response.ok) {
     const detail = (error as { detail?: unknown } | undefined)?.detail;
     throw new ApiError(response.status, typeof detail === "string" ? detail : response.statusText);
   }
-  return data;
+  // 204 responses have no body; their callers ignore the value.
+  return data as T;
 }

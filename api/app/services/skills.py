@@ -14,8 +14,15 @@ from app.domain.scales import (
     load_exam_scales,
     tcf_from_theta,
 )
-from app.domain.skill_estimate import SOURCE_WEIGHTS, Estimate, ItemEvidence, receptive
-from app.models import AssessmentRun, Item, Response
+from app.domain.skill_estimate import (
+    SOURCE_WEIGHTS,
+    Estimate,
+    ItemEvidence,
+    RubricEvidence,
+    productive,
+    receptive,
+)
+from app.models import AssessmentRun, Item, Response, WritingSubmission
 from app.services.path import load_path
 
 
@@ -51,11 +58,31 @@ def receptive_evidence(session: Session, user_id: int, skill: str) -> list[ItemE
     ]
 
 
+def writing_evidence(session: Session, user_id: int) -> list[RubricEvidence]:
+    rows = session.execute(
+        select(WritingSubmission.score, AssessmentRun.kind, WritingSubmission.graded_at)
+        .join(AssessmentRun, AssessmentRun.id == WritingSubmission.run_id)
+        .where(
+            WritingSubmission.user_id == user_id,
+            WritingSubmission.status == "graded",
+            AssessmentRun.kind.in_(SOURCE_WEIGHTS),
+        )
+    )
+    return [
+        RubricEvidence(score, kind, graded_at)
+        for score, kind, graded_at in rows
+        if score is not None and graded_at is not None
+    ]
+
+
 def skill_level(session: Session, user_id: int, skill: str) -> SkillLevel | None:
-    # Writing and speaking estimates arrive with the rubric grader.
-    if skill in PRODUCTIVE:
-        return None
-    estimate = receptive(receptive_evidence(session, user_id, skill), datetime.now(UTC))
+    now = datetime.now(UTC)
+    if skill == "EE":
+        estimate = productive(writing_evidence(session, user_id), now)
+    elif skill in PRODUCTIVE:
+        return None  # speaking arrives with Azure Speech
+    else:
+        estimate = receptive(receptive_evidence(session, user_id, skill), now)
     if estimate is None:
         return None
     scales = exam_scales()
@@ -71,8 +98,10 @@ def all_levels(session: Session, user_id: int) -> dict[str, SkillLevel | None]:
 def working_ability(session: Session, user_id: int, skill: str) -> float:
     """Current ability in logits: the estimate if one exists, else the learner's path level."""
     level = skill_level(session, user_id, skill)
-    if level is not None:
+    if level is not None and skill in RECEPTIVE:
         return (level.estimate.score - tcf_from_theta(0)) / 100
+    if level is not None:
+        return CEFR_DIFFICULTY[level.cefr]
     view = load_path(session, user_id)
     current = next(
         (m.level_id for m in view.modules if view.status[m.id] == "open"),

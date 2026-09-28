@@ -22,9 +22,7 @@ router = APIRouter(tags=["skills"])
 
 @router.get("/skills")
 def get_skills(session: SessionDep, user: CurrentUser) -> dict[str, SkillLevelOut | None]:
-    return {
-        skill: _level_out(level) for skill, level in skills.all_levels(session, user.id).items()
-    }
+    return {skill: level_out(level) for skill, level in skills.all_levels(session, user.id).items()}
 
 
 @router.post("/drills")
@@ -51,7 +49,7 @@ def submit_drill(
             )
             for item_id, r in grade.results
         ],
-        level=_level_out(skills.skill_level(session, user.id, grade.skill)),
+        level=level_out(skills.skill_level(session, user.id, grade.skill)),
     )
 
 
@@ -65,7 +63,7 @@ def _exam_exercise(item: Item) -> ExerciseOut:
     return ExerciseOut.model_validate(exercise)
 
 
-def _level_out(level: SkillLevel | None) -> SkillLevelOut | None:
+def level_out(level: SkillLevel | None) -> SkillLevelOut | None:
     if level is None:
         return None
     e = level.estimate

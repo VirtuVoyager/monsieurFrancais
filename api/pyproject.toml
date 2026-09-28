@@ -10,6 +10,7 @@ dependencies = [
     "fsrs>=6.3.2",
     "itsdangerous>=2.2.0",
     "numpy>=2.5.3",
+    "openai>=3.19.2",
     "opentelemetry-exporter-otlp-proto-http>=1.45.0",
     "opentelemetry-instrumentation-fastapi>=0.66b0",
     "opentelemetry-instrumentation-sqlalchemy>=0.66b0",
@@ -40,6 +41,8 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "SIM", "C90", "RUF", "PL"]
 ignore = ["PLR2004", "PLR0913"]
+# French typography is data here: apostrophes, dashes and narrow no-break spaces.
+allowed-confusables = ["’", "‘", "ʼ", "–", "\u00a0", "\u202f"]
 
 [tool.ruff.lint.per-file-ignores]
 "migrations/versions/*" = ["E501"]

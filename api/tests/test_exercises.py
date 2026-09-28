@@ -13,7 +13,7 @@ def test_mcq_compares_choice_index() -> None:
     assert check(MCQ, {"choice": 0}).expected == "a"
 
 
-@pytest.mark.parametrize("text", ["s'appelle", "S’appelle", "  s'appelle  "])  # noqa: RUF001
+@pytest.mark.parametrize("text", ["s'appelle", "S’appelle", "  s'appelle  "])
 def test_cloze_ignores_case_spacing_and_apostrophe_style(text: str) -> None:
     assert check(CLOZE, {"text": text}).correct
 
@@ -38,4 +38,4 @@ def test_public_view_hides_answers() -> None:
 
 
 def test_normalize_treats_non_breaking_space_as_space() -> None:
-    assert normalize("Tu es prêt ?") == "tu es prêt"  # noqa: RUF001
+    assert normalize("Tu es prêt ?") == "tu es prêt"

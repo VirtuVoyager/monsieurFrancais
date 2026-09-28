@@ -3,7 +3,8 @@ from decimal import Decimal
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
-from app.services.metering import Metered, run_metered
+from app.domain.cost import Metered
+from app.services.metering import run_metered
 from app.services.users import get_or_create_learner
 
 

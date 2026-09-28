@@ -172,3 +172,42 @@ export function useUpdateSettings() {
     onSuccess: (data) => queryClient.setQueryData(["settings"], data),
   });
 }
+
+export function useErrorFingerprint() {
+  return useQuery({ queryKey: ["errors"], queryFn: () => unwrap(api.GET("/errors")) });
+}
+
+export function useSubmitLessonWriting(lessonId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (text: string) =>
+      unwrap(
+        api.POST("/lessons/{lesson_id}/writing", {
+          params: { path: { lesson_id: lessonId } },
+          body: { text },
+        }),
+      ),
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["errors"] }),
+  });
+}
+
+export function useStartWritingDrill() {
+  return useMutation({ mutationFn: () => unwrap(api.POST("/writing/drills")) });
+}
+
+export function useSubmitWritingDrill() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ runId, text }: { runId: number; text: string }) =>
+      unwrap(
+        api.POST("/writing/drills/{run_id}", {
+          params: { path: { run_id: runId } },
+          body: { text },
+        }),
+      ),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["skills"] });
+      void queryClient.invalidateQueries({ queryKey: ["errors"] });
+    },
+  });
+}

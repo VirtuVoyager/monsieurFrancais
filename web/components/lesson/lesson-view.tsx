@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import type { Schemas } from "@/lib/api/client";
 import { fr } from "@/lib/french";
-import { useCheckExercise } from "@/lib/queries";
+import { useCheckExercise, useSubmitLessonWriting } from "@/lib/queries";
 import { speakFrench } from "@/lib/speech";
 
 import { Exercise } from "../exercise/exercise";
@@ -13,6 +13,9 @@ import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { cx } from "../ui/cx";
 import { FrenchMarkdown } from "../ui/markdown";
+import { ProofreadChecklist } from "../writing/proofread-checklist";
+import { WritingEditor } from "../writing/writing-editor";
+import { WritingFeedback } from "../writing/writing-feedback";
 import { GenderTag } from "./gender-tag";
 import { SpeakButton } from "./speak-button";
 
@@ -185,37 +188,37 @@ function Writing({ content, lessonId }: { content: Schemas["WritingContent"]; le
   const storageKey = `draft:${lessonId}`;
   // Lessons load client-side, so this never runs during server rendering.
   const [text, setText] = useState(() => localStorage.getItem(storageKey) ?? "");
+  const submit = useSubmitLessonWriting(lessonId);
   useEffect(() => {
     const id = setTimeout(() => localStorage.setItem(storageKey, text), 500);
     return () => clearTimeout(id);
   }, [storageKey, text]);
 
-  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-  const inRange = words >= content.min_words && words <= content.max_words;
   return (
-    <Card className="space-y-4">
-      <p className="text-xs font-semibold text-muted uppercase">Tâche {content.task}</p>
-      <p lang="fr" className="leading-relaxed">
-        {fr(content.prompt)}
-      </p>
-      <textarea
-        lang="fr"
-        aria-label="Your answer"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        rows={8}
-        className="w-full rounded-xl border border-line bg-surface p-3 leading-relaxed outline-none focus:border-accent"
-      />
-      <div className="flex items-center justify-between text-sm">
-        <span className={cx("tabular-nums", inRange ? "text-success" : "text-muted")}>
-          {words} words · target {content.min_words}–{content.max_words}
-        </span>
-        <span className="text-xs text-muted">Draft saved on this device</span>
-      </div>
-      <p className="rounded-xl bg-accent-soft p-3 text-sm text-accent">
-        Rubric grading (TCF /20, top 3 fixes) switches on once the Azure grader is connected.
-      </p>
-    </Card>
+    <div className="space-y-4">
+      <Card className="space-y-4">
+        <p className="text-xs font-semibold text-muted uppercase">Tâche {content.task}</p>
+        <p lang="fr" className="leading-relaxed">
+          {fr(content.prompt)}
+        </p>
+        <WritingEditor
+          value={text}
+          onChange={setText}
+          minWords={content.min_words}
+          maxWords={content.max_words}
+          note="Draft saved on this device"
+        />
+        <ProofreadChecklist />
+        <div className="flex items-center gap-3">
+          <Button onClick={() => submit.mutate(text)} disabled={!text.trim() || submit.isPending}>
+            {submit.data ? "Grade my rewrite" : "Grade my text"}
+          </Button>
+          <span className="text-xs text-muted">Practice: this never moves your writing bar.</span>
+        </div>
+        {submit.isError && <p className="text-sm text-danger">{submit.error.message}</p>}
+      </Card>
+      {submit.data && <WritingFeedback result={submit.data} />}
+    </div>
   );
 }
 

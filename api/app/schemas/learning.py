@@ -244,3 +244,48 @@ class DrillOutcome(BaseModel):
     score: float
     results: list[ItemResult]
     level: SkillLevelOut | None
+
+
+class WritingText(BaseModel):
+    text: str = Field(max_length=5000)
+
+
+class FixOut(BaseModel):
+    excerpt: str
+    correction: str
+    explanation: str
+
+
+class TaggedErrorOut(BaseModel):
+    tag: str
+    excerpt: str
+    correction: str
+
+
+class WritingResult(BaseModel):
+    id: int
+    status: Literal["pending", "graded"]
+    task: str
+    word_count: int
+    score: float | None
+    criteria: dict[str, float]
+    evidence: dict[str, str]
+    fixes: list[FixOut]
+    errors: list[TaggedErrorOut]
+    level: SkillLevelOut | None = None
+
+
+class WritingDrillOut(BaseModel):
+    run_id: int
+    task: str
+    prompt: str
+    min_words: int
+    max_words: int
+    deadline: datetime
+
+
+class ErrorFingerprintOut(BaseModel):
+    tag: str
+    count: int
+    example: str
+    correction: str

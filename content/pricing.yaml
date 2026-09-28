@@ -43,3 +43,11 @@ models:
       characters: {usd: 16.00, per: 1000000}
     free_monthly:
       characters: 500000
+
+  # Development only: the fake providers meter through the same path at zero cost.
+  fake-text:
+    service: openai
+    rates:
+      input_tokens: {usd: 0, per: 1000000}
+      cached_input_tokens: {usd: 0, per: 1000000}
+      output_tokens: {usd: 0, per: 1000000}

@@ -1372,6 +1372,244 @@
           }
         }
       }
+    },
+    "/lessons/{lesson_id}/writing": {
+      "post": {
+        "tags": [
+          "writing"
+        ],
+        "summary": "Submit Lesson Writing",
+        "operationId": "submit_lesson_writing_lessons__lesson_id__writing_post",
+        "parameters": [
+          {
+            "name": "lesson_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Lesson Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WritingText"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WritingResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/writing/drills": {
+      "post": {
+        "tags": [
+          "writing"
+        ],
+        "summary": "Start Writing Drill",
+        "operationId": "start_writing_drill_writing_drills_post",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WritingDrillOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/writing/drills/{run_id}": {
+      "post": {
+        "tags": [
+          "writing"
+        ],
+        "summary": "Submit Writing Drill",
+        "operationId": "submit_writing_drill_writing_drills__run_id__post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WritingText"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WritingResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/errors": {
+      "get": {
+        "tags": [
+          "writing"
+        ],
+        "summary": "Error Fingerprint",
+        "operationId": "error_fingerprint_errors_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ErrorFingerprintOut"
+                  },
+                  "title": "Response Error Fingerprint Errors Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1718,6 +1956,34 @@
         ],
         "title": "DrillStart"
       },
+      "ErrorFingerprintOut": {
+        "properties": {
+          "tag": {
+            "type": "string",
+            "title": "Tag"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "example": {
+            "type": "string",
+            "title": "Example"
+          },
+          "correction": {
+            "type": "string",
+            "title": "Correction"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tag",
+          "count",
+          "example",
+          "correction"
+        ],
+        "title": "ErrorFingerprintOut"
+      },
       "ExamPlanOut": {
         "properties": {
           "exam_date": {
@@ -1892,6 +2158,29 @@
           "cost_usd"
         ],
         "title": "FeatureSpend"
+      },
+      "FixOut": {
+        "properties": {
+          "excerpt": {
+            "type": "string",
+            "title": "Excerpt"
+          },
+          "correction": {
+            "type": "string",
+            "title": "Correction"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "excerpt",
+          "correction",
+          "explanation"
+        ],
+        "title": "FixOut"
       },
       "FreeAllowance": {
         "properties": {
@@ -2786,6 +3075,29 @@
         ],
         "title": "Status"
       },
+      "TaggedErrorOut": {
+        "properties": {
+          "tag": {
+            "type": "string",
+            "title": "Tag"
+          },
+          "excerpt": {
+            "type": "string",
+            "title": "Excerpt"
+          },
+          "correction": {
+            "type": "string",
+            "title": "Correction"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tag",
+          "excerpt",
+          "correction"
+        ],
+        "title": "TaggedErrorOut"
+      },
       "UsageEventOut": {
         "properties": {
           "occurred_at": {
@@ -2982,6 +3294,145 @@
           "max_words"
         ],
         "title": "WritingContent"
+      },
+      "WritingDrillOut": {
+        "properties": {
+          "run_id": {
+            "type": "integer",
+            "title": "Run Id"
+          },
+          "task": {
+            "type": "string",
+            "title": "Task"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt"
+          },
+          "min_words": {
+            "type": "integer",
+            "title": "Min Words"
+          },
+          "max_words": {
+            "type": "integer",
+            "title": "Max Words"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Deadline"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "task",
+          "prompt",
+          "min_words",
+          "max_words",
+          "deadline"
+        ],
+        "title": "WritingDrillOut"
+      },
+      "WritingResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "graded"
+            ],
+            "title": "Status"
+          },
+          "task": {
+            "type": "string",
+            "title": "Task"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          },
+          "criteria": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Criteria"
+          },
+          "evidence": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Evidence"
+          },
+          "fixes": {
+            "items": {
+              "$ref": "#/components/schemas/FixOut"
+            },
+            "type": "array",
+            "title": "Fixes"
+          },
+          "errors": {
+            "items": {
+              "$ref": "#/components/schemas/TaggedErrorOut"
+            },
+            "type": "array",
+            "title": "Errors"
+          },
+          "level": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SkillLevelOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "task",
+          "word_count",
+          "score",
+          "criteria",
+          "evidence",
+          "fixes",
+          "errors"
+        ],
+        "title": "WritingResult"
+      },
+      "WritingText": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 5000,
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "WritingText"
       }
     }
   }

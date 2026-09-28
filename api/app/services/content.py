@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from app.domain.scales import CEFR_DIFFICULTY, CEFR_LEVELS
 from app.models import Block, Concept, Item, Lesson, Level, Lexeme, Module, Response, Sentence
 
-ITEM_FIELDS_PUBLIC = ("prompt", "options", "words", "passage", "audio_text")
+ITEM_FIELDS_PUBLIC = ("prompt", "options", "words", "passage", "audio_text", "task")
 ITEM_FIELDS_ANSWER = ("answer", "accepted", "explanation")
 
 
@@ -84,7 +84,8 @@ def seed(session: Session, content_dir: Path) -> SeedReport:
         report.modules_updated.append(source.slug)
     for bank in sorted((content_dir / "items").glob("*.yaml")):
         raw = yaml.safe_load(bank.read_text())
-        items = [{"skill": raw["skill"], "kind": "mcq", **item} for item in raw["items"]]
+        kind = raw.get("kind", "mcq")
+        items = [{"skill": raw["skill"], "kind": kind, **item} for item in raw["items"]]
         _sync_items(session, f"bank/{bank.stem}", items, report)
     session.commit()
     return report

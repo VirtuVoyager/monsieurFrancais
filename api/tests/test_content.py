@@ -109,7 +109,10 @@ def test_module_answers_are_not_all_in_one_position(source: Any) -> None:
 
 @pytest.mark.parametrize("bank", sorted((REPO_CONTENT / "items").glob("*.yaml")), ids=str)
 def test_bank_answers_are_spread_across_positions(bank: Path) -> None:
-    items = yaml.safe_load(bank.read_text())["items"]
+    raw = yaml.safe_load(bank.read_text())
+    if raw.get("kind", "mcq") != "mcq":
+        pytest.skip("not a multiple-choice bank")
+    items = raw["items"]
     answers = [item["answer"] for item in items]
     assert max(answers.count(i) for i in set(answers)) / len(answers) <= 0.5
     assert all(0 <= item["answer"] < len(item["options"]) for item in items)
