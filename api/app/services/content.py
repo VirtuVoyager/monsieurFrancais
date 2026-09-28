@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from app.domain.scales import CEFR_DIFFICULTY, CEFR_LEVELS
 from app.models import Block, Concept, Item, Lesson, Level, Lexeme, Module, Response, Sentence
 
-ITEM_FIELDS_PUBLIC = ("prompt", "options", "words")
+ITEM_FIELDS_PUBLIC = ("prompt", "options", "words", "passage", "audio_text")
 ITEM_FIELDS_ANSWER = ("answer", "accepted", "explanation")
 
 
@@ -73,8 +73,19 @@ def seed(session: Session, content_dir: Path) -> SeedReport:
         if module is not None and module.content_hash == source.content_hash:
             continue
         _upsert_module(session, source, module)
-        _sync_items(session, source, report)
+        _sync_items(
+            session,
+            source.slug,
+            source.check_items,
+            report,
+            default_cefr=source.meta["level"],
+            module_id=source.slug,
+        )
         report.modules_updated.append(source.slug)
+    for bank in sorted((content_dir / "items").glob("*.yaml")):
+        raw = yaml.safe_load(bank.read_text())
+        items = [{"skill": raw["skill"], "kind": "mcq", **item} for item in raw["items"]]
+        _sync_items(session, f"bank/{bank.stem}", items, report)
     session.commit()
     return report
 
@@ -129,18 +140,26 @@ def _upsert_module(session: Session, source: ModuleSource, module: Module | None
         )
 
 
-def _sync_items(session: Session, source: ModuleSource, report: SeedReport) -> None:
-    cefr = source.meta["level"]
+def _sync_items(
+    session: Session,
+    prefix: str,
+    raw_items: list[dict[str, Any]],
+    report: SeedReport,
+    *,
+    default_cefr: str | None = None,
+    module_id: str | None = None,
+) -> None:
     wanted_keys = set()
-    for raw in source.check_items:
-        key = f"{source.slug}/{raw['slug']}"
+    for raw in raw_items:
+        key = f"{prefix}/{raw['slug']}"
         wanted_keys.add(key)
+        cefr: str = raw.get("cefr") or default_cefr or ""
         fields = {
-            "module_id": source.slug,
+            "module_id": module_id,
             "skill": raw["skill"],
             "kind": raw["kind"],
-            "cefr": raw.get("cefr", cefr),
-            "difficulty": float(raw.get("difficulty", CEFR_DIFFICULTY[raw.get("cefr", cefr)])),
+            "cefr": cefr,
+            "difficulty": float(raw.get("difficulty", CEFR_DIFFICULTY[cefr])),
             "payload": {k: raw[k] for k in ITEM_FIELDS_PUBLIC if k in raw},
             "answer": {k: raw[k] for k in ITEM_FIELDS_ANSWER if k in raw},
         }
@@ -149,7 +168,7 @@ def _sync_items(session: Session, source: ModuleSource, report: SeedReport) -> N
 
     stale = session.scalars(
         select(Item).where(
-            Item.module_id == source.slug, Item.status == "live", Item.key.not_in(wanted_keys)
+            Item.key.startswith(f"{prefix}/"), Item.status == "live", Item.key.not_in(wanted_keys)
         )
     )
     for item in stale:

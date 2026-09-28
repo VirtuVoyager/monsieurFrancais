@@ -670,6 +670,131 @@
           }
         }
       }
+    },
+    "/skills": {
+      "get": {
+        "tags": [
+          "skills"
+        ],
+        "summary": "Get Skills",
+        "operationId": "get_skills_skills_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/SkillLevelOut"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "type": "object",
+                  "title": "Response Get Skills Skills Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/drills": {
+      "post": {
+        "tags": [
+          "skills"
+        ],
+        "summary": "Start Drill",
+        "operationId": "start_drill_drills_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DrillStart"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DrillOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/drills/{run_id}": {
+      "post": {
+        "tags": [
+          "skills"
+        ],
+        "summary": "Submit Drill",
+        "operationId": "submit_drill_drills__run_id__post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckSubmission"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DrillOutcome"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -910,6 +1035,94 @@
         ],
         "title": "CoverageOut"
       },
+      "DrillOut": {
+        "properties": {
+          "run_id": {
+            "type": "integer",
+            "title": "Run Id"
+          },
+          "skill": {
+            "type": "string",
+            "title": "Skill"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Deadline"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CheckItemOut"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "skill",
+          "deadline",
+          "items"
+        ],
+        "title": "DrillOut"
+      },
+      "DrillOutcome": {
+        "properties": {
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/ItemResult"
+            },
+            "type": "array",
+            "title": "Results"
+          },
+          "level": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SkillLevelOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "score",
+          "results",
+          "level"
+        ],
+        "title": "DrillOutcome"
+      },
+      "DrillStart": {
+        "properties": {
+          "skill": {
+            "type": "string",
+            "enum": [
+              "CO",
+              "CE"
+            ],
+            "title": "Skill"
+          },
+          "count": {
+            "type": "integer",
+            "maximum": 39.0,
+            "minimum": 3.0,
+            "title": "Count",
+            "default": 10
+          }
+        },
+        "type": "object",
+        "required": [
+          "skill"
+        ],
+        "title": "DrillStart"
+      },
       "ExerciseAnswer": {
         "properties": {
           "index": {
@@ -979,6 +1192,39 @@
               }
             ],
             "title": "Words"
+          },
+          "passage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Passage"
+          },
+          "audio_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Text"
+          },
+          "audio_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Url"
           }
         },
         "type": "object",
@@ -1718,6 +1964,62 @@
           "projected_usd"
         ],
         "title": "ServiceSpend"
+      },
+      "SkillLevelOut": {
+        "properties": {
+          "skill": {
+            "type": "string",
+            "title": "Skill"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "se": {
+            "type": "number",
+            "title": "Se"
+          },
+          "cefr": {
+            "type": "string",
+            "title": "Cefr"
+          },
+          "nclc": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nclc"
+          },
+          "evidence_count": {
+            "type": "integer",
+            "title": "Evidence Count"
+          },
+          "last_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Last At"
+          },
+          "stale": {
+            "type": "boolean",
+            "title": "Stale"
+          }
+        },
+        "type": "object",
+        "required": [
+          "skill",
+          "score",
+          "se",
+          "cefr",
+          "nclc",
+          "evidence_count",
+          "last_at",
+          "stale"
+        ],
+        "title": "SkillLevelOut"
       },
       "SpeakingContent": {
         "properties": {

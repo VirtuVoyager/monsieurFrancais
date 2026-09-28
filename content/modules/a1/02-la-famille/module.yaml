@@ -62,15 +62,15 @@ lessons:
 
       Contact : famille.tremblay@exemple.ca
     questions:
-      - {kind: mcq, prompt: "Combien d'enfants a la famille ?", options: [un, deux, trois], answer: 1}
+      - {kind: mcq, prompt: "Combien d'enfants a la famille ?", options: [deux, un, trois], answer: 0}
       - kind: mcq
         prompt: "Quand la personne travaille-t-elle ?"
         options: ["Le week-end.", "Après l'école, en semaine.", "Le matin, avant l'école."]
         answer: 1
       - kind: mcq
         prompt: "Qu'est-ce qui est inclus ?"
-        options: ["La voiture.", "Le logement et les repas.", "Des cours de français."]
-        answer: 1
+        options: ["La voiture.", "Des cours de français.", "Le logement et les repas."]
+        answer: 2
 
   - slug: ecriture
     kind: writing

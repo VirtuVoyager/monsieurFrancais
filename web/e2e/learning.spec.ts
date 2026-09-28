@@ -63,3 +63,21 @@ test("completed vocabulary shows up in review and the library", async ({ page })
   await page.getByPlaceholder("Search French or English").fill("city");
   await expect(page.getByText("ville", { exact: true })).toBeVisible();
 });
+
+test("a timed reading drill fills in the reading skill bar", async ({ page }) => {
+  await page.goto("/progress");
+  await expect(page.getByText("No timed evidence yet").first()).toBeVisible();
+
+  await page.goto("/drills");
+  await page.getByRole("button", { name: "Start" }).nth(1).click();
+  for (let i = 0; i < 10; i++) {
+    await page.getByRole("radio").first().click();
+    const next = page.getByRole("button", { name: "Next question" });
+    if (await next.isVisible()) await next.click();
+  }
+  await page.getByRole("button", { name: "Submit" }).click();
+  await expect(page.getByText(/Estimated \d+\/699/)).toBeVisible();
+
+  await page.goto("/progress");
+  await expect(page.getByText(/est\. \d+\/699/)).toBeVisible();
+});

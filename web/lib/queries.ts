@@ -139,3 +139,24 @@ export function useUpdateCaps() {
     onSuccess: () => void queryClient.invalidateQueries({ queryKey: keys.budget }),
   });
 }
+
+export function useSkills() {
+  return useQuery({ queryKey: ["skills"], queryFn: () => unwrap(api.GET("/skills")) });
+}
+
+export function useStartDrill() {
+  return useMutation({
+    mutationFn: (body: Schemas["DrillStart"]) => unwrap(api.POST("/drills", { body })),
+  });
+}
+
+export function useSubmitDrill() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ runId, answers }: { runId: number; answers: Schemas["ItemAnswer"][] }) =>
+      unwrap(
+        api.POST("/drills/{run_id}", { params: { path: { run_id: runId } }, body: { answers } }),
+      ),
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["skills"] }),
+  });
+}

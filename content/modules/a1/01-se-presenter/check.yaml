@@ -3,12 +3,12 @@ items:
      explanation: "L'âge se dit avec avoir : il a trente ans."}
   - {slug: tu-etre, skill: GR, kind: cloze, prompt: "Tu ___ professeur ?", accepted: [es]}
   - {slug: ils-habiter, skill: GR, kind: cloze, prompt: "Ils ___ au Canada. (habiter)", accepted: [habitent]}
-  - {slug: venir-de, skill: GR, kind: mcq, prompt: "Je ___ de Delhi.", options: [viens, vient, venez], answer: 0}
+  - {slug: venir-de, skill: GR, kind: mcq, prompt: "Je ___ de Delhi.", options: [vient, venez, viens], answer: 2}
   - {slug: elle-sappeler, skill: GR, kind: cloze, prompt: "Elle ___ Amina. (s'appeler)", accepted: ["s'appelle"]}
   - {slug: nationalite, skill: VO, kind: mcq, prompt: "« Quelle est votre ___ ? — Je suis indienne. »",
      options: [ville, nationalité, adresse], answer: 1}
   - {slug: genre-ville, skill: VO, kind: mcq, prompt: "___ ville", options: [Le, La], answer: 1}
   - {slug: hugo-quebec, skill: CE, kind: mcq,
      prompt: "« Je m'appelle Hugo. Je suis belge, mais j'habite à Québec. » Où habite Hugo ?",
-     options: [En Belgique, À Québec, À Paris], answer: 1}
+     options: [À Québec, En Belgique, À Paris], answer: 0}
   - {slug: ordre-age, skill: GR, kind: order, words: ["avez-vous ?", "Quel", "âge"], answer: "Quel âge avez-vous ?"}

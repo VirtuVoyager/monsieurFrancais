@@ -21,6 +21,7 @@ def tcf_from_theta(theta: float) -> float:
 class ExamScales:
     cefr_bands: dict[str, dict[str, tuple[float, float]]]
     nclc_floors: dict[str, dict[int, float]]
+    seconds_per_item: dict[str, int]
 
     def cefr(self, skill: str, score: float) -> str:
         bands = self.cefr_bands["receptive" if skill in RECEPTIVE else "productive"]
@@ -46,4 +47,5 @@ def load_exam_scales(path: Path) -> ExamScales:
             skill: {int(level): float(floor) for level, floor in floors.items()}
             for skill, floors in raw["nclc"].items()
         },
+        seconds_per_item={skill: int(v) for skill, v in raw["seconds_per_item"].items()},
     )

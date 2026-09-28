@@ -62,6 +62,9 @@ class ExerciseOut(BaseModel):
     prompt: str | None = None
     options: list[str] | None = None
     words: list[str] | None = None
+    passage: str | None = None
+    audio_text: str | None = None
+    audio_url: str | None = None
 
 
 class WordOut(BaseModel):
@@ -212,3 +215,32 @@ class ReviewCard(BaseModel):
 
 class ReviewRating(BaseModel):
     rating: int = Field(ge=1, le=4)
+
+
+class DrillStart(BaseModel):
+    skill: Literal["CO", "CE"]
+    count: int = Field(default=10, ge=3, le=39)
+
+
+class DrillOut(BaseModel):
+    run_id: int
+    skill: str
+    deadline: datetime
+    items: list[CheckItemOut]
+
+
+class SkillLevelOut(BaseModel):
+    skill: str
+    score: float
+    se: float
+    cefr: str
+    nclc: int | None
+    evidence_count: int
+    last_at: datetime
+    stale: bool
+
+
+class DrillOutcome(BaseModel):
+    score: float
+    results: list[ItemResult]
+    level: SkillLevelOut | None

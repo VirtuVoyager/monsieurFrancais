@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+import yaml
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -94,3 +95,21 @@ def test_removed_items_are_retired(session: Session, tmp_path: Path) -> None:
 
     assert report.items_retired == 1
     assert session.get(Module, "a1-02-la-famille") is not None
+
+
+def _mcq_answers(source: Any) -> list[int]:
+    return [e["answer"] for e in _exercises(source.meta, source.check_items) if e["kind"] == "mcq"]
+
+
+@pytest.mark.parametrize("source", SOURCES, ids=lambda s: s.slug)
+def test_module_answers_are_not_all_in_one_position(source: Any) -> None:
+    answers = _mcq_answers(source)
+    assert max(answers.count(i) for i in set(answers)) / len(answers) <= 0.6
+
+
+@pytest.mark.parametrize("bank", sorted((REPO_CONTENT / "items").glob("*.yaml")), ids=str)
+def test_bank_answers_are_spread_across_positions(bank: Path) -> None:
+    items = yaml.safe_load(bank.read_text())["items"]
+    answers = [item["answer"] for item in items]
+    assert max(answers.count(i) for i in set(answers)) / len(answers) <= 0.5
+    assert all(0 <= item["answer"] < len(item["options"]) for item in items)

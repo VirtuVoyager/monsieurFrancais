@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Gauge, Home, Layers, Library, Repeat } from "lucide-react";
+import { BookOpen, Gauge, Home, Layers, Library, Repeat, Timer } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
@@ -11,6 +11,7 @@ const NAV = [
   { href: "/", label: "Home", icon: Home },
   { href: "/path", label: "Path", icon: Layers },
   { href: "/review", label: "Review", icon: Repeat },
+  { href: "/drills", label: "Drills", icon: Timer },
   { href: "/library", label: "Library", icon: Library },
   { href: "/progress", label: "Progress", icon: Gauge },
 ];
@@ -60,7 +61,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <nav
         aria-label="Main"
-        className="border-line bg-surface/95 fixed inset-x-0 bottom-0 z-10 grid grid-cols-5 border-t backdrop-blur md:hidden"
+        className="border-line bg-surface/95 fixed inset-x-0 bottom-0 z-10 grid grid-cols-6 border-t backdrop-blur md:hidden"
       >
         {NAV.map(({ href, label, icon: Icon }) => (
           <Link

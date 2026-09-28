@@ -14,15 +14,20 @@ export function SkillBar({
   skill,
   estimate,
   targetPosition,
+  highlight = false,
 }: {
   skill: string;
   estimate: SkillEstimateView | null;
   targetPosition: number;
+  highlight?: boolean;
 }) {
   return (
     <div>
       <div className="mb-2 flex items-baseline justify-between gap-4">
-        <span className="text-sm font-medium">{skill}</span>
+        <span className={`text-sm font-medium ${highlight ? "text-danger" : ""}`}>
+          {skill}
+          {highlight && <span className="ml-2 text-xs">weakest</span>}
+        </span>
         <span className="text-muted text-right text-xs">
           {estimate ? estimate.caption : "No timed evidence yet"}
           {estimate?.stale && " · stale"}

@@ -276,6 +276,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/skills": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Skills */
+        get: operations["get_skills_skills_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/drills": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start Drill */
+        post: operations["start_drill_drills_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/drills/{run_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Submit Drill */
+        post: operations["submit_drill_drills__run_id__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -354,6 +405,41 @@ export interface components {
             /** Percent */
             percent: number;
         };
+        /** DrillOut */
+        DrillOut: {
+            /** Run Id */
+            run_id: number;
+            /** Skill */
+            skill: string;
+            /**
+             * Deadline
+             * Format: date-time
+             */
+            deadline: string;
+            /** Items */
+            items: components["schemas"]["CheckItemOut"][];
+        };
+        /** DrillOutcome */
+        DrillOutcome: {
+            /** Score */
+            score: number;
+            /** Results */
+            results: components["schemas"]["ItemResult"][];
+            level: components["schemas"]["SkillLevelOut"] | null;
+        };
+        /** DrillStart */
+        DrillStart: {
+            /**
+             * Skill
+             * @enum {string}
+             */
+            skill: "CO" | "CE";
+            /**
+             * Count
+             * @default 10
+             */
+            count: number;
+        };
         /** ExerciseAnswer */
         ExerciseAnswer: {
             /** Index */
@@ -376,6 +462,12 @@ export interface components {
             options?: string[] | null;
             /** Words */
             words?: string[] | null;
+            /** Passage */
+            passage?: string | null;
+            /** Audio Text */
+            audio_text?: string | null;
+            /** Audio Url */
+            audio_url?: string | null;
         };
         /** FeatureSpend */
         FeatureSpend: {
@@ -628,6 +720,28 @@ export interface components {
             reserved_usd: string;
             /** Projected Usd */
             projected_usd: string;
+        };
+        /** SkillLevelOut */
+        SkillLevelOut: {
+            /** Skill */
+            skill: string;
+            /** Score */
+            score: number;
+            /** Se */
+            se: number;
+            /** Cefr */
+            cefr: string;
+            /** Nclc */
+            nclc: number | null;
+            /** Evidence Count */
+            evidence_count: number;
+            /**
+             * Last At
+             * Format: date-time
+             */
+            last_at: string;
+            /** Stale */
+            stale: boolean;
         };
         /** SpeakingContent */
         SpeakingContent: {
@@ -1200,6 +1314,96 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ConceptOut"][];
+                };
+            };
+        };
+    };
+    get_skills_skills_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: components["schemas"]["SkillLevelOut"] | null;
+                    };
+                };
+            };
+        };
+    };
+    start_drill_drills_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DrillStart"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DrillOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    submit_drill_drills__run_id__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CheckSubmission"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DrillOutcome"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

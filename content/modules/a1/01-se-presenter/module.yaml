@@ -46,8 +46,8 @@ lessons:
       infirmière dans un grand hôpital. Je parle français, anglais et un peu
       d'espagnol. Le week-end, j'aime faire de la randonnée.
     questions:
-      - {kind: mcq, prompt: "Quel âge a Sophie ?", options: ["18 ans", "28 ans", "38 ans"], answer: 1}
-      - {kind: mcq, prompt: "Où travaille-t-elle ?", options: ["À Lyon", "À Genève", "À Paris"], answer: 1}
+      - {kind: mcq, prompt: "Quel âge a Sophie ?", options: ["28 ans", "18 ans", "38 ans"], answer: 0}
+      - {kind: mcq, prompt: "Où travaille-t-elle ?", options: ["À Lyon", "À Paris", "À Genève"], answer: 2}
       - {kind: mcq, prompt: "Quel est son métier ?", options: [Médecin, Infirmière, Professeure], answer: 1}
 
   - slug: lecture
@@ -64,11 +64,11 @@ lessons:
       À bientôt,
       Tomás
     questions:
-      - {kind: mcq, prompt: "Quelle est la nationalité de Tomás ?", options: [canadienne, mexicaine, espagnole], answer: 1}
+      - {kind: mcq, prompt: "Quelle est la nationalité de Tomás ?", options: [mexicaine, canadienne, espagnole], answer: 0}
       - kind: mcq
         prompt: "Que fait Tomás ?"
-        options: ["Il travaille dans une banque.", "Il étudie l'informatique.", "Il enseigne le français."]
-        answer: 1
+        options: ["Il travaille dans une banque.", "Il enseigne le français.", "Il étudie l'informatique."]
+        answer: 2
       - kind: mcq
         prompt: "Pourquoi écrit-il ?"
         options: ["Pour trouver un appartement.", "Pour pratiquer le français.", "Pour inviter Léa au restaurant."]
