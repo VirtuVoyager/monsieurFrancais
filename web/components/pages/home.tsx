@@ -3,6 +3,7 @@
 import { ArrowRight, Repeat } from "lucide-react";
 
 import { CoverageBar } from "@/components/progress/coverage-bar";
+import { ExamPlanCard } from "@/components/progress/exam-plan-card";
 import { SkillsPanel } from "@/components/progress/skills-panel";
 import { ButtonLink } from "@/components/ui/button";
 import { Card, Eyebrow } from "@/components/ui/card";
@@ -69,6 +70,8 @@ export function HomePage() {
           </ButtonLink>
         </Card>
       </div>
+
+      <ExamPlanCard />
 
       <SkillsPanel />
     </div>

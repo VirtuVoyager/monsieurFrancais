@@ -1266,6 +1266,112 @@
           }
         }
       }
+    },
+    "/settings": {
+      "get": {
+        "tags": [
+          "settings"
+        ],
+        "summary": "Get Settings",
+        "operationId": "get_settings_settings_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SettingsOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "settings"
+        ],
+        "summary": "Update Settings",
+        "operationId": "update_settings_settings_put",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LearnerSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SettingsOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1612,6 +1718,52 @@
         ],
         "title": "DrillStart"
       },
+      "ExamPlanOut": {
+        "properties": {
+          "exam_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Exam Date"
+          },
+          "days_left": {
+            "type": "integer",
+            "title": "Days Left"
+          },
+          "book_by": {
+            "type": "string",
+            "format": "date",
+            "title": "Book By"
+          },
+          "earliest_retake": {
+            "type": "string",
+            "format": "date",
+            "title": "Earliest Retake"
+          },
+          "final_phase": {
+            "type": "boolean",
+            "title": "Final Phase"
+          },
+          "mock_every_days": {
+            "type": "integer",
+            "title": "Mock Every Days"
+          },
+          "booking_overdue": {
+            "type": "boolean",
+            "title": "Booking Overdue"
+          }
+        },
+        "type": "object",
+        "required": [
+          "exam_date",
+          "days_left",
+          "book_by",
+          "earliest_retake",
+          "final_phase",
+          "mock_every_days",
+          "booking_overdue"
+        ],
+        "title": "ExamPlanOut"
+      },
       "ExerciseAnswer": {
         "properties": {
           "index": {
@@ -1878,6 +2030,53 @@
           "item_id"
         ],
         "title": "ItemResult"
+      },
+      "LearnerSettings": {
+        "properties": {
+          "exam_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exam Date"
+          },
+          "target_nclc": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 5.0,
+            "title": "Target Nclc",
+            "default": 7
+          },
+          "daily_minutes": {
+            "type": "integer",
+            "maximum": 600.0,
+            "minimum": 15.0,
+            "title": "Daily Minutes",
+            "default": 90
+          },
+          "accent_mix": {
+            "type": "string",
+            "enum": [
+              "france",
+              "quebec",
+              "mixed"
+            ],
+            "title": "Accent Mix",
+            "default": "mixed"
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone",
+            "default": "Asia/Kolkata"
+          }
+        },
+        "type": "object",
+        "title": "LearnerSettings"
       },
       "LessonCompleted": {
         "properties": {
@@ -2468,6 +2667,29 @@
           "projected_usd"
         ],
         "title": "ServiceSpend"
+      },
+      "SettingsOut": {
+        "properties": {
+          "settings": {
+            "$ref": "#/components/schemas/LearnerSettings"
+          },
+          "plan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExamPlanOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "settings",
+          "plan"
+        ],
+        "title": "SettingsOut"
       },
       "SkillLevelOut": {
         "properties": {

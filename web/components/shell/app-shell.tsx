@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Gauge, Home, Layers, Library, Repeat, Timer } from "lucide-react";
+import { BookOpen, Gauge, Home, Layers, Library, Repeat, Settings, Timer } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
@@ -65,6 +65,16 @@ export function AppShell({ children }: { children: ReactNode }) {
           <SignOut />
         </div>
       </aside>
+
+      <header className="flex items-center justify-between border-b border-line bg-surface px-4 py-3 md:hidden">
+        <Link href="/" className="flex items-center gap-2">
+          <BookOpen className="size-5 text-accent" aria-hidden />
+          <span className="font-serif font-semibold">Monsieur Français</span>
+        </Link>
+        <Link href="/settings" aria-label="Settings" className="rounded-lg p-2 text-muted">
+          <Settings className="size-5" aria-hidden />
+        </Link>
+      </header>
 
       <main className="mx-auto w-full max-w-4xl px-4 pt-6 pb-28 sm:px-6 md:pt-10 md:pb-12">
         {children}

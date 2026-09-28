@@ -160,3 +160,15 @@ export function useSubmitDrill() {
     onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["skills"] }),
   });
 }
+
+export function useSettings() {
+  return useQuery({ queryKey: ["settings"], queryFn: () => unwrap(api.GET("/settings")) });
+}
+
+export function useUpdateSettings() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: Schemas["LearnerSettings"]) => unwrap(api.PUT("/settings", { body })),
+    onSuccess: (data) => queryClient.setQueryData(["settings"], data),
+  });
+}

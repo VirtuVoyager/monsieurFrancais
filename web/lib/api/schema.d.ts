@@ -395,6 +395,24 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/settings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Settings */
+        get: operations["get_settings_settings_get"];
+        /** Update Settings */
+        put: operations["update_settings_settings_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -515,6 +533,32 @@ export interface components {
              */
             count: number;
         };
+        /** ExamPlanOut */
+        ExamPlanOut: {
+            /**
+             * Exam Date
+             * Format: date
+             */
+            exam_date: string;
+            /** Days Left */
+            days_left: number;
+            /**
+             * Book By
+             * Format: date
+             */
+            book_by: string;
+            /**
+             * Earliest Retake
+             * Format: date
+             */
+            earliest_retake: string;
+            /** Final Phase */
+            final_phase: boolean;
+            /** Mock Every Days */
+            mock_every_days: number;
+            /** Booking Overdue */
+            booking_overdue: boolean;
+        };
         /** ExerciseAnswer */
         ExerciseAnswer: {
             /** Index */
@@ -602,6 +646,32 @@ export interface components {
             explanation: string | null;
             /** Item Id */
             item_id: string;
+        };
+        /** LearnerSettings */
+        LearnerSettings: {
+            /** Exam Date */
+            exam_date?: string | null;
+            /**
+             * Target Nclc
+             * @default 7
+             */
+            target_nclc: number;
+            /**
+             * Daily Minutes
+             * @default 90
+             */
+            daily_minutes: number;
+            /**
+             * Accent Mix
+             * @default mixed
+             * @enum {string}
+             */
+            accent_mix: "france" | "quebec" | "mixed";
+            /**
+             * Timezone
+             * @default Asia/Kolkata
+             */
+            timezone: string;
         };
         /** LessonCompleted */
         LessonCompleted: {
@@ -800,6 +870,11 @@ export interface components {
             reserved_usd: string;
             /** Projected Usd */
             projected_usd: string;
+        };
+        /** SettingsOut */
+        SettingsOut: {
+            settings: components["schemas"]["LearnerSettings"];
+            plan: components["schemas"]["ExamPlanOut"] | null;
         };
         /** SkillLevelOut */
         SkillLevelOut: {
@@ -1658,6 +1733,72 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["DrillOutcome"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_settings_settings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SettingsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_settings_settings_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LearnerSettings"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SettingsOut"];
                 };
             };
             /** @description Validation Error */

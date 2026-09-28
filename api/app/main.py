@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 from app.config import get_settings
 from app.errors import ForbiddenError, NotFoundError, TooManyRequestsError, UnauthorizedError
 from app.observability import configure_logging, configure_tracing, request_context
-from app.routers import auth, budget, health, lessons, library, path, skills
+from app.routers import auth, budget, health, lessons, library, path, settings, skills
 from app.services.budget import BudgetExceededError
 
 
@@ -27,13 +27,13 @@ def _status(code: int) -> Callable[[Request, Exception], Awaitable[JSONResponse]
 
 
 def create_app() -> FastAPI:
-    settings = get_settings()
-    configure_logging(settings)
+    config = get_settings()
+    configure_logging(config)
     app = FastAPI(title="Monsieur Français API", version="0.1.0")
     app.middleware("http")(request_context)
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_origins,
+        allow_origins=config.cors_origins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -50,7 +50,8 @@ def create_app() -> FastAPI:
     app.include_router(lessons.router)
     app.include_router(library.router)
     app.include_router(skills.router)
-    configure_tracing(app, settings)
+    app.include_router(settings.router)
+    configure_tracing(app, config)
     return app
 
 
