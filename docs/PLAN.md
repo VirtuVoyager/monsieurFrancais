@@ -499,7 +499,93 @@ These go into `CLAUDE.md` and are enforced by tooling:
 - **Grader evals as tests:** `content/golden/` samples are scored (on demand, and weekly in CI, within a small budget). The build fails if the grader's average error rises above 1 point on the /20 scale.
 - Small PRs, conventional commits.
 
-## 17. Delivery phases
+## 17. Non-functional requirements (baseline)
+
+Context: one learner, running locally in Docker Compose on a mid-range laptop or desktop, with Azure as the only external dependency. Every number here is a **target with a named way of checking it**: CI tests, Playwright traces, OpenTelemetry metrics in Grafana, or a scripted check.
+
+### 17.1 Performance
+
+| Area | Target | Verified by |
+|---|---|---|
+| Page load, first visit (local) | LCP < 1.5 s, JS < 200 KB gzipped per route | Lighthouse CI on key routes |
+| Interaction responsiveness | INP < 200 ms; route transitions p95 < 200 ms | Playwright traces, web-vitals → OTel |
+| Non-AI API endpoints | p95 < 150 ms, p99 < 400 ms | OTel histograms |
+| Knowledge-base hybrid search | p95 < 150 ms at 100k entries | Benchmark test with synthetic data |
+| Skill-estimate recompute (Rasch + rubric aggregate) | < 500 ms per assessment | Unit benchmark |
+| Cached audio playback start | < 300 ms | Playwright |
+| Writing grading (two passes run in parallel) | p95 < 20 s, progress shown | OTel span on `grade_writing` |
+| Speaking post-session grading (STT + pronunciation + grading) | p95 < 45 s for a 4.5-min task | OTel span |
+| Ask assistant | first token < 3 s p95, streamed | OTel |
+| Realtime examiner | voice-to-voice turn latency < 1.2 s p95 (depends on network and Azure region; region chosen in the phase-3 spike) | Client-side timing from WebRTC events |
+
+### 17.2 Exam fidelity
+
+- **Timers:** the server is the source of truth for start and end times. The client timer drifts < 100 ms per 10 min and survives a page reload. A section ends on the server even if the tab is closed.
+- **TCF rules enforced:** listening audio plays once, you can't go back, no hints, templates hidden. Covered by Playwright tests for every assessment type.
+- **Reliable scores:**
+  - Grader average error ≤ 1.0 point on /20 against the golden set. The build fails if it's exceeded.
+  - The two grading passes agree within 1 point in ≥ 85% of cases.
+  - Listening/reading ability uncertainty ≤ ±30 on the /699 scale after one full checkpoint.
+
+### 17.3 Reliability, durability, availability
+
+- **No lost work:**
+  - Every answer is saved as it's given.
+  - Writing autosaves every 5 s.
+  - Recordings are written to disk before any upload or grading.
+  - An interrupted assessment resumes where it stopped.
+- **Graceful degradation:** if Azure is unreachable or a budget cap is hit, the Library, reviews, cached audio, lessons and **listening/reading assessments keep working fully**, because their scoring is local. Writing and speaking submissions are **queued and graded later**, never dropped. Only the live examiner and Ask are unavailable.
+- **Retries:** paid calls retry with exponential backoff (max 3). Grading jobs are idempotent: a retry never double-charges, thanks to the generation cache and budget reservations.
+- **Backups:** RPO ≤ 24 h (nightly `pg_dump` + `media/` rsync); RTO < 30 min (`make restore` + `make content-pull`). A restore drill is scripted and run monthly.
+- **Availability:** there's no SLA for a local app. The target is that the stack comes back automatically after a reboot (`restart: unless-stopped`), with health checks on every container.
+
+### 17.4 Cost
+
+- Monthly caps are never exceeded by more than **one realtime session's buffer** (≤ US$0.50).
+- **100% of paid calls** produce a `usage_events` row. This invariant is tested: Azure clients can't be constructed outside the metering layer.
+- Metered vs Azure-billed drift < 10% after the correction factor, shown on the budget screen.
+- Catalogue content (text, audio, images, embeddings) costs **0** for any new user or install.
+
+### 17.5 Security and privacy
+
+- **Network exposure:**
+  - The app binds to `localhost` by default.
+  - Using it from a phone on your LAN goes through Caddy with a local TLS certificate (browsers only allow the microphone over HTTPS or on localhost), behind the passphrase login.
+  - Postgres and Grafana are never exposed outside the Docker network.
+- **Secrets:**
+  - Azure keys live in `.env` (gitignored), with `gitleaks` in pre-commit and CI.
+  - Keys never reach the browser. The realtime examiner gets a **short-lived session token** minted per session, and only after the budget check.
+- **Sessions:** the passphrase is hashed with Argon2id. Session cookies are HttpOnly, SameSite=Strict and Secure over TLS. Login attempts are rate-limited.
+- **Dependencies:** Dependabot, `pip-audit` and `npm audit` in CI. No known high or critical vulnerabilities on the main branch.
+- **Input handling:** everything is validated with Pydantic, SQL goes only through SQLAlchemy, and the notes importer reads the Obsidian folder **read-only** and sanitises Markdown before rendering. Content from notes or the knowledge base is passed to the LLM as data, never as instructions.
+- **Privacy:**
+  - Recordings, writing and grades stay on your machine.
+  - Azure OpenAI doesn't use API data for training.
+  - Speech data logging stays off.
+  - Recordings and your writing are never written to logs.
+
+### 17.6 Accessibility, compatibility, localisation
+
+- **WCAG 2.2 AA.** Fully keyboard-operable, including `ExamShell`. Visible focus. Respects `prefers-reduced-motion`. Colour is never the only signal (word gender uses a colour **and** a label). `axe` checks in Playwright.
+- **Browsers:** latest two versions of Chrome, Edge, Firefox and Safari, including mobile Safari and Chrome as an installed PWA. Layouts work from 360 px wide.
+- UI in English, content in French.
+- **Correct French typography:** non-breaking spaces before `; : ! ?` and inside « guillemets », proper apostrophes, UTF-8 throughout. French text is always tagged with `lang="fr"` so screen readers pronounce it correctly.
+
+### 17.7 Maintainability and operability
+
+- **Static checks:** `mypy --strict` and `tsc --strict` with zero errors; ruff and eslint with zero warnings; function complexity ≤ 10 (ruff C901).
+- **Test coverage:** ≥ 90% line coverage on `domain/` (scoring, budgets, coverage), ≥ 75% on the backend overall, and Playwright on the critical flows.
+- **CI:** under 10 minutes on every PR. Grader evals run weekly and on prompt changes, within a fixed budget.
+- **Setup:** one command (`make up`) on Linux, macOS or WSL2, with Docker as the only prerequisite. Schema changes only through Alembic migrations, tested up and down.
+- **Observability:** 100% of API requests traced; structured logs with request IDs; 30-day local retention; dashboards version-controlled.
+
+### 17.8 Capacity and footprint
+
+- **Designed for 1 learner.** The schema is multi-user-ready (`user_id` everywhere) and the API is stateless, so scaling out later means adding instances, not redesigning. Load beyond a single user isn't a target and isn't tested.
+- **RAM:** idle, the core stack (`db`, `api`, `web`) uses < 1.5 GB; `obs` adds about 1 GB.
+- **Disk:** about 3 GB for the full catalogue (audio, images, embeddings) plus about 1 GB a year of your recordings (Opus).
+
+## 18. Delivery phases
 
 | Phase | Scope | Done when |
 |---|---|---|
@@ -510,7 +596,7 @@ These go into `CLAUDE.md` and are enforced by tooling:
 | **4. Mocks + B1–B2 content + Ask + polish** (~3–4 wks) | "Ask" assistant over the knowledge base, full TCF mocks, verdicts, monthly/weekly cadence tied to exam date, B1–B2 content (16 modules), performance and accessibility pass, PWA install. | A full 2 h 47 mock end-to-end, scored against NCLC 7. |
 | **5. C1–C2** (later) | Remaining 16 modules and higher-level question bank. | Complete A1–C2 path. |
 
-## 18. Content strategy
+## 19. Content strategy
 
 - All questions and texts are **original, written in exam format**. Nothing is copied from *Réussir le TCF* or paid mock banks.
 - Each generated item goes through a validation pass (grammar, single correct answer, CEFR level fit, difficulty estimate). It stays in `draft` until you approve it (one click).
@@ -518,7 +604,7 @@ These go into `CLAUDE.md` and are enforced by tooling:
 - Grammar pages and module outlines live as markdown/YAML in `content/`, reviewed by you and optionally your tutor.
 - Your tutor's graded corrections go into `content/golden/`. This is what keeps the writing and speaking bars honest.
 
-## 19. Risks
+## 20. Risks
 
 | Risk | Mitigation |
 |---|---|
@@ -529,7 +615,7 @@ These go into `CLAUDE.md` and are enforced by tooling:
 | Wrong French in generated content | Generate-then-validate, draft/approve gate, tutor spot checks. |
 | Exam format or price changes | Versioned `exam_scales.yaml` and `pricing.yaml`. |
 
-## 20. Decided
+## 21. Decided
 
 - **Exam:** TCF Canada (TEF support can be added later by adding its scales and structure).
 - **Obsidian:** read-only notes source only.
