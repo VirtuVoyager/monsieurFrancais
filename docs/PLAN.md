@@ -78,7 +78,7 @@ These sections are multiple choice, so they can be measured precisely.
   - For speaking: speech rate, pause ratio and filled pauses (*euh*), taken from word timestamps. Also Azure's **pronunciation accuracy and fluency** scores for fr-FR/fr-CA.
 - **Time is part of the score.** Writing runs on the exam clock with a word counter. Speaking runs on the task's clock, and silences and hesitations are measured.
 - The skill estimate is a **recency-weighted mean** of the counted scores, with uncertainty from their spread. It converts to CEFR/NCLC using the TCF bands (/20: 4–5 A2, 6–9 B1, 10–13 B2, 14–15 C1, 16–20 C2; NCLC 7 = 10–11).
-- The grader is checked against the golden set in CI (§ 10). A prompt change that shifts the average error by more than 1 point fails the build.
+- The grader is checked against the golden set in CI (§ 16). A prompt change that shifts the average error by more than 1 point fails the build.
 
 ### 4.4 How the bar looks
 
@@ -96,6 +96,21 @@ Listening  A1 ──── A2 ──── B1 ────[██████▓
 ### 4.5 Cold start
 
 A **placement test** (about 40 min) runs at onboarding. It has adaptive CO/CE questions plus one short EE and one EO task. It sets the first skill estimates and marks modules below your level as *placed*. Since you already work with a tutor, you likely start around A2–B1 rather than A1.
+
+### 4.6 Your settings drive the plan
+
+Onboarding and **Settings** hold:
+- exam date and target NCLC (default 7)
+- study minutes per day and days off
+- preferred accent mix for listening (France / Québec)
+- timezone (default Asia/Kolkata)
+
+These settings drive:
+- the mock cadence (monthly → weekly in the final 4 weeks);
+- the *on track / at risk / off track* verdict;
+- two reminders from the exam strategy:
+  - a **"book by" date**, 8 weeks before the exam, because test centres fill 6–8 weeks ahead;
+  - a **retake window**: TCF needs a 30-day gap, so the first sitting should leave room for one retake before your target draw.
 
 ## 5. Assessment cadence
 
@@ -143,12 +158,14 @@ A **placement test** (about 40 min) runs at onboarding. It has adaptive CO/CE qu
 | **Module** | Grammar → vocab → sentences → skill lessons → module check. |
 | **Assessments** | Checkpoints, level exams, full mocks, placement. All run in the same `ExamShell`: timers, single-play audio, locked navigation, no hints. |
 | **Timed drills** | Pick a skill and task type; runs under exam conditions and counts at half weight. |
-| **Speaking studio** | Live voice conversation with an AI examiner (Task 2 roleplays, Task 3 debate follow-ups). Task 1 answer bank with a shadowing loop. After each session: rubric score, transcript with errors marked, pronunciation feedback. |
+| **Speaking studio** | Live voice conversation with an AI examiner (Task 2 roleplays, Task 3 debate follow-ups). Task 1 answer bank with a shadowing loop. After each session: rubric score, transcript with errors marked, pronunciation feedback. The examiner speaks only French, keeps to exam register, and answers a switch to English with an in-French repair phrase, never by switching language. |
 | **Listening lab** | France and Québec voices; dictation; shadowing. The pre-listening transcript skim is available in practice only, never in timed work. |
 | **Writing desk** | Exam-clock editor with word count. Templates are visible in practice and hidden in assessments. Your top-5 recurring errors appear as a proofread checklist before you submit. |
 | **Library** | Everything learned: **words** (with gender), **sentences**, **grammar concepts**, **templates**, **your errors**. Searchable, with spaced-repetition review on demand. |
 | **Notes inbox** | Point it at your Obsidian vault's tutor-notes folder (read-only). New day notes are extracted into words, sentences and grammar points, shown for your approval, then added to the Library. |
 | **Progress** | The two progress bars, assessment history, trends. Nothing else. |
+| **Content studio** (settings area) | Review queue for generated items: preview (with audio), approve, reject or edit (creates a new version), bulk-approve by module. Golden-set manager for tutor-graded samples. |
+| **Export** (settings area) | Download all your data (JSON/CSV); vocabulary and sentences as an Anki deck. |
 | **Budget** (settings area) | Live Azure spend vs your monthly caps, spend per feature, Speech free allowance left, reconciliation with Azure's bill (§ 9). |
 
 ## 8. Cloud and models: Azure only, OpenAI GPT models only
@@ -169,7 +186,7 @@ Azure is the only one of the big three clouds that covers all five on one bill. 
 |---|---|---|---|
 | Grading, error tagging, feedback, notes extraction, content generation and validation | **GPT-5.4 mini** (Azure OpenAI in Foundry, Global Standard) | **GPT-5.4**, only for writing/speaking grading, and only if mini fails the golden-set bar | Responses API with strict JSON schema output. Mini costs roughly 1/3 as much as the full model. The golden-set eval (§ 4.3) decides: if mini's average grading error on the /20 scale stays ≤ 1 point, it stays everywhere. |
 | Live examiner | **gpt-realtime-mini** | gpt-realtime, only if mini's French or role-play quality is noticeably worse in the phase-3 spike | WebRTC straight from the browser with a short-lived token. Mini's audio rates are about 1/3 of the full model's. Plays the examiner only, never grades. |
-| Transcripts and fluency signals | **Azure Speech STT** (fr-FR / fr-CA), word timestamps | — | Also used for dictation checks. |
+| Transcripts and fluency signals | **Azure Speech STT** (fr-FR / fr-CA), word timestamps | — | Also used for dictation checks. The browser records Opus/WebM; the API converts it with `ffmpeg` to 16 kHz mono WAV for Speech and keeps the Opus file as your recording. |
 | Pronunciation | **Azure Speech pronunciation assessment** (fr-FR / fr-CA) | — | Accuracy, fluency and completeness. Prosody and content scoring are English-only, so grammar and vocabulary come from the GPT grader. |
 | Listening audio | **Azure neural TTS**, France and Québec voices, SSML for pace and pauses | — | Generated once and cached, so replays cost nothing. |
 
@@ -219,6 +236,7 @@ Paid usage comes from two places: **Azure OpenAI** (GPT-5.4 mini and gpt-realtim
 
 ### 9.3 Hard budgets
 
+- **Budget month** = calendar month in your timezone. Azure's billing period may not start on the 1st, so reconciliation compares day by day, not by billing period.
 - **Caps:** a monthly cap per service (Azure OpenAI, Speech) plus an overall cap, all editable on the budget screen. Alerts at 50%, 80% and 100%.
 - **Check before every call:** `BudgetGuard.reserve(service, estimated_cost)` compares month-to-date spend plus open reservations plus the estimate against the cap. If it would exceed the cap, the call is **refused** and the UI says which cap was hit. After the call, the reservation is replaced by the actual cost.
 - **Realtime sessions:**
@@ -235,7 +253,7 @@ Paid usage comes from two places: **Azure OpenAI** (GPT-5.4 mini and gpt-realtim
   - Azure's realtime meters are known not to match `response.done` usage exactly. So a rolling 30-day correction factor per service (billed ÷ metered) is applied to projections and worst-case reservations.
 - **Safety nets in Azure itself**, in case the app is bypassed:
   1. An **Azure Budget** on the resource group, with email alerts at 80% and 100%.
-  2. A low **tokens-per-minute quota** on each GPT deployment, so a runaway loop can't burn much per hour.
+  2. A low **tokens-per-minute quota** on each GPT deployment, so a runaway loop can't burn much per hour. Content generation uses its own deployment with a higher quota, raised only while a batch runs. All callers handle `429` with backoff. Speech F0's low concurrency limit is respected by a small client-side rate limiter.
   3. Speech on **F0**, which stops by itself at its limits.
 
 ### 9.5 Budget screen
@@ -413,26 +431,28 @@ The index also powers:
 ## 14. Data model (first cut)
 
 ```
+users(id, display_name, passphrase_hash, settings jsonb, created_at)   -- exam date, target NCLC, daily minutes, accent mix, timezone
+
 levels(id, cefr, order)
 blocks(id, level_id, order)
 modules(id, block_id, order, slug, theme, title, summary)
 lessons(id, module_id, order, kind: grammar|vocab|sentences|listening|reading|writing|speaking, payload jsonb)
 concepts(id, module_id, slug, title, body_md)
-lexemes(id, module_id, lemma, pos, gender, en, example_fr, example_en, audio_path)
-sentences(id, module_id, fr, en, audio_path)
+lexemes(id, module_id, lemma, pos, gender, en, example_fr, example_en, audio_hash)
+sentences(id, module_id, fr, en, audio_hash)
 templates(id, task, kind, text_fr, text_en, introduced_at_level)
 
-items(id, skill: CO|CE|EE|EO, task, cefr, difficulty, payload jsonb, answer jsonb, audio_path, status: draft|live)
+items(id, version, supersedes_id?, skill: CO|CE|EE|EO, task, cefr, difficulty, payload jsonb, answer jsonb, audio_hash?, content_hash, status: draft|live|retired)
 assessments(id, kind: module_check|checkpoint|level_exam|mock|placement|drill, scope_id, structure jsonb)
-assessment_runs(id, assessment_id, started_at, finished_at, result jsonb, verdict)
+assessment_runs(id, user_id, assessment_id, started_at, finished_at, result jsonb, verdict)
 responses(id, run_id, item_id, skill, answer jsonb, correct?, rubric jsonb?, time_ms, timed_out)
 recordings(id, response_id, audio_path, transcript jsonb, pronunciation jsonb)
 
-module_progress(module_id, lessons_done, check_score, status: locked|open|covered|placed, covered_at)
-skill_estimates(id, skill, theta?, score, se, cefr, nclc, evidence_count, computed_at)   -- history, one row per recompute
-error_tags(id, tag, example, count, last_seen)
-cards(id, item_type, item_id, fsrs_state jsonb, due_at)
-notes(id, source_path, taken_on, raw_md, extracted jsonb, status)
+module_progress(user_id, module_id, lessons_done, check_score, status: locked|open|covered|placed, covered_at)
+skill_estimates(id, user_id, skill, theta?, score, se, cefr, nclc, evidence_count, computed_at)   -- history, one row per recompute
+error_tags(id, user_id, tag, example, count, last_seen)
+cards(id, user_id, item_type, item_id, fsrs_state jsonb, due_at)
+notes(id, user_id, source_path, taken_on, raw_md, extracted jsonb, status)
 
 media_assets(hash pk, kind: audio|image, path, source jsonb, duration_ms?, bytes, created_at)   -- mirrors content/media_manifest.csv
 generation_cache(key pk, template_version, model, output jsonb, created_at)
@@ -442,10 +462,12 @@ embedding_queue(id, kb_entry_id, enqueued_at, processed_at?, error?)
 chat_threads(id, user_id, title, created_at), chat_messages(id, thread_id, role, content jsonb, citations jsonb, created_at)
 
 usage_events(id, user_id?, occurred_at, service: openai|speech, model, feature, units jsonb, cost_usd, free_units jsonb, price_version, request_id, run_id?)
-budgets(id, month, service: openai|speech|total, cap_usd, alert_pcts int[])
+budgets(id, user_id, month, service: openai|speech|total, cap_usd, alert_pcts int[])
 budget_reservations(id, service, feature, estimated_usd, created_at, settled_at?, usage_event_id?)
 cost_reconciliations(id, day, service, meter, billed_amount, billed_currency, metered_usd, synced_at)
 ```
+
+Catalogue tables (`levels` … `items`) are shared and have no `user_id`. Every personal table does. Catalogue rows reference audio by `audio_hash` into `media_assets`, never by path.
 
 Exam formats, timings and score tables live in versioned `content/exam_scales.yaml`. Prices live in `content/pricing.yaml`. Both carry a "verified as of" date and never live in code.
 
@@ -497,7 +519,8 @@ These go into `CLAUDE.md` and are enforced by tooling:
 - **KISS:** plain functions over classes when there's no state. No base repositories, no event bus, no service locator.
 - **Comments** explain *why* only (exam rules, scoring and pricing choices). No docstrings that restate the signature.
 - **Grader evals as tests:** `content/golden/` samples are scored (on demand, and weekly in CI, within a small budget). The build fails if the grader's average error rises above 1 point on the /20 scale.
-- Small PRs, conventional commits.
+- **AI-dependent code is tested without Azure:** `Grader`, `SpeechService` and `RealtimeTokenIssuer` have in-memory fakes, and parsing is tested against recorded response fixtures. Regular CI never calls Azure. Only the budgeted grader eval does.
+- **Git workflow:** `main` is protected and always releasable. Work happens on short-lived feature branches off `virtuvoyager_dev` and is merged via PR with CI green. Conventional commits.
 
 ## 17. Non-functional requirements (baseline)
 
@@ -556,6 +579,7 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
   - Azure keys live in `.env` (gitignored), with `gitleaks` in pre-commit and CI.
   - Keys never reach the browser. The realtime examiner gets a **short-lived session token** minted per session, and only after the budget check.
 - **Sessions:** the passphrase is hashed with Argon2id. Session cookies are HttpOnly, SameSite=Strict and Secure over TLS. Login attempts are rate-limited.
+- **MCP server:** runs over stdio for local clients, or on `localhost` HTTP with a bearer token. It's never exposed on the LAN.
 - **Dependencies:** Dependabot, `pip-audit` and `npm audit` in CI. No known high or critical vulnerabilities on the main branch.
 - **Input handling:** everything is validated with Pydantic, SQL goes only through SQLAlchemy, and the notes importer reads the Obsidian folder **read-only** and sanitises Markdown before rendering. Content from notes or the knowledge base is passed to the LLM as data, never as instructions.
 - **Privacy:**
@@ -614,8 +638,18 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
 | Realtime cost surprises | Worst-case reservation before the connection token is issued, session time caps, correction factor from reconciliation, low TPM quotas, Azure budget alert. |
 | Wrong French in generated content | Generate-then-validate, draft/approve gate, tutor spot checks. |
 | Exam format or price changes | Versioned `exam_scales.yaml` and `pricing.yaml`. |
+| Azure retires a model version | Deployment names in config; watch retirement notices; switch deployment, rerun the golden-set eval, update `pricing.yaml`. |
+| Build takes ~4 months while you're already studying | Phases ship usable slices early: A1–A2 modules and Library by week ~4, listening/reading measurement by ~week 7, speaking/writing by ~week 11. Your tutor sessions continue in parallel, and the Notes inbox brings that work into the app. |
 
-## 21. Decided
+## 21. Out of scope for now
+
+- Access from outside your home network. If you want it later, a free personal Tailscale tailnet is the simplest option and needs no code changes.
+- TEF Canada structure and scales (the design supports it; add the scales and task formats later).
+- Multiple users, accounts, and hosting on Azure (schema and `MediaStore` are ready; auth and Blob storage would be added).
+- Native mobile apps (the installable PWA covers phone use).
+- Offline use away from the home machine (the PWA needs the local server).
+
+## 22. Decided
 
 - **Exam:** TCF Canada (TEF support can be added later by adding its scales and structure).
 - **Obsidian:** read-only notes source only.
