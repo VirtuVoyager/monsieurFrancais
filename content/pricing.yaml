@@ -1,0 +1,45 @@
+# Azure list prices in USD (Global Standard). Verify against the Azure pricing pages
+# before relying on them; bump `version` whenever a rate changes.
+version: "2026-09-28"
+verified_as_of: "2026-09-28"
+
+models:
+  gpt-5.4-mini:
+    service: openai
+    rates:
+      input_tokens: {usd: 0.75, per: 1000000}
+      cached_input_tokens: {usd: 0.075, per: 1000000}
+      output_tokens: {usd: 4.50, per: 1000000}
+
+  gpt-realtime-mini:
+    service: openai
+    rates:
+      text_input_tokens: {usd: 0.60, per: 1000000}
+      audio_input_tokens: {usd: 10.00, per: 1000000}
+      cached_audio_input_tokens: {usd: 0.30, per: 1000000}
+      text_output_tokens: {usd: 2.40, per: 1000000}
+      audio_output_tokens: {usd: 20.00, per: 1000000}
+
+  text-embedding-3-small:
+    service: openai
+    rates:
+      input_tokens: {usd: 0.02, per: 1000000}
+
+  azure-speech-stt:
+    service: speech
+    rates:
+      audio_seconds: {usd: 1.00, per: 3600}
+    free_monthly:
+      audio_seconds: 18000
+
+  azure-speech-pronunciation:
+    service: speech
+    rates:
+      audio_seconds: {usd: 0.30, per: 3600}
+
+  azure-speech-tts:
+    service: speech
+    rates:
+      characters: {usd: 16.00, per: 1000000}
+    free_monthly:
+      characters: 500000

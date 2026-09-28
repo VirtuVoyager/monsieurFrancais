@@ -1,9 +1,19 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from app.config import get_settings
 from app.observability import configure_logging, request_context
-from app.routers import health
+from app.routers import budget, health
+from app.services.budget import BudgetExceededError
+
+
+async def _budget_exceeded(_: Request, exc: Exception) -> JSONResponse:
+    assert isinstance(exc, BudgetExceededError)
+    return JSONResponse(
+        status_code=402,
+        content={"detail": str(exc), "cap": exc.cap_name, "cap_usd": str(exc.cap)},
+    )
 
 
 def create_app() -> FastAPI:
@@ -18,7 +28,9 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    app.exception_handler(BudgetExceededError)(_budget_exceeded)
     app.include_router(health.router)
+    app.include_router(budget.router)
     return app
 
 
