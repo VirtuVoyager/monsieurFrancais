@@ -193,6 +193,12 @@ class CheckOutcome(BaseModel):
     module: ModuleSummary
 
 
+class ConceptOut(BaseModel):
+    id: str
+    title: str
+    body_md: str
+
+
 class ReviewCard(BaseModel):
     id: int
     item_type: str

@@ -5,7 +5,7 @@ from sqlalchemy import or_, select
 
 from app.db import SessionDep
 from app.models import Card, Concept, Lesson, Lexeme, ModuleProgress, Sentence
-from app.schemas.learning import ReviewCard, ReviewRating, SentenceOut, WordOut
+from app.schemas.learning import ConceptOut, ReviewCard, ReviewRating, SentenceOut, WordOut
 from app.services import library
 from app.services.users import CurrentUser
 
@@ -55,7 +55,7 @@ def learned_sentences(
 
 
 @router.get("/library/concepts")
-def learned_concepts(session: SessionDep, user: CurrentUser) -> list[dict[str, str]]:
+def learned_concepts(session: SessionDep, user: CurrentUser) -> list[ConceptOut]:
     progress = session.scalars(select(ModuleProgress).where(ModuleProgress.user_id == user.id))
     done = [lesson_id for p in progress for lesson_id in p.lessons_done]
     grammar_lessons = session.scalars(
@@ -63,7 +63,7 @@ def learned_concepts(session: SessionDep, user: CurrentUser) -> list[dict[str, s
     )
     concept_ids = [f"{lesson.module_id}/{lesson.payload['concept']}" for lesson in grammar_lessons]
     concepts = session.scalars(select(Concept).where(Concept.id.in_(concept_ids)))
-    return [{"id": c.id, "title": c.title, "body_md": c.body_md} for c in concepts]
+    return [ConceptOut.model_validate(c, from_attributes=True) for c in concepts]
 
 
 def _review_card(session: SessionDep, card: Card) -> ReviewCard:
