@@ -49,8 +49,8 @@ export function DrillsPage() {
             <Card key={d.skill} className="flex flex-col justify-between gap-4">
               <div>
                 <SectionTitle lang="fr">{d.title}</SectionTitle>
-                <p className="text-muted mt-1 text-sm">{d.detail}</p>
-                <p className="text-muted mt-3 text-sm">
+                <p className="mt-1 text-sm text-muted">{d.detail}</p>
+                <p className="mt-3 text-sm text-muted">
                   Unseen questions, no hints, no going back. The timer is set by the server; time
                   running out submits your answers.
                 </p>
@@ -82,7 +82,7 @@ export function DrillsPage() {
               {Math.round(outcome.score * 100)}%
             </p>
             {outcome.level && (
-              <p className="text-muted mt-1">
+              <p className="mt-1 text-muted">
                 Estimated {Math.round(outcome.level.score)}/699 · {outcome.level.cefr} · NCLC{" "}
                 {outcome.level.nclc ?? "below 4"}
               </p>
@@ -92,9 +92,9 @@ export function DrillsPage() {
             {outcome.results.map((r, i) => (
               <div key={r.item_id} className="flex items-start gap-3 text-sm" lang="fr">
                 {r.correct ? (
-                  <Check className="text-success mt-0.5 size-4" aria-label="Correct" />
+                  <Check className="mt-0.5 size-4 text-success" aria-label="Correct" />
                 ) : (
-                  <X className="text-danger mt-0.5 size-4" aria-label="Incorrect" />
+                  <X className="mt-0.5 size-4 text-danger" aria-label="Incorrect" />
                 )}
                 <span>
                   <span className="text-muted">{i + 1}.</span> {fr(r.expected)}

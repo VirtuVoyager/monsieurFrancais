@@ -17,10 +17,10 @@ export function ProgressBar({
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={Math.round(pct)}
-      className={cx("bg-surface-2 h-2.5 w-full overflow-hidden rounded-full", className)}
+      className={cx("h-2.5 w-full overflow-hidden rounded-full bg-surface-2", className)}
     >
       <div
-        className="bg-accent h-full rounded-full transition-[width] duration-700 ease-out"
+        className="h-full rounded-full bg-accent transition-[width] duration-700 ease-out"
         style={{ width: `${pct}%` }}
       />
     </div>

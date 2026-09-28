@@ -54,7 +54,7 @@ export function HomePage() {
         </Card>
         <Card className="flex flex-col justify-between gap-3">
           <div className="flex items-center gap-2 text-sm font-medium">
-            <Repeat className="text-accent size-4" aria-hidden /> Reviews due
+            <Repeat className="size-4 text-accent" aria-hidden /> Reviews due
           </div>
           <p className="font-serif text-3xl font-semibold tabular-nums">
             {due.data?.length ?? "–"}

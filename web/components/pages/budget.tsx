@@ -38,7 +38,7 @@ export function BudgetPage() {
           {month} · prices as of {price_version}
         </Eyebrow>
         <h1 className="mt-1 font-serif text-3xl font-semibold">Budget</h1>
-        <p className="text-muted mt-2 text-sm">
+        <p className="mt-2 text-sm text-muted">
           Every paid Azure call is checked against these caps before it runs. When a cap is reached,
           lessons, reviews and listening/reading assessments keep working.
         </p>
@@ -54,9 +54,9 @@ export function BudgetPage() {
         <Card className="space-y-3">
           <SectionTitle>Spend by feature</SectionTitle>
           {by_feature.length === 0 ? (
-            <p className="text-muted text-sm">No paid calls this month.</p>
+            <p className="text-sm text-muted">No paid calls this month.</p>
           ) : (
-            <ul className="divide-line divide-y text-sm">
+            <ul className="divide-y divide-line text-sm">
               {by_feature.map((f) => (
                 <li key={f.feature} className="flex justify-between py-2">
                   <span>{f.feature}</span>
@@ -91,11 +91,11 @@ export function BudgetPage() {
         <SectionTitle>Recent usage</SectionTitle>
         {events.isPending && <Loading />}
         {events.isError && <ErrorState error={events.error} />}
-        {events.data?.length === 0 && <p className="text-muted text-sm">No usage recorded yet.</p>}
+        {events.data?.length === 0 && <p className="text-sm text-muted">No usage recorded yet.</p>}
         {events.data && events.data.length > 0 && (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="text-muted text-left">
+              <thead className="text-left text-muted">
                 <tr>
                   <th className="py-2 pr-4 font-medium">When</th>
                   <th className="py-2 pr-4 font-medium">Feature</th>
@@ -103,14 +103,14 @@ export function BudgetPage() {
                   <th className="py-2 text-right font-medium">Cost</th>
                 </tr>
               </thead>
-              <tbody className="divide-line divide-y">
+              <tbody className="divide-y divide-line">
                 {events.data.map((e, i) => (
                   <tr key={i}>
                     <td className="py-2 pr-4 whitespace-nowrap">
                       {new Date(e.occurred_at).toLocaleString()}
                     </td>
                     <td className="py-2 pr-4">{e.feature}</td>
-                    <td className="text-muted py-2 pr-4">{e.model}</td>
+                    <td className="py-2 pr-4 text-muted">{e.model}</td>
                     <td className="py-2 text-right tabular-nums">{usd(e.cost_usd)}</td>
                   </tr>
                 ))}
@@ -132,14 +132,14 @@ function ServiceCard({ name, spend }: { name: string; spend: Schemas["ServiceSpe
       <Eyebrow>{SERVICE_LABELS[name] ?? name}</Eyebrow>
       <p className="font-serif text-2xl font-semibold tabular-nums">
         {usd(spend.spent_usd)}
-        <span className="text-muted text-base font-normal"> / {usd(spend.cap_usd)}</span>
+        <span className="text-base font-normal text-muted"> / {usd(spend.cap_usd)}</span>
       </p>
       <ProgressBar
         value={pct}
         label={`${name} budget used`}
         className={cx(pct >= 80 && "[&>div]:bg-danger")}
       />
-      <p className="text-muted text-xs">Projected month end: {usd(spend.projected_usd)}</p>
+      <p className="text-xs text-muted">Projected month end: {usd(spend.projected_usd)}</p>
     </Card>
   );
 }
@@ -171,7 +171,7 @@ function CapsEditor({ services }: { services: Record<string, Schemas["ServiceSpe
                 step="0.5"
                 value={caps[service]}
                 onChange={(e) => setCaps({ ...caps, [service]: e.target.value })}
-                className="border-line bg-surface focus:border-accent w-full rounded-xl border px-3 py-2 tabular-nums outline-none"
+                className="w-full rounded-xl border border-line bg-surface px-3 py-2 tabular-nums outline-none focus:border-accent"
               />
             </label>
           ))}
@@ -180,8 +180,8 @@ function CapsEditor({ services }: { services: Record<string, Schemas["ServiceSpe
           <Button type="submit" disabled={update.isPending}>
             Save caps
           </Button>
-          {update.isSuccess && <span className="text-success text-sm">Saved</span>}
-          {update.isError && <span className="text-danger text-sm">{update.error.message}</span>}
+          {update.isSuccess && <span className="text-sm text-success">Saved</span>}
+          {update.isError && <span className="text-sm text-danger">{update.error.message}</span>}
         </div>
       </form>
     </Card>

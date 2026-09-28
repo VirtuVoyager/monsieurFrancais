@@ -54,7 +54,7 @@ export function ReviewPage() {
     <div className="space-y-6">
       <header className="flex items-baseline justify-between">
         <h1 className="font-serif text-3xl font-semibold">Review</h1>
-        <span className="text-muted text-sm tabular-nums">
+        <span className="text-sm text-muted tabular-nums">
           {index + 1} / {due.data.length}
         </span>
       </header>
@@ -63,7 +63,7 @@ export function ReviewPage() {
         <p className="font-serif text-2xl">{card.prompt_en}</p>
         {revealed ? (
           <div className="space-y-2" lang="fr">
-            <p className="text-accent flex items-center justify-center gap-2 text-2xl font-semibold">
+            <p className="flex items-center justify-center gap-2 text-2xl font-semibold text-accent">
               {fr(card.answer_fr)} <GenderTag gender={card.gender} />
               <SpeakButton text={card.answer_fr} />
             </p>

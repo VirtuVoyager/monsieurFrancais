@@ -3,6 +3,7 @@ from collections.abc import Iterator
 
 os.environ.setdefault("MF_DATABASE_URL", "postgresql+psycopg://mf:mf@localhost:5432/mf_test")
 os.environ.setdefault("MF_LOG_JSON", "false")
+os.environ.setdefault("MF_SECRET_KEY", "test-secret")
 
 import pytest
 from alembic import command
@@ -14,7 +15,9 @@ from sqlalchemy.orm import Session
 from app.config import get_settings
 from app.db import engine, get_session
 from app.main import create_app
+from app.services import auth
 from app.services.content import seed
+from app.services.users import current_user, get_or_create_learner
 
 
 @pytest.fixture(scope="session")
@@ -40,9 +43,20 @@ def session(connection: Connection) -> Iterator[Session]:
 
 
 @pytest.fixture
-def client(session: Session) -> Iterator[TestClient]:
+def anon_client(session: Session) -> Iterator[TestClient]:
+    auth._attempts.clear()
     app = create_app()
     app.dependency_overrides[get_session] = lambda: session
+    with TestClient(app) as test_client:
+        yield test_client
+
+
+@pytest.fixture
+def client(session: Session) -> Iterator[TestClient]:
+    """A client already signed in as the learner."""
+    app = create_app()
+    app.dependency_overrides[get_session] = lambda: session
+    app.dependency_overrides[current_user] = lambda: get_or_create_learner(session)
     with TestClient(app) as test_client:
         yield test_client
 

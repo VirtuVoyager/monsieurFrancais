@@ -4,7 +4,7 @@ import { Card } from "./card";
 
 export function Loading({ label = "Loading…" }: { label?: string }) {
   return (
-    <div role="status" className="text-muted animate-pulse py-16 text-center">
+    <div role="status" className="animate-pulse py-16 text-center text-muted">
       {label}
     </div>
   );
@@ -22,7 +22,7 @@ export function Empty({ title, children }: { title: string; children?: ReactNode
   return (
     <Card className="py-10 text-center">
       <p className="font-serif text-lg font-semibold">{title}</p>
-      {children && <div className="text-muted mt-2 text-sm">{children}</div>}
+      {children && <div className="mt-2 text-sm text-muted">{children}</div>}
     </Card>
   );
 }

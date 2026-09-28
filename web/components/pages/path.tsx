@@ -31,7 +31,7 @@ export function PathPage() {
             <h2 id={`level-${level.id}`} className="font-serif text-2xl font-semibold">
               {level.id}
             </h2>
-            <span className="text-muted text-sm">
+            <span className="text-sm text-muted">
               {level.covered} / {level.total} covered
             </span>
           </div>
@@ -80,7 +80,7 @@ function ModuleRow({ module }: { module: Schemas["ModuleSummary"] }) {
       </div>
       <div className="text-right text-sm">
         <StatusBadge status={module.status} />
-        <p className="text-muted mt-1 text-xs tabular-nums">
+        <p className="mt-1 text-xs text-muted tabular-nums">
           {module.lessons_done}/{module.lessons_total} lessons
         </p>
       </div>

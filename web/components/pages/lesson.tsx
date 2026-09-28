@@ -34,7 +34,7 @@ export function LessonPage({ id }: { id: string }) {
     <article className="space-y-6">
       <Link
         href={`/modules/${moduleId}`}
-        className="text-muted hover:text-ink inline-flex items-center gap-1 text-sm"
+        className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"
       >
         <ArrowLeft className="size-4" aria-hidden />{" "}
         {moduleQuery.data ? fr(moduleQuery.data.title) : "Module"}
@@ -52,7 +52,7 @@ export function LessonPage({ id }: { id: string }) {
 
       <div className="flex items-center justify-end gap-3">
         {lesson.data.done && (
-          <span className="text-success inline-flex items-center gap-1 text-sm">
+          <span className="inline-flex items-center gap-1 text-sm text-success">
             <Check className="size-4" aria-hidden /> Completed
           </span>
         )}

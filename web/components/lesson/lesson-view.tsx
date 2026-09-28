@@ -86,7 +86,7 @@ function WordList({ words }: { words: Schemas["WordOut"][] }) {
   return (
     <Card>
       <div className="mb-4 flex items-center justify-between">
-        <p className="text-muted text-sm">
+        <p className="text-sm text-muted">
           Say each word aloud with its article. Cards go into your review queue when you finish.
         </p>
         <Button variant="ghost" onClick={() => setShowEnglish(!showEnglish)}>
@@ -94,7 +94,7 @@ function WordList({ words }: { words: Schemas["WordOut"][] }) {
           English
         </Button>
       </div>
-      <ul className="divide-line divide-y">
+      <ul className="divide-y divide-line">
         {words.map((word) => (
           <li key={word.id} className="flex items-start gap-3 py-3">
             <SpeakButton text={word.lemma} />
@@ -104,9 +104,9 @@ function WordList({ words }: { words: Schemas["WordOut"][] }) {
                   {fr(word.lemma)}
                 </span>
                 <GenderTag gender={word.gender} />
-                <span className="text-muted text-xs">{word.pos}</span>
+                <span className="text-xs text-muted">{word.pos}</span>
               </p>
-              {showEnglish && <p className="text-muted text-sm">{word.en}</p>}
+              {showEnglish && <p className="text-sm text-muted">{word.en}</p>}
               <p lang="fr" className="mt-1 text-sm italic">
                 {fr(word.example_fr)}
               </p>
@@ -129,16 +129,16 @@ function SentenceList({ sentences }: { sentences: Schemas["SentenceOut"][] }) {
     });
   return (
     <Card>
-      <p className="text-muted mb-4 text-sm">
+      <p className="mb-4 text-sm text-muted">
         Read each sentence aloud, then shadow it: play it and speak along at the same time.
       </p>
       <ul className="space-y-3">
         {sentences.map((s) => (
-          <li key={s.id} className="border-line flex items-start gap-3 rounded-xl border p-3">
+          <li key={s.id} className="flex items-start gap-3 rounded-xl border border-line p-3">
             <SpeakButton text={s.fr} />
             <button type="button" className="flex-1 text-left" onClick={() => toggle(s.id)}>
               <p lang="fr">{fr(s.fr)}</p>
-              <p className={cx("text-muted text-sm", !revealed.has(s.id) && "sr-only")}>{s.en}</p>
+              <p className={cx("text-sm text-muted", !revealed.has(s.id) && "sr-only")}>{s.en}</p>
             </button>
           </li>
         ))}
@@ -166,12 +166,12 @@ function Listening({
             {showTranscript ? "Hide" : "Show"} transcript
           </Button>
         </div>
-        <p className="text-muted text-xs">
+        <p className="text-xs text-muted">
           Practice mode uses your browser&apos;s French voice until the recorded audio is generated.
           Timed assessments play recorded audio once.
         </p>
         {showTranscript && (
-          <p lang="fr" className="bg-surface-2 rounded-xl p-4 leading-relaxed">
+          <p lang="fr" className="rounded-xl bg-surface-2 p-4 leading-relaxed">
             {fr(content.transcript)}
           </p>
         )}
@@ -194,7 +194,7 @@ function Writing({ content, lessonId }: { content: Schemas["WritingContent"]; le
   const inRange = words >= content.min_words && words <= content.max_words;
   return (
     <Card className="space-y-4">
-      <p className="text-muted text-xs font-semibold uppercase">Tâche {content.task}</p>
+      <p className="text-xs font-semibold text-muted uppercase">Tâche {content.task}</p>
       <p lang="fr" className="leading-relaxed">
         {fr(content.prompt)}
       </p>
@@ -204,15 +204,15 @@ function Writing({ content, lessonId }: { content: Schemas["WritingContent"]; le
         value={text}
         onChange={(e) => setText(e.target.value)}
         rows={8}
-        className="border-line bg-surface focus:border-accent w-full rounded-xl border p-3 leading-relaxed outline-none"
+        className="w-full rounded-xl border border-line bg-surface p-3 leading-relaxed outline-none focus:border-accent"
       />
       <div className="flex items-center justify-between text-sm">
         <span className={cx("tabular-nums", inRange ? "text-success" : "text-muted")}>
           {words} words · target {content.min_words}–{content.max_words}
         </span>
-        <span className="text-muted text-xs">Draft saved on this device</span>
+        <span className="text-xs text-muted">Draft saved on this device</span>
       </div>
-      <p className="bg-accent-soft text-accent rounded-xl p-3 text-sm">
+      <p className="rounded-xl bg-accent-soft p-3 text-sm text-accent">
         Rubric grading (TCF /20, top 3 fixes) switches on once the Azure grader is connected.
       </p>
     </Card>
@@ -228,7 +228,7 @@ function Speaking({ content }: { content: Schemas["SpeakingContent"] }) {
   }, [remaining]);
   return (
     <Card className="space-y-4">
-      <p className="text-muted text-xs font-semibold uppercase">Tâche {content.task}</p>
+      <p className="text-xs font-semibold text-muted uppercase">Tâche {content.task}</p>
       <p lang="fr" className="leading-relaxed">
         {fr(content.prompt)}
       </p>
@@ -242,7 +242,7 @@ function Speaking({ content }: { content: Schemas["SpeakingContent"] }) {
           </span>
         )}
       </div>
-      <p className="bg-accent-soft text-accent rounded-xl p-3 text-sm">
+      <p className="rounded-xl bg-accent-soft p-3 text-sm text-accent">
         Recording, transcription and pronunciation scoring switch on with Azure Speech. For now,
         speak aloud against the timer.
       </p>

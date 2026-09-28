@@ -10,7 +10,7 @@ export function SpeakButton({ text, label = "Listen" }: { text: string; label?: 
       type="button"
       onClick={() => speakFrench(text)}
       aria-label={`${label}: ${text}`}
-      className="text-muted hover:bg-surface-2 hover:text-accent rounded-lg p-1.5 transition-colors"
+      className="rounded-lg p-1.5 text-muted transition-colors hover:bg-surface-2 hover:text-accent"
     >
       <Volume2 className="size-4" aria-hidden />
     </button>

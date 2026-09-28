@@ -24,7 +24,7 @@ export function LibraryPage() {
     <div className="space-y-6">
       <h1 className="font-serif text-3xl font-semibold">Library</h1>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div role="tablist" className="border-line bg-surface inline-flex rounded-xl border p-1">
+        <div role="tablist" className="inline-flex rounded-xl border border-line bg-surface p-1">
           {TABS.map((t) => (
             <button
               key={t}
@@ -43,12 +43,12 @@ export function LibraryPage() {
         {tab !== "Grammar" && (
           <label className="relative block">
             <span className="sr-only">Search</span>
-            <Search className="text-muted absolute top-2.5 left-3 size-4" aria-hidden />
+            <Search className="absolute top-2.5 left-3 size-4 text-muted" aria-hidden />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search French or English"
-              className="border-line bg-surface focus:border-accent w-full rounded-xl border py-2 pr-3 pl-9 text-sm outline-none sm:w-72"
+              className="w-full rounded-xl border border-line bg-surface py-2 pr-3 pl-9 text-sm outline-none focus:border-accent sm:w-72"
             />
           </label>
         )}
@@ -68,7 +68,7 @@ function Words({ q }: { q: string }) {
     return <Empty title="No words yet">Finish a vocabulary lesson.</Empty>;
   return (
     <Card className="p-0 sm:p-0">
-      <ul className="divide-line divide-y">
+      <ul className="divide-y divide-line">
         {words.data.map((w) => (
           <li key={w.id} className="flex items-center gap-3 px-5 py-3">
             <SpeakButton text={w.lemma} />
@@ -76,7 +76,7 @@ function Words({ q }: { q: string }) {
               {fr(w.lemma)}
             </span>
             <GenderTag gender={w.gender} />
-            <span className="text-muted ml-auto text-sm">{w.en}</span>
+            <span className="ml-auto text-sm text-muted">{w.en}</span>
           </li>
         ))}
       </ul>
@@ -92,13 +92,13 @@ function Sentences({ q }: { q: string }) {
     return <Empty title="No sentences yet">Finish a model-sentences lesson.</Empty>;
   return (
     <Card className="p-0 sm:p-0">
-      <ul className="divide-line divide-y">
+      <ul className="divide-y divide-line">
         {sentences.data.map((s) => (
           <li key={s.id} className="flex items-start gap-3 px-5 py-3">
             <SpeakButton text={s.fr} />
             <div>
               <p lang="fr">{fr(s.fr)}</p>
-              <p className="text-muted text-sm">{s.en}</p>
+              <p className="text-sm text-muted">{s.en}</p>
             </div>
           </li>
         ))}
@@ -116,7 +116,7 @@ function Concepts() {
   return (
     <div className="space-y-3">
       {concepts.data.map((c) => (
-        <details key={c.id} className="group border-line bg-surface rounded-2xl border p-5">
+        <details key={c.id} className="group rounded-2xl border border-line bg-surface p-5">
           <summary className="cursor-pointer font-serif text-lg font-semibold" lang="fr">
             {fr(c.title)}
           </summary>

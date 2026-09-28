@@ -5,9 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.config import get_settings
-from app.errors import ForbiddenError, NotFoundError
+from app.errors import ForbiddenError, NotFoundError, TooManyRequestsError, UnauthorizedError
 from app.observability import configure_logging, configure_tracing, request_context
-from app.routers import budget, health, lessons, library, path, skills
+from app.routers import auth, budget, health, lessons, library, path, skills
 from app.services.budget import BudgetExceededError
 
 
@@ -41,7 +41,10 @@ def create_app() -> FastAPI:
     app.exception_handler(BudgetExceededError)(_budget_exceeded)
     app.exception_handler(NotFoundError)(_status(404))
     app.exception_handler(ForbiddenError)(_status(403))
+    app.exception_handler(UnauthorizedError)(_status(401))
+    app.exception_handler(TooManyRequestsError)(_status(429))
     app.include_router(health.router)
+    app.include_router(auth.router)
     app.include_router(budget.router)
     app.include_router(path.router)
     app.include_router(lessons.router)

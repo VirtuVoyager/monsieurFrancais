@@ -24,7 +24,7 @@ export function SkillsPanel() {
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <SectionTitle>Skills under exam conditions</SectionTitle>
-          <p className="text-muted mt-1 text-sm">
+          <p className="mt-1 text-sm text-muted">
             Only timed drills, checkpoints, level exams and mocks move these bars. The line marks
             NCLC 7.
             {weakest && (

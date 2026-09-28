@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { cx } from "@/components/ui/cx";
+import { api } from "@/lib/api/client";
+import { useQueryClient } from "@tanstack/react-query";
 
 const NAV = [
   { href: "/", label: "Home", icon: Home },
@@ -24,9 +26,9 @@ export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   return (
     <div className="min-h-dvh md:grid md:grid-cols-[15rem_1fr]">
-      <aside className="border-line bg-surface sticky top-0 hidden h-dvh flex-col border-r px-4 py-6 md:flex">
+      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-surface px-4 py-6 md:flex">
         <Link href="/" className="mb-8 flex items-center gap-2 px-2">
-          <BookOpen className="text-accent size-6" aria-hidden />
+          <BookOpen className="size-6 text-accent" aria-hidden />
           <span className="font-serif text-lg font-semibold">Monsieur Français</span>
         </Link>
         <nav aria-label="Main" className="flex flex-col gap-1">
@@ -47,12 +49,21 @@ export function AppShell({ children }: { children: ReactNode }) {
             </Link>
           ))}
         </nav>
-        <Link
-          href="/settings/budget"
-          className="text-muted hover:bg-surface-2 hover:text-ink mt-auto rounded-xl px-3 py-2 text-sm"
-        >
-          Budget & settings
-        </Link>
+        <div className="mt-auto flex flex-col gap-1 text-sm">
+          <Link
+            href="/settings"
+            className="rounded-xl px-3 py-2 text-muted hover:bg-surface-2 hover:text-ink"
+          >
+            Settings
+          </Link>
+          <Link
+            href="/settings/budget"
+            className="rounded-xl px-3 py-2 text-muted hover:bg-surface-2 hover:text-ink"
+          >
+            Budget
+          </Link>
+          <SignOut />
+        </div>
       </aside>
 
       <main className="mx-auto w-full max-w-4xl px-4 pt-6 pb-28 sm:px-6 md:pt-10 md:pb-12">
@@ -61,7 +72,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <nav
         aria-label="Main"
-        className="border-line bg-surface/95 fixed inset-x-0 bottom-0 z-10 grid grid-cols-6 border-t backdrop-blur md:hidden"
+        className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-6 border-t border-line bg-surface/95 backdrop-blur md:hidden"
       >
         {NAV.map(({ href, label, icon: Icon }) => (
           <Link
@@ -79,5 +90,23 @@ export function AppShell({ children }: { children: ReactNode }) {
         ))}
       </nav>
     </div>
+  );
+}
+
+function SignOut() {
+  const queryClient = useQueryClient();
+  const signOut = async () => {
+    await api.POST("/auth/logout");
+    queryClient.clear();
+    await queryClient.invalidateQueries();
+  };
+  return (
+    <button
+      type="button"
+      onClick={signOut}
+      className="rounded-xl px-3 py-2 text-left text-muted hover:bg-surface-2 hover:text-ink"
+    >
+      Sign out
+    </button>
   );
 }

@@ -6,5 +6,12 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   use: { baseURL: process.env.E2E_BASE_URL ?? "http://localhost:3000", trace: "retain-on-failure" },
-  projects: [{ name: "desktop", use: { ...devices["Desktop Chrome"] } }],
+  projects: [
+    { name: "setup", testMatch: /auth\.setup\.ts/ },
+    {
+      name: "desktop",
+      use: { ...devices["Desktop Chrome"], storageState: "test-results/.auth/learner.json" },
+      dependencies: ["setup"],
+    },
+  ],
 });

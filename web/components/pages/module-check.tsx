@@ -39,7 +39,7 @@ export function ModuleCheckPage({ moduleId }: { moduleId: string }) {
     <div className="space-y-6">
       <Link
         href={`/modules/${moduleId}`}
-        className="text-muted hover:text-ink inline-flex items-center gap-1 text-sm"
+        className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"
       >
         <ArrowLeft className="size-4" aria-hidden /> Module
       </Link>
@@ -73,7 +73,7 @@ export function ModuleCheckPage({ moduleId }: { moduleId: string }) {
             />
           ))}
           <div className="flex items-center justify-between">
-            <span className="text-muted text-sm tabular-nums">
+            <span className="text-sm text-muted tabular-nums">
               {answeredCount} / {run.items.length} answered
             </span>
             <Button onClick={finish} disabled={submit.isPending}>
@@ -102,9 +102,9 @@ export function ModuleCheckPage({ moduleId }: { moduleId: string }) {
             {outcome.results.map((result, index) => (
               <div key={result.item_id} className="flex items-start gap-3 py-1" lang="fr">
                 {result.correct ? (
-                  <Check className="text-success mt-0.5 size-4" aria-label="Correct" />
+                  <Check className="mt-0.5 size-4 text-success" aria-label="Correct" />
                 ) : (
-                  <X className="text-danger mt-0.5 size-4" aria-label="Incorrect" />
+                  <X className="mt-0.5 size-4 text-danger" aria-label="Incorrect" />
                 )}
                 <div className="text-sm">
                   <span className="text-muted">{index + 1}.</span> {fr(result.expected)}

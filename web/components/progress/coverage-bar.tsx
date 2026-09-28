@@ -7,7 +7,7 @@ export function CoverageBar({ coverage }: { coverage: Schemas["CoverageOut"] }) 
     <div>
       <div className="mb-2 flex items-baseline justify-between">
         <span className="text-sm font-medium">Module coverage</span>
-        <span className="text-muted text-sm tabular-nums">
+        <span className="text-sm text-muted tabular-nums">
           {coverage.covered} / {coverage.total} modules · {coverage.percent}%
         </span>
       </div>

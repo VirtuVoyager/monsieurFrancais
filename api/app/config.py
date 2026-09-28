@@ -30,6 +30,9 @@ class Settings(BaseSettings):
     default_cap_total_usd: float = 6.0
 
     cors_origins: list[str] = ["http://localhost:3000"]
+    secret_key: str | None = None
+    cookie_secure: bool = False
+    session_days: int = 30
 
 
 @lru_cache

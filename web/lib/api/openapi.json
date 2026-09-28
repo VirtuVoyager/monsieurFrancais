@@ -30,6 +30,137 @@
         }
       }
     },
+    "/auth/status": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Status",
+        "operationId": "status_auth_status_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthStatus"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/setup": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Setup",
+        "operationId": "setup_auth_setup_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Passphrase"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Login",
+        "operationId": "login_auth_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Passphrase"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Logout",
+        "operationId": "logout_auth_logout_post",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          }
+        }
+      }
+    },
     "/budget": {
       "get": {
         "tags": [
@@ -37,6 +168,24 @@
         ],
         "summary": "Get Summary",
         "operationId": "get_summary_budget_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -44,6 +193,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BudgetSummary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -58,15 +217,33 @@
         ],
         "summary": "Update Caps",
         "operationId": "update_caps_budget_caps_put",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CapsUpdate"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "204": {
@@ -118,6 +295,22 @@
               ],
               "title": "Feature"
             }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
           }
         ],
         "responses": {
@@ -155,6 +348,24 @@
         ],
         "summary": "Get Path",
         "operationId": "get_path_path_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -162,6 +373,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PathOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -184,6 +405,22 @@
             "schema": {
               "type": "string",
               "title": "Module Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
             }
           }
         ],
@@ -227,6 +464,22 @@
               "type": "string",
               "title": "Module Id"
             }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
           }
         ],
         "responses": {
@@ -268,6 +521,22 @@
             "schema": {
               "type": "integer",
               "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
             }
           }
         ],
@@ -321,6 +590,22 @@
               "type": "string",
               "title": "Lesson Id"
             }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
           }
         ],
         "responses": {
@@ -362,6 +647,22 @@
             "schema": {
               "type": "string",
               "title": "Lesson Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
             }
           }
         ],
@@ -415,6 +716,22 @@
               "type": "string",
               "title": "Lesson Id"
             }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
           }
         ],
         "responses": {
@@ -457,6 +774,22 @@
               "type": "integer",
               "default": 20,
               "title": "Limit"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
             }
           }
         ],
@@ -503,6 +836,22 @@
             "schema": {
               "type": "integer",
               "title": "Card Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
             }
           }
         ],
@@ -563,6 +912,22 @@
               ],
               "title": "Q"
             }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
           }
         ],
         "responses": {
@@ -616,6 +981,22 @@
               ],
               "title": "Q"
             }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
           }
         ],
         "responses": {
@@ -653,17 +1034,45 @@
         ],
         "summary": "Learned Concepts",
         "operationId": "learned_concepts_library_concepts_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ConceptOut"
                   },
-                  "type": "array",
                   "title": "Response Learned Concepts Library Concepts Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -678,12 +1087,31 @@
         ],
         "summary": "Get Skills",
         "operationId": "get_skills_skills_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "object",
                   "additionalProperties": {
                     "anyOf": [
                       {
@@ -694,8 +1122,17 @@
                       }
                     ]
                   },
-                  "type": "object",
                   "title": "Response Get Skills Skills Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -710,15 +1147,33 @@
         ],
         "summary": "Start Drill",
         "operationId": "start_drill_drills_post",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/DrillStart"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -760,6 +1215,22 @@
               "type": "integer",
               "title": "Run Id"
             }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
           }
         ],
         "requestBody": {
@@ -799,6 +1270,24 @@
   },
   "components": {
     "schemas": {
+      "AuthStatus": {
+        "properties": {
+          "configured": {
+            "type": "boolean",
+            "title": "Configured"
+          },
+          "authenticated": {
+            "type": "boolean",
+            "title": "Authenticated"
+          }
+        },
+        "type": "object",
+        "required": [
+          "configured",
+          "authenticated"
+        ],
+        "title": "AuthStatus"
+      },
       "BudgetSummary": {
         "properties": {
           "month": {
@@ -1751,6 +2240,21 @@
           "lesson_title"
         ],
         "title": "NextLesson"
+      },
+      "Passphrase": {
+        "properties": {
+          "passphrase": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Passphrase"
+          }
+        },
+        "type": "object",
+        "required": [
+          "passphrase"
+        ],
+        "title": "Passphrase"
       },
       "PathOut": {
         "properties": {

@@ -46,9 +46,9 @@ export function Exercise({
   const answered = response.choice !== undefined || Boolean(response.text?.trim());
 
   return (
-    <div className="border-line rounded-xl border p-4">
+    <div className="rounded-xl border border-line p-4">
       <p className="mb-3 font-medium" lang="fr">
-        <span className="text-muted mr-2 tabular-nums">{number}.</span>
+        <span className="mr-2 text-muted tabular-nums">{number}.</span>
         {exercise.kind === "order" ? "Put the words in order." : fr(exercise.prompt ?? "")}
       </p>
 
@@ -86,7 +86,7 @@ export function Exercise({
           value={response.text ?? ""}
           onChange={(e) => update({ text: e.target.value })}
           onKeyDown={(e) => e.key === "Enter" && answered && void submit()}
-          className="border-line bg-surface focus:border-accent w-full rounded-lg border px-3 py-2 outline-none sm:w-64"
+          className="w-full rounded-lg border border-line bg-surface px-3 py-2 outline-none focus:border-accent sm:w-64"
         />
       )}
 
@@ -155,10 +155,10 @@ function WordOrder({
 
   return (
     <div className="space-y-3" lang="fr">
-      <div className="border-line flex min-h-11 flex-wrap items-center gap-2 rounded-lg border border-dashed p-2">
-        {picked.length === 0 && <span className="text-muted text-sm">Tap words below</span>}
+      <div className="flex min-h-11 flex-wrap items-center gap-2 rounded-lg border border-dashed border-line p-2">
+        {picked.length === 0 && <span className="text-sm text-muted">Tap words below</span>}
         {picked.map((i) => (
-          <span key={i} className="bg-accent-soft text-accent rounded-md px-2 py-1 text-sm">
+          <span key={i} className="rounded-md bg-accent-soft px-2 py-1 text-sm text-accent">
             {words[i]}
           </span>
         ))}
@@ -167,7 +167,7 @@ function WordOrder({
             type="button"
             aria-label="Clear"
             onClick={() => choose([])}
-            className="text-muted hover:text-ink ml-auto"
+            className="ml-auto text-muted hover:text-ink"
           >
             <RotateCcw className="size-4" />
           </button>
@@ -180,7 +180,7 @@ function WordOrder({
             type="button"
             disabled={disabled || picked.includes(i)}
             onClick={() => choose([...picked, i])}
-            className="border-line hover:bg-surface-2 rounded-md border px-2 py-1 text-sm disabled:opacity-30"
+            className="rounded-md border border-line px-2 py-1 text-sm hover:bg-surface-2 disabled:opacity-30"
           >
             {word}
           </button>

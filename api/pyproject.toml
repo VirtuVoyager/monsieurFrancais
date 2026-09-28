@@ -8,6 +8,7 @@ dependencies = [
     "argon2-cffi>=25.1.0",
     "fastapi>=0.141.1",
     "fsrs>=6.3.2",
+    "itsdangerous>=2.2.0",
     "numpy>=2.5.3",
     "opentelemetry-exporter-otlp-proto-http>=1.45.0",
     "opentelemetry-instrumentation-fastapi>=0.66b0",

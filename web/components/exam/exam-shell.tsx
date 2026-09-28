@@ -127,11 +127,11 @@ function Question({
           <Button onClick={play} disabled={played}>
             <Play className="size-4" aria-hidden /> {played ? "Played" : "Play once"}
           </Button>
-          <span className="text-muted text-xs">The recording plays a single time.</span>
+          <span className="text-xs text-muted">The recording plays a single time.</span>
         </div>
       )}
       {exercise.passage && (
-        <p lang="fr" className="bg-surface-2 rounded-xl p-4 leading-relaxed">
+        <p lang="fr" className="rounded-xl bg-surface-2 p-4 leading-relaxed">
           {fr(exercise.passage)}
         </p>
       )}
@@ -152,7 +152,7 @@ function Question({
               choice === i ? "border-accent bg-accent-soft" : "border-line hover:bg-surface-2",
             )}
           >
-            <span className="border-line grid size-6 shrink-0 place-items-center rounded-full border text-xs font-semibold">
+            <span className="grid size-6 shrink-0 place-items-center rounded-full border border-line text-xs font-semibold">
               {"ABCD"[i]}
             </span>
             {fr(option)}
