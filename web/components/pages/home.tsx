@@ -9,11 +9,13 @@ import { ButtonLink } from "@/components/ui/button";
 import { Card, Eyebrow } from "@/components/ui/card";
 import { ErrorState, Loading } from "@/components/ui/states";
 import { fr } from "@/lib/french";
-import { useDueReviews, usePath } from "@/lib/queries";
+import { useDueReviews, usePath, useSkills } from "@/lib/queries";
 
 export function HomePage() {
   const path = usePath();
   const due = useDueReviews();
+  const skills = useSkills();
+  const needsPlacement = skills.data && !skills.data.CO && !skills.data.CE;
 
   if (path.isPending) return <Loading />;
   if (path.isError) return <ErrorState error={path.error} />;
@@ -27,6 +29,19 @@ export function HomePage() {
           Bonjour, on continue&#8239;?
         </h1>
       </header>
+
+      {needsPlacement && (
+        <Card className="flex flex-col gap-4 bg-accent-soft sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-medium text-accent">Find your starting level</p>
+            <p className="text-sm text-muted">
+              A 20-minute listening and reading placement sets your skill bars and skips what you
+              already know.
+            </p>
+          </div>
+          <ButtonLink href="/placement">Take the placement test</ButtonLink>
+        </Card>
+      )}
 
       {next ? (
         <Card className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

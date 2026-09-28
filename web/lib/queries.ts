@@ -211,3 +211,18 @@ export function useSubmitWritingDrill() {
     },
   });
 }
+
+export function useStartPlacement() {
+  return useMutation({ mutationFn: () => unwrap(api.POST("/placement")) });
+}
+
+export function useSubmitPlacement() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ runId, answers }: { runId: number; answers: Schemas["ItemAnswer"][] }) =>
+      unwrap(
+        api.POST("/placement/{run_id}", { params: { path: { run_id: runId } }, body: { answers } }),
+      ),
+    onSuccess: () => void queryClient.invalidateQueries(),
+  });
+}

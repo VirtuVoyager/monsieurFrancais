@@ -11,9 +11,10 @@ from app.schemas.learning import (
     DrillStart,
     ExerciseOut,
     ItemResult,
+    PlacementOutcome,
     SkillLevelOut,
 )
-from app.services import drills, skills
+from app.services import drills, placement, skills
 from app.services.skills import SkillLevel
 from app.services.users import CurrentUser
 
@@ -49,7 +50,31 @@ def submit_drill(
             )
             for item_id, r in grade.results
         ],
-        level=level_out(skills.skill_level(session, user.id, grade.skill)),
+        level=level_out(skills.skill_level(session, user.id, grade.skills[0])),
+    )
+
+
+@router.post("/placement")
+def start_placement(session: SessionDep, user: CurrentUser) -> DrillOut:
+    run, items = placement.start(session, user.id)
+    return DrillOut(
+        run_id=run.id,
+        skill=run.scope_id or "",
+        deadline=drills.deadline_of(run),
+        items=[CheckItemOut(id=i.id, skill=i.skill, exercise=_exam_exercise(i)) for i in items],
+    )
+
+
+@router.post("/placement/{run_id}")
+def submit_placement(
+    run_id: int, submission: CheckSubmission, session: SessionDep, user: CurrentUser
+) -> PlacementOutcome:
+    result = placement.submit(session, user.id, run_id, submission.answers)
+    return PlacementOutcome(
+        score=result.grade.score,
+        placed_level=result.placed_level,
+        modules_placed=result.modules_placed,
+        levels={skill: level_out(level) for skill, level in result.levels.items()},
     )
 
 

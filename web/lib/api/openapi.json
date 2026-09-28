@@ -1267,6 +1267,123 @@
         }
       }
     },
+    "/placement": {
+      "post": {
+        "tags": [
+          "skills"
+        ],
+        "summary": "Start Placement",
+        "operationId": "start_placement_placement_post",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DrillOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/placement/{run_id}": {
+      "post": {
+        "tags": [
+          "skills"
+        ],
+        "summary": "Submit Placement",
+        "operationId": "submit_placement_placement__run_id__post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckSubmission"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlacementOutcome"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/settings": {
       "get": {
         "tags": [
@@ -2774,6 +2891,44 @@
           "next_lesson"
         ],
         "title": "PathOut"
+      },
+      "PlacementOutcome": {
+        "properties": {
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "placed_level": {
+            "type": "string",
+            "title": "Placed Level"
+          },
+          "modules_placed": {
+            "type": "integer",
+            "title": "Modules Placed"
+          },
+          "levels": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/SkillLevelOut"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Levels"
+          }
+        },
+        "type": "object",
+        "required": [
+          "score",
+          "placed_level",
+          "modules_placed",
+          "levels"
+        ],
+        "title": "PlacementOutcome"
       },
       "ReadingContent": {
         "properties": {

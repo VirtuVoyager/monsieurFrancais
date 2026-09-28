@@ -289,3 +289,10 @@ class ErrorFingerprintOut(BaseModel):
     count: int
     example: str
     correction: str
+
+
+class PlacementOutcome(BaseModel):
+    score: float
+    placed_level: str
+    modules_placed: int
+    levels: dict[str, SkillLevelOut | None]

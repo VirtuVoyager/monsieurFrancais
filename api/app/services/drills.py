@@ -19,10 +19,35 @@ STRETCH = 0.5
 
 
 @dataclass(frozen=True)
-class DrillGrade:
-    skill: str
+class RunGrade:
+    skills: list[str]
     score: float
     results: list[tuple[str, CheckResult]]
+
+
+def bank(session: Session, skill: str) -> list[Item]:
+    return list(
+        session.scalars(
+            select(Item).where(Item.skill == skill, Item.status == "live", Item.module_id.is_(None))
+        )
+    )
+
+
+def create_run(
+    session: Session, user_id: int, kind: str, scope: str, items: list[Item]
+) -> AssessmentRun:
+    """A timed multiple-choice run; the deadline follows the exam pace of each item's skill."""
+    pace = exam_scales().seconds_per_item
+    deadline = datetime.now(UTC) + timedelta(seconds=sum(pace[i.skill] for i in items))
+    run = AssessmentRun(
+        user_id=user_id,
+        kind=kind,
+        scope_id=scope,
+        result={"item_ids": [i.id for i in items], "deadline": deadline.isoformat()},
+    )
+    session.add(run)
+    session.commit()
+    return run
 
 
 def start(
@@ -41,50 +66,35 @@ def start(
             )
         )
     )
-    bank = list(
-        session.scalars(
-            select(Item).where(Item.skill == skill, Item.status == "live", Item.module_id.is_(None))
-        )
-    )
-    fresh = [item for item in bank if item.id not in recent]
-    pool = fresh if len(fresh) >= count else bank
+    items = bank(session, skill)
+    fresh = [item for item in items if item.id not in recent]
+    pool = fresh if len(fresh) >= count else items
     random.shuffle(pool)
     chosen = sorted(pool, key=lambda item: abs(item.difficulty - target))[:count]
     # TCF sections run from easiest to hardest.
     chosen.sort(key=lambda item: item.difficulty)
-
-    seconds = exam_scales().seconds_per_item[skill] * len(chosen)
-    deadline = datetime.now(UTC) + timedelta(seconds=seconds)
-    run = AssessmentRun(
-        user_id=user_id,
-        kind=KIND,
-        scope_id=skill,
-        result={"item_ids": [item.id for item in chosen], "deadline": deadline.isoformat()},
-    )
-    session.add(run)
-    session.commit()
-    return run, chosen
+    return create_run(session, user_id, KIND, skill, chosen), chosen
 
 
 def deadline_of(run: AssessmentRun) -> datetime:
     return datetime.fromisoformat(run.result["deadline"])
 
 
-def submit(session: Session, user_id: int, run_id: int, answers: list[ItemAnswer]) -> DrillGrade:
+def submit(
+    session: Session, user_id: int, run_id: int, answers: list[ItemAnswer], kind: str = KIND
+) -> RunGrade:
     run = session.get(AssessmentRun, run_id)
-    if run is None or run.user_id != user_id or run.kind != KIND or run.scope_id is None:
-        raise NotFoundError("Drill not found")
+    if run is None or run.user_id != user_id or run.kind != kind or "item_ids" not in run.result:
+        raise NotFoundError("Timed run not found")
     if run.finished_at is not None:
-        raise ForbiddenError("This drill was already submitted")
+        raise ForbiddenError("This run was already submitted")
 
     late = datetime.now(UTC) > deadline_of(run) + GRACE
     by_item = {answer.item_id: answer for answer in answers}
-    items = {
-        item.id: item
-        for item in session.scalars(select(Item).where(Item.id.in_(run.result["item_ids"])))
-    }
+    item_ids: list[str] = run.result["item_ids"]
+    items = {i.id: i for i in session.scalars(select(Item).where(Item.id.in_(item_ids)))}
     results: list[tuple[str, CheckResult]] = []
-    for item_id in run.result["item_ids"]:
+    for item_id in item_ids:
         item = items[item_id]
         answer = by_item.get(item_id)
         response = answer.response if answer and not late else {}
@@ -105,4 +115,5 @@ def submit(session: Session, user_id: int, run_id: int, answers: list[ItemAnswer
     run.score = score
     run.finished_at = datetime.now(UTC)
     session.commit()
-    return DrillGrade(run.scope_id, score, results)
+    skills = sorted({items[i].skill for i in item_ids})
+    return RunGrade(skills, score, results)
