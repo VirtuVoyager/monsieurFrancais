@@ -515,6 +515,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Search */
+        get: operations["search_search_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -975,6 +992,23 @@ export interface components {
         ReviewRating: {
             /** Rating */
             rating: number;
+        };
+        /** SearchHit */
+        SearchHit: {
+            /** Key */
+            key: string;
+            /** Kind */
+            kind: string;
+            /** Title */
+            title: string;
+            /** Text */
+            text: string;
+            /** Source Ref */
+            source_ref: string;
+            /** Cefr */
+            cefr: string | null;
+            /** Personal */
+            personal: boolean;
         };
         /** SentenceOut */
         SentenceOut: {
@@ -2199,6 +2233,41 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ErrorFingerprintOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    search_search_get: {
+        parameters: {
+            query: {
+                q: string;
+                scope?: "learned" | "catalogue" | "mine";
+                kind?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SearchHit"][];
                 };
             };
             /** @description Validation Error */

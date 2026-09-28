@@ -60,8 +60,8 @@ test("completed vocabulary shows up in review and the library", async ({ page })
   await page.getByRole("button", { name: "Good" }).click();
 
   await page.goto("/library");
-  await page.getByPlaceholder("Search French or English").fill("city");
-  await expect(page.getByText("ville", { exact: true })).toBeVisible();
+  await page.getByPlaceholder(/Search words/).fill("vile");
+  await expect(page.getByRole("link", { name: /ville/ }).first()).toBeVisible();
 });
 
 test("a timed reading drill fills in the reading skill bar", async ({ page }) => {
@@ -99,4 +99,18 @@ test("a timed writing drill is graded on /20 with fixes", async ({ page }) => {
   await expect(page.getByText("TCF /20")).toBeVisible();
   await expect(page.getByText("Fix these first")).toBeVisible();
   await expect(page.getByText(/Estimated \d+\/20/)).toBeVisible();
+});
+
+test("the placement test sets both receptive skill bars", async ({ page }) => {
+  await page.goto("/placement");
+  await page.getByRole("button", { name: "Begin" }).click();
+  for (let i = 0; i < 16; i++) {
+    await page.getByRole("radio").first().click();
+    const next = page.getByRole("button", { name: "Next question" });
+    if (await next.isVisible()) await next.click();
+  }
+  await page.getByRole("button", { name: "Submit" }).click();
+
+  await expect(page.getByText("You start at")).toBeVisible();
+  await expect(page.getByText(/\/699 · /).first()).toBeVisible();
 });

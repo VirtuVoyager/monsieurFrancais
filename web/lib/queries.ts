@@ -226,3 +226,12 @@ export function useSubmitPlacement() {
     onSuccess: () => void queryClient.invalidateQueries(),
   });
 }
+
+export function useSearch(q: string, scope: "learned" | "catalogue" | "mine") {
+  return useQuery({
+    queryKey: ["search", q, scope],
+    queryFn: () => unwrap(api.GET("/search", { params: { query: { q, scope } } })),
+    enabled: q.length > 1,
+    placeholderData: (previous) => previous,
+  });
+}

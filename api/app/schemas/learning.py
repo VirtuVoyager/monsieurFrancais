@@ -296,3 +296,13 @@ class PlacementOutcome(BaseModel):
     placed_level: str
     modules_placed: int
     levels: dict[str, SkillLevelOut | None]
+
+
+class SearchHit(BaseModel):
+    key: str
+    kind: str
+    title: str
+    text: str
+    source_ref: str
+    cefr: str | None
+    personal: bool

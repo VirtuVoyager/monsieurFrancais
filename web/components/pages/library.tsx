@@ -3,65 +3,118 @@
 import { Search } from "lucide-react";
 import { useDeferredValue, useState } from "react";
 
+import Link from "next/link";
+
 import { GenderTag } from "@/components/lesson/gender-tag";
 import { SpeakButton } from "@/components/lesson/speak-button";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { cx } from "@/components/ui/cx";
 import { FrenchMarkdown } from "@/components/ui/markdown";
 import { Empty, ErrorState, Loading } from "@/components/ui/states";
 import { fr } from "@/lib/french";
-import { useLibraryConcepts, useLibrarySentences, useLibraryWords } from "@/lib/queries";
+import { useLibraryConcepts, useLibrarySentences, useLibraryWords, useSearch } from "@/lib/queries";
 
 const TABS = ["Words", "Sentences", "Grammar"] as const;
 type Tab = (typeof TABS)[number];
 
+const KIND_LABELS: Record<string, string> = {
+  word: "Word",
+  sentence: "Sentence",
+  grammar: "Grammar",
+  error: "Your error",
+  feedback: "Your feedback",
+};
+
 export function LibraryPage() {
   const [tab, setTab] = useState<Tab>("Words");
   const [query, setQuery] = useState("");
+  const [everything, setEverything] = useState(false);
   const q = useDeferredValue(query.trim());
 
   return (
     <div className="space-y-6">
       <h1 className="font-serif text-3xl font-semibold">Library</h1>
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div role="tablist" className="inline-flex rounded-xl border border-line bg-surface p-1">
-          {TABS.map((t) => (
-            <button
-              key={t}
-              role="tab"
-              aria-selected={tab === t}
-              onClick={() => setTab(t)}
-              className={cx(
-                "rounded-lg px-4 py-1.5 text-sm font-medium",
-                tab === t ? "bg-accent-soft text-accent" : "text-muted hover:text-ink",
-              )}
-            >
-              {t}
-            </button>
-          ))}
-        </div>
-        {tab !== "Grammar" && (
-          <label className="relative block">
-            <span className="sr-only">Search</span>
-            <Search className="absolute top-2.5 left-3 size-4 text-muted" aria-hidden />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search French or English"
-              className="w-full rounded-xl border border-line bg-surface py-2 pr-3 pl-9 text-sm outline-none focus:border-accent sm:w-72"
-            />
-          </label>
-        )}
+      <div className="space-y-2">
+        <label className="relative block">
+          <span className="sr-only">Search</span>
+          <Search className="absolute top-3 left-3 size-4 text-muted" aria-hidden />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search words, sentences, grammar and your own mistakes"
+            className="w-full rounded-xl border border-line bg-surface py-2.5 pr-3 pl-9 outline-none focus:border-accent"
+          />
+        </label>
+        <label className="flex items-center gap-2 text-sm text-muted">
+          <input
+            type="checkbox"
+            checked={everything}
+            onChange={(e) => setEverything(e.target.checked)}
+          />
+          Include modules I haven&apos;t started
+        </label>
       </div>
-      {tab === "Words" && <Words q={q} />}
-      {tab === "Sentences" && <Sentences q={q} />}
-      {tab === "Grammar" && <Concepts />}
+      {q.length > 1 ? (
+        <SearchResults q={q} scope={everything ? "catalogue" : "learned"} />
+      ) : (
+        <>
+          <div role="tablist" className="inline-flex rounded-xl border border-line bg-surface p-1">
+            {TABS.map((t) => (
+              <button
+                key={t}
+                role="tab"
+                aria-selected={tab === t}
+                onClick={() => setTab(t)}
+                className={cx(
+                  "rounded-lg px-4 py-1.5 text-sm font-medium",
+                  tab === t ? "bg-accent-soft text-accent" : "text-muted hover:text-ink",
+                )}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+          {tab === "Words" && <Words />}
+          {tab === "Sentences" && <Sentences />}
+          {tab === "Grammar" && <Concepts />}
+        </>
+      )}
     </div>
   );
 }
 
-function Words({ q }: { q: string }) {
-  const words = useLibraryWords(q);
+function SearchResults({ q, scope }: { q: string; scope: "learned" | "catalogue" }) {
+  const results = useSearch(q, scope);
+  if (results.isPending) return <Loading />;
+  if (results.isError) return <ErrorState error={results.error} />;
+  if (results.data.length === 0) return <Empty title="Nothing found" />;
+  return (
+    <Card className="p-0 sm:p-0">
+      <ul className="divide-y divide-line">
+        {results.data.map((hit) => (
+          <li key={hit.key}>
+            <Link href={hit.source_ref} className="block px-5 py-3 hover:bg-surface-2">
+              <div className="flex items-center gap-2">
+                <Badge tone={hit.personal ? "danger" : "accent"}>
+                  {KIND_LABELS[hit.kind] ?? hit.kind}
+                </Badge>
+                {hit.cefr && <span className="text-xs text-muted">{hit.cefr}</span>}
+              </div>
+              <p lang="fr" className="mt-1 font-medium">
+                {fr(hit.title)}
+              </p>
+              <p className="line-clamp-2 text-sm text-muted">{fr(hit.text)}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </Card>
+  );
+}
+
+function Words() {
+  const words = useLibraryWords("");
   if (words.isPending) return <Loading />;
   if (words.isError) return <ErrorState error={words.error} />;
   if (words.data.length === 0)
@@ -84,8 +137,8 @@ function Words({ q }: { q: string }) {
   );
 }
 
-function Sentences({ q }: { q: string }) {
-  const sentences = useLibrarySentences(q);
+function Sentences() {
+  const sentences = useLibrarySentences("");
   if (sentences.isPending) return <Loading />;
   if (sentences.isError) return <ErrorState error={sentences.error} />;
   if (sentences.data.length === 0)

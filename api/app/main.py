@@ -7,7 +7,18 @@ from fastapi.responses import JSONResponse
 from app.config import get_settings
 from app.errors import ForbiddenError, NotFoundError, TooManyRequestsError, UnauthorizedError
 from app.observability import configure_logging, configure_tracing, request_context
-from app.routers import auth, budget, health, lessons, library, path, settings, skills, writing
+from app.routers import (
+    auth,
+    budget,
+    health,
+    lessons,
+    library,
+    path,
+    search,
+    settings,
+    skills,
+    writing,
+)
 from app.services.budget import BudgetExceededError
 
 
@@ -52,6 +63,7 @@ def create_app() -> FastAPI:
     app.include_router(skills.router)
     app.include_router(settings.router)
     app.include_router(writing.router)
+    app.include_router(search.router)
     configure_tracing(app, config)
     return app
 

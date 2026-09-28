@@ -18,6 +18,7 @@ from app.domain.rubric import (
 from app.llm import get_grader
 from app.llm.grader import Grader, GraderUnavailableError, WritingTask
 from app.models import ErrorTag, WritingSubmission
+from app.services import knowledge
 from app.services.budget import BudgetExceededError, price_book
 from app.services.metering import run_metered
 
@@ -68,6 +69,7 @@ def try_grade(
     submission.status = "graded"
     submission.graded_at = datetime.now(UTC)
     _record_errors(session, submission.user_id, rubric.errors)
+    knowledge.index_user(session, submission.user_id)
     session.commit()
     return True
 

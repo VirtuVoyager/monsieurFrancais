@@ -9,6 +9,7 @@ dependencies = [
     "fastapi>=0.141.1",
     "fsrs>=6.3.2",
     "itsdangerous>=2.2.0",
+    "mcp>=2.2.0",
     "numpy>=2.5.3",
     "openai>=3.19.2",
     "opentelemetry-exporter-otlp-proto-http>=1.45.0",
