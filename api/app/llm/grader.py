@@ -13,8 +13,8 @@ class WritingTask:
     max_words: int
 
 
-class GraderUnavailableError(Exception):
-    """The provider could not grade right now; the submission stays queued."""
+class ProviderUnavailableError(Exception):
+    """The provider could not answer right now; the work stays queued for a retry."""
 
 
 class Grader(Protocol):

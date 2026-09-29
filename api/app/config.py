@@ -5,6 +5,7 @@ from typing import Literal
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+Provider = Literal["fake", "azure"]
 
 
 class Settings(BaseSettings):
@@ -18,10 +19,14 @@ class Settings(BaseSettings):
     log_json: bool = True
     otel_endpoint: str | None = None
 
-    providers: Literal["fake", "azure"] = "fake"
+    # Each capability switches to Azure independently, as its deployment becomes available.
+    grader_provider: Provider = "fake"
+    embedding_provider: Provider = "fake"
+    speech_provider: Provider = "fake"
     azure_openai_endpoint: str | None = None
     azure_openai_api_key: str | None = None
     azure_openai_text_deployment: str = "gpt-5.4-mini"
+    azure_openai_embedding_deployment: str = "text-embedding-3-small"
     azure_speech_key: str | None = None
     azure_speech_region: str | None = None
 
@@ -29,6 +34,7 @@ class Settings(BaseSettings):
     default_cap_speech_usd: float = 2.0
     default_cap_total_usd: float = 6.0
 
+    jobs_enabled: bool = True
     cors_origins: list[str] = ["http://localhost:3000"]
     secret_key: str | None = None
     cookie_secure: bool = False

@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 
 from app.config import get_settings
 from app.errors import ForbiddenError, NotFoundError, TooManyRequestsError, UnauthorizedError
+from app.jobs.scheduler import lifespan
 from app.observability import configure_logging, configure_tracing, request_context
 from app.routers import (
     auth,
@@ -40,7 +41,7 @@ def _status(code: int) -> Callable[[Request, Exception], Awaitable[JSONResponse]
 def create_app() -> FastAPI:
     config = get_settings()
     configure_logging(config)
-    app = FastAPI(title="Monsieur Français API", version="0.1.0")
+    app = FastAPI(title="Monsieur Français API", version="0.1.0", lifespan=lifespan)
     app.middleware("http")(request_context)
     app.add_middleware(
         CORSMiddleware,

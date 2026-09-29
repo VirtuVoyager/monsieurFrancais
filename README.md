@@ -12,8 +12,8 @@ make up                     # db + api + web on http://localhost:3000
 make obs                    # same, plus Grafana (logs, traces, metrics) on http://localhost:3001
 ```
 
-The first visit asks you to choose a passphrase. `MF_PROVIDERS=fake` (the default) never calls a
-paid service: grading uses a deterministic stand-in and listening uses the browser's voice.
+The first visit asks you to choose a passphrase. With the default `fake` providers
+(`MF_GRADER_PROVIDER`, `MF_EMBEDDING_PROVIDER`, `MF_SPEECH_PROVIDER`) nothing calls a paid service: grading uses a deterministic stand-in and listening uses the browser's voice.
 
 ## Develop
 

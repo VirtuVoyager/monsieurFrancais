@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from app.domain.cost import Metered
 from app.domain.rubric import RubricPass
 from app.llm.fake import FakeGrader
-from app.llm.grader import GraderUnavailableError, WritingTask
+from app.llm.grader import ProviderUnavailableError, WritingTask
 from app.models import UsageEvent, WritingSubmission
 from app.services import budget, grading
 from app.services.users import get_or_create_learner
@@ -101,7 +101,7 @@ class _DownGrader:
     model = "fake-text"
 
     def grade_writing(self, task: WritingTask, text: str) -> Metered[RubricPass]:
-        raise GraderUnavailableError("azure down")
+        raise ProviderUnavailableError("azure down")
 
 
 def test_provider_outage_leaves_the_submission_queued(seeded: Session) -> None:

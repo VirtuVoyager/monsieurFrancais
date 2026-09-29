@@ -2,11 +2,14 @@ import hashlib
 from dataclasses import dataclass
 from typing import Literal
 
-from sqlalchemy import ColumnElement, case, delete, func, or_, select
+from sqlalchemy import ColumnElement, Select, case, delete, func, or_, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
 from app.domain.ranking import reciprocal_rank_fusion
+from app.llm import get_embedder
+from app.llm.embedder import Embedder, Vector
+from app.llm.grader import ProviderUnavailableError
 from app.models import (
     Concept,
     ErrorTag,
@@ -18,9 +21,12 @@ from app.models import (
     Sentence,
     WritingSubmission,
 )
+from app.services.budget import BudgetExceededError, price_book
+from app.services.metering import run_metered
 
 Scope = Literal["learned", "catalogue", "mine"]
 CANDIDATES = 30
+EMBED_BATCH = 64
 
 
 @dataclass(frozen=True)
@@ -157,9 +163,66 @@ def search(
         .order_by(func.similarity(KbEntry.title_norm, normalized).desc())
         .limit(CANDIDATES)
     ).all()
-    ranked = reciprocal_rank_fusion(list(full_text), list(fuzzy))[:20]
+    semantic = _semantic(session, user_id, base, text)
+    ranked = reciprocal_rank_fusion(list(full_text), list(fuzzy), semantic)[:20]
     rows = {e.key: e for e in session.scalars(select(KbEntry).where(KbEntry.key.in_(ranked)))}
     return [rows[key] for key in ranked]
+
+
+def embed_pending(session: Session, user_id: int, embedder: Embedder | None = None) -> int:
+    """Embeds entries that are new, changed, or from an older embedding model."""
+    embedder = embedder or get_embedder()
+    done = 0
+    while True:
+        batch = session.scalars(
+            select(KbEntry)
+            .where(or_(KbEntry.embedding.is_(None), KbEntry.embedding_model != embedder.model))
+            .order_by(KbEntry.id)
+            .limit(EMBED_BATCH)
+        ).all()
+        if not batch:
+            return done
+        texts = [f"{e.title}\n{e.text}" for e in batch]
+        vectors = _embed(session, user_id, embedder, texts, feature="embeddings")
+        for entry, vector in zip(batch, vectors, strict=True):
+            entry.embedding = vector
+            entry.embedding_model = embedder.model
+        session.commit()
+        done += len(batch)
+
+
+def _semantic(session: Session, user_id: int, base: Select[str], text: str) -> list[str]:
+    """Nearest entries by meaning; search still works on keywords if embedding is unavailable."""
+    embedder = get_embedder()
+    try:
+        [vector] = _embed(session, user_id, embedder, [text], feature="search")
+    except (BudgetExceededError, ProviderUnavailableError):
+        return []
+    return list(
+        session.scalars(
+            base.where(KbEntry.embedding_model == embedder.model)
+            .order_by(KbEntry.embedding.cosine_distance(vector))
+            .limit(CANDIDATES)
+        )
+    )
+
+
+def _embed(
+    session: Session, user_id: int, embedder: Embedder, texts: list[str], feature: str
+) -> list[Vector]:
+    estimate = (
+        price_book()
+        .for_model(embedder.model)
+        .cost({"input_tokens": sum(len(t) for t in texts) / 3})
+    )
+    return run_metered(
+        session,
+        user_id=user_id,
+        feature=feature,
+        model=embedder.model,
+        estimate_usd=estimate,
+        call=lambda: embedder.embed(texts),
+    )
 
 
 def _scope_filter(user_id: int, scope: Scope) -> ColumnElement[bool]:

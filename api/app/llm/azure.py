@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 from app.domain.cost import Metered, Units
 from app.domain.rubric import ErrorKind, Fix, RubricPass, TaggedError
-from app.llm.grader import GraderUnavailableError, WritingTask
+from app.llm.grader import ProviderUnavailableError, WritingTask
 
 
 class _Criterion(BaseModel):
@@ -64,10 +64,10 @@ class AzureGrader:
                 reasoning={"effort": "low"},
             )
         except openai.APIError as exc:
-            raise GraderUnavailableError(str(exc)) from exc
+            raise ProviderUnavailableError(str(exc)) from exc
         output = response.output_parsed
         if output is None or response.usage is None:
-            raise GraderUnavailableError("The grader returned no structured output")
+            raise ProviderUnavailableError("The grader returned no structured output")
         usage = response.usage
         cached = usage.input_tokens_details.cached_tokens
         units: Units = {

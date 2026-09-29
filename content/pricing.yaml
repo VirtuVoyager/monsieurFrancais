@@ -51,3 +51,8 @@ models:
       input_tokens: {usd: 0, per: 1000000}
       cached_input_tokens: {usd: 0, per: 1000000}
       output_tokens: {usd: 0, per: 1000000}
+
+  fake-embedding:
+    service: openai
+    rates:
+      input_tokens: {usd: 0, per: 1000000}

@@ -20,6 +20,12 @@ class KbEntry(Base):
             postgresql_using="gin",
             postgresql_ops={"title_norm": "gin_trgm_ops"},
         ),
+        Index(
+            "ix_kb_entries_embedding",
+            "embedding",
+            postgresql_using="hnsw",
+            postgresql_ops={"embedding": "vector_cosine_ops"},
+        ),
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)

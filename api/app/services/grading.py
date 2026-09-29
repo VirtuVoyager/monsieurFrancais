@@ -16,7 +16,7 @@ from app.domain.rubric import (
     word_count,
 )
 from app.llm import get_grader
-from app.llm.grader import Grader, GraderUnavailableError, WritingTask
+from app.llm.grader import Grader, ProviderUnavailableError, WritingTask
 from app.models import ErrorTag, WritingSubmission
 from app.services import knowledge
 from app.services.budget import BudgetExceededError, price_book
@@ -61,7 +61,7 @@ def try_grade(
     grader = grader or get_grader()
     try:
         rubric = _grade(session, submission, task, grader)
-    except (BudgetExceededError, GraderUnavailableError) as exc:
+    except (BudgetExceededError, ProviderUnavailableError) as exc:
         log.warning("grading_deferred", submission_id=submission.id, reason=str(exc))
         return False
     submission.rubric = _serialize(rubric)
