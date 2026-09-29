@@ -57,7 +57,7 @@ strict = true
 plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
-module = ["fsrs.*", "pgvector.*"]
+module = ["fsrs.*", "pgvector.*", "apscheduler.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
