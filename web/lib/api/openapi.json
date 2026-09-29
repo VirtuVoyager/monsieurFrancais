@@ -2558,16 +2558,6 @@
             "title": "Daily Minutes",
             "default": 90
           },
-          "accent_mix": {
-            "type": "string",
-            "enum": [
-              "france",
-              "quebec",
-              "mixed"
-            ],
-            "title": "Accent Mix",
-            "default": "mixed"
-          },
           "timezone": {
             "type": "string",
             "title": "Timezone",
@@ -3090,6 +3080,17 @@
             ],
             "title": "Example Fr"
           },
+          "audio_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Url"
+          },
           "due_at": {
             "type": "string",
             "format": "date-time",
@@ -3108,6 +3109,7 @@
           "answer_fr",
           "gender",
           "example_fr",
+          "audio_url",
           "due_at",
           "reviews"
         ],
@@ -3191,6 +3193,17 @@
           "en": {
             "type": "string",
             "title": "En"
+          },
+          "audio_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Url"
           }
         },
         "type": "object",
@@ -3545,6 +3558,17 @@
           "example_en": {
             "type": "string",
             "title": "Example En"
+          },
+          "audio_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Url"
           }
         },
         "type": "object",

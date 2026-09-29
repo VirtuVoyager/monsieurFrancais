@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+psycopg://mf:mf@localhost:5432/mf"
     content_dir: Path = REPO_ROOT / "content"
     media_dir: Path = REPO_ROOT / "media"
+    media_manifest: Path = REPO_ROOT / "content" / "media_manifest.csv"
     timezone: str = "Asia/Kolkata"
     log_level: str = "INFO"
     log_json: bool = True

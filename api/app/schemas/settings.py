@@ -1,5 +1,4 @@
 from datetime import date
-from typing import Literal
 from zoneinfo import available_timezones
 
 from pydantic import BaseModel, Field, field_validator
@@ -9,7 +8,6 @@ class LearnerSettings(BaseModel):
     exam_date: date | None = None
     target_nclc: int = Field(default=7, ge=5, le=10)
     daily_minutes: int = Field(default=90, ge=15, le=600)
-    accent_mix: Literal["france", "quebec", "mixed"] = "mixed"
     timezone: str = "Asia/Kolkata"
 
     @field_validator("timezone")

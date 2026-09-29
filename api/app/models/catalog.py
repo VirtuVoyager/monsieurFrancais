@@ -72,7 +72,6 @@ class Lexeme(Base):
     en: Mapped[str]
     example_fr: Mapped[str]
     example_en: Mapped[str]
-    audio_hash: Mapped[str | None] = mapped_column(String(64))
 
 
 class Sentence(Base):
@@ -82,7 +81,6 @@ class Sentence(Base):
     module_id: Mapped[str] = mapped_column(ForeignKey("modules.id"), index=True)
     fr: Mapped[str] = mapped_column(Text)
     en: Mapped[str] = mapped_column(Text)
-    audio_hash: Mapped[str | None] = mapped_column(String(64))
 
 
 class Item(Base):
@@ -101,6 +99,5 @@ class Item(Base):
     difficulty: Mapped[float]
     payload: Mapped[dict[str, Any]]
     answer: Mapped[dict[str, Any]]
-    audio_hash: Mapped[str | None] = mapped_column(String(64))
     content_hash: Mapped[str] = mapped_column(String(64))
     status: Mapped[str] = mapped_column(String(10), default="live")

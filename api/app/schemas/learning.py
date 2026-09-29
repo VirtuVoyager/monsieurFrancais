@@ -75,12 +75,14 @@ class WordOut(BaseModel):
     en: str
     example_fr: str
     example_en: str
+    audio_url: str | None = None
 
 
 class SentenceOut(BaseModel):
     id: str
     fr: str
     en: str
+    audio_url: str | None = None
 
 
 class GrammarContent(BaseModel):
@@ -209,6 +211,7 @@ class ReviewCard(BaseModel):
     answer_fr: str
     gender: str | None
     example_fr: str | None
+    audio_url: str | None
     due_at: datetime
     reviews: int
 

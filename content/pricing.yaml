@@ -56,3 +56,8 @@ models:
     service: openai
     rates:
       input_tokens: {usd: 0, per: 1000000}
+
+  fake-speech:
+    service: speech
+    rates:
+      characters: {usd: 0, per: 1000000}

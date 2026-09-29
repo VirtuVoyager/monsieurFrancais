@@ -27,10 +27,10 @@ def test_settings_default_then_update_with_plan(client: TestClient) -> None:
     exam = (date.today() + timedelta(days=120)).isoformat()
     body = client.put(
         "/settings",
-        json={"exam_date": exam, "target_nclc": 7, "daily_minutes": 120, "accent_mix": "quebec"},
+        json={"exam_date": exam, "target_nclc": 7, "daily_minutes": 120},
     ).json()
 
-    assert body["settings"]["accent_mix"] == "quebec"
+    assert body["settings"]["daily_minutes"] == 120
     assert body["plan"]["days_left"] == 120
     assert client.get("/settings").json() == body
 

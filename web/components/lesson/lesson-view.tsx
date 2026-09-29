@@ -100,7 +100,7 @@ function WordList({ words }: { words: Schemas["WordOut"][] }) {
       <ul className="divide-y divide-line">
         {words.map((word) => (
           <li key={word.id} className="flex items-start gap-3 py-3">
-            <SpeakButton text={word.lemma} />
+            <SpeakButton text={word.lemma} url={word.audio_url} />
             <div className="min-w-0 flex-1">
               <p className="flex flex-wrap items-center gap-2">
                 <span lang="fr" className="font-medium">
@@ -138,7 +138,7 @@ function SentenceList({ sentences }: { sentences: Schemas["SentenceOut"][] }) {
       <ul className="space-y-3">
         {sentences.map((s) => (
           <li key={s.id} className="flex items-start gap-3 rounded-xl border border-line p-3">
-            <SpeakButton text={s.fr} />
+            <SpeakButton text={s.fr} url={s.audio_url} />
             <button type="button" className="flex-1 text-left" onClick={() => toggle(s.id)}>
               <p lang="fr">{fr(s.fr)}</p>
               <p className={cx("text-sm text-muted", !revealed.has(s.id) && "sr-only")}>{s.en}</p>
@@ -162,17 +162,23 @@ function Listening({
     <div className="space-y-6">
       <Card className="space-y-4">
         <div className="flex flex-wrap items-center gap-3">
-          <Button onClick={() => speakFrench(content.transcript, 0.9)}>
-            <Play className="size-4" aria-hidden /> Play audio
-          </Button>
+          {content.audio_url ? (
+            <audio controls src={content.audio_url} className="w-full sm:w-auto" />
+          ) : (
+            <Button onClick={() => speakFrench(content.transcript, 0.9)}>
+              <Play className="size-4" aria-hidden /> Play audio
+            </Button>
+          )}
           <Button variant="ghost" onClick={() => setShowTranscript(!showTranscript)}>
             {showTranscript ? "Hide" : "Show"} transcript
           </Button>
         </div>
-        <p className="text-xs text-muted">
-          Practice mode uses your browser&apos;s French voice until the recorded audio is generated.
-          Timed assessments play recorded audio once.
-        </p>
+        {!content.audio_url && (
+          <p className="text-xs text-muted">
+            Recorded audio isn&apos;t generated yet, so this uses your browser&apos;s French voice.
+            Timed assessments play recorded audio once.
+          </p>
+        )}
         {showTranscript && (
           <p lang="fr" className="rounded-xl bg-surface-2 p-4 leading-relaxed">
             {fr(content.transcript)}

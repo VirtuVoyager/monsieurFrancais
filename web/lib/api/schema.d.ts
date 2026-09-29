@@ -801,12 +801,6 @@ export interface components {
              */
             daily_minutes: number;
             /**
-             * Accent Mix
-             * @default mixed
-             * @enum {string}
-             */
-            accent_mix: "france" | "quebec" | "mixed";
-            /**
              * Timezone
              * @default Asia/Kolkata
              */
@@ -980,6 +974,8 @@ export interface components {
             gender: string | null;
             /** Example Fr */
             example_fr: string | null;
+            /** Audio Url */
+            audio_url: string | null;
             /**
              * Due At
              * Format: date-time
@@ -1018,6 +1014,8 @@ export interface components {
             fr: string;
             /** En */
             en: string;
+            /** Audio Url */
+            audio_url?: string | null;
         };
         /** SentencesContent */
         SentencesContent: {
@@ -1158,6 +1156,8 @@ export interface components {
             example_fr: string;
             /** Example En */
             example_en: string;
+            /** Audio Url */
+            audio_url?: string | null;
         };
         /** WritingContent */
         WritingContent: {

@@ -3,6 +3,7 @@ from collections.abc import Awaitable, Callable
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.config import get_settings
 from app.errors import ForbiddenError, NotFoundError, TooManyRequestsError, UnauthorizedError
@@ -65,6 +66,10 @@ def create_app() -> FastAPI:
     app.include_router(settings.router)
     app.include_router(writing.router)
     app.include_router(search.router)
+    # Only shared catalogue audio is public; learners' own recordings are never mounted.
+    catalog = config.media_dir / "catalog"
+    catalog.mkdir(parents=True, exist_ok=True)
+    app.mount("/media/catalog", StaticFiles(directory=catalog), name="catalog-media")
     configure_tracing(app, config)
     return app
 

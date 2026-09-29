@@ -5,8 +5,9 @@ from sqlalchemy import or_, select
 
 from app.db import SessionDep
 from app.models import Card, Concept, Lesson, Lexeme, ModuleProgress, Sentence
+from app.presenters import sentence_out, word_out
 from app.schemas.learning import ConceptOut, ReviewCard, ReviewRating, SentenceOut, WordOut
-from app.services import library
+from app.services import audio, library
 from app.services.users import CurrentUser
 
 router = APIRouter(tags=["library"])
@@ -34,10 +35,7 @@ def learned_words(session: SessionDep, user: CurrentUser, q: str | None = None) 
     if q:
         like = f"%{q}%"
         query = query.where(or_(Lexeme.lemma.ilike(like), Lexeme.en.ilike(like)))
-    return [
-        WordOut.model_validate(w, from_attributes=True)
-        for w in session.scalars(query.order_by(Lexeme.lemma))
-    ]
+    return [word_out(w) for w in session.scalars(query.order_by(Lexeme.lemma))]
 
 
 @router.get("/library/sentences")
@@ -51,7 +49,7 @@ def learned_sentences(
     if q:
         like = f"%{q}%"
         query = query.where(or_(Sentence.fr.ilike(like), Sentence.en.ilike(like)))
-    return [SentenceOut.model_validate(s, from_attributes=True) for s in session.scalars(query)]
+    return [sentence_out(s) for s in session.scalars(query)]
 
 
 @router.get("/library/concepts")
@@ -70,9 +68,11 @@ def _review_card(session: SessionDep, card: Card) -> ReviewCard:
     if card.item_type == "lexeme":
         word = session.get_one(Lexeme, card.item_id)
         prompt, answer, gender, example = word.en, word.lemma, word.gender, word.example_fr
+        url = audio.url_for(audio.word_request(word))
     else:
         sentence = session.get_one(Sentence, card.item_id)
         prompt, answer, gender, example = sentence.en, sentence.fr, None, None
+        url = audio.url_for(audio.sentence_request(sentence))
     return ReviewCard(
         id=card.id,
         item_type=card.item_type,
@@ -80,6 +80,7 @@ def _review_card(session: SessionDep, card: Card) -> ReviewCard:
         answer_fr=answer,
         gender=gender,
         example_fr=example,
+        audio_url=url,
         due_at=card.due_at,
         reviews=card.reviews,
     )

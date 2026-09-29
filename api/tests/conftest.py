@@ -1,5 +1,6 @@
 import os
 from collections.abc import Iterator
+from pathlib import Path
 
 os.environ.setdefault("MF_DATABASE_URL", "postgresql+psycopg://mf:mf@localhost:5432/mf_test")
 os.environ.setdefault("MF_LOG_JSON", "false")
@@ -70,3 +71,10 @@ def client(session: Session) -> Iterator[TestClient]:
 def seeded(session: Session) -> Session:
     seed(session, get_settings().content_dir)
     return session
+
+
+@pytest.fixture(autouse=True)
+def isolated_media(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Generated audio lives on disk, outside the rolled-back transaction, so isolate it."""
+    monkeypatch.setattr(get_settings(), "media_dir", tmp_path / "media")
+    monkeypatch.setattr(get_settings(), "media_manifest", tmp_path / "manifest.csv")

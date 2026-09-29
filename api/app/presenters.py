@@ -1,5 +1,12 @@
-from app.models import Module
-from app.schemas.learning import LessonSummary, ModuleDetail, ModuleSummary
+from app.models import Lexeme, Module, Sentence
+from app.schemas.learning import (
+    LessonSummary,
+    ModuleDetail,
+    ModuleSummary,
+    SentenceOut,
+    WordOut,
+)
+from app.services import audio
 from app.services.path import PathView
 
 
@@ -30,4 +37,16 @@ def module_detail(module: Module, view: PathView) -> ModuleDetail:
             for lesson in module.lessons
         ],
         can_take_check=len(done) >= len(module.lessons),
+    )
+
+
+def word_out(word: Lexeme) -> WordOut:
+    return WordOut.model_validate(word, from_attributes=True).model_copy(
+        update={"audio_url": audio.url_for(audio.word_request(word))}
+    )
+
+
+def sentence_out(sentence: Sentence) -> SentenceOut:
+    return SentenceOut.model_validate(sentence, from_attributes=True).model_copy(
+        update={"audio_url": audio.url_for(audio.sentence_request(sentence))}
     )

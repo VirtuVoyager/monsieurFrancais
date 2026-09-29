@@ -124,7 +124,7 @@ function Words() {
       <ul className="divide-y divide-line">
         {words.data.map((w) => (
           <li key={w.id} className="flex items-center gap-3 px-5 py-3">
-            <SpeakButton text={w.lemma} />
+            <SpeakButton text={w.lemma} url={w.audio_url} />
             <span lang="fr" className="font-medium">
               {fr(w.lemma)}
             </span>
@@ -148,7 +148,7 @@ function Sentences() {
       <ul className="divide-y divide-line">
         {sentences.data.map((s) => (
           <li key={s.id} className="flex items-start gap-3 px-5 py-3">
-            <SpeakButton text={s.fr} />
+            <SpeakButton text={s.fr} url={s.audio_url} />
             <div>
               <p lang="fr">{fr(s.fr)}</p>
               <p className="text-sm text-muted">{s.en}</p>

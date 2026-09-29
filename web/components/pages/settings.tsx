@@ -84,18 +84,6 @@ function SettingsForm({ initial }: { initial: Schemas["LearnerSettings"] }) {
               className={input}
             />
           </label>
-          <label className="block text-sm font-medium">
-            Listening accents
-            <select
-              value={form.accent_mix}
-              onChange={(e) => set("accent_mix", e.target.value as typeof form.accent_mix)}
-              className={input}
-            >
-              <option value="mixed">France and Québec</option>
-              <option value="france">Mostly France</option>
-              <option value="quebec">Mostly Québec</option>
-            </select>
-          </label>
           <label className="block text-sm font-medium sm:col-span-2">
             Timezone
             <input

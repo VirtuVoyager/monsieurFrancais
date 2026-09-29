@@ -5,11 +5,12 @@ const MODULE = "/modules/a1-01-se-presenter";
 async function completeEveryLesson(page: Page) {
   await page.goto(`${MODULE}`);
   await page.getByRole("link", { name: /Pronoms sujets/ }).click();
-  for (let i = 0; i < 7; i++) {
+  await page.waitForURL(/\/lessons\//);
+  while (!page.url().endsWith(MODULE)) {
+    const current = page.url();
     await page.getByRole("button", { name: /Complete lesson|Next lesson|Back to module/ }).click();
-    await page.waitForLoadState("networkidle");
+    await page.waitForURL((url) => url.toString() !== current);
   }
-  await expect(page).toHaveURL(MODULE);
 }
 
 test("a grammar exercise gives immediate feedback", async ({ page }) => {

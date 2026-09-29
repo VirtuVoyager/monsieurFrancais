@@ -14,7 +14,7 @@ from app.schemas.learning import (
     PlacementOutcome,
     SkillLevelOut,
 )
-from app.services import drills, placement, skills
+from app.services import audio, drills, placement, skills
 from app.services.skills import SkillLevel
 from app.services.users import CurrentUser
 
@@ -80,11 +80,11 @@ def submit_placement(
 
 def _exam_exercise(item: Item) -> ExerciseOut:
     exercise = public({"kind": item.kind, **item.payload})
-    if item.audio_hash:
+    url = audio.url_for(audio.item_request(item))
+    if url:
         # Recorded audio exists, so the script must not reach the browser.
         exercise.pop("audio_text", None)
-        h = item.audio_hash
-        exercise["audio_url"] = f"/media/catalog/audio/{h[:2]}/{h[2:4]}/{h}.opus"
+        exercise["audio_url"] = url
     return ExerciseOut.model_validate(exercise)
 
 

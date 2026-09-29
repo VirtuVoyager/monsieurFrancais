@@ -65,7 +65,7 @@ export function ReviewPage() {
           <div className="space-y-2" lang="fr">
             <p className="flex items-center justify-center gap-2 text-2xl font-semibold text-accent">
               {fr(card.answer_fr)} <GenderTag gender={card.gender} />
-              <SpeakButton text={card.answer_fr} />
+              <SpeakButton text={card.answer_fr} url={card.audio_url} />
             </p>
             {card.example_fr && <p className="text-muted italic">{fr(card.example_fr)}</p>}
           </div>

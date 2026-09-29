@@ -6,19 +6,19 @@ from sqlalchemy.orm import Session
 from app.domain.exercises import CheckResult, check, public
 from app.errors import NotFoundError
 from app.models import Concept, Lesson, Lexeme, Sentence
+from app.presenters import sentence_out, word_out
 from app.schemas.learning import (
     ExerciseOut,
     GrammarContent,
     LessonContent,
     ListeningContent,
     ReadingContent,
-    SentenceOut,
     SentencesContent,
     SpeakingContent,
     VocabContent,
-    WordOut,
     WritingContent,
 )
+from app.services import audio
 
 
 def get_lesson(session: Session, lesson_id: str) -> Lesson:
@@ -54,17 +54,15 @@ def content(session: Session, lesson: Lesson) -> LessonContent:  # noqa: PLR0911
             words = session.scalars(
                 select(Lexeme).where(Lexeme.module_id == lesson.module_id).order_by(Lexeme.id)
             )
-            return VocabContent(
-                words=[WordOut.model_validate(w, from_attributes=True) for w in words]
-            )
+            return VocabContent(words=[word_out(w) for w in words])
         case "sentences":
             rows = session.scalars(select(Sentence).where(Sentence.module_id == lesson.module_id))
-            return SentencesContent(
-                sentences=[SentenceOut.model_validate(s, from_attributes=True) for s in rows]
-            )
+            return SentencesContent(sentences=[sentence_out(s) for s in rows])
         case "listening":
             return ListeningContent(
-                transcript=payload["transcript"].strip(), audio_url=None, exercises=public_exercises
+                transcript=payload["transcript"].strip(),
+                audio_url=audio.url_for(audio.lesson_request(lesson)),
+                exercises=public_exercises,
             )
         case "reading":
             return ReadingContent(text=payload["text"].strip(), exercises=public_exercises)
