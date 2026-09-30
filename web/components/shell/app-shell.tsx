@@ -1,6 +1,17 @@
 "use client";
 
-import { BookOpen, Gauge, Home, Layers, Library, Mic, Repeat, Settings, Timer } from "lucide-react";
+import {
+  BookOpen,
+  Gauge,
+  Home,
+  Layers,
+  Library,
+  Mic,
+  NotebookPen,
+  Repeat,
+  Settings,
+  Timer,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
@@ -9,13 +20,15 @@ import { cx } from "@/components/ui/cx";
 import { api } from "@/lib/api/client";
 import { useQueryClient } from "@tanstack/react-query";
 
-const NAV = [
+// The phone bar has room for seven tabs; there, Notes is reached from the Library.
+const NAV: { href: string; label: string; icon: typeof Home; desktopOnly?: boolean }[] = [
   { href: "/", label: "Home", icon: Home },
   { href: "/path", label: "Path", icon: Layers },
   { href: "/review", label: "Review", icon: Repeat },
   { href: "/drills", label: "Drills", icon: Timer },
   { href: "/speak", label: "Speak", icon: Mic },
   { href: "/library", label: "Library", icon: Library },
+  { href: "/notes", label: "Notes", icon: NotebookPen, desktopOnly: true },
   { href: "/progress", label: "Progress", icon: Gauge },
 ];
 
@@ -85,7 +98,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         aria-label="Main"
         className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-7 border-t border-line bg-surface/95 backdrop-blur md:hidden"
       >
-        {NAV.map(({ href, label, icon: Icon }) => (
+        {NAV.filter((item) => !item.desktopOnly).map(({ href, label, icon: Icon }) => (
           <Link
             key={href}
             href={href}

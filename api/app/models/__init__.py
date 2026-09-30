@@ -10,6 +10,7 @@ from app.models.learner import (
     User,
     WritingSubmission,
 )
+from app.models.notes import Note, NoteItem
 
 __all__ = [
     "AssessmentRun",
@@ -26,6 +27,8 @@ __all__ = [
     "Lexeme",
     "Module",
     "ModuleProgress",
+    "Note",
+    "NoteItem",
     "Response",
     "Sentence",
     "UsageEvent",

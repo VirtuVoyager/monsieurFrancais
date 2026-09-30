@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.db import SessionLocal
-from app.services import knowledge, speaking, writing
+from app.services import knowledge, notes, speaking, writing
 from app.services.users import get_or_create_learner
 
 log = structlog.get_logger()
@@ -38,6 +38,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     if get_settings().jobs_enabled:
         scheduler.add_job(_run("embed_pending", _embed), "interval", minutes=1)
         scheduler.add_job(_run("close_speaking", speaking.close_expired), "interval", minutes=1)
+        scheduler.add_job(_run("extract_notes", notes.extract_pending), "interval", minutes=10)
         scheduler.add_job(_run("grade_pending", writing.grade_pending), "interval", minutes=10)
         scheduler.start()
     yield

@@ -4,10 +4,10 @@ from fastapi import APIRouter
 from sqlalchemy import or_, select
 
 from app.db import SessionDep
-from app.models import Card, Concept, Lesson, Lexeme, ModuleProgress, Sentence
+from app.models import Card, Concept, Lesson, Lexeme, ModuleProgress, NoteItem, Sentence
 from app.presenters import sentence_out, word_out
 from app.schemas.learning import ConceptOut, ReviewCard, ReviewRating, SentenceOut, WordOut
-from app.services import audio, library
+from app.services import audio, library, notes
 from app.services.users import CurrentUser
 
 router = APIRouter(tags=["library"])
@@ -35,7 +35,21 @@ def learned_words(session: SessionDep, user: CurrentUser, q: str | None = None) 
     if q:
         like = f"%{q}%"
         query = query.where(or_(Lexeme.lemma.ilike(like), Lexeme.en.ilike(like)))
-    return [word_out(w) for w in session.scalars(query.order_by(Lexeme.lemma))]
+    words = [word_out(w) for w in session.scalars(query.order_by(Lexeme.lemma))]
+    return words + [
+        WordOut(
+            id=f"note:{item.id}",
+            lemma=item.fr,
+            pos="",
+            gender=item.gender,
+            en=item.en,
+            example_fr=item.detail,
+            example_en="",
+            source=notes.source_label(note),
+        )
+        for item, note in notes.approved(session, user.id, "word")
+        if _matches(q, item)
+    ]
 
 
 @router.get("/library/sentences")
@@ -49,7 +63,12 @@ def learned_sentences(
     if q:
         like = f"%{q}%"
         query = query.where(or_(Sentence.fr.ilike(like), Sentence.en.ilike(like)))
-    return [sentence_out(s) for s in session.scalars(query)]
+    sentences = [sentence_out(s) for s in session.scalars(query)]
+    return sentences + [
+        SentenceOut(id=f"note:{item.id}", fr=item.fr, en=item.en, source=notes.source_label(note))
+        for item, note in notes.approved(session, user.id, "sentence")
+        if _matches(q, item)
+    ]
 
 
 @router.get("/library/concepts")
@@ -61,11 +80,28 @@ def learned_concepts(session: SessionDep, user: CurrentUser) -> list[ConceptOut]
     )
     concept_ids = [f"{lesson.module_id}/{lesson.payload['concept']}" for lesson in grammar_lessons]
     concepts = session.scalars(select(Concept).where(Concept.id.in_(concept_ids)))
-    return [ConceptOut.model_validate(c, from_attributes=True) for c in concepts]
+    return [ConceptOut.model_validate(c, from_attributes=True) for c in concepts] + [
+        ConceptOut(
+            id=f"note:{item.id}",
+            title=item.fr,
+            body_md=item.detail,
+            source=notes.source_label(note),
+        )
+        for item, note in notes.approved(session, user.id, "grammar")
+    ]
+
+
+def _matches(q: str | None, item: NoteItem) -> bool:
+    needle = (q or "").casefold()
+    return needle in item.fr.casefold() or needle in item.en.casefold()
 
 
 def _review_card(session: SessionDep, card: Card) -> ReviewCard:
-    if card.item_type == "lexeme":
+    if card.item_type == notes.CARD_TYPE:
+        item = session.get_one(NoteItem, int(card.item_id))
+        prompt, answer, gender, example = item.en, item.fr, item.gender, item.detail or None
+        url = None
+    elif card.item_type == "lexeme":
         word = session.get_one(Lexeme, card.item_id)
         prompt, answer, gender, example = word.en, word.lemma, word.gender, word.example_fr
         url = audio.url_for(audio.word_request(word))

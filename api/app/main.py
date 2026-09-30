@@ -15,6 +15,7 @@ from app.routers import (
     health,
     lessons,
     library,
+    notes,
     path,
     search,
     settings,
@@ -63,6 +64,7 @@ def create_app() -> FastAPI:
     app.include_router(path.router)
     app.include_router(lessons.router)
     app.include_router(library.router)
+    app.include_router(notes.router)
     app.include_router(skills.router)
     app.include_router(settings.router)
     app.include_router(writing.router)

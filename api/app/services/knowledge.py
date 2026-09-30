@@ -18,6 +18,7 @@ from app.models import (
     Lexeme,
     Module,
     ModuleProgress,
+    NoteItem,
     Sentence,
     WritingSubmission,
 )
@@ -136,7 +137,33 @@ def index_user(session: Session, user_id: int) -> None:
                     user_id=user_id,
                 )
             )
+    entries += _note_entries(session, user_id)
+    # Items rejected after approval must disappear from search too.
+    session.execute(
+        delete(KbEntry).where(
+            KbEntry.user_id == user_id,
+            KbEntry.key.startswith("note:"),
+            KbEntry.key.not_in([e.key for e in entries]),
+        )
+    )
     _upsert(session, entries)
+
+
+def _note_entries(session: Session, user_id: int) -> list[Entry]:
+    approved = session.scalars(
+        select(NoteItem).where(NoteItem.user_id == user_id, NoteItem.status == "approved")
+    )
+    return [
+        Entry(
+            f"note:{item.id}",
+            item.kind,
+            item.fr,
+            item.detail if item.kind == "grammar" else f"{item.fr} — {item.en}. {item.detail}",
+            f"/notes/{item.note_id}",
+            user_id=user_id,
+        )
+        for item in approved
+    ]
 
 
 def search(

@@ -7,6 +7,7 @@ os.environ.setdefault("MF_LOG_JSON", "false")
 os.environ.setdefault("MF_SECRET_KEY", "test-secret")
 # Tests never touch paid services, whatever the local .env says.
 os.environ["MF_GRADER_PROVIDER"] = "fake"
+os.environ["MF_NOTES_PROVIDER"] = "fake"
 os.environ["MF_EMBEDDING_PROVIDER"] = "fake"
 os.environ["MF_SPEECH_PROVIDER"] = "fake"
 os.environ["MF_REALTIME_PROVIDER"] = "fake"

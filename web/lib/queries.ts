@@ -175,6 +175,44 @@ export function useStartSpeaking() {
   });
 }
 
+export function useNotes() {
+  return useQuery({ queryKey: ["notes"], queryFn: () => unwrap(api.GET("/notes")) });
+}
+
+export function useNote(id: number) {
+  return useQuery({
+    queryKey: ["notes", id],
+    queryFn: () => unwrap(api.GET("/notes/{note_id}", { params: { path: { note_id: id } } })),
+  });
+}
+
+export function useUploadNote() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (body: Schemas["NoteUpload"]) => unwrap(api.POST("/notes", { body })),
+    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["notes"] }),
+  });
+}
+
+export function useReviewNote(id: number) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (items: Schemas["NoteDecision"][]) =>
+      unwrap(
+        api.POST("/notes/{note_id}/review", {
+          params: { path: { note_id: id } },
+          body: { items },
+        }),
+      ),
+    onSuccess: (note) => {
+      queryClient.setQueryData(["notes", id], note);
+      void queryClient.invalidateQueries({ queryKey: ["notes"], exact: true });
+      void queryClient.invalidateQueries({ queryKey: ["library"] });
+      void queryClient.invalidateQueries({ queryKey: keys.due });
+    },
+  });
+}
+
 export function useSettings() {
   return useQuery({ queryKey: ["settings"], queryFn: () => unwrap(api.GET("/settings")) });
 }

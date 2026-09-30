@@ -7,6 +7,7 @@ from app.llm.azure import AzureGrader
 from app.llm.embedder import AzureEmbedder, Embedder, FakeEmbedder
 from app.llm.fake import FakeGrader
 from app.llm.grader import Grader
+from app.llm.notes import AzureNoteExtractor, FakeNoteExtractor, NoteExtractor
 from app.llm.realtime import AzureRealtime, FakeRealtime, Realtime
 
 
@@ -37,6 +38,14 @@ def get_embedder() -> Embedder:
     if settings.embedding_provider == "fake":
         return FakeEmbedder()
     return AzureEmbedder(_client(), settings.azure_openai_embedding_deployment)
+
+
+@cache
+def get_note_extractor() -> NoteExtractor:
+    settings = get_settings()
+    if settings.notes_provider == "fake":
+        return FakeNoteExtractor()
+    return AzureNoteExtractor(_client(), settings.azure_openai_text_deployment)
 
 
 @cache

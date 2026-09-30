@@ -162,7 +162,7 @@ These settings drive:
 | **Listening lab** | France and Québec voices; dictation; shadowing. The pre-listening transcript skim is available in practice only, never in timed work. |
 | **Writing desk** | Exam-clock editor with word count. Templates are visible in practice and hidden in assessments. Your top-5 recurring errors appear as a proofread checklist before you submit. |
 | **Library** | Everything learned: **words** (with gender), **sentences**, **grammar concepts**, **templates**, **your errors**. Searchable, with spaced-repetition review on demand. |
-| **Notes inbox** | Point it at your Obsidian vault's tutor-notes folder (read-only). New day notes are extracted into words, sentences and grammar points, shown for your approval, then added to the Library. |
+| **Notes inbox** | Upload each day's class notes (Markdown, e.g. exported from Obsidian). GPT-5.4 mini extracts words (with gender), phrases and grammar points, using the corrected form wherever the notes flag a mistake. You approve or edit each item; approved words and phrases join Review, and everything joins the Library and search. Items already approved from earlier notes are not offered again. |
 | **Progress** | The two progress bars, assessment history, trends. Nothing else. |
 | **Content studio** (settings area) | Review queue for generated items: preview (with audio), approve, reject or edit (creates a new version), bulk-approve by module. Golden-set manager for tutor-graded samples. |
 | **Export** (settings area) | Download all your data (JSON/CSV); vocabulary and sentences as an Anki deck. |
@@ -401,7 +401,7 @@ The index also powers:
    ├── Nightly job: Azure Cost Management reconciliation
    ├── Postgres 16 + pgvector (local, Docker)
    ├── media/ (catalog/: shared generated audio + images, content-addressed; users/: recordings)
-   ├── Obsidian vault folder (read-only notes source)
+   ├── Class notes uploaded in the app (Markdown)
    ├── MCP server (your learning data, for any MCP client)
    └── OpenTelemetry ──► grafana/otel-lgtm (logs, traces, metrics)
 ```
@@ -581,7 +581,7 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
 - **Sessions:** the passphrase is hashed with Argon2id. Session cookies are HttpOnly, SameSite=Strict and Secure over TLS. Login attempts are rate-limited.
 - **MCP server:** runs over stdio for local clients, or on `localhost` HTTP with a bearer token. It's never exposed on the LAN.
 - **Dependencies:** Dependabot, `pip-audit` and `npm audit` in CI. No known high or critical vulnerabilities on the main branch.
-- **Input handling:** everything is validated with Pydantic, SQL goes only through SQLAlchemy, and the notes importer reads the Obsidian folder **read-only** and sanitises Markdown before rendering. Content from notes or the knowledge base is passed to the LLM as data, never as instructions.
+- **Input handling:** everything is validated with Pydantic, SQL goes only through SQLAlchemy, and uploaded notes are size-limited text, and Markdown is rendered without raw HTML. Content from notes or the knowledge base is passed to the LLM as data, never as instructions.
 - **Privacy:**
   - Recordings, writing and grades stay on your machine.
   - Azure OpenAI doesn't use API data for training.
@@ -616,7 +616,7 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
 | **0. Foundations** (~1 wk) | Skeleton, Docker Compose (+ `obs` profile), Postgres + migrations, FastAPI health, Next.js shell and design system, CI, `CLAUDE.md`. Azure: free account → Pay-As-You-Go, resource group, Azure OpenAI deployments (GPT-5.4 mini, gpt-realtime-mini) with low TPM quotas, Speech F0, Azure Budget alert. **Metering + BudgetGuard + `pricing.yaml` from day 1.** | `docker compose up` shows the shell; CI green; one GPT call and one TTS call are metered into `usage_events` and visible in Grafana. |
 | **1. Path + modules + coverage + budget screen** (~2–3 wks) | Level/block/module model, lesson player, module checks, coverage bar, Library + FSRS, A1–A2 content (16 modules, generated with the free credit), budget screen, nightly reconciliation. | You can work through A2 modules and see coverage move; budget screen shows live and reconciled spend. |
 | **2. Assessment engine + receptive skills** (~3 wks) | Knowledge-base index (hybrid search, embedding queue, embeddings in content pack), `ExamShell`, question bank with difficulty, Rasch estimator, CO/CE skill bars, placement test, block checkpoints (CO/CE parts), TTS listening audio. **Golden set + mini vs full grader comparison.** | Placement sets real CO/CE estimates; a checkpoint moves the bars. |
-| **3. Writing + speaking** (~3–4 wks) | Writing desk + rubric grading (two passes), error tagging; realtime examiner with budget-checked sessions; STT + pronunciation; EE/EO skill bars; level exams + gate + repair sets (LangGraph); Notes inbox from Obsidian; MCP server. | A full level exam with all four skills produces four skill bars and a gate decision, within budget. |
+| **3. Writing + speaking** (~3–4 wks) | Writing desk + rubric grading (two passes), error tagging; realtime examiner with budget-checked sessions; STT + pronunciation; EE/EO skill bars; level exams + gate + repair sets (LangGraph); Notes inbox (uploaded class notes); MCP server. | A full level exam with all four skills produces four skill bars and a gate decision, within budget. |
 | **4. Mocks + B1–B2 content + Ask + polish** (~3–4 wks) | "Ask" assistant over the knowledge base, full TCF mocks, verdicts, monthly/weekly cadence tied to exam date, B1–B2 content (16 modules), performance and accessibility pass, PWA install. | A full 2 h 47 mock end-to-end, scored against NCLC 7. |
 | **5. C1–C2** (later) | Remaining 16 modules and higher-level question bank. | Complete A1–C2 path. |
 
@@ -652,7 +652,7 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
 ## 22. Decided
 
 - **Exam:** TCF Canada (TEF support can be added later by adding its scales and structure).
-- **Obsidian:** read-only notes source only.
+- **Obsidian:** where notes are written; they reach the app by upload, never by the app reading the vault.
 - **Cloud:** Microsoft Azure only. **Azure OpenAI** (GPT-5.4 mini, gpt-realtime-mini) and **Azure Speech** (F0). No Claude.
 - **Budgets:** metered locally in Postgres, hard monthly caps enforced in the app, reconciled nightly with Azure Cost Management.
 - **Content storage:** shared catalogue generated once (text in git, audio/images in a content-addressed local store backed up as a GitHub Release content pack); only personal work (grading, examiner, notes) costs money per learner.
