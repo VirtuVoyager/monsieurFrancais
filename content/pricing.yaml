@@ -11,7 +11,7 @@ models:
       cached_input_tokens: {usd: 0.075, per: 1000000}
       output_tokens: {usd: 4.50, per: 1000000}
 
-  # Verify against the model card; rates assumed equal to gpt-realtime-mini.
+  # Azure Global Standard rates, confirmed 2026-09-30. Image input is unused.
   gpt-realtime-2.1-mini:
     service: openai
     rates:
