@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 from typing import Any, cast
 
 import fsrs
-from sqlalchemy import select
+from sqlalchemy import delete, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
@@ -20,13 +20,17 @@ def enroll_lesson(session: Session, user_id: int, lesson: Lesson) -> int:
     if source is None:
         return 0
     ids = session.scalars(select(source.id).where(source.module_id == lesson.module_id)).all()
+    return enroll(session, user_id, ITEM_TYPES[source], list(ids))
+
+
+def enroll(session: Session, user_id: int, item_type: str, ids: list[str]) -> int:
     if not ids:
         return 0
     now = datetime.now(UTC)
     rows = [
         {
             "user_id": user_id,
-            "item_type": ITEM_TYPES[source],
+            "item_type": item_type,
             "item_id": item_id,
             "fsrs_state": _state(fsrs.Card(due=now)),
             "due_at": now,
@@ -37,6 +41,14 @@ def enroll_lesson(session: Session, user_id: int, lesson: Lesson) -> int:
         insert(Card).values(rows).on_conflict_do_nothing().returning(Card.id)
     )
     return len(inserted.all())
+
+
+def unenroll(session: Session, user_id: int, item_type: str, ids: list[str]) -> None:
+    session.execute(
+        delete(Card).where(
+            Card.user_id == user_id, Card.item_type == item_type, Card.item_id.in_(ids)
+        )
+    )
 
 
 def due_cards(session: Session, user_id: int, limit: int, now: datetime) -> list[Card]:

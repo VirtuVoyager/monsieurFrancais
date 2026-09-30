@@ -344,6 +344,58 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/notes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Notes */
+        get: operations["list_notes_notes_get"];
+        put?: never;
+        /** Upload Note */
+        post: operations["upload_note_notes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/notes/{note_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Note */
+        get: operations["get_note_notes__note_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/notes/{note_id}/review": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Review Note */
+        post: operations["review_note_notes__note_id__review_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/skills": {
         parameters: {
             query?: never;
@@ -692,6 +744,8 @@ export interface components {
             title: string;
             /** Body Md */
             body_md: string;
+            /** Source */
+            source?: string | null;
         };
         /** CoverageOut */
         CoverageOut: {
@@ -1008,6 +1062,112 @@ export interface components {
             /** Lesson Title */
             lesson_title: string;
         };
+        /** NoteDecision */
+        NoteDecision: {
+            /** Id */
+            id: number;
+            /** Approve */
+            approve: boolean;
+            /** Fr */
+            fr?: string | null;
+            /** En */
+            en?: string | null;
+            /** Gender */
+            gender?: ("m" | "f" | "") | null;
+        };
+        /** NoteDetail */
+        NoteDetail: {
+            /** Id */
+            id: number;
+            /** Title */
+            title: string;
+            /** Filename */
+            filename: string;
+            /** Day */
+            day: number | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "pending" | "ready";
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Proposed */
+            proposed: number;
+            /** Approved */
+            approved: number;
+            /** Rejected */
+            rejected: number;
+            /** Body Md */
+            body_md: string;
+            /** Items */
+            items: components["schemas"]["NoteItemOut"][];
+        };
+        /** NoteItemOut */
+        NoteItemOut: {
+            /** Id */
+            id: number;
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "word" | "sentence" | "grammar";
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "proposed" | "approved" | "rejected";
+            /** Fr */
+            fr: string;
+            /** En */
+            en: string;
+            /** Gender */
+            gender: string | null;
+            /** Detail */
+            detail: string;
+        };
+        /** NoteReview */
+        NoteReview: {
+            /** Items */
+            items: components["schemas"]["NoteDecision"][];
+        };
+        /** NoteSummary */
+        NoteSummary: {
+            /** Id */
+            id: number;
+            /** Title */
+            title: string;
+            /** Filename */
+            filename: string;
+            /** Day */
+            day: number | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "pending" | "ready";
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Proposed */
+            proposed: number;
+            /** Approved */
+            approved: number;
+            /** Rejected */
+            rejected: number;
+        };
+        /** NoteUpload */
+        NoteUpload: {
+            /** Filename */
+            filename: string;
+            /** Text */
+            text: string;
+        };
         /** Passphrase */
         Passphrase: {
             /** Passphrase */
@@ -1113,6 +1273,8 @@ export interface components {
             en: string;
             /** Audio Url */
             audio_url?: string | null;
+            /** Source */
+            source?: string | null;
         };
         /** SentencesContent */
         SentencesContent: {
@@ -1309,6 +1471,8 @@ export interface components {
             example_en: string;
             /** Audio Url */
             audio_url?: string | null;
+            /** Source */
+            source?: string | null;
         };
         /** WritingContent */
         WritingContent: {
@@ -2009,6 +2173,142 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ConceptOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_notes_notes_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NoteSummary"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    upload_note_notes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NoteUpload"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NoteDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_note_notes__note_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                note_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NoteDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_note_notes__note_id__review_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                note_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NoteReview"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NoteDetail"];
                 };
             };
             /** @description Validation Error */

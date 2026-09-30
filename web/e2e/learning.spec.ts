@@ -131,3 +131,36 @@ test("a speaking task gives preparation time, then releases the call on failure"
   await expect(page.getByRole("main").getByRole("alert")).toBeVisible();
   await expect(page.getByRole("button", { name: "Choose another task" })).toBeVisible();
 });
+
+test("class notes are extracted, approved and land in the Library and Review", async ({ page }) => {
+  const note = [
+    "# Day 7 — Class Notes",
+    "",
+    "## Au café",
+    "",
+    "|French|Gender|Meaning|",
+    "|---|---|---|",
+    "|un croissant|masc.|a croissant|",
+    "|une addition|fem.|the bill|",
+    "|Je voudrais un café, s'il vous plaît.||I would like a coffee, please.|",
+  ].join("\n");
+  await page.goto("/notes");
+  await page.getByLabel("Upload notes").setInputFiles({
+    name: "Day_7.md",
+    mimeType: "text/markdown",
+    buffer: Buffer.from(note),
+  });
+  await expect(page.getByText("3 items to review")).toBeVisible();
+
+  await page.getByRole("link", { name: /Day 7 — Class Notes/ }).click();
+  await page.getByLabel("Keep une addition").uncheck();
+  await page.getByRole("button", { name: "Save" }).click();
+  await expect(
+    page.getByText("Saved. Approved words and phrases are now in Review."),
+  ).toBeVisible();
+
+  await page.goto("/library");
+  await expect(page.getByText("un croissant")).toBeVisible();
+  await expect(page.getByText("Class notes · Day 7").first()).toBeVisible();
+  await expect(page.getByText("une addition")).toHaveCount(0);
+});

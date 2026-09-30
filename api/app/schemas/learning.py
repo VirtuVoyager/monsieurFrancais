@@ -76,6 +76,7 @@ class WordOut(BaseModel):
     example_fr: str
     example_en: str
     audio_url: str | None = None
+    source: str | None = None
 
 
 class SentenceOut(BaseModel):
@@ -83,6 +84,7 @@ class SentenceOut(BaseModel):
     fr: str
     en: str
     audio_url: str | None = None
+    source: str | None = None
 
 
 class GrammarContent(BaseModel):
@@ -202,6 +204,7 @@ class ConceptOut(BaseModel):
     id: str
     title: str
     body_md: str
+    source: str | None = None
 
 
 class ReviewCard(BaseModel):
@@ -352,3 +355,47 @@ class TranscriptLine(BaseModel):
 
 class SpeakingEnd(BaseModel):
     transcript: list[TranscriptLine] = Field(default_factory=list, max_length=200)
+
+
+class NoteUpload(BaseModel):
+    filename: str = Field(min_length=1, max_length=200)
+    text: str = Field(min_length=1, max_length=100_000)
+
+
+class NoteSummary(BaseModel):
+    id: int
+    title: str
+    filename: str
+    day: int | None
+    status: Literal["pending", "ready"]
+    created_at: datetime
+    proposed: int
+    approved: int
+    rejected: int
+
+
+class NoteItemOut(BaseModel):
+    id: int
+    kind: Literal["word", "sentence", "grammar"]
+    status: Literal["proposed", "approved", "rejected"]
+    fr: str
+    en: str
+    gender: str | None
+    detail: str
+
+
+class NoteDetail(NoteSummary):
+    body_md: str
+    items: list[NoteItemOut]
+
+
+class NoteDecision(BaseModel):
+    id: int
+    approve: bool
+    fr: str | None = Field(default=None, max_length=2000)
+    en: str | None = Field(default=None, max_length=2000)
+    gender: Literal["m", "f", ""] | None = None
+
+
+class NoteReview(BaseModel):
+    items: list[NoteDecision] = Field(max_length=500)
