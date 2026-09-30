@@ -1,6 +1,6 @@
-import subprocess
 import threading
 import time
+from pathlib import Path
 from typing import Protocol
 
 import httpx
@@ -8,6 +8,8 @@ import httpx
 from app.domain.audio import AudioRequest
 from app.domain.cost import Metered
 from app.llm.grader import ProviderUnavailableError
+
+SILENCE = Path(__file__).with_name("silence.ogg")
 
 OUTPUT_FORMAT = "ogg-24khz-16bit-mono-opus"
 
@@ -24,33 +26,12 @@ def _billable(request: AudioRequest) -> dict[str, float]:
 
 
 class FakeSynthesizer:
-    """Silent Ogg Opus of a plausible length, so playback paths work without Azure."""
+    """One second of silent Ogg Opus, so playback paths work without Azure or ffmpeg."""
 
     model = "fake-speech"
 
     def synthesize(self, request: AudioRequest) -> Metered[bytes]:
-        seconds = max(len(request.text) / 15, 0.5)
-        audio = subprocess.run(
-            [
-                "ffmpeg",
-                "-loglevel",
-                "error",
-                "-f",
-                "lavfi",
-                "-i",
-                "anullsrc=r=24000:cl=mono",
-                "-t",
-                f"{seconds:.2f}",
-                "-c:a",
-                "libopus",
-                "-f",
-                "ogg",
-                "pipe:1",
-            ],
-            check=True,
-            capture_output=True,
-        ).stdout
-        return Metered(audio, _billable(request))
+        return Metered(SILENCE.read_bytes(), _billable(request))
 
 
 class AzureSynthesizer:
