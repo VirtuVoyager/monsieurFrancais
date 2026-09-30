@@ -115,3 +115,19 @@ test("the placement test sets both receptive skill bars", async ({ page }) => {
   await expect(page.getByText("You start at")).toBeVisible();
   await expect(page.getByText(/\/699 · /).first()).toBeVisible();
 });
+
+test("a speaking task gives preparation time, then releases the call on failure", async ({
+  page,
+}) => {
+  await page.goto("/speak");
+  await page.getByRole("button", { name: "Start" }).nth(1).click();
+
+  await expect(page.getByText("Posez-moi des questions")).toBeVisible();
+  await expect(page.getByText("Preparation")).toBeVisible();
+  await page.getByRole("button", { name: "I'm ready" }).click();
+  // The fake provider returns no real SDP answer, so the call must fail and end cleanly.
+  await page.getByRole("button", { name: "Begin" }).click();
+
+  await expect(page.getByRole("main").getByRole("alert")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Choose another task" })).toBeVisible();
+});

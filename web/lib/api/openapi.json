@@ -1820,6 +1820,287 @@
           }
         }
       }
+    },
+    "/speaking/tasks": {
+      "get": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "List Tasks",
+        "operationId": "list_tasks_speaking_tasks_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SpeakingTaskOut"
+                  },
+                  "type": "array",
+                  "title": "Response List Tasks Speaking Tasks Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/speaking/sessions": {
+      "post": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "Start Session",
+        "operationId": "start_session_speaking_sessions_post",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpeakingStart"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeakingSessionOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/speaking/sessions/{run_id}/call": {
+      "post": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "Connect",
+        "operationId": "connect_speaking_sessions__run_id__call_post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SdpOffer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeakingCallOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/speaking/sessions/{run_id}/usage": {
+      "post": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "Record Usage",
+        "operationId": "record_usage_speaking_sessions__run_id__usage_post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RealtimeUsage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsageVerdict"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/speaking/sessions/{run_id}/end": {
+      "post": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "End Session",
+        "operationId": "end_session_speaking_sessions__run_id__end_post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpeakingEnd"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3040,6 +3321,20 @@
         ],
         "title": "ReadingContent"
       },
+      "RealtimeUsage": {
+        "properties": {
+          "usage": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Usage"
+          }
+        },
+        "type": "object",
+        "required": [
+          "usage"
+        ],
+        "title": "RealtimeUsage"
+      },
       "ReviewCard": {
         "properties": {
           "id": {
@@ -3129,6 +3424,20 @@
           "rating"
         ],
         "title": "ReviewRating"
+      },
+      "SdpOffer": {
+        "properties": {
+          "sdp": {
+            "type": "string",
+            "maxLength": 20000,
+            "title": "Sdp"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sdp"
+        ],
+        "title": "SdpOffer"
       },
       "SearchHit": {
         "properties": {
@@ -3347,6 +3656,25 @@
         ],
         "title": "SkillLevelOut"
       },
+      "SpeakingCallOut": {
+        "properties": {
+          "sdp": {
+            "type": "string",
+            "title": "Sdp"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Deadline"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sdp",
+          "deadline"
+        ],
+        "title": "SpeakingCallOut"
+      },
       "SpeakingContent": {
         "properties": {
           "kind": {
@@ -3375,6 +3703,83 @@
           "seconds"
         ],
         "title": "SpeakingContent"
+      },
+      "SpeakingEnd": {
+        "properties": {
+          "transcript": {
+            "items": {
+              "$ref": "#/components/schemas/TranscriptLine"
+            },
+            "type": "array",
+            "maxItems": 200,
+            "title": "Transcript"
+          }
+        },
+        "type": "object",
+        "title": "SpeakingEnd"
+      },
+      "SpeakingSessionOut": {
+        "properties": {
+          "run_id": {
+            "type": "integer",
+            "title": "Run Id"
+          },
+          "task": {
+            "$ref": "#/components/schemas/SpeakingTaskOut"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "task",
+          "prompt"
+        ],
+        "title": "SpeakingSessionOut"
+      },
+      "SpeakingStart": {
+        "properties": {
+          "task": {
+            "type": "string",
+            "title": "Task"
+          }
+        },
+        "type": "object",
+        "required": [
+          "task"
+        ],
+        "title": "SpeakingStart"
+      },
+      "SpeakingTaskOut": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "prep_seconds": {
+            "type": "integer",
+            "title": "Prep Seconds"
+          },
+          "seconds": {
+            "type": "integer",
+            "title": "Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "title",
+          "prep_seconds",
+          "seconds"
+        ],
+        "title": "SpeakingTaskOut"
       },
       "Status": {
         "type": "string",
@@ -3408,6 +3813,29 @@
           "correction"
         ],
         "title": "TaggedErrorOut"
+      },
+      "TranscriptLine": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "examiner",
+              "candidate"
+            ],
+            "title": "Role"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 4000,
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role",
+          "text"
+        ],
+        "title": "TranscriptLine"
       },
       "UsageEventOut": {
         "properties": {
@@ -3459,6 +3887,19 @@
           "cost_usd"
         ],
         "title": "UsageEventOut"
+      },
+      "UsageVerdict": {
+        "properties": {
+          "stop": {
+            "type": "boolean",
+            "title": "Stop"
+          }
+        },
+        "type": "object",
+        "required": [
+          "stop"
+        ],
+        "title": "UsageVerdict"
       },
       "ValidationError": {
         "properties": {

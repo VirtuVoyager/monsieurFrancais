@@ -14,7 +14,7 @@ from app.models import Block, Concept, Item, Lesson, Level, Lexeme, Module, Resp
 from app.services import knowledge
 
 ITEM_FIELDS_PUBLIC = ("prompt", "options", "words", "passage", "audio_text", "task")
-ITEM_FIELDS_ANSWER = ("answer", "accepted", "explanation")
+ITEM_FIELDS_ANSWER = ("answer", "accepted", "explanation", "examiner")
 
 
 @dataclass(frozen=True)

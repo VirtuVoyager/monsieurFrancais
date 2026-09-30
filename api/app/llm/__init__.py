@@ -7,6 +7,7 @@ from app.llm.azure import AzureGrader
 from app.llm.embedder import AzureEmbedder, Embedder, FakeEmbedder
 from app.llm.fake import FakeGrader
 from app.llm.grader import Grader
+from app.llm.realtime import AzureRealtime, FakeRealtime, Realtime
 
 
 @cache
@@ -36,3 +37,11 @@ def get_embedder() -> Embedder:
     if settings.embedding_provider == "fake":
         return FakeEmbedder()
     return AzureEmbedder(_client(), settings.azure_openai_embedding_deployment)
+
+
+@cache
+def get_realtime() -> Realtime:
+    settings = get_settings()
+    if settings.realtime_provider == "fake":
+        return FakeRealtime()
+    return AzureRealtime(_client(), settings.azure_openai_realtime_deployment)

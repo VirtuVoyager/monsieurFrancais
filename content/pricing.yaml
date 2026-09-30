@@ -11,6 +11,17 @@ models:
       cached_input_tokens: {usd: 0.075, per: 1000000}
       output_tokens: {usd: 4.50, per: 1000000}
 
+  # Verify against the model card; rates assumed equal to gpt-realtime-mini.
+  gpt-realtime-2.1-mini:
+    service: openai
+    rates:
+      text_input_tokens: {usd: 0.60, per: 1000000}
+      cached_text_input_tokens: {usd: 0.06, per: 1000000}
+      audio_input_tokens: {usd: 10.00, per: 1000000}
+      cached_audio_input_tokens: {usd: 0.30, per: 1000000}
+      text_output_tokens: {usd: 2.40, per: 1000000}
+      audio_output_tokens: {usd: 20.00, per: 1000000}
+
   gpt-realtime-mini:
     service: openai
     rates:
@@ -61,3 +72,13 @@ models:
     service: speech
     rates:
       characters: {usd: 0, per: 1000000}
+
+  fake-realtime:
+    service: openai
+    rates:
+      text_input_tokens: {usd: 0, per: 1000000}
+      cached_text_input_tokens: {usd: 0, per: 1000000}
+      audio_input_tokens: {usd: 0, per: 1000000}
+      cached_audio_input_tokens: {usd: 0, per: 1000000}
+      text_output_tokens: {usd: 0, per: 1000000}
+      audio_output_tokens: {usd: 0, per: 1000000}

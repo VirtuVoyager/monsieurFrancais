@@ -28,7 +28,9 @@ Backend tests need Postgres with pgvector on :5432 and a `mf_test` database.
   restate a signature.
 - Layering: routers → services → DB. `domain/` stays pure and fully unit-tested.
 - Every paid call (Azure OpenAI, Speech) goes through `services.metering.run_metered`, which
-  reserves against the budget cap first. Never construct a provider client anywhere else.
+  reserves against the budget cap first. Realtime speaking sessions reserve their worst case up
+  front and record each response with `metering.record_usage`. Provider clients are built only in
+  `app/llm/__init__.py` and `app/speech/__init__.py`.
 - Catalogue content is never generated at request time. Generation belongs to the content
   pipeline and must check the media hash / generation cache first.
 - Live items are immutable: edits create a new version (handled by `services.content.seed`).

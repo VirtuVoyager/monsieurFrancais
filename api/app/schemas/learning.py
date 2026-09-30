@@ -309,3 +309,46 @@ class SearchHit(BaseModel):
     source_ref: str
     cefr: str | None
     personal: bool
+
+
+class SpeakingTaskOut(BaseModel):
+    code: str
+    title: str
+    prep_seconds: int
+    seconds: int
+
+
+class SpeakingStart(BaseModel):
+    task: str
+
+
+class SpeakingSessionOut(BaseModel):
+    run_id: int
+    task: SpeakingTaskOut
+    prompt: str
+
+
+class SdpOffer(BaseModel):
+    sdp: str = Field(max_length=20000)
+
+
+class SpeakingCallOut(BaseModel):
+    sdp: str
+    deadline: datetime
+
+
+class RealtimeUsage(BaseModel):
+    usage: dict[str, Any]
+
+
+class UsageVerdict(BaseModel):
+    stop: bool
+
+
+class TranscriptLine(BaseModel):
+    role: Literal["examiner", "candidate"]
+    text: str = Field(max_length=4000)
+
+
+class SpeakingEnd(BaseModel):
+    transcript: list[TranscriptLine] = Field(default_factory=list, max_length=200)

@@ -532,6 +532,91 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/speaking/tasks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Tasks */
+        get: operations["list_tasks_speaking_tasks_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/speaking/sessions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start Session */
+        post: operations["start_session_speaking_sessions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/speaking/sessions/{run_id}/call": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Connect */
+        post: operations["connect_speaking_sessions__run_id__call_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/speaking/sessions/{run_id}/usage": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Record Usage */
+        post: operations["record_usage_speaking_sessions__run_id__usage_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/speaking/sessions/{run_id}/end": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** End Session */
+        post: operations["end_session_speaking_sessions__run_id__end_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -960,6 +1045,13 @@ export interface components {
             /** Exercises */
             exercises: components["schemas"]["ExerciseOut"][];
         };
+        /** RealtimeUsage */
+        RealtimeUsage: {
+            /** Usage */
+            usage: {
+                [key: string]: unknown;
+            };
+        };
         /** ReviewCard */
         ReviewCard: {
             /** Id */
@@ -988,6 +1080,11 @@ export interface components {
         ReviewRating: {
             /** Rating */
             rating: number;
+        };
+        /** SdpOffer */
+        SdpOffer: {
+            /** Sdp */
+            sdp: string;
         };
         /** SearchHit */
         SearchHit: {
@@ -1065,6 +1162,16 @@ export interface components {
             /** Stale */
             stale: boolean;
         };
+        /** SpeakingCallOut */
+        SpeakingCallOut: {
+            /** Sdp */
+            sdp: string;
+            /**
+             * Deadline
+             * Format: date-time
+             */
+            deadline: string;
+        };
         /** SpeakingContent */
         SpeakingContent: {
             /**
@@ -1076,6 +1183,35 @@ export interface components {
             task: string;
             /** Prompt */
             prompt: string;
+            /** Seconds */
+            seconds: number;
+        };
+        /** SpeakingEnd */
+        SpeakingEnd: {
+            /** Transcript */
+            transcript?: components["schemas"]["TranscriptLine"][];
+        };
+        /** SpeakingSessionOut */
+        SpeakingSessionOut: {
+            /** Run Id */
+            run_id: number;
+            task: components["schemas"]["SpeakingTaskOut"];
+            /** Prompt */
+            prompt: string;
+        };
+        /** SpeakingStart */
+        SpeakingStart: {
+            /** Task */
+            task: string;
+        };
+        /** SpeakingTaskOut */
+        SpeakingTaskOut: {
+            /** Code */
+            code: string;
+            /** Title */
+            title: string;
+            /** Prep Seconds */
+            prep_seconds: number;
             /** Seconds */
             seconds: number;
         };
@@ -1092,6 +1228,16 @@ export interface components {
             excerpt: string;
             /** Correction */
             correction: string;
+        };
+        /** TranscriptLine */
+        TranscriptLine: {
+            /**
+             * Role
+             * @enum {string}
+             */
+            role: "examiner" | "candidate";
+            /** Text */
+            text: string;
         };
         /** UsageEventOut */
         UsageEventOut: {
@@ -1116,6 +1262,11 @@ export interface components {
             };
             /** Cost Usd */
             cost_usd: string;
+        };
+        /** UsageVerdict */
+        UsageVerdict: {
+            /** Stop */
+            stop: boolean;
         };
         /** ValidationError */
         ValidationError: {
@@ -2269,6 +2420,170 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["SearchHit"][];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_tasks_speaking_tasks_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SpeakingTaskOut"][];
+                };
+            };
+        };
+    };
+    start_session_speaking_sessions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SpeakingStart"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SpeakingSessionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    connect_speaking_sessions__run_id__call_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SdpOffer"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SpeakingCallOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    record_usage_speaking_sessions__run_id__usage_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RealtimeUsage"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UsageVerdict"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    end_session_speaking_sessions__run_id__end_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SpeakingEnd"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {

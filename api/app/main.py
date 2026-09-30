@@ -19,6 +19,7 @@ from app.routers import (
     search,
     settings,
     skills,
+    speaking,
     writing,
 )
 from app.services.budget import BudgetExceededError
@@ -66,6 +67,7 @@ def create_app() -> FastAPI:
     app.include_router(settings.router)
     app.include_router(writing.router)
     app.include_router(search.router)
+    app.include_router(speaking.router)
     # Only shared catalogue audio is public; learners' own recordings are never mounted.
     catalog = config.media_dir / "catalog"
     catalog.mkdir(parents=True, exist_ok=True)

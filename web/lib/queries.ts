@@ -161,6 +161,20 @@ export function useSubmitDrill() {
   });
 }
 
+export function useSpeakingTasks() {
+  return useQuery({
+    queryKey: ["speaking", "tasks"],
+    queryFn: () => unwrap(api.GET("/speaking/tasks")),
+    staleTime: Infinity,
+  });
+}
+
+export function useStartSpeaking() {
+  return useMutation({
+    mutationFn: (task: string) => unwrap(api.POST("/speaking/sessions", { body: { task } })),
+  });
+}
+
 export function useSettings() {
   return useQuery({ queryKey: ["settings"], queryFn: () => unwrap(api.GET("/settings")) });
 }

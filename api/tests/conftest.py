@@ -9,6 +9,7 @@ os.environ.setdefault("MF_SECRET_KEY", "test-secret")
 os.environ["MF_GRADER_PROVIDER"] = "fake"
 os.environ["MF_EMBEDDING_PROVIDER"] = "fake"
 os.environ["MF_SPEECH_PROVIDER"] = "fake"
+os.environ["MF_REALTIME_PROVIDER"] = "fake"
 os.environ["MF_JOBS_ENABLED"] = "false"
 
 import pytest

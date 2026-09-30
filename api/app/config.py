@@ -24,10 +24,12 @@ class Settings(BaseSettings):
     grader_provider: Provider = "fake"
     embedding_provider: Provider = "fake"
     speech_provider: Provider = "fake"
+    realtime_provider: Provider = "fake"
     azure_openai_endpoint: str | None = None
     azure_openai_api_key: str | None = None
     azure_openai_text_deployment: str = "gpt-5.4-mini"
     azure_openai_embedding_deployment: str = "text-embedding-3-small"
+    azure_openai_realtime_deployment: str = "gpt-realtime-2.1-mini"
     azure_speech_key: str | None = None
     azure_speech_region: str | None = None
 
