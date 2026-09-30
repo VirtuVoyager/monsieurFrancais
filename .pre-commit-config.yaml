@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: bash -c 'cd api && uv run ruff check --fix . && uv run ruff format .'
+        language: system
+        files: ^api/
+        pass_filenames: false
+      - id: mypy
+        name: mypy
+        entry: bash -c 'cd api && uv run mypy app'
+        language: system
+        files: ^api/.*\.py$
+        pass_filenames: false
+      - id: web-lint
+        name: eslint + prettier
+        entry: bash -c 'cd web && pnpm lint && pnpm format:check'
+        language: system
+        files: ^web/
+        pass_filenames: false
+      - id: web-typecheck
+        name: tsc
+        entry: bash -c 'cd web && pnpm typecheck'
+        language: system
+        files: ^web/.*\.tsx?$
+        pass_filenames: false

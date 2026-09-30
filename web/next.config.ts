@@ -1,0 +1,15 @@
+import type { NextConfig } from "next";
+
+const apiUrl = process.env.API_URL ?? "http://localhost:8000";
+
+const nextConfig: NextConfig = {
+  output: "standalone",
+  async rewrites() {
+    return [
+      { source: "/api/:path*", destination: `${apiUrl}/:path*` },
+      { source: "/media/catalog/:path*", destination: `${apiUrl}/media/catalog/:path*` },
+    ];
+  },
+};
+
+export default nextConfig;

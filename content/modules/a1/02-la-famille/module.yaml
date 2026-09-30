@@ -1,0 +1,92 @@
+slug: a1-02-la-famille
+level: A1
+block: 1
+order: 2
+theme: Famille
+title: La famille
+summary: >
+  Présenter sa famille et ses proches. Les articles définis et indéfinis, la
+  négation avec « pas de » et les adjectifs possessifs.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Articles et adjectifs possessifs
+    concept: articles-possessifs
+    exercises:
+      - {kind: cloze, prompt: "C'est ___ mère. (my)", accepted: [ma]}
+      - {kind: cloze, prompt: "Ce sont ___ parents. (my)", accepted: [mes]}
+      - {kind: mcq, prompt: "J'ai ___ frère.", options: [un, une, des], answer: 0}
+      - kind: mcq
+        prompt: "___ amie Julie est canadienne."
+        options: [Ma, Mon, Mes]
+        answer: 1
+        explanation: "Devant une voyelle, on dit « mon » même au féminin : mon amie."
+      - kind: cloze
+        prompt: "Je n'ai pas ___ sœur."
+        accepted: [de]
+        explanation: "Après une négation, un / une / des devient de : je n'ai pas de sœur."
+      - {kind: order, words: [enfants., a, Mon, deux, frère], answer: "Mon frère a deux enfants."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la famille"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de sa famille
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : la famille de Marc"
+    transcript: >
+      Salut, c'est Marc. Je te présente ma famille. Nous sommes cinq. Mon père
+      s'appelle Paul, il est boulanger. Ma mère, Isabelle, est professeure de
+      mathématiques. J'ai deux sœurs : Julie a quinze ans et Emma a dix ans. Nous
+      avons aussi un chien, Filou.
+    questions:
+      - {kind: mcq, prompt: "Combien de personnes y a-t-il dans la famille ?", options: [trois, quatre, cinq], answer: 2}
+      - {kind: mcq, prompt: "Quel est le métier du père ?", options: [boulanger, professeur, médecin], answer: 0}
+      - {kind: mcq, prompt: "Quel âge a Emma ?", options: ["10 ans", "15 ans", "12 ans"], answer: 0}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : une petite annonce"
+    text: |
+      Famille cherche personne au pair
+
+      Nous sommes une famille de Montréal avec deux enfants, Léo (4 ans) et Chloé
+      (7 ans). Les parents travaillent tous les deux à temps plein. Nous cherchons
+      une personne sérieuse pour s'occuper des enfants après l'école, du lundi au
+      vendredi. Logement et repas inclus.
+
+      Contact : famille.tremblay@exemple.ca
+    questions:
+      - {kind: mcq, prompt: "Combien d'enfants a la famille ?", options: [deux, un, trois], answer: 0}
+      - kind: mcq
+        prompt: "Quand la personne travaille-t-elle ?"
+        options: ["Le week-end.", "Après l'école, en semaine.", "Le matin, avant l'école."]
+        answer: 1
+      - kind: mcq
+        prompt: "Qu'est-ce qui est inclus ?"
+        options: ["La voiture.", "Des cours de français.", "Le logement et les repas."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : présenter sa famille"
+    task: EE1
+    prompt: >
+      Écrivez un message à un nouvel ami francophone pour lui présenter votre
+      famille : combien vous êtes, les prénoms, les âges et les métiers.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : parler de sa famille"
+    task: EO1
+    prompt: >
+      Parlez de votre famille : combien de personnes, leurs prénoms, leurs
+      métiers et où ils habitent. Parlez environ une minute.
+    seconds: 60

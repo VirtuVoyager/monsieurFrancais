@@ -185,7 +185,7 @@ Azure is the only one of the big three clouds that covers all five on one bill. 
 | Job | Default | Escalation | Notes |
 |---|---|---|---|
 | Grading, error tagging, feedback, notes extraction, content generation and validation | **GPT-5.4 mini** (Azure OpenAI in Foundry, Global Standard) | **GPT-5.4**, only for writing/speaking grading, and only if mini fails the golden-set bar | Responses API with strict JSON schema output. Mini costs roughly 1/3 as much as the full model. The golden-set eval (§ 4.3) decides: if mini's average grading error on the /20 scale stays ≤ 1 point, it stays everywhere. |
-| Live examiner | **gpt-realtime-mini** | gpt-realtime, only if mini's French or role-play quality is noticeably worse in the phase-3 spike | WebRTC straight from the browser with a short-lived token. Mini's audio rates are about 1/3 of the full model's. Plays the examiner only, never grades. |
+| Live examiner | **gpt-realtime-2.1-mini** | gpt-realtime, only if mini's French or role-play quality is noticeably worse in the phase-3 spike | WebRTC audio straight between the browser and Azure; the API exchanges the SDP offer using a short-lived token, so the browser never holds a credential. Mini's audio rates are about 1/3 of the full model's. Plays the examiner only, never grades. |
 | Transcripts and fluency signals | **Azure Speech STT** (fr-FR / fr-CA), word timestamps | — | Also used for dictation checks. The browser records Opus/WebM; the API converts it with `ffmpeg` to 16 kHz mono WAV for Speech and keeps the Opus file as your recording. |
 | Pronunciation | **Azure Speech pronunciation assessment** (fr-FR / fr-CA) | — | Accuracy, fluency and completeness. Prosody and content scoring are English-only, so grammar and vocabulary come from the GPT grader. |
 | Listening audio | **Azure neural TTS**, France and Québec voices, SSML for pace and pauses | — | Generated once and cached, so replays cost nothing. |
@@ -227,7 +227,7 @@ Paid usage comes from two places: **Azure OpenAI** (GPT-5.4 mini and gpt-realtim
 
 - **One path for every paid call.** Each goes through `metered(service, feature, call)`, which reads usage from the provider's response and writes a `usage_events` row.
   - **GPT (Responses API):** the `usage` block (input, cached input and output tokens).
-  - **Realtime:** each `response.done` event carries text/audio input/output tokens. With WebRTC these events reach the browser, which forwards them to `POST /usage/realtime` as they happen.
+  - **Realtime:** each `response.done` event carries text/audio input/output tokens. With WebRTC these events reach the browser, which forwards them to `POST /speaking/sessions/{id}/usage` as they happen.
   - **STT and pronunciation assessment:** audio seconds (from the audio's own duration, rounded the way Azure bills).
   - **TTS:** billable characters of the SSML sent.
 - **Prices** live in `content/pricing.yaml`: per model and meter, with an effective-from date. Every usage row stores its units, computed cost and `price_version`, so history stays correct when prices change.
@@ -242,8 +242,8 @@ Paid usage comes from two places: **Azure OpenAI** (GPT-5.4 mini and gpt-realtim
 - **Realtime sessions:**
   - Before a session starts, the guard reserves the **worst-case** cost for the task's maximum duration: exam task length plus a small buffer, at the highest per-minute rate.
   - The token needed to connect is only issued if that reservation fits.
-  - The browser ends the session when the reserved time runs out, or earlier if the forwarded usage reaches the reservation.
-  - At the end, actual usage settles the reservation.
+  - The browser ends the session when the reserved time runs out, or earlier if the forwarded usage reaches the reservation. The API hangs the call up itself when usage reaches the reservation, and a job hangs up any session a minute past its deadline.
+  - At the end, the reservation is released; the per-response usage events are the actual cost.
   - Because the reservation is worst-case, the cap can't be overshot by more than one session's buffer.
 - **Offline work stays free:** the Library, spaced-repetition reviews, cached audio and past results keep working when a cap is hit. Only new grading, generation and voice sessions stop.
 
@@ -577,7 +577,7 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
   - Postgres and Grafana are never exposed outside the Docker network.
 - **Secrets:**
   - Azure keys live in `.env` (gitignored), with `gitleaks` in pre-commit and CI.
-  - Keys never reach the browser. The realtime examiner gets a **short-lived session token** minted per session, and only after the budget check.
+  - Keys never reach the browser. The API mints a **short-lived session token** per session, only after the budget check, and uses it for the SDP exchange itself.
 - **Sessions:** the passphrase is hashed with Argon2id. Session cookies are HttpOnly, SameSite=Strict and Secure over TLS. Login attempts are rate-limited.
 - **MCP server:** runs over stdio for local clients, or on `localhost` HTTP with a bearer token. It's never exposed on the LAN.
 - **Dependencies:** Dependabot, `pip-audit` and `npm audit` in CI. No known high or critical vulnerabilities on the main branch.

@@ -1,0 +1,122 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, virtuvoyager_dev]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: mf
+          POSTGRES_PASSWORD: mf
+          POSTGRES_DB: mf_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U mf" --health-interval 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy app
+      - run: uv run pytest -q
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm format:check
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+
+  api-client-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: cd api && uv sync --frozen
+      - run: cd web && pnpm install --frozen-lockfile && pnpm gen:api
+      - name: Generated client must match the API schema
+        run: git diff --exit-code web/lib/api
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: [api, web]
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: mf
+          POSTGRES_PASSWORD: mf
+          POSTGRES_DB: mf
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U mf" --health-interval 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - name: Start API on a freshly seeded database
+        working-directory: api
+        run: |
+          uv sync --frozen
+          uv run alembic upgrade head
+          uv run python -m app.jobs.seed
+          nohup uv run uvicorn app.main:app --port 8000 > /tmp/api.log 2>&1 &
+      - name: Build and start web
+        working-directory: web
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+          nohup pnpm start > /tmp/web.log 2>&1 &
+          npx playwright install --with-deps chromium
+          timeout 60 bash -c 'until curl -sf http://localhost:3000/api/health; do sleep 1; done'
+      - run: pnpm e2e
+        working-directory: web
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-traces
+          path: |
+            web/test-results
+            /tmp/*.log
