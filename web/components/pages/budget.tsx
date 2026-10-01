@@ -161,6 +161,11 @@ function CapsEditor({ services }: { services: Record<string, Schemas["ServiceSpe
     <Card>
       <form onSubmit={save} className="space-y-4">
         <SectionTitle>Monthly caps (USD)</SectionTitle>
+        <p className="text-sm text-muted">
+          Each paid call must fit both its service cap and the total. The total is an overall
+          ceiling, not the sum: set it below OpenAI + Speech to let whichever service you use more
+          take the room, while the bill never passes the total.
+        </p>
         <div className="grid gap-4 sm:grid-cols-3">
           {(Object.keys(caps) as (keyof typeof caps)[]).map((service) => (
             <label key={service} className="block text-sm">
@@ -176,6 +181,11 @@ function CapsEditor({ services }: { services: Record<string, Schemas["ServiceSpe
             </label>
           ))}
         </div>
+        {Number(caps.total) > Number(caps.openai) + Number(caps.speech) && (
+          <p className="text-sm text-danger">
+            The total is above OpenAI + Speech, so it can never be reached; the service caps decide.
+          </p>
+        )}
         <div className="flex items-center gap-3">
           <Button type="submit" disabled={update.isPending}>
             Save caps

@@ -64,6 +64,7 @@ def writing_evidence(session: Session, user_id: int) -> list[RubricEvidence]:
         .join(AssessmentRun, AssessmentRun.id == WritingSubmission.run_id)
         .where(
             WritingSubmission.user_id == user_id,
+            WritingSubmission.skill == "EE",
             WritingSubmission.status == "graded",
             AssessmentRun.kind.in_(SOURCE_WEIGHTS),
         )
@@ -75,12 +76,31 @@ def writing_evidence(session: Session, user_id: int) -> list[RubricEvidence]:
     ]
 
 
+def speaking_evidence(session: Session, user_id: int) -> list[RubricEvidence]:
+    """Only sessions held at exam pace with the transcript hidden count, at drill weight."""
+    rows = session.execute(
+        select(WritingSubmission.score, WritingSubmission.graded_at)
+        .join(AssessmentRun, AssessmentRun.id == WritingSubmission.run_id)
+        .where(
+            WritingSubmission.user_id == user_id,
+            WritingSubmission.skill == "EO",
+            WritingSubmission.status == "graded",
+            AssessmentRun.result["exam"].as_boolean(),
+        )
+    )
+    return [
+        RubricEvidence(score, "drill", graded_at)
+        for score, graded_at in rows
+        if score is not None and graded_at is not None
+    ]
+
+
 def skill_level(session: Session, user_id: int, skill: str) -> SkillLevel | None:
     now = datetime.now(UTC)
     if skill == "EE":
         estimate = productive(writing_evidence(session, user_id), now)
-    elif skill in PRODUCTIVE:
-        return None  # speaking arrives with Azure Speech
+    elif skill == "EO":
+        estimate = productive(speaking_evidence(session, user_id), now)
     else:
         estimate = receptive(receptive_evidence(session, user_id, skill), now)
     if estimate is None:

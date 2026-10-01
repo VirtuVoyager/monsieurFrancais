@@ -73,6 +73,8 @@ class WritingSubmission(CreatedAt, Base):
     run_id: Mapped[int | None] = mapped_column(ForeignKey("assessment_runs.id"))
     lesson_id: Mapped[str | None] = mapped_column(String(160))
     item_id: Mapped[str | None] = mapped_column(ForeignKey("items.id"))
+    # Writing and speaking answers share one rubric pipeline; speaking stores its transcript.
+    skill: Mapped[str] = mapped_column(String(2), default="EE", server_default="EE")
     task: Mapped[str] = mapped_column(String(4))
     prompt: Mapped[str] = mapped_column(Text)
     text: Mapped[str] = mapped_column(Text)

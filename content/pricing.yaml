@@ -36,6 +36,7 @@ models:
     rates:
       input_tokens: {usd: 0.02, per: 1000000}
 
+  # Also used for fast transcription of speaking answers; verify it bills at the same rate.
   azure-speech-stt:
     service: speech
     rates:
@@ -72,6 +73,11 @@ models:
     service: speech
     rates:
       characters: {usd: 0, per: 1000000}
+
+  fake-stt:
+    service: speech
+    rates:
+      audio_seconds: {usd: 0, per: 3600}
 
   fake-realtime:
     service: openai

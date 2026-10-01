@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from dataclasses import asdict
 from datetime import UTC, datetime
 from decimal import Decimal
@@ -7,6 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
+from app.domain.cost import Metered
 from app.domain.rubric import (
     Rubric,
     RubricPass,
@@ -58,9 +60,19 @@ def submit(
 def try_grade(
     session: Session, submission: WritingSubmission, task: WritingTask, grader: Grader | None = None
 ) -> bool:
+    return grade_with(session, submission, lambda g: g.grade_writing(task, submission.text), grader)
+
+
+def grade_with(
+    session: Session,
+    submission: WritingSubmission,
+    one_pass: Callable[[Grader], Metered[RubricPass]],
+    grader: Grader | None = None,
+) -> bool:
+    """Grades a saved text with any rubric; a budget cap or outage leaves it pending for later."""
     grader = grader or get_grader()
     try:
-        rubric = _grade(session, submission, task, grader)
+        rubric = _grade(session, submission, lambda: one_pass(grader), grader.model)
     except (BudgetExceededError, ProviderUnavailableError) as exc:
         log.warning("grading_deferred", submission_id=submission.id, reason=str(exc))
         return False
@@ -86,18 +98,21 @@ def top_errors(session: Session, user_id: int, limit: int = 5) -> list[ErrorTag]
 
 
 def _grade(
-    session: Session, submission: WritingSubmission, task: WritingTask, grader: Grader
+    session: Session,
+    submission: WritingSubmission,
+    call: Callable[[], Metered[RubricPass]],
+    model: str,
 ) -> Rubric:
-    estimate = _estimate_usd(grader.model, submission.text)
+    estimate = _estimate_usd(model, submission.text)
 
     def one_pass() -> RubricPass:
         return run_metered(
             session,
             user_id=submission.user_id,
             feature="grading",
-            model=grader.model,
+            model=model,
             estimate_usd=estimate,
-            call=lambda: grader.grade_writing(task, submission.text),
+            call=call,
         )
 
     passes = [one_pass(), one_pass()]

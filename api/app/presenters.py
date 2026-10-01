@@ -1,10 +1,13 @@
-from app.models import Lexeme, Module, Sentence
+from app.models import Lexeme, Module, Sentence, WritingSubmission
 from app.schemas.learning import (
+    FixOut,
     LessonSummary,
     ModuleDetail,
     ModuleSummary,
     SentenceOut,
+    TaggedErrorOut,
     WordOut,
+    WritingResult,
 )
 from app.services import audio
 from app.services.path import PathView
@@ -49,4 +52,19 @@ def word_out(word: Lexeme) -> WordOut:
 def sentence_out(sentence: Sentence) -> SentenceOut:
     return SentenceOut.model_validate(sentence, from_attributes=True).model_copy(
         update={"audio_url": audio.url_for(audio.sentence_request(sentence))}
+    )
+
+
+def writing_result(submission: WritingSubmission) -> WritingResult:
+    rubric = submission.rubric
+    return WritingResult(
+        id=submission.id,
+        status="graded" if submission.status == "graded" else "pending",
+        task=submission.task,
+        word_count=submission.word_count,
+        score=submission.score,
+        criteria=rubric.get("criteria", {}),
+        evidence=rubric.get("evidence", {}),
+        fixes=[FixOut(**f) for f in rubric.get("fixes", [])],
+        errors=[TaggedErrorOut(**e) for e in rubric.get("errors", [])],
     )

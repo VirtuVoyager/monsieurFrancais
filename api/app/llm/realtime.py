@@ -20,7 +20,7 @@ class Call:
 class Realtime(Protocol):
     model: str
 
-    def connect(self, offer_sdp: str, instructions: str) -> Call: ...
+    def connect(self, offer_sdp: str, instructions: str, speed: float) -> Call: ...
 
     def hangup(self, call_id: str) -> None: ...
 
@@ -30,8 +30,10 @@ class FakeRealtime:
 
     def __init__(self) -> None:
         self.hung_up: list[str] = []
+        self.speeds: list[float] = []
 
-    def connect(self, offer_sdp: str, instructions: str) -> Call:
+    def connect(self, offer_sdp: str, instructions: str, speed: float) -> Call:
+        self.speeds.append(speed)
         return Call(f"rtc_fake_{uuid.uuid4().hex}", "v=0\r\ns=fake-examiner\r\n")
 
     def hangup(self, call_id: str) -> None:
@@ -43,7 +45,7 @@ class AzureRealtime:
         self._client = client
         self.model = deployment
 
-    def connect(self, offer_sdp: str, instructions: str) -> Call:
+    def connect(self, offer_sdp: str, instructions: str, speed: float) -> Call:
         # Azure only accepts WebRTC offers signed with an ephemeral token, never the API key.
         secret = self._client.realtime.client_secrets.create(
             expires_after={"anchor": "created_at", "seconds": SECRET_SECONDS},
@@ -54,7 +56,7 @@ class AzureRealtime:
                 "max_output_tokens": MAX_REPLY_TOKENS,
                 "audio": {
                     "input": {"turn_detection": {"type": "semantic_vad", "eagerness": "low"}},
-                    "output": {"voice": VOICE},
+                    "output": {"voice": VOICE, "speed": speed},
                 },
             },
         )
