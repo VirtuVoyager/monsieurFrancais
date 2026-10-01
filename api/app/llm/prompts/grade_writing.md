@@ -5,29 +5,38 @@ Do not reward effort, only the text.
 Score each criterion from 0 to 5. The four scores sum to the official /20 scale, where 4–5 is A2,
 6–9 is B1, 10–13 is B2 (NCLC 7 starts at 10), 14–15 is C1 and 16–20 is C2.
 
+## Calibration
+
+The total feeds an immigration-grade estimate, so never round up: when in doubt between two
+scores, give the lower one. Correct but very simple French is still A1–A2 (all 1s is 4/20,
+the A2 band). B2 (10–13) is mostly 3s; C1 (14–15) mixes 3s and 4s; all 4s (16) is already C2.
+
 ## Criteria
 
-**task** — Task fulfilment. Does the text do what the prompt asks, for the right reader, in the
+Each score names the level it stands for; score the level the text shows.
+
+**task** — Task fulfilment: does the text do what the prompt asks, for the right reader, in the
 right genre and register, within the word range?
-0: off-topic or unusable · 1: barely addresses the task · 2: partial, key elements missing ·
-3: all elements present but thin · 4: complete and adapted to the reader · 5: complete, precise
-and fully adapted.
+0 (below A1): off-topic or unusable · 1 (A1–A2): addresses the task with isolated simple facts ·
+2 (B1): covers the main points simply · 3 (B2): complete, developed and adapted to the reader ·
+4 (C1–C2): complete, nuanced, fully adapted · 5 (strong C2): effortless and precise.
 
-**coherence** — Coherence and cohesion. Logical order, paragraphs, connectors (d'abord, ensuite,
-cependant, en effet, donc, bref…), reference words.
-0: incoherent · 1: list of sentences · 2: simple linking (et, mais) · 3: clear structure with
-common connectors · 4: well organised with varied connectors · 5: fluent, precise articulation.
+**coherence** — Coherence and cohesion: logical order, paragraphs, connectors, reference words.
+0: incoherent · 1 (A1–A2): simple sentences joined by et, mais, parce que · 2 (B1): short linked
+sequence of points · 3 (B2): clear structure with varied connectors (cependant, en effet, donc…) ·
+4 (C1–C2): well organised, precise articulation · 5 (strong C2): seamless.
 
-**vocabulary** — Range and precision. Topic vocabulary, avoiding repetition, correct word choice.
-0: unintelligible · 1: very basic, frequent wrong words · 2: basic, repetitive · 3: adequate for
-the topic, some imprecision · 4: varied and mostly precise · 5: rich, precise, idiomatic.
+**vocabulary** — Range and precision: topic vocabulary, no repetition, correct word choice.
+0: unintelligible · 1 (A1–A2): everyday words only, gaps and repetition · 2 (B1): enough for
+familiar topics, some imprecision · 3 (B2): varied and mostly precise · 4 (C1–C2): broad, precise,
+some idioms · 5 (strong C2): rich and idiomatic.
 
-**grammar** — Grammatical accuracy. Agreement (gender, number, participles), conjugation, tense
-and mood choice (including the subjunctive), articles, prepositions, negation, pronouns, spelling
-and accents. Accuracy is scored on its own: an understandable text with frequent errors cannot
-score above 2.
-0: errors block meaning · 1: errors in most sentences · 2: frequent errors, meaning clear ·
-3: some errors in complex structures · 4: rare errors · 5: near-flawless, complex structures used.
+**grammar** — Accuracy: agreement (gender, number, participles), conjugation, tense and mood
+(including the subjunctive), articles, prepositions, negation, pronouns, spelling and accents.
+0: errors block meaning · 1 (A1–A2): simple sentences with frequent basic errors · 2 (B1): simple
+structures mostly correct, errors in less familiar ones · 3 (B2): good control, some complex
+structures, errors do not cause misunderstanding · 4 (C1–C2): consistently accurate, complex
+structures · 5 (strong C2): near-flawless.
 
 ## Output
 
