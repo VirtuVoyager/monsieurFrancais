@@ -5,6 +5,7 @@ import { useDeferredValue, useState } from "react";
 
 import Link from "next/link";
 
+import { Glossed } from "@/components/glossary/glossed";
 import { GenderTag } from "@/components/lesson/gender-tag";
 import { SpeakButton } from "@/components/lesson/speak-button";
 import { Badge } from "@/components/ui/badge";
@@ -34,60 +35,65 @@ export function LibraryPage() {
   const q = useDeferredValue(query.trim());
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between gap-4">
-        <h1 className="font-serif text-3xl font-semibold">Library</h1>
-        <ButtonLink href="/notes" variant="secondary">
-          <NotebookPen className="size-4" aria-hidden />
-          Class notes
-        </ButtonLink>
+    <Glossed>
+      <div className="space-y-6">
+        <div className="flex items-center justify-between gap-4">
+          <h1 className="font-serif text-3xl font-semibold">Library</h1>
+          <ButtonLink href="/notes" variant="secondary">
+            <NotebookPen className="size-4" aria-hidden />
+            Class notes
+          </ButtonLink>
+        </div>
+        <div className="space-y-2">
+          <label className="relative block">
+            <span className="sr-only">Search</span>
+            <Search className="absolute top-3 left-3 size-4 text-muted" aria-hidden />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search words, sentences, grammar and your own mistakes"
+              className="w-full rounded-xl border border-line bg-surface py-2.5 pr-3 pl-9 outline-none focus:border-accent"
+            />
+          </label>
+          <label className="flex items-center gap-2 text-sm text-muted">
+            <input
+              type="checkbox"
+              checked={everything}
+              onChange={(e) => setEverything(e.target.checked)}
+            />
+            Include modules I haven&apos;t started
+          </label>
+        </div>
+        {q.length > 1 ? (
+          <SearchResults q={q} scope={everything ? "catalogue" : "learned"} />
+        ) : (
+          <>
+            <div
+              role="tablist"
+              className="inline-flex rounded-xl border border-line bg-surface p-1"
+            >
+              {TABS.map((t) => (
+                <button
+                  key={t}
+                  role="tab"
+                  aria-selected={tab === t}
+                  onClick={() => setTab(t)}
+                  className={cx(
+                    "rounded-lg px-4 py-1.5 text-sm font-medium",
+                    tab === t ? "bg-accent-soft text-accent" : "text-muted hover:text-ink",
+                  )}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+            {tab === "Words" && <Words />}
+            {tab === "Sentences" && <Sentences />}
+            {tab === "Grammar" && <Concepts />}
+          </>
+        )}
       </div>
-      <div className="space-y-2">
-        <label className="relative block">
-          <span className="sr-only">Search</span>
-          <Search className="absolute top-3 left-3 size-4 text-muted" aria-hidden />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search words, sentences, grammar and your own mistakes"
-            className="w-full rounded-xl border border-line bg-surface py-2.5 pr-3 pl-9 outline-none focus:border-accent"
-          />
-        </label>
-        <label className="flex items-center gap-2 text-sm text-muted">
-          <input
-            type="checkbox"
-            checked={everything}
-            onChange={(e) => setEverything(e.target.checked)}
-          />
-          Include modules I haven&apos;t started
-        </label>
-      </div>
-      {q.length > 1 ? (
-        <SearchResults q={q} scope={everything ? "catalogue" : "learned"} />
-      ) : (
-        <>
-          <div role="tablist" className="inline-flex rounded-xl border border-line bg-surface p-1">
-            {TABS.map((t) => (
-              <button
-                key={t}
-                role="tab"
-                aria-selected={tab === t}
-                onClick={() => setTab(t)}
-                className={cx(
-                  "rounded-lg px-4 py-1.5 text-sm font-medium",
-                  tab === t ? "bg-accent-soft text-accent" : "text-muted hover:text-ink",
-                )}
-              >
-                {t}
-              </button>
-            ))}
-          </div>
-          {tab === "Words" && <Words />}
-          {tab === "Sentences" && <Sentences />}
-          {tab === "Grammar" && <Concepts />}
-        </>
-      )}
-    </div>
+    </Glossed>
   );
 }
 

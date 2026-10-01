@@ -344,6 +344,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/glossary": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Glossary */
+        get: operations["get_glossary_glossary_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/notes": {
         parameters: {
             query?: never;
@@ -918,6 +935,13 @@ export interface components {
             allowance: number;
             /** Used */
             used: number;
+        };
+        /** GlossOut */
+        GlossOut: {
+            /** Lemma */
+            lemma: string;
+            /** En */
+            en: string;
         };
         /** GrammarContent */
         GrammarContent: {
@@ -2251,6 +2275,41 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ConceptOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_glossary_glossary_get: {
+        parameters: {
+            query?: {
+                module_id?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: components["schemas"]["GlossOut"];
+                    };
                 };
             };
             /** @description Validation Error */

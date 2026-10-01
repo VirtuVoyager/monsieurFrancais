@@ -416,3 +416,8 @@ class NoteDecision(BaseModel):
 
 class NoteReview(BaseModel):
     items: list[NoteDecision] = Field(max_length=500)
+
+
+class GlossOut(BaseModel):
+    lemma: str
+    en: str

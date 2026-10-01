@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     # Each capability switches to Azure independently, as its deployment becomes available.
     grader_provider: Provider = "fake"
     notes_provider: Provider = "fake"
+    glossary_provider: Provider = "fake"
     embedding_provider: Provider = "fake"
     speech_provider: Provider = "fake"
     realtime_provider: Provider = "fake"

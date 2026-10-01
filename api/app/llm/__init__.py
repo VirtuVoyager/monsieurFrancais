@@ -6,6 +6,7 @@ from app.config import get_settings
 from app.llm.azure import AzureGrader
 from app.llm.embedder import AzureEmbedder, Embedder, FakeEmbedder
 from app.llm.fake import FakeGrader
+from app.llm.glosser import AzureGlosser, FakeGlosser, Glosser
 from app.llm.grader import Grader
 from app.llm.notes import AzureNoteExtractor, FakeNoteExtractor, NoteExtractor
 from app.llm.realtime import AzureRealtime, FakeRealtime, Realtime
@@ -46,6 +47,14 @@ def get_note_extractor() -> NoteExtractor:
     if settings.notes_provider == "fake":
         return FakeNoteExtractor()
     return AzureNoteExtractor(_client(), settings.azure_openai_text_deployment)
+
+
+@cache
+def get_glosser() -> Glosser:
+    settings = get_settings()
+    if settings.glossary_provider == "fake":
+        return FakeGlosser()
+    return AzureGlosser(_client(), settings.azure_openai_text_deployment)
 
 
 @cache

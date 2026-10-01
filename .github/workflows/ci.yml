@@ -102,6 +102,7 @@ jobs:
           uv sync --frozen
           uv run alembic upgrade head
           uv run python -m app.jobs.seed
+          uv run python -m app.jobs.build_glossaries
           nohup uv run uvicorn app.main:app --port 8000 > /tmp/api.log 2>&1 &
       - name: Build and start web
         working-directory: web

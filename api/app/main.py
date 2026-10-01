@@ -12,6 +12,7 @@ from app.observability import configure_logging, configure_tracing, request_cont
 from app.routers import (
     auth,
     budget,
+    glossary,
     health,
     lessons,
     library,
@@ -64,6 +65,7 @@ def create_app() -> FastAPI:
     app.include_router(path.router)
     app.include_router(lessons.router)
     app.include_router(library.router)
+    app.include_router(glossary.router)
     app.include_router(notes.router)
     app.include_router(skills.router)
     app.include_router(settings.router)

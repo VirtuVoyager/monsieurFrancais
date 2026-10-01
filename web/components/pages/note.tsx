@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import { Glossed } from "@/components/glossary/glossed";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { Card, Eyebrow, SectionTitle } from "@/components/ui/card";
 import { FrenchMarkdown } from "@/components/ui/markdown";
@@ -27,7 +28,11 @@ export function NotePage({ id }: { id: number }) {
   const note = useNote(id);
   if (note.isPending) return <Loading />;
   if (note.isError) return <ErrorState error={note.error} />;
-  return <NoteReview key={note.data.id} note={note.data} />;
+  return (
+    <Glossed>
+      <NoteReview key={note.data.id} note={note.data} />
+    </Glossed>
+  );
 }
 
 function NoteReview({ note }: { note: Schemas["NoteDetail"] }) {

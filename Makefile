@@ -1,4 +1,4 @@
-.PHONY: up down obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio mcp test lint typecheck check gen-api e2e
+.PHONY: up down obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio glossary mcp test lint typecheck check gen-api e2e
 
 up:            ## Build and start db, api and web in Docker (OrbStack)
 	docker compose up -d --build
@@ -33,6 +33,9 @@ embed:         ## Embed knowledge-base entries that are new or changed (also run
 audio:         ## Generate missing catalogue audio (each clip once; set MF_SPEECH_PROVIDER=azure for real voices)
 	cd api && uv run python -m app.jobs.generate_audio
 
+glossary:      ## Build hover glossaries for changed modules (set MF_GLOSSARY_PROVIDER=azure for real ones)
+	cd api && uv run python -m app.jobs.build_glossaries
+
 mcp:           ## Run the read-only MCP server on stdio (for Claude Desktop and other clients)
 	cd api && uv run python -m app.mcp_server
 
@@ -57,4 +60,5 @@ gen-api:       ## Regenerate the typed web client from the API's OpenAPI schema
 	cd web && pnpm gen:api
 
 e2e: reset-db  ## Browser tests against a freshly seeded database (API and web must be running)
+	cd api && MF_GLOSSARY_PROVIDER=fake uv run python -m app.jobs.build_glossaries
 	cd web && pnpm e2e
