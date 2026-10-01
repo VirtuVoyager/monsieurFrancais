@@ -323,12 +323,16 @@ class SpeakingTaskOut(BaseModel):
 
 class SpeakingStart(BaseModel):
     task: str
+    pace: Literal["slow", "learner", "exam"] = "learner"
+    show_transcript: bool = True
 
 
 class SpeakingSessionOut(BaseModel):
     run_id: int
     task: SpeakingTaskOut
     prompt: str
+    pace: Literal["slow", "learner", "exam"]
+    exam: bool
 
 
 class SdpOffer(BaseModel):
@@ -351,10 +355,23 @@ class UsageVerdict(BaseModel):
 class TranscriptLine(BaseModel):
     role: Literal["examiner", "candidate"]
     text: str = Field(max_length=4000)
+    # Milliseconds since the recording started, to place the learner's answers in between.
+    at_ms: int = Field(default=0, ge=0)
 
 
 class SpeakingEnd(BaseModel):
     transcript: list[TranscriptLine] = Field(default_factory=list, max_length=200)
+
+
+class SpeakingResult(BaseModel):
+    run_id: int
+    task: str
+    exam: bool
+    status: Literal["none", "pending", "graded", "empty"]
+    feedback: WritingResult | None
+    transcript: list[TranscriptLine]
+    has_recording: bool
+    level: SkillLevelOut | None = None
 
 
 class NoteUpload(BaseModel):

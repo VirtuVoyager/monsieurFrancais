@@ -171,7 +171,8 @@ export function useSpeakingTasks() {
 
 export function useStartSpeaking() {
   return useMutation({
-    mutationFn: (task: string) => unwrap(api.POST("/speaking/sessions", { body: { task } })),
+    mutationFn: (body: Schemas["SpeakingStart"]) =>
+      unwrap(api.POST("/speaking/sessions", { body })),
   });
 }
 

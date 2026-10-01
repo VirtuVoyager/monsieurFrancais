@@ -2277,6 +2277,111 @@
         }
       }
     },
+    "/speaking/sessions/{run_id}/recording": {
+      "post": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "Upload Recording",
+        "operationId": "upload_recording_speaking_sessions__run_id__recording_post",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "Get Recording",
+        "operationId": "get_recording_speaking_sessions__run_id__recording_get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/speaking/sessions/{run_id}/end": {
       "post": {
         "tags": [
@@ -2322,8 +2427,73 @@
           }
         },
         "responses": {
-          "204": {
-            "description": "Successful Response"
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeakingResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/speaking/sessions/{run_id}": {
+      "get": {
+        "tags": [
+          "speaking"
+        ],
+        "summary": "Get Result",
+        "operationId": "get_result_speaking_sessions__run_id__get",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Run Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeakingResult"
+                }
+              }
+            }
           },
           "422": {
             "description": "Validation Error",
@@ -4276,6 +4446,74 @@
         "type": "object",
         "title": "SpeakingEnd"
       },
+      "SpeakingResult": {
+        "properties": {
+          "run_id": {
+            "type": "integer",
+            "title": "Run Id"
+          },
+          "task": {
+            "type": "string",
+            "title": "Task"
+          },
+          "exam": {
+            "type": "boolean",
+            "title": "Exam"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "none",
+              "pending",
+              "graded",
+              "empty"
+            ],
+            "title": "Status"
+          },
+          "feedback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WritingResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "transcript": {
+            "items": {
+              "$ref": "#/components/schemas/TranscriptLine"
+            },
+            "type": "array",
+            "title": "Transcript"
+          },
+          "has_recording": {
+            "type": "boolean",
+            "title": "Has Recording"
+          },
+          "level": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SkillLevelOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "task",
+          "exam",
+          "status",
+          "feedback",
+          "transcript",
+          "has_recording"
+        ],
+        "title": "SpeakingResult"
+      },
       "SpeakingSessionOut": {
         "properties": {
           "run_id": {
@@ -4288,13 +4526,28 @@
           "prompt": {
             "type": "string",
             "title": "Prompt"
+          },
+          "pace": {
+            "type": "string",
+            "enum": [
+              "slow",
+              "learner",
+              "exam"
+            ],
+            "title": "Pace"
+          },
+          "exam": {
+            "type": "boolean",
+            "title": "Exam"
           }
         },
         "type": "object",
         "required": [
           "run_id",
           "task",
-          "prompt"
+          "prompt",
+          "pace",
+          "exam"
         ],
         "title": "SpeakingSessionOut"
       },
@@ -4303,6 +4556,21 @@
           "task": {
             "type": "string",
             "title": "Task"
+          },
+          "pace": {
+            "type": "string",
+            "enum": [
+              "slow",
+              "learner",
+              "exam"
+            ],
+            "title": "Pace",
+            "default": "learner"
+          },
+          "show_transcript": {
+            "type": "boolean",
+            "title": "Show Transcript",
+            "default": true
           }
         },
         "type": "object",
@@ -4386,6 +4654,12 @@
             "type": "string",
             "maxLength": 4000,
             "title": "Text"
+          },
+          "at_ms": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "At Ms",
+            "default": 0
           }
         },
         "type": "object",

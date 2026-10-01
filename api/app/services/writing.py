@@ -80,7 +80,9 @@ def submit_drill(session: Session, user_id: int, run_id: int, text: str) -> Writ
 def grade_pending(session: Session) -> int:
     """Retries submissions deferred by a budget cap or an unavailable grader."""
     pending = session.scalars(
-        select(WritingSubmission).where(WritingSubmission.status == "pending")
+        select(WritingSubmission).where(
+            WritingSubmission.status == "pending", WritingSubmission.skill == SKILL
+        )
     ).all()
     graded = 0
     for submission in pending:

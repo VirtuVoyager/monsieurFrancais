@@ -120,8 +120,12 @@ test("a speaking task gives preparation time, then releases the call on failure"
   page,
 }) => {
   await page.goto("/speak");
+  await page.getByRole("radio", { name: /Exam/ }).click();
+  await page.getByLabel("Show the examiner's words while speaking").uncheck();
+  await expect(page.getByText("Exam conditions: this session counts")).toBeVisible();
   await page.getByRole("button", { name: "Start" }).nth(1).click();
 
+  await expect(page.getByText("Exam conditions", { exact: true })).toBeVisible();
   await expect(page.getByText("Posez-moi des questions")).toBeVisible();
   await expect(page.getByText("Preparation")).toBeVisible();
   await page.getByRole("button", { name: "I'm ready" }).click();
@@ -129,6 +133,7 @@ test("a speaking task gives preparation time, then releases the call on failure"
   await page.getByRole("button", { name: "Begin" }).click();
 
   await expect(page.getByRole("main").getByRole("alert")).toBeVisible();
+  await expect(page.getByText("No answer was heard")).toBeVisible();
   await expect(page.getByRole("button", { name: "Choose another task" })).toBeVisible();
 });
 

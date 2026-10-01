@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 from app.domain.cost import Metered, Units
 from app.domain.rubric import ErrorKind, Fix, RubricPass, TaggedError
-from app.llm.grader import ProviderUnavailableError, WritingTask
+from app.llm.grader import ProviderUnavailableError, SpokenTask, WritingTask
 
 
 class _Criterion(BaseModel):
@@ -40,8 +40,8 @@ class _RubricOutput(BaseModel):
 
 
 @cache
-def _instructions() -> str:
-    return (Path(__file__).parent / "prompts" / "grade_writing.md").read_text()
+def _instructions(name: str) -> str:
+    return (Path(__file__).parent / "prompts" / f"{name}.md").read_text()
 
 
 class AzureGrader:
@@ -55,10 +55,20 @@ class AzureGrader:
             f"Task {task.code} ({task.min_words}-{task.max_words} words):\n{task.prompt}\n\n"
             f"Learner's text:\n{text}"
         )
+        return self._grade("grade_writing", prompt)
+
+    def grade_speaking(self, task: SpokenTask, transcript: str) -> Metered[RubricPass]:
+        prompt = (
+            f"Task {task.code} ({task.seconds // 60} min {task.seconds % 60} s):\n{task.prompt}\n\n"
+            f"Transcript:\n{transcript}"
+        )
+        return self._grade("grade_speaking", prompt)
+
+    def _grade(self, rubric: str, prompt: str) -> Metered[RubricPass]:
         try:
             response = self._client.responses.parse(
                 model=self.model,
-                instructions=_instructions(),
+                instructions=_instructions(rubric),
                 input=prompt,
                 text_format=_RubricOutput,
                 reasoning={"effort": "low"},

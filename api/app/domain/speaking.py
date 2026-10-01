@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from dataclasses import dataclass
 from typing import Any
 
 from app.domain.cost import Units
@@ -36,20 +37,68 @@ _ROLES = {
 }
 
 
-def examiner_instructions(task: str, prompt: str, notes: str | None) -> str:
+# Speech speed multipliers; only "exam" matches the real test, the others are for practice.
+PACES = {"slow": 0.75, "learner": 0.9, "exam": 1.0}
+
+_PRACTICE = (
+    "This is practice for a beginner: use short sentences and everyday words, and if the "
+    "candidate hesitates or misunderstands, ask again in simpler French without saying so."
+)
+_EXAM = "If the candidate asks you to repeat, rephrase once in simple French, then move on."
+
+
+def examiner_instructions(task: str, prompt: str, notes: str | None, pace: str) -> str:
     lines = [
         "You are a TCF Canada examiner for the expression orale test (task "
         f"{task}, {TITLES[task]}).",
         _ROLES[task],
-        "Speak only French, at natural speed, in a neutral standard register. Keep every turn "
-        "under 20 seconds: the candidate must do most of the talking.",
-        "Never correct, teach, translate, praise or score the candidate during the test, and "
-        "never switch to English, even if asked.",
+        "Speak only French in a neutral standard register. Keep every turn under 20 seconds: "
+        "the candidate must do most of the talking. Greet only once, at the start.",
+        "Stay neutral, as in the exam room: never correct, teach, translate, praise (no "
+        '"très bien", "super") or score the candidate, never comment on how they speak or on '
+        "what you could not hear, and never switch to English, even if asked.",
+        _EXAM if pace == "exam" else _PRACTICE,
         f"Task shown to the candidate: {prompt.strip()}",
     ]
     if notes:
         lines.append(f"Private notes, never read out: {notes.strip()}")
     return "\n\n".join(lines)
+
+
+@dataclass(frozen=True)
+class Turn:
+    role: str  # "examiner" or "candidate"
+    text: str
+    at_ms: int
+
+
+def interleave(examiner: list[Turn], candidate: list[Turn]) -> list[Turn]:
+    """One conversation in time order, consecutive phrases by the same speaker merged."""
+    merged: list[Turn] = []
+    for turn in sorted([*examiner, *candidate], key=lambda t: t.at_ms):
+        if merged and merged[-1].role == turn.role:
+            last = merged.pop()
+            merged.append(Turn(turn.role, f"{last.text} {turn.text}", last.at_ms))
+        else:
+            merged.append(turn)
+    return merged
+
+
+_LABELS = {"examiner": "Examinateur", "candidate": "Candidat"}
+
+
+def as_text(turns: list[Turn]) -> str:
+    return "\n".join(f"{_LABELS[t.role]} : {t.text}" for t in turns)
+
+
+def from_text(text: str) -> list[Turn]:
+    roles = {label: role for role, label in _LABELS.items()}
+    turns = []
+    for line in text.splitlines():
+        label, _, said = line.partition(" : ")
+        if label in roles:
+            turns.append(Turn(roles[label], said, 0))
+    return turns
 
 
 def worst_case_units(seconds: int) -> Units:

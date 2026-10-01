@@ -652,6 +652,24 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/speaking/sessions/{run_id}/recording": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Recording */
+        get: operations["get_recording_speaking_sessions__run_id__recording_get"];
+        put?: never;
+        /** Upload Recording */
+        post: operations["upload_recording_speaking_sessions__run_id__recording_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/speaking/sessions/{run_id}/end": {
         parameters: {
             query?: never;
@@ -663,6 +681,23 @@ export interface paths {
         put?: never;
         /** End Session */
         post: operations["end_session_speaking_sessions__run_id__end_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/speaking/sessions/{run_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Result */
+        get: operations["get_result_speaking_sessions__run_id__get"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1353,6 +1388,26 @@ export interface components {
             /** Transcript */
             transcript?: components["schemas"]["TranscriptLine"][];
         };
+        /** SpeakingResult */
+        SpeakingResult: {
+            /** Run Id */
+            run_id: number;
+            /** Task */
+            task: string;
+            /** Exam */
+            exam: boolean;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "none" | "pending" | "graded" | "empty";
+            feedback: components["schemas"]["WritingResult"] | null;
+            /** Transcript */
+            transcript: components["schemas"]["TranscriptLine"][];
+            /** Has Recording */
+            has_recording: boolean;
+            level?: components["schemas"]["SkillLevelOut"] | null;
+        };
         /** SpeakingSessionOut */
         SpeakingSessionOut: {
             /** Run Id */
@@ -1360,11 +1415,29 @@ export interface components {
             task: components["schemas"]["SpeakingTaskOut"];
             /** Prompt */
             prompt: string;
+            /**
+             * Pace
+             * @enum {string}
+             */
+            pace: "slow" | "learner" | "exam";
+            /** Exam */
+            exam: boolean;
         };
         /** SpeakingStart */
         SpeakingStart: {
             /** Task */
             task: string;
+            /**
+             * Pace
+             * @default learner
+             * @enum {string}
+             */
+            pace: "slow" | "learner" | "exam";
+            /**
+             * Show Transcript
+             * @default true
+             */
+            show_transcript: boolean;
         };
         /** SpeakingTaskOut */
         SpeakingTaskOut: {
@@ -1400,6 +1473,11 @@ export interface components {
             role: "examiner" | "candidate";
             /** Text */
             text: string;
+            /**
+             * At Ms
+             * @default 0
+             */
+            at_ms: number;
         };
         /** UsageEventOut */
         UsageEventOut: {
@@ -2861,6 +2939,70 @@ export interface operations {
             };
         };
     };
+    get_recording_speaking_sessions__run_id__recording_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    upload_recording_speaking_sessions__run_id__recording_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     end_session_speaking_sessions__run_id__end_post: {
         parameters: {
             query?: never;
@@ -2879,11 +3021,46 @@ export interface operations {
         };
         responses: {
             /** @description Successful Response */
-            204: {
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content?: never;
+                content: {
+                    "application/json": components["schemas"]["SpeakingResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_result_speaking_sessions__run_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: number;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SpeakingResult"];
+                };
             };
             /** @description Validation Error */
             422: {

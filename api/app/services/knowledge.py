@@ -126,6 +126,8 @@ def index_user(session: Session, user_id: int) -> None:
     )
     for submission in graded:
         ref = f"/lessons/{submission.lesson_id}" if submission.lesson_id else "/drills"
+        if submission.skill == "EO":
+            ref = "/speak"
         for i, fix in enumerate(submission.rubric.get("fixes", [])):
             entries.append(
                 Entry(

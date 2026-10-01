@@ -1,12 +1,10 @@
 from fastapi import APIRouter
 
 from app.db import SessionDep
-from app.models import WritingSubmission
+from app.presenters import writing_result
 from app.routers.skills import level_out
 from app.schemas.learning import (
     ErrorFingerprintOut,
-    FixOut,
-    TaggedErrorOut,
     WritingDrillOut,
     WritingResult,
     WritingText,
@@ -24,7 +22,7 @@ def submit_lesson_writing(
 ) -> WritingResult:
     lesson = lessons.get_lesson(session, lesson_id)
     open_module(session, user.id, lesson.module_id)
-    return _result(writing.submit_lesson(session, user.id, lesson, body.text))
+    return writing_result(writing.submit_lesson(session, user.id, lesson, body.text))
 
 
 @router.post("/writing/drills")
@@ -46,7 +44,7 @@ def submit_writing_drill(
     run_id: int, body: WritingText, session: SessionDep, user: CurrentUser
 ) -> WritingResult:
     submission = writing.submit_drill(session, user.id, run_id, body.text)
-    result = _result(submission)
+    result = writing_result(submission)
     result.level = level_out(skills.skill_level(session, user.id, "EE"))
     return result
 
@@ -57,18 +55,3 @@ def error_fingerprint(session: SessionDep, user: CurrentUser) -> list[ErrorFinge
         ErrorFingerprintOut(tag=e.tag, count=e.count, example=e.example, correction=e.correction)
         for e in grading.top_errors(session, user.id)
     ]
-
-
-def _result(submission: WritingSubmission) -> WritingResult:
-    rubric = submission.rubric
-    return WritingResult(
-        id=submission.id,
-        status="graded" if submission.status == "graded" else "pending",
-        task=submission.task,
-        word_count=submission.word_count,
-        score=submission.score,
-        criteria=rubric.get("criteria", {}),
-        evidence=rubric.get("evidence", {}),
-        fixes=[FixOut(**f) for f in rubric.get("fixes", [])],
-        errors=[TaggedErrorOut(**e) for e in rubric.get("errors", [])],
-    )

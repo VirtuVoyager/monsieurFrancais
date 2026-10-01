@@ -2,7 +2,7 @@ import re
 
 from app.domain.cost import Metered
 from app.domain.rubric import CRITERIA, Fix, RubricPass, TaggedError, word_count
-from app.llm.grader import WritingTask
+from app.llm.grader import SpokenTask, WritingTask
 
 # A handful of classic learner errors, enough to exercise the pipeline without a model.
 _RULES: list[tuple[re.Pattern[str], str, str, str]] = [
@@ -57,6 +57,14 @@ class FakeGrader:
         evidence = {c: text[:80] for c in CRITERIA}
         units = {"input_tokens": len(text) / 4 + 1500, "output_tokens": 400}
         return Metered(RubricPass(criteria, evidence, fixes[:3], errors), units)
+
+    def grade_speaking(self, task: SpokenTask, transcript: str) -> Metered[RubricPass]:
+        # Roughly 60 words a minute is a fluent A2 speaker; judge only the candidate's lines.
+        spoken = " ".join(
+            line.split(":", 1)[1] for line in transcript.splitlines() if line.startswith("Candidat")
+        )
+        words = round(task.seconds / 60 * 60)
+        return self.grade_writing(WritingTask(task.code, task.prompt, words // 2, words), spoken)
 
 
 def _task_score(words: int, task: WritingTask) -> int:
