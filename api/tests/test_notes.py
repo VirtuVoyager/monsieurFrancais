@@ -3,6 +3,8 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app.config import get_settings
+from app.domain.audio import spoken
 from app.domain.cost import Metered
 from app.domain.notes import (
     MAX_WORDS,
@@ -17,7 +19,7 @@ from app.domain.notes import (
 from app.llm.grader import ProviderUnavailableError
 from app.llm.notes import FakeNoteExtractor
 from app.models import Card, Note, NoteItem, UsageEvent, User
-from app.services import notes
+from app.services import audio, notes
 
 NOTE = """# 🇫🇷 Day 5 — Class Notes (Le logement)
 
@@ -199,3 +201,33 @@ def _other_user(session: Session) -> int:
     session.add(user)
     session.commit()
     return user.id
+
+
+def test_approved_words_get_audio_once_and_stay_out_of_the_manifest(
+    client: TestClient, session: Session
+) -> None:
+    note = client.post("/notes", json={"filename": "Day_5.md", "text": NOTE}).json()
+    items = {i["fr"]: i for i in note["items"]}
+    approve = [items["un appartement"], items["Il y a deux chambres."], items["Il y a"]]
+    client.post(
+        f"/notes/{note['id']}/review",
+        json={"items": [{"id": i["id"], "approve": True} for i in approve]},
+    )
+
+    first = audio.generate_notes(session)
+    again = audio.generate_notes(session)
+
+    assert (first.generated, again.generated, again.existing) == (2, 0, 2)  # grammar has none
+    word = next(w for w in client.get("/library/words").json() if w["lemma"] == "un appartement")
+    assert word["audio_url"].startswith("/media/catalog/audio/")
+    due = {c["answer_fr"]: c for c in client.get("/reviews/due").json()}
+    assert (
+        due["Il y a deux chambres."]["audio_url"]
+        == client.get("/library/sentences").json()[0]["audio_url"]
+    )
+    assert not get_settings().media_manifest.exists()
+
+
+def test_pairs_are_spoken_with_a_pause() -> None:
+    assert spoken("le boulanger / la boulangère") == "le boulanger, la boulangère"
+    assert spoken("Bonjour !") == "Bonjour !"
