@@ -7,8 +7,9 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
-from app.domain.audio import PRACTICE_RATE, AudioRequest, media_path
-from app.models import Item, Lesson, Lexeme, Sentence
+from app.domain.audio import PRACTICE_RATE, AudioRequest, media_path, spoken
+from app.domain.notes import key_of
+from app.models import Item, Lesson, Lexeme, NoteItem, Sentence
 from app.services.budget import price_book
 from app.services.metering import run_metered
 from app.speech import get_synthesizer
@@ -63,11 +64,37 @@ def generate_missing(
     session: Session, user_id: int, synthesizer: Synthesizer | None = None
 ) -> AudioReport:
     """Content pipeline step: synthesise each clip once; an existing hash is never paid again."""
+    requests = [(user_id, r) for r in catalogue_requests(session)]
+    return _synthesize(session, requests, "tts_listening", synthesizer, manifest=True)
+
+
+def note_request(item: NoteItem) -> AudioRequest | None:
+    if item.kind not in ("word", "sentence"):
+        return None
+    # Keyed by text, so the same phrase approved from two notes shares one clip.
+    return AudioRequest(f"note:{key_of(item.fr)}", spoken(item.fr), PRACTICE_RATE)
+
+
+def generate_notes(session: Session, synthesizer: Synthesizer | None = None) -> AudioReport:
+    """Clips for approved class-note words and phrases; kept out of the committed manifest."""
+    approved = session.scalars(select(NoteItem).where(NoteItem.status == "approved"))
+    requests = [(item.user_id, r) for item in approved if (r := note_request(item))]
+    return _synthesize(session, requests, "tts_notes", synthesizer, manifest=False)
+
+
+def _synthesize(
+    session: Session,
+    requests: list[tuple[int, AudioRequest]],
+    feature: str,
+    synthesizer: Synthesizer | None,
+    *,
+    manifest: bool,
+) -> AudioReport:
     synthesizer = synthesizer or get_synthesizer()
     settings = get_settings()
     pricing = price_book().for_model(synthesizer.model)
     report = AudioReport()
-    for request in catalogue_requests(session):
+    for user_id, request in requests:
         content_hash = request.content_hash(synthesizer.model)
         target = settings.media_dir / media_path(content_hash)
         if target.exists():
@@ -76,19 +103,16 @@ def generate_missing(
         audio = run_metered(
             session,
             user_id=user_id,
-            feature="tts_listening",
+            feature=feature,
             model=synthesizer.model,
             estimate_usd=pricing.cost({"characters": len(request.text)}),
             call=partial(synthesizer.synthesize, request),
         )
         _write_atomically(target, audio)
-        _append_manifest(
-            settings.media_manifest,
-            request,
-            synthesizer,
-            content_hash,
-            len(audio),
-        )
+        if manifest:
+            _append_manifest(
+                settings.media_manifest, request, synthesizer, content_hash, len(audio)
+            )
         report.generated += 1
         report.characters += len(request.text)
     return report

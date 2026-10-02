@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.db import SessionLocal
-from app.services import knowledge, notes, speaking, writing
+from app.services import audio, knowledge, notes, speaking, writing
 from app.services.users import get_or_create_learner
 
 log = structlog.get_logger()
@@ -31,6 +31,10 @@ def _embed(session: Session) -> int:
     return knowledge.embed_pending(session, get_or_create_learner(session).id)
 
 
+def _note_audio(session: Session) -> int:
+    return audio.generate_notes(session).generated
+
+
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     """Background work lives in the API process until it needs its own worker."""
@@ -40,6 +44,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
         scheduler.add_job(_run("close_speaking", speaking.close_expired), "interval", minutes=1)
         scheduler.add_job(_run("grade_speaking", speaking.grade_pending), "interval", minutes=10)
         scheduler.add_job(_run("extract_notes", notes.extract_pending), "interval", minutes=10)
+        scheduler.add_job(_run("note_audio", _note_audio), "interval", minutes=5)
         scheduler.add_job(_run("grade_pending", writing.grade_pending), "interval", minutes=10)
         scheduler.start()
     yield

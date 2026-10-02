@@ -47,3 +47,8 @@ class AudioRequest:
 
 def media_path(content_hash: str) -> str:
     return f"catalog/audio/{content_hash[:2]}/{content_hash[2:4]}/{content_hash}.ogg"
+
+
+def spoken(text: str) -> str:
+    """Pairs written with a slash ("le boulanger / la boulangère") are read with a pause."""
+    return ", ".join(part.strip() for part in text.split("/") if part.strip())

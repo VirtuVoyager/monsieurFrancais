@@ -1,4 +1,4 @@
-.PHONY: up down obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio glossary mcp test lint typecheck check gen-api e2e
+.PHONY: up down obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio note-audio glossary mcp test lint typecheck check gen-api e2e
 
 up:            ## Build and start db, api and web in Docker (OrbStack)
 	docker compose up -d --build
@@ -32,6 +32,9 @@ embed:         ## Embed knowledge-base entries that are new or changed (also run
 
 audio:         ## Generate missing catalogue audio (each clip once; set MF_SPEECH_PROVIDER=azure for real voices)
 	cd api && uv run python -m app.jobs.generate_audio
+
+note-audio:    ## Generate audio for approved class-note words and phrases (also runs every 5 minutes in the API)
+	cd api && uv run python -m app.jobs.note_audio
 
 glossary:      ## Build hover glossaries for changed modules (set MF_GLOSSARY_PROVIDER=azure for real ones)
 	cd api && uv run python -m app.jobs.build_glossaries

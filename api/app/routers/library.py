@@ -45,6 +45,7 @@ def learned_words(session: SessionDep, user: CurrentUser, q: str | None = None) 
             en=item.en,
             example_fr=item.detail,
             example_en="",
+            audio_url=audio.url_for(audio.note_request(item)),
             source=notes.source_label(note),
         )
         for item, note in notes.approved(session, user.id, "word")
@@ -65,7 +66,13 @@ def learned_sentences(
         query = query.where(or_(Sentence.fr.ilike(like), Sentence.en.ilike(like)))
     sentences = [sentence_out(s) for s in session.scalars(query)]
     return sentences + [
-        SentenceOut(id=f"note:{item.id}", fr=item.fr, en=item.en, source=notes.source_label(note))
+        SentenceOut(
+            id=f"note:{item.id}",
+            fr=item.fr,
+            en=item.en,
+            audio_url=audio.url_for(audio.note_request(item)),
+            source=notes.source_label(note),
+        )
         for item, note in notes.approved(session, user.id, "sentence")
         if _matches(q, item)
     ]
@@ -100,7 +107,7 @@ def _review_card(session: SessionDep, card: Card) -> ReviewCard:
     if card.item_type == notes.CARD_TYPE:
         item = session.get_one(NoteItem, int(card.item_id))
         prompt, answer, gender, example = item.en, item.fr, item.gender, item.detail or None
-        url = None
+        url = audio.url_for(audio.note_request(item))
     elif card.item_type == "lexeme":
         word = session.get_one(Lexeme, card.item_id)
         prompt, answer, gender, example = word.en, word.lemma, word.gender, word.example_fr
