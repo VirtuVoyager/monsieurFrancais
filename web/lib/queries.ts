@@ -176,6 +176,16 @@ export function useStartSpeaking() {
   });
 }
 
+export function useGlossary(moduleId?: string) {
+  return useQuery({
+    queryKey: ["glossary", moduleId ?? ""],
+    queryFn: () =>
+      unwrap(api.GET("/glossary", { params: { query: moduleId ? { module_id: moduleId } : {} } })),
+    // Glossaries change only when content is rebuilt or a note is approved.
+    staleTime: 10 * 60 * 1000,
+  });
+}
+
 export function useNotes() {
   return useQuery({ queryKey: ["notes"], queryFn: () => unwrap(api.GET("/notes")) });
 }

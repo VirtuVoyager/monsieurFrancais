@@ -4,6 +4,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import { Glossed } from "@/components/glossary/glossed";
 import { LessonView } from "@/components/lesson/lesson-view";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/card";
@@ -31,35 +32,37 @@ export function LessonPage({ id }: { id: string }) {
   };
 
   return (
-    <article className="space-y-6">
-      <Link
-        href={`/modules/${moduleId}`}
-        className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"
-      >
-        <ArrowLeft className="size-4" aria-hidden />{" "}
-        {moduleQuery.data ? fr(moduleQuery.data.title) : "Module"}
-      </Link>
-      <header>
-        <Eyebrow>
-          Lesson {index + 1} of {lessons.length || "…"}
-        </Eyebrow>
-        <h1 className="mt-1 font-serif text-3xl font-semibold" lang="fr">
-          {fr(lesson.data.title)}
-        </h1>
-      </header>
+    <Glossed moduleId={moduleId}>
+      <article className="space-y-6">
+        <Link
+          href={`/modules/${moduleId}`}
+          className="inline-flex items-center gap-1 text-sm text-muted hover:text-ink"
+        >
+          <ArrowLeft className="size-4" aria-hidden />{" "}
+          {moduleQuery.data ? fr(moduleQuery.data.title) : "Module"}
+        </Link>
+        <header>
+          <Eyebrow>
+            Lesson {index + 1} of {lessons.length || "…"}
+          </Eyebrow>
+          <h1 className="mt-1 font-serif text-3xl font-semibold" lang="fr">
+            {fr(lesson.data.title)}
+          </h1>
+        </header>
 
-      <LessonView lesson={lesson.data} />
+        <LessonView lesson={lesson.data} />
 
-      <div className="flex items-center justify-end gap-3">
-        {lesson.data.done && (
-          <span className="inline-flex items-center gap-1 text-sm text-success">
-            <Check className="size-4" aria-hidden /> Completed
-          </span>
-        )}
-        <Button onClick={finish} disabled={complete.isPending}>
-          {lesson.data.done ? (next ? "Next lesson" : "Back to module") : "Complete lesson"}
-        </Button>
-      </div>
-    </article>
+        <div className="flex items-center justify-end gap-3">
+          {lesson.data.done && (
+            <span className="inline-flex items-center gap-1 text-sm text-success">
+              <Check className="size-4" aria-hidden /> Completed
+            </span>
+          )}
+          <Button onClick={finish} disabled={complete.isPending}>
+            {lesson.data.done ? (next ? "Next lesson" : "Back to module") : "Complete lesson"}
+          </Button>
+        </div>
+      </article>
+    </Glossed>
   );
 }

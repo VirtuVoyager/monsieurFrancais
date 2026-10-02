@@ -12,7 +12,7 @@ from app.llm import get_note_extractor
 from app.llm.grader import ProviderUnavailableError
 from app.llm.notes import NoteExtractor
 from app.models import Note, NoteItem
-from app.services import knowledge, library
+from app.services import glossary, knowledge, library
 from app.services.budget import BudgetExceededError, price_book
 from app.services.metering import run_metered
 
@@ -106,13 +106,18 @@ def try_extract(session: Session, note: Note, extractor: NoteExtractor | None = 
     note.status = "ready"
     note.extracted_at = datetime.now(UTC)
     session.commit()
+    glossary.build_note(session, note)
     return True
 
 
 def extract_pending(session: Session) -> int:
-    """Retries notes deferred by a budget cap or an unavailable model."""
+    """Retries notes and note glossaries deferred by a budget cap or an unavailable model."""
     pending = session.scalars(select(Note).where(Note.status == "pending")).all()
-    return sum(try_extract(session, note) for note in pending)
+    done = sum(try_extract(session, note) for note in pending)
+    unglossed = session.scalars(
+        select(Note).where(Note.status == "ready", Note.glossary.is_(None))
+    ).all()
+    return done + sum(glossary.build_note(session, note) for note in unglossed)
 
 
 def notes_with_counts(session: Session, user_id: int) -> list[tuple[Note, dict[str, int]]]:

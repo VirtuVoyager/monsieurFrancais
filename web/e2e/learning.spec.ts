@@ -169,3 +169,26 @@ test("class notes are extracted, approved and land in the Library and Review", a
   await expect(page.getByText("Class notes · Day 7").first()).toBeVisible();
   await expect(page.getByText("une addition")).toHaveCount(0);
 });
+
+test("hovering a French word shows its English meaning, but not in a timed drill", async ({
+  page,
+}) => {
+  await page.goto("/lessons/a1-01-se-presenter/grammaire");
+  // Cells are wider than their word; point at the text itself, past the cell padding.
+  await page
+    .getByRole("cell", { name: "suis", exact: true })
+    .first()
+    .hover({ position: { x: 22, y: 18 } });
+
+  const tip = page.getByRole("tooltip");
+  await expect(tip).toContainText("être");
+  await expect(tip).toContainText("(I) am");
+  await page.mouse.move(0, 0);
+  await expect(tip).toBeHidden();
+
+  await page.goto("/drills");
+  await page.getByRole("button", { name: "Start" }).nth(1).click();
+  await page.getByRole("button", { name: "Begin" }).click();
+  await page.locator('[lang="fr"]').first().hover();
+  await expect(page.getByRole("tooltip")).toHaveCount(0);
+});

@@ -101,3 +101,13 @@ class Item(Base):
     answer: Mapped[dict[str, Any]]
     content_hash: Mapped[str] = mapped_column(String(64))
     status: Mapped[str] = mapped_column(String(10), default="live")
+
+
+class ModuleGlossary(Base):
+    """Hover translations for a module, generated once by the content pipeline."""
+
+    __tablename__ = "module_glossaries"
+
+    module_id: Mapped[str] = mapped_column(ForeignKey("modules.id"), primary_key=True)
+    content_hash: Mapped[str] = mapped_column(String(64))
+    entries: Mapped[dict[str, Any]]

@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Any
 
 from sqlalchemy import DateTime, ForeignKey, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
@@ -21,6 +22,8 @@ class Note(CreatedAt, Base):
     content_hash: Mapped[str] = mapped_column(String(64))
     status: Mapped[str] = mapped_column(String(10), default="pending")
     extracted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # Hover translations for words the course glossaries do not already cover; None until built.
+    glossary: Mapped[dict[str, Any] | None]
 
 
 class NoteItem(CreatedAt, Base):

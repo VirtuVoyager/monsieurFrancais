@@ -1080,6 +1080,75 @@
         }
       }
     },
+    "/glossary": {
+      "get": {
+        "tags": [
+          "glossary"
+        ],
+        "summary": "Get Glossary",
+        "operationId": "get_glossary_glossary_get",
+        "parameters": [
+          {
+            "name": "module_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Module Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/GlossOut"
+                  },
+                  "title": "Response Get Glossary Glossary Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/notes": {
       "post": {
         "tags": [
@@ -3117,6 +3186,24 @@
           "used"
         ],
         "title": "FreeAllowance"
+      },
+      "GlossOut": {
+        "properties": {
+          "lemma": {
+            "type": "string",
+            "title": "Lemma"
+          },
+          "en": {
+            "type": "string",
+            "title": "En"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lemma",
+          "en"
+        ],
+        "title": "GlossOut"
       },
       "GrammarContent": {
         "properties": {

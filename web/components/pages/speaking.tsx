@@ -3,6 +3,7 @@
 import { Loader2, Mic, PhoneOff } from "lucide-react";
 import { useState } from "react";
 
+import { Glossed } from "@/components/glossary/glossed";
 import { Clock, useCountdown } from "@/components/exam/countdown";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -202,7 +203,11 @@ function Call({
     return (
       <div className="space-y-4">
         {call.error && <ErrorState error={call.error} />}
-        {call.result ? <Result runId={runId} result={call.result} /> : null}
+        {call.result ? (
+          <Glossed>
+            <Result runId={runId} result={call.result} />
+          </Glossed>
+        ) : null}
         <Button variant="secondary" onClick={onDone}>
           Choose another task
         </Button>
