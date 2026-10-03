@@ -646,7 +646,7 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
 
 - Access from outside your home network. If you want it later, a free personal Tailscale tailnet is the simplest option and needs no code changes.
 - TEF Canada structure and scales (the design supports it; add the scales and task formats later).
-- Multiple users, accounts, and hosting on Azure (schema and `MediaStore` are ready; auth and Blob storage would be added).
+- Multiple users, accounts, and hosting on Azure (schema is ready; planned in [DEPLOYMENT.md](DEPLOYMENT.md)).
 - Native mobile apps (the installable PWA covers phone use).
 - Offline use away from the home machine (the PWA needs the local server).
 
