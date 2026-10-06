@@ -276,6 +276,7 @@ class WritingResult(BaseModel):
     score: float | None
     criteria: dict[str, float]
     evidence: dict[str, str]
+    reasons: dict[str, str]
     fixes: list[FixOut]
     errors: list[TaggedErrorOut]
     level: SkillLevelOut | None = None

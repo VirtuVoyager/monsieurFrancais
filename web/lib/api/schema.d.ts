@@ -1633,6 +1633,10 @@ export interface components {
             evidence: {
                 [key: string]: string;
             };
+            /** Reasons */
+            reasons: {
+                [key: string]: string;
+            };
             /** Fixes */
             fixes: components["schemas"]["FixOut"][];
             /** Errors */

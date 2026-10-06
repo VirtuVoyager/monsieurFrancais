@@ -40,7 +40,11 @@ structures · 5 (strong C2): near-flawless.
 
 ## Output
 
-- For every criterion, quote the learner's own words as `evidence` for the score.
+- For every criterion, quote the learner's own words as `evidence` for the score:
+  the shortest telling phrase or two, never whole paragraphs.
+- For every criterion, give a `reason`: one or two plain English sentences naming the level the
+  score stands for, why the text shows that level, and what would earn the next point. A text
+  without errors can still score low on range, so say so when that is why.
 - `fixes`: at most 3, ranked by how many points fixing them would recover. Each has the learner's
   `excerpt`, the corrected French `correction`, and a one-sentence English `explanation` of the rule.
 - `errors`: every grammatical or lexical error you find, tagged with exactly one tag from the list.

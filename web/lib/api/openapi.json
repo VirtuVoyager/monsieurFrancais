@@ -5074,6 +5074,13 @@
             "type": "object",
             "title": "Evidence"
           },
+          "reasons": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Reasons"
+          },
           "fixes": {
             "items": {
               "$ref": "#/components/schemas/FixOut"
@@ -5108,6 +5115,7 @@
           "score",
           "criteria",
           "evidence",
+          "reasons",
           "fixes",
           "errors"
         ],

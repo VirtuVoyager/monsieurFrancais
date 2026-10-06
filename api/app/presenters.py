@@ -65,6 +65,7 @@ def writing_result(submission: WritingSubmission) -> WritingResult:
         score=submission.score,
         criteria=rubric.get("criteria", {}),
         evidence=rubric.get("evidence", {}),
+        reasons=rubric.get("reasons", {}),
         fixes=[FixOut(**f) for f in rubric.get("fixes", [])],
         errors=[TaggedErrorOut(**e) for e in rubric.get("errors", [])],
     )
