@@ -721,6 +721,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/repeat/sets": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Sets */
+        get: operations["list_sets_repeat_sets_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/repeat/sets/{set_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Set */
+        get: operations["get_set_repeat_sets__set_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/repeat/sentences/{sentence_id}/attempts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Attempt */
+        post: operations["attempt_repeat_sentences__sentence_id__attempts_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -1270,6 +1321,72 @@ export interface components {
             usage: {
                 [key: string]: unknown;
             };
+        };
+        /** RepeatAttemptOut */
+        RepeatAttemptOut: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "passed" | "retry" | "next" | "unheard";
+            /** Attempt */
+            attempt: number;
+            /** Accuracy */
+            accuracy: number;
+            /** Words */
+            words: components["schemas"]["RepeatWordOut"][];
+            /** Feedback */
+            feedback: string;
+        };
+        /** RepeatSentenceOut */
+        RepeatSentenceOut: {
+            /** Id */
+            id: string;
+            /** Fr */
+            fr: string;
+            /** En */
+            en: string;
+            /** Tip */
+            tip: string;
+            /** Audio Url */
+            audio_url: string | null;
+        };
+        /** RepeatSetDetail */
+        RepeatSetDetail: {
+            /** Id */
+            id: string;
+            /** Title */
+            title: string;
+            /** Focus */
+            focus: string;
+            /** Max Attempts */
+            max_attempts: number;
+            /** Max Seconds */
+            max_seconds: number;
+            /** Sentences */
+            sentences: components["schemas"]["RepeatSentenceOut"][];
+        };
+        /** RepeatSetOut */
+        RepeatSetOut: {
+            /** Id */
+            id: string;
+            /** Title */
+            title: string;
+            /** Focus */
+            focus: string;
+            /** Cefr */
+            cefr: string;
+            /** Sentences */
+            sentences: number;
+        };
+        /** RepeatWordOut */
+        RepeatWordOut: {
+            /** Word */
+            word: string;
+            /** Accuracy */
+            accuracy: number;
+            /** Weak */
+            weak: boolean;
         };
         /** ReviewCard */
         ReviewCard: {
@@ -3123,6 +3240,105 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SpeakingResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_sets_repeat_sets_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RepeatSetOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_set_repeat_sets__set_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                set_id: string;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RepeatSetDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    attempt_repeat_sentences__sentence_id__attempts_post: {
+        parameters: {
+            query: {
+                attempt: number;
+            };
+            header?: never;
+            path: {
+                sentence_id: string;
+            };
+            cookie?: {
+                mf_session?: string | null;
+            };
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RepeatAttemptOut"];
                 };
             };
             /** @description Validation Error */

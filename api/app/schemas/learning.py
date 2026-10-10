@@ -422,3 +422,42 @@ class NoteReview(BaseModel):
 class GlossOut(BaseModel):
     lemma: str
     en: str
+
+
+class RepeatSetOut(BaseModel):
+    id: str
+    title: str
+    focus: str
+    cefr: str
+    sentences: int
+
+
+class RepeatSentenceOut(BaseModel):
+    id: str
+    fr: str
+    en: str
+    tip: str
+    audio_url: str | None
+
+
+class RepeatSetDetail(BaseModel):
+    id: str
+    title: str
+    focus: str
+    max_attempts: int
+    max_seconds: int
+    sentences: list[RepeatSentenceOut]
+
+
+class RepeatWordOut(BaseModel):
+    word: str
+    accuracy: float
+    weak: bool
+
+
+class RepeatAttemptOut(BaseModel):
+    status: Literal["passed", "retry", "next", "unheard"]
+    attempt: int
+    accuracy: float
+    words: list[RepeatWordOut]
+    feedback: str

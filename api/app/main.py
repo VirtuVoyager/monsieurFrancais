@@ -18,6 +18,7 @@ from app.routers import (
     library,
     notes,
     path,
+    repeat,
     search,
     settings,
     skills,
@@ -72,6 +73,7 @@ def create_app() -> FastAPI:
     app.include_router(writing.router)
     app.include_router(search.router)
     app.include_router(speaking.router)
+    app.include_router(repeat.router)
     # Only shared catalogue audio is public; learners' own recordings are never mounted.
     catalog = config.media_dir / "catalog"
     catalog.mkdir(parents=True, exist_ok=True)

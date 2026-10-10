@@ -1,6 +1,6 @@
 # Azure list prices in USD (Global Standard). Verify against the Azure pricing pages
 # before relying on them; bump `version` whenever a rate changes.
-version: "2026-09-28"
+version: "2026-10-10"
 verified_as_of: "2026-09-28"
 
 models:
@@ -44,10 +44,12 @@ models:
     free_monthly:
       audio_seconds: 18000
 
+  # Billed as speech-to-text plus the pronunciation add-on (1.00 + 0.30 per hour). The free STT
+  # hours are not counted here, so this overstates cost slightly rather than understating it.
   azure-speech-pronunciation:
     service: speech
     rates:
-      audio_seconds: {usd: 0.30, per: 3600}
+      audio_seconds: {usd: 1.30, per: 3600}
 
   azure-speech-tts:
     service: speech

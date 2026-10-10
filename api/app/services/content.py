@@ -10,7 +10,19 @@ from sqlalchemy import delete, exists, select
 from sqlalchemy.orm import Session
 
 from app.domain.scales import CEFR_DIFFICULTY, CEFR_LEVELS
-from app.models import Block, Concept, Item, Lesson, Level, Lexeme, Module, Response, Sentence
+from app.models import (
+    Block,
+    Concept,
+    Item,
+    Lesson,
+    Level,
+    Lexeme,
+    Module,
+    RepeatSentence,
+    RepeatSet,
+    Response,
+    Sentence,
+)
 from app.services import knowledge
 
 ITEM_FIELDS_PUBLIC = ("prompt", "options", "words", "passage", "audio_text", "task")
@@ -88,6 +100,7 @@ def seed(session: Session, content_dir: Path) -> SeedReport:
         kind = raw.get("kind", "mcq")
         items = [{"skill": raw["skill"], "kind": kind, **item} for item in raw["items"]]
         _sync_items(session, f"bank/{bank.stem}", items, report)
+    _sync_repeat_sets(session, content_dir / "repeat")
     session.flush()
     knowledge.index_catalogue(session)
     session.commit()
@@ -212,6 +225,45 @@ def _upsert_item(
         )
     )
     report.items_versioned += 1
+
+
+def _sync_repeat_sets(session: Session, folder: Path) -> None:
+    wanted = set()
+    for path in sorted(folder.glob("*.yaml")):
+        order, _, set_id = path.stem.partition("-")
+        wanted.add(set_id)
+        content_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+        existing = session.get(RepeatSet, set_id)
+        if existing is not None and existing.content_hash == content_hash:
+            continue
+        raw = yaml.safe_load(path.read_text())
+        session.execute(delete(RepeatSentence).where(RepeatSentence.set_id == set_id))
+        session.merge(
+            RepeatSet(
+                id=set_id,
+                order=int(order),
+                title=raw["title"],
+                focus=raw["focus"],
+                cefr=raw["cefr"],
+                content_hash=content_hash,
+            )
+        )
+        session.flush()
+        for position, row in enumerate(raw["sentences"], start=1):
+            digest = hashlib.sha1(f"{set_id}:{row['fr']}".encode()).hexdigest()[:12]
+            session.add(
+                RepeatSentence(
+                    id=f"{set_id}-{digest}",
+                    set_id=set_id,
+                    order=position,
+                    fr=row["fr"],
+                    en=row["en"],
+                    tip=row["tip"],
+                )
+            )
+    stale = select(RepeatSet.id).where(RepeatSet.id.not_in(wanted))
+    session.execute(delete(RepeatSentence).where(RepeatSentence.set_id.in_(stale)))
+    session.execute(delete(RepeatSet).where(RepeatSet.id.not_in(wanted)))
 
 
 def _block(session: Session, level: str, order: int) -> Block:

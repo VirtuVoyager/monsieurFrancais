@@ -4,6 +4,7 @@ import openai
 
 from app.config import get_settings
 from app.llm.azure import AzureGrader
+from app.llm.coach import AzureCoach, Coach, FakeCoach
 from app.llm.embedder import AzureEmbedder, Embedder, FakeEmbedder
 from app.llm.fake import FakeGrader
 from app.llm.glosser import AzureGlosser, FakeGlosser, Glosser
@@ -31,6 +32,15 @@ def get_grader() -> Grader:
     if settings.grader_provider == "fake":
         return FakeGrader()
     return AzureGrader(_client(), settings.azure_openai_text_deployment)
+
+
+# Coaching judges the learner's own output, like grading, so it follows the grader's switch.
+@cache
+def get_coach() -> Coach:
+    settings = get_settings()
+    if settings.grader_provider == "fake":
+        return FakeCoach()
+    return AzureCoach(_client(), settings.azure_openai_text_deployment)
 
 
 @cache

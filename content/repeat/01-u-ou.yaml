@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: Le u et le ou
+focus: The French u (tu, rue) against ou (tout, roue)
+cefr: A2
+sentences:
+  - fr: Tu as vu la statue au bout de la rue ?
+    en: Did you see the statue at the end of the street?
+    tip: tu, vu, statue and rue have the French u (round your lips as for "oo", say "ee"); bout has ou.
+  - fr: Nous avons toujours voulu voyager en Bourgogne.
+    en: We have always wanted to travel to Burgundy.
+    tip: nous, toujours, Bourgogne and the first syllable of voulu have ou; its second syllable is u. Link nous‿avons with a z sound.
+  - fr: Ce bureau est situé juste au-dessus du musée.
+    en: This office is located just above the museum.
+    tip: Every u here is the French u - bureau, situé, juste, dessus, du, musée. Never "oo".
+  - fr: La couleur de cette jupe ne me plaît pas du tout.
+    en: I don't like the colour of this skirt at all.
+    tip: couleur and tout have ou; jupe and du have u. "du tout" puts the two side by side.
+  - fr: Il faut éplucher les courgettes avant de les cuire.
+    en: You have to peel the courgettes before cooking them.
+    tip: éplucher has u, courgettes has ou, cuire glides quickly from u into i.
+  - fr: Une voiture roulait doucement sous la pluie.
+    en: A car was driving slowly in the rain.
+    tip: une and voiture have u; roulait, doucement and sous have ou; pluie glides from u into i.
+  - fr: Je suis sûr que tu trouveras une solution.
+    en: I'm sure you'll find a solution.
+    tip: sûr, tu, une and solution have u; trouveras has ou; suis glides from u into i.
+  - fr: Les étudiants ont réussi leur examen de culture générale.
+    en: The students passed their general knowledge exam.
+    tip: étudiants, réussi and culture have u. Link les‿étudiants with a z sound.
+  - fr: Le cours de couture commence tous les jeudis à douze heures.
+    en: The sewing class starts every Thursday at twelve.
+    tip: cours, tous and douze have ou; couture has ou then u. Run douze into heures.
+  - fr: Pourriez-vous me dire où se trouve la gare routière ?
+    en: Could you tell me where the coach station is?
+    tip: pourriez, vous, où, trouve and routière all have ou, with rounded, pushed-forward lips.
