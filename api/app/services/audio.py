@@ -100,28 +100,39 @@ def _synthesize(
     settings = get_settings()
     pricing = price_book().for_model(synthesizer.model)
     report = AudioReport()
+    # The manifest lists each clip once, whichever machine generated it: clips are not in git,
+    # so a fresh checkout regenerates files whose rows are already committed.
+    listed = _listed(settings.media_manifest) if manifest else set()
     for user_id, request in requests:
         content_hash = request.content_hash(synthesizer.model)
         target = settings.media_dir / media_path(content_hash)
         if target.exists():
             report.existing += 1
-            continue
-        audio = run_metered(
-            session,
-            user_id=user_id,
-            feature=feature,
-            model=synthesizer.model,
-            estimate_usd=pricing.cost({"characters": len(request.text)}),
-            call=partial(synthesizer.synthesize, request),
-        )
-        _write_atomically(target, audio)
-        if manifest:
-            _append_manifest(
-                settings.media_manifest, request, synthesizer, content_hash, len(audio)
+        else:
+            audio = run_metered(
+                session,
+                user_id=user_id,
+                feature=feature,
+                model=synthesizer.model,
+                estimate_usd=pricing.cost({"characters": len(request.text)}),
+                call=partial(synthesizer.synthesize, request),
             )
-        report.generated += 1
-        report.characters += len(request.text)
+            _write_atomically(target, audio)
+            report.generated += 1
+            report.characters += len(request.text)
+        if manifest and content_hash not in listed:
+            _append_manifest(
+                settings.media_manifest, request, synthesizer, content_hash, target.stat().st_size
+            )
+            listed.add(content_hash)
     return report
+
+
+def _listed(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    with path.open(newline="") as f:
+        return {row["hash"] for row in csv.DictReader(f)}
 
 
 def _write_atomically(target: Path, data: bytes) -> None:
