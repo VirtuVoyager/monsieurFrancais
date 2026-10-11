@@ -8,6 +8,8 @@ from app.models.catalog import (
     Lexeme,
     Module,
     ModuleGlossary,
+    RepeatSentence,
+    RepeatSet,
     Sentence,
 )
 from app.models.knowledge import KbEntry
@@ -16,6 +18,7 @@ from app.models.learner import (
     Card,
     ErrorTag,
     ModuleProgress,
+    RepeatAttempt,
     Response,
     User,
     WritingSubmission,
@@ -40,6 +43,9 @@ __all__ = [
     "ModuleProgress",
     "Note",
     "NoteItem",
+    "RepeatAttempt",
+    "RepeatSentence",
+    "RepeatSet",
     "Response",
     "Sentence",
     "UsageEvent",

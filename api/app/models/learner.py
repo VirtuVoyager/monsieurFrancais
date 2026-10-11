@@ -96,3 +96,20 @@ class ErrorTag(Base):
     correction: Mapped[str] = mapped_column(Text)
     count: Mapped[int] = mapped_column(default=0)
     last_seen: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+
+
+class RepeatAttempt(CreatedAt, Base):
+    """One try at a "Repeat after me" sentence: the assessment and the coach's correction."""
+
+    __tablename__ = "repeat_attempts"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    # No foreign key: catalogue sentences are replaced when edited, attempts stay as history.
+    sentence_id: Mapped[str] = mapped_column(String(80), index=True)
+    reference: Mapped[str] = mapped_column(Text)
+    attempt: Mapped[int]
+    accuracy: Mapped[float]
+    passed: Mapped[bool]
+    scores: Mapped[dict[str, Any]]
+    feedback: Mapped[str] = mapped_column(Text, default="")

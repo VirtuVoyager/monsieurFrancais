@@ -13,6 +13,15 @@ const CRITERIA: Record<string, string> = {
   grammar: "Grammar",
 };
 
+// The rubric's own anchors (grade_writing.md): each point on /5 stands for a level.
+const LEVELS = ["below A1", "A1–A2", "B1", "B2", "C1–C2", "strong C2"];
+
+function levelOf(score: number): string {
+  const low = LEVELS[Math.floor(score)] ?? "";
+  const high = LEVELS[Math.ceil(score)] ?? "";
+  return low === high ? low : `${low} to ${high}`;
+}
+
 export function WritingFeedback({ result }: { result: Schemas["WritingResult"] }) {
   if (result.status === "pending") {
     return (
@@ -34,16 +43,32 @@ export function WritingFeedback({ result }: { result: Schemas["WritingResult"] }
           <p className="font-serif text-5xl font-semibold tabular-nums">{result.score}</p>
           <p className="text-xs text-muted">{result.word_count} words</p>
         </div>
-        <div className="space-y-3">
-          {Object.entries(CRITERIA).map(([key, label]) => (
-            <div key={key}>
-              <div className="mb-1 flex justify-between text-sm">
-                <span>{label}</span>
-                <span className="text-muted tabular-nums">{result.criteria[key] ?? 0} / 5</span>
+        <div className="space-y-5">
+          {Object.entries(CRITERIA).map(([key, label]) => {
+            const score = result.criteria[key] ?? 0;
+            const reason = result.reasons[key];
+            const evidence = result.evidence[key];
+            return (
+              <div key={key}>
+                <div className="mb-1 flex justify-between gap-2 text-sm">
+                  <span>{label}</span>
+                  <span className="text-muted tabular-nums">
+                    {score} / 5 · {levelOf(score)}
+                  </span>
+                </div>
+                <ProgressBar value={(score / 5) * 100} label={label} />
+                {reason && <p className="mt-2 text-sm text-muted">{reason}</p>}
+                {reason && evidence && (
+                  <p
+                    lang="fr"
+                    className="mt-1 border-l-2 border-line pl-2 text-sm text-muted italic"
+                  >
+                    {fr(evidence)}
+                  </p>
+                )}
               </div>
-              <ProgressBar value={((result.criteria[key] ?? 0) / 5) * 100} label={label} />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Card>
 

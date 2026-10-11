@@ -111,3 +111,28 @@ class ModuleGlossary(Base):
     module_id: Mapped[str] = mapped_column(ForeignKey("modules.id"), primary_key=True)
     content_hash: Mapped[str] = mapped_column(String(64))
     entries: Mapped[dict[str, Any]]
+
+
+class RepeatSet(Base):
+    """Ten model sentences for "Repeat after me", authored in content/repeat/."""
+
+    __tablename__ = "repeat_sets"
+
+    id: Mapped[str] = mapped_column(String(80), primary_key=True)
+    order: Mapped[int]
+    title: Mapped[str]
+    focus: Mapped[str]
+    cefr: Mapped[str] = mapped_column(String(2))
+    content_hash: Mapped[str] = mapped_column(String(64))
+
+
+class RepeatSentence(Base):
+    __tablename__ = "repeat_sentences"
+
+    # Derived from the text, so an edited sentence gets a new id and its own audio clip.
+    id: Mapped[str] = mapped_column(String(80), primary_key=True)
+    set_id: Mapped[str] = mapped_column(ForeignKey("repeat_sets.id"), index=True)
+    order: Mapped[int]
+    fr: Mapped[str] = mapped_column(Text)
+    en: Mapped[str] = mapped_column(Text)
+    tip: Mapped[str] = mapped_column(Text)

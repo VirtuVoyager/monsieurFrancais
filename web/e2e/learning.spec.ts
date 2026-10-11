@@ -137,6 +137,25 @@ test("a speaking task gives preparation time, then releases the call on failure"
   await expect(page.getByRole("button", { name: "Choose another task" })).toBeVisible();
 });
 
+test("repeat after me scores a try and moves to the next sentence", async ({ page }) => {
+  await page.goto("/speak");
+  await page.getByRole("link", { name: "Practise pronunciation" }).click();
+  await page.getByRole("link", { name: "10 sentences" }).first().click();
+
+  await expect(page.getByText("Sentence 1 of 10")).toBeVisible();
+  await expect(page.getByText("Tu as vu la statue")).toBeVisible();
+  // Chromium's fake microphone plays a tone, which the offline assessor accepts.
+  await page.getByRole("button", { name: "Record" }).click();
+  await expect(page.getByText(/Recording, stops by itself/)).toBeVisible();
+  await page.waitForTimeout(1500);
+  await page.getByRole("button", { name: "Stop" }).click();
+
+  await expect(page.getByText("Bien prononcé !")).toBeVisible();
+  await expect(page.getByLabel("Your last try")).toBeVisible();
+  await page.getByRole("button", { name: "Next sentence" }).click();
+  await expect(page.getByText("Sentence 2 of 10")).toBeVisible();
+});
+
 test("class notes are extracted, approved and land in the Library and Review", async ({ page }) => {
   const note = [
     "# Day 7 — Class Notes",

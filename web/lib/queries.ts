@@ -2,7 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import { api, unwrap, type Schemas } from "./api/client";
+import { api, ApiError, unwrap, type Schemas } from "./api/client";
 
 export const keys = {
   path: ["path"] as const,
@@ -173,6 +173,48 @@ export function useStartSpeaking() {
   return useMutation({
     mutationFn: (body: Schemas["SpeakingStart"]) =>
       unwrap(api.POST("/speaking/sessions", { body })),
+  });
+}
+
+export function useRepeatSets() {
+  return useQuery({
+    queryKey: ["repeat", "sets"],
+    queryFn: () => unwrap(api.GET("/repeat/sets")),
+    staleTime: Infinity,
+  });
+}
+
+export function useRepeatSet(id: string) {
+  return useQuery({
+    queryKey: ["repeat", "sets", id],
+    queryFn: () => unwrap(api.GET("/repeat/sets/{set_id}", { params: { path: { set_id: id } } })),
+    staleTime: Infinity,
+  });
+}
+
+export function useRepeatAttempt() {
+  return useMutation({
+    // Raw WAV body: openapi-fetch would serialise it as JSON.
+    mutationFn: async ({
+      sentenceId,
+      attempt,
+      wav,
+    }: {
+      sentenceId: string;
+      attempt: number;
+      wav: Blob;
+    }): Promise<Schemas["RepeatAttemptOut"]> => {
+      const response = await fetch(
+        `/api/repeat/sentences/${encodeURIComponent(sentenceId)}/attempts?attempt=${attempt}`,
+        { method: "POST", headers: { "Content-Type": "audio/wav" }, body: wav },
+      );
+      const body = (await response.json().catch(() => ({}))) as { detail?: unknown };
+      if (!response.ok) {
+        const detail = typeof body.detail === "string" ? body.detail : response.statusText;
+        throw new ApiError(response.status, detail);
+      }
+      return body as Schemas["RepeatAttemptOut"];
+    },
   });
 }
 

@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from app.config import get_settings
 from app.domain.audio import PRACTICE_RATE, AudioRequest, media_path, spoken
 from app.domain.notes import key_of
-from app.models import Item, Lesson, Lexeme, NoteItem, Sentence
+from app.models import Item, Lesson, Lexeme, NoteItem, RepeatSentence, Sentence
 from app.services.budget import price_book
 from app.services.metering import run_metered
 from app.speech import get_synthesizer
@@ -43,6 +43,11 @@ def sentence_request(sentence: Sentence) -> AudioRequest:
     return AudioRequest(sentence.id, sentence.fr, PRACTICE_RATE)
 
 
+def repeat_request(sentence: RepeatSentence) -> AudioRequest:
+    # Natural speed: the model to copy. The player slows it down itself when asked.
+    return AudioRequest(sentence.id, sentence.fr)
+
+
 def url_for(request: AudioRequest | None) -> str | None:
     """Served only once generated; until then the web app falls back to the browser voice."""
     if request is None:
@@ -57,6 +62,7 @@ def catalogue_requests(session: Session) -> list[AudioRequest]:
     requests += [r for r in map(lesson_request, session.scalars(select(Lesson))) if r]
     requests += [word_request(w) for w in session.scalars(select(Lexeme))]
     requests += [sentence_request(s) for s in session.scalars(select(Sentence))]
+    requests += [repeat_request(s) for s in session.scalars(select(RepeatSentence))]
     return requests
 
 

@@ -5,7 +5,7 @@ from app.domain.rubric import RubricPass, combine, needs_another_pass, word_coun
 
 def _pass(task: int, coherence: int, vocabulary: int, grammar: int) -> RubricPass:
     criteria = {"task": task, "coherence": coherence, "vocabulary": vocabulary, "grammar": grammar}
-    return RubricPass(criteria=criteria, evidence={c: "…" for c in criteria})
+    return RubricPass(criteria=criteria, evidence={c: "…" for c in criteria}, reasons={})
 
 
 def test_close_passes_do_not_need_a_third() -> None:

@@ -47,6 +47,7 @@ def test_lesson_writing_is_graded_metered_and_feeds_the_error_fingerprint(
     assert result["status"] == "graded"
     assert 0 <= result["score"] <= 20
     assert set(result["criteria"]) == {"task", "coherence", "vocabulary", "grammar"}
+    assert set(result["reasons"]) == set(result["criteria"])
     assert 1 <= len(result["fixes"]) <= 3
     assert len(seeded.scalars(select(UsageEvent)).all()) == 2  # two grading passes
     tags = {e["tag"] for e in client.get("/errors").json()}

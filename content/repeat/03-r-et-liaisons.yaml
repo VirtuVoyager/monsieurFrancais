@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: Le R et les liaisons
+focus: The French R from the back of the throat, and which liaisons are required
+cefr: B1
+sentences:
+  - fr: Votre rendez-vous est reporté à mercredi prochain.
+    en: Your appointment has been moved to next Wednesday.
+    tip: The R in votre, rendez, reporté, mercredi and prochain is made at the back of the throat, never rolled. The z of rendez-vous is silent.
+  - fr: Les enfants arrivent à trois heures et demie.
+    en: The children arrive at half past three.
+    tip: Required liaisons - les‿enfants and trois‿heures, both with a z sound. The -ent of arrivent is silent.
+  - fr: Mon ancien appartement était très agréable.
+    en: My former flat was very pleasant.
+    tip: Required liaison mon‿ancien with an n sound; ancien‿appartement is usually linked too. très‿agréable may be linked with z or not.
+  - fr: Nous avons rencontré nos amis au restaurant.
+    en: We met our friends at the restaurant.
+    tip: Required liaisons nous‿avons and nos‿amis, both with a z sound. Throat R in rencontré and restaurant.
+  - fr: Il est arrivé en retard à cause de la grève.
+    en: He arrived late because of the strike.
+    tip: The liaison est‿arrivé is optional, both are correct. Throat R in arrivé, retard and grève.
+  - fr: Je voudrais un grand verre d'eau fraîche, s'il vous plaît.
+    en: I'd like a big glass of cold water, please.
+    tip: Throat R in voudrais, grand, verre and fraîche. The d of grand stays silent before verre.
+  - fr: Les horaires ont changé depuis le premier octobre.
+    en: The timetable has changed since the first of October.
+    tip: The h of horaires is silent, so les‿horaires is linked with a z sound. premier joins octobre with its r.
+  - fr: Ces hôtels proposent des chambres très confortables.
+    en: These hotels offer very comfortable rooms.
+    tip: The h of hôtels is silent, so ces‿hôtels is linked with a z sound. Throat R in proposent, chambres, très and confortables.
+  - fr: Elle travaille dans une entreprise internationale.
+    en: She works for an international company.
+    tip: Required liaison dans‿une with a z sound, then run une into entreprise. Throat R in travaille, entreprise and internationale.
+  - fr: C'est un excellent exemple de réussite professionnelle.
+    en: It is an excellent example of professional success.
+    tip: c'est‿un is usually linked with a t sound; un‿excellent must be linked with an n sound; excellent exemple may be linked or not.

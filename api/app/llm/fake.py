@@ -55,8 +55,9 @@ class FakeGrader:
             "grammar": max(5 - len(errors), 0 if not tokens else 1),
         }
         evidence = {c: text[:80] for c in CRITERIA}
+        reasons = {c: f"Offline estimate: {criteria[c]}/5 from simple counts." for c in CRITERIA}
         units = {"input_tokens": len(text) / 4 + 1500, "output_tokens": 400}
-        return Metered(RubricPass(criteria, evidence, fixes[:3], errors), units)
+        return Metered(RubricPass(criteria, evidence, reasons, fixes[:3], errors), units)
 
     def grade_speaking(self, task: SpokenTask, transcript: str) -> Metered[RubricPass]:
         # Roughly 60 words a minute is a fluent A2 speaker; judge only the candidate's lines.

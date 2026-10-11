@@ -2576,6 +2576,184 @@
           }
         }
       }
+    },
+    "/repeat/sets": {
+      "get": {
+        "tags": [
+          "repeat"
+        ],
+        "summary": "List Sets",
+        "operationId": "list_sets_repeat_sets_get",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RepeatSetOut"
+                  },
+                  "title": "Response List Sets Repeat Sets Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repeat/sets/{set_id}": {
+      "get": {
+        "tags": [
+          "repeat"
+        ],
+        "summary": "Get Set",
+        "operationId": "get_set_repeat_sets__set_id__get",
+        "parameters": [
+          {
+            "name": "set_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Set Id"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepeatSetDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repeat/sentences/{sentence_id}/attempts": {
+      "post": {
+        "tags": [
+          "repeat"
+        ],
+        "summary": "Attempt",
+        "operationId": "attempt_repeat_sentences__sentence_id__attempts_post",
+        "parameters": [
+          {
+            "name": "sentence_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Sentence Id"
+            }
+          },
+          {
+            "name": "attempt",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Attempt"
+            }
+          },
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RepeatAttemptOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -4139,6 +4317,185 @@
         ],
         "title": "RealtimeUsage"
       },
+      "RepeatAttemptOut": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "retry",
+              "next",
+              "unheard"
+            ],
+            "title": "Status"
+          },
+          "attempt": {
+            "type": "integer",
+            "title": "Attempt"
+          },
+          "accuracy": {
+            "type": "number",
+            "title": "Accuracy"
+          },
+          "words": {
+            "items": {
+              "$ref": "#/components/schemas/RepeatWordOut"
+            },
+            "type": "array",
+            "title": "Words"
+          },
+          "feedback": {
+            "type": "string",
+            "title": "Feedback"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "attempt",
+          "accuracy",
+          "words",
+          "feedback"
+        ],
+        "title": "RepeatAttemptOut"
+      },
+      "RepeatSentenceOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "fr": {
+            "type": "string",
+            "title": "Fr"
+          },
+          "en": {
+            "type": "string",
+            "title": "En"
+          },
+          "tip": {
+            "type": "string",
+            "title": "Tip"
+          },
+          "audio_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "fr",
+          "en",
+          "tip",
+          "audio_url"
+        ],
+        "title": "RepeatSentenceOut"
+      },
+      "RepeatSetDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "focus": {
+            "type": "string",
+            "title": "Focus"
+          },
+          "max_attempts": {
+            "type": "integer",
+            "title": "Max Attempts"
+          },
+          "max_seconds": {
+            "type": "integer",
+            "title": "Max Seconds"
+          },
+          "sentences": {
+            "items": {
+              "$ref": "#/components/schemas/RepeatSentenceOut"
+            },
+            "type": "array",
+            "title": "Sentences"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "focus",
+          "max_attempts",
+          "max_seconds",
+          "sentences"
+        ],
+        "title": "RepeatSetDetail"
+      },
+      "RepeatSetOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "focus": {
+            "type": "string",
+            "title": "Focus"
+          },
+          "cefr": {
+            "type": "string",
+            "title": "Cefr"
+          },
+          "sentences": {
+            "type": "integer",
+            "title": "Sentences"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "focus",
+          "cefr",
+          "sentences"
+        ],
+        "title": "RepeatSetOut"
+      },
+      "RepeatWordOut": {
+        "properties": {
+          "word": {
+            "type": "string",
+            "title": "Word"
+          },
+          "accuracy": {
+            "type": "number",
+            "title": "Accuracy"
+          },
+          "weak": {
+            "type": "boolean",
+            "title": "Weak"
+          }
+        },
+        "type": "object",
+        "required": [
+          "word",
+          "accuracy",
+          "weak"
+        ],
+        "title": "RepeatWordOut"
+      },
       "ReviewCard": {
         "properties": {
           "id": {
@@ -5074,6 +5431,13 @@
             "type": "object",
             "title": "Evidence"
           },
+          "reasons": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Reasons"
+          },
           "fixes": {
             "items": {
               "$ref": "#/components/schemas/FixOut"
@@ -5108,6 +5472,7 @@
           "score",
           "criteria",
           "evidence",
+          "reasons",
           "fixes",
           "errors"
         ],

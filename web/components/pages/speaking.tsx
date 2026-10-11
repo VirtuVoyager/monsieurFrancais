@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Glossed } from "@/components/glossary/glossed";
 import { Clock, useCountdown } from "@/components/exam/countdown";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonLink } from "@/components/ui/button";
 import { Card, Eyebrow, SectionTitle } from "@/components/ui/card";
 import { cx } from "@/components/ui/cx";
 import { ErrorState, Loading } from "@/components/ui/states";
@@ -47,6 +47,20 @@ export function SpeakingPage() {
           Expression orale
         </h1>
       </header>
+
+      {!session && (
+        <Card className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <SectionTitle>Repeat after me</SectionTitle>
+            <p className="text-sm text-muted">
+              Pronunciation coaching: say model sentences and get each wrong word corrected.
+            </p>
+          </div>
+          <ButtonLink href="/speak/repeat" variant="secondary">
+            Practise pronunciation
+          </ButtonLink>
+        </Card>
+      )}
 
       {tasks.isPending && <Loading />}
       {tasks.isError && <ErrorState error={tasks.error} />}

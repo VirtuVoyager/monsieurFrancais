@@ -1,6 +1,7 @@
 from functools import cache
 
 from app.config import get_settings
+from app.speech.assessor import Assessor, AzureAssessor, FakeAssessor
 from app.speech.synthesizer import AzureSynthesizer, FakeSynthesizer, Synthesizer
 from app.speech.transcriber import AzureTranscriber, FakeTranscriber, Transcriber
 
@@ -18,6 +19,13 @@ def get_transcriber() -> Transcriber:
     if get_settings().speech_provider == "fake":
         return FakeTranscriber()
     return AzureTranscriber(*_credentials())
+
+
+@cache
+def get_assessor() -> Assessor:
+    if get_settings().speech_provider == "fake":
+        return FakeAssessor()
+    return AzureAssessor(*_credentials())
 
 
 def _credentials() -> tuple[str, str]:

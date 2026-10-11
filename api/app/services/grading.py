@@ -158,6 +158,7 @@ def _serialize(rubric: Rubric) -> dict[str, object]:
     return {
         "criteria": rubric.criteria,
         "evidence": rubric.evidence,
+        "reasons": rubric.reasons,
         "fixes": [asdict(f) for f in rubric.fixes],
         "errors": [asdict(e) for e in rubric.errors],
         "passes": rubric.passes,

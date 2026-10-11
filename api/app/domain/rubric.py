@@ -46,6 +46,7 @@ class TaggedError:
 class RubricPass:
     criteria: dict[str, int]
     evidence: dict[str, str]
+    reasons: dict[str, str]
     fixes: list[Fix] = field(default_factory=list)
     errors: list[TaggedError] = field(default_factory=list)
 
@@ -58,6 +59,7 @@ class RubricPass:
 class Rubric:
     criteria: dict[str, float]
     evidence: dict[str, str]
+    reasons: dict[str, str]
     fixes: list[Fix]
     errors: list[TaggedError]
     passes: int
@@ -81,6 +83,7 @@ def combine(passes: list[RubricPass]) -> Rubric:
     return Rubric(
         criteria=criteria,
         evidence=closest.evidence,
+        reasons=closest.reasons,
         fixes=closest.fixes[:MAX_FIXES],
         errors=closest.errors,
         passes=len(passes),

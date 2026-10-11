@@ -9,9 +9,11 @@ from app.domain.rubric import ErrorKind, Fix, RubricPass, TaggedError
 from app.llm.grader import ProviderUnavailableError, SpokenTask, WritingTask
 
 
+# Evidence and reason come before the score so the model justifies, then scores.
 class _Criterion(BaseModel):
-    score: int = Field(ge=0, le=5)
     evidence: str
+    reason: str
+    score: int = Field(ge=0, le=5)
 
 
 class _Criteria(BaseModel):
@@ -90,6 +92,7 @@ class AzureGrader:
             RubricPass(
                 criteria={name: c["score"] for name, c in criteria.items()},
                 evidence={name: c["evidence"] for name, c in criteria.items()},
+                reasons={name: c["reason"] for name, c in criteria.items()},
                 fixes=[Fix(f.excerpt, f.correction, f.explanation) for f in output.fixes],
                 errors=[TaggedError(e.tag.value, e.excerpt, e.correction) for e in output.errors],
             ),
