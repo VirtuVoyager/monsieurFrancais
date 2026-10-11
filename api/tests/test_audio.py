@@ -1,4 +1,5 @@
 import csv
+import shutil
 
 from fastapi.testclient import TestClient
 from sqlalchemy import select
@@ -25,6 +26,34 @@ def test_every_clip_is_generated_once_and_logged(seeded: Session) -> None:
     with get_settings().media_manifest.open() as f:
         hashes = [row["hash"] for row in csv.DictReader(f)]
     assert len(hashes) == len(set(hashes)) >= expected
+
+
+def _manifest_hashes() -> list[str]:
+    with get_settings().media_manifest.open() as f:
+        return [row["hash"] for row in csv.DictReader(f)]
+
+
+def test_a_fresh_checkout_never_lists_a_clip_twice(seeded: Session) -> None:
+    _generate(seeded)
+    listed = _manifest_hashes()
+    # A new machine has the committed manifest but none of the clips, which are not in git.
+    shutil.rmtree(get_settings().media_dir / "catalog")
+
+    again = _generate(seeded)
+
+    assert again.generated == len(listed)
+    assert _manifest_hashes() == listed
+
+
+def test_clips_missing_from_the_manifest_are_added_without_paying_again(seeded: Session) -> None:
+    _generate(seeded)
+    listed = _manifest_hashes()
+    get_settings().media_manifest.unlink()
+
+    again = _generate(seeded)
+
+    assert again.generated == 0
+    assert sorted(_manifest_hashes()) == sorted(listed)
 
 
 def test_lessons_and_words_point_to_generated_audio(client: TestClient, seeded: Session) -> None:
