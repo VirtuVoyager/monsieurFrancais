@@ -6,13 +6,13 @@ up:            ## Build and start db, api and web in Docker (OrbStack)
 down:
 	docker compose down
 
-deploy:        ## Build in Azure and deploy web + API (first run creates everything; see docs/HOSTING.md)
+deploy:        ## Fallback for the Deploy workflow: deploy main from this machine (docs/HOSTING.md)
 	infra/deploy.sh
 
 deploy-data:   ## One-off: copy the local database and media into Azure, replacing what is there
 	infra/copy-data.sh
 
-setup-github:  ## One-off: let GitHub Actions deploy main to Azure (OpenID Connect, no stored secret)
+setup-github:  ## One-off: connect GitHub to Azure so merges to main deploy (re-run after a key change)
 	infra/setup-github.sh
 
 obs:           ## Start with the Grafana/Loki/Tempo observability stack on :3001

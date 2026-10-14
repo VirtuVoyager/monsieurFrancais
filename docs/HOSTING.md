@@ -23,7 +23,7 @@ Choices worth knowing:
 - **Sleeping apps.** With `minReplicas` 0 both apps stop after a few idle minutes and cost nothing.
   The first visit after a pause takes 10–20 s while the API migrates, seeds and starts. Background
   jobs (retrying deferred grading, note audio, embeddings) run only while the API is awake, and
-  catch up when it wakes. `MF_MIN_REPLICAS=1 make deploy` keeps both warm for about 10 USD more.
+  catch up when it wakes. Setting the repository variable `MF_MIN_REPLICAS` to 1 keeps both warm for about 10 USD more.
 - **Region.** `centralindia` by default, close to you; Azure OpenAI and Speech stay in `eastus`.
   Set `MF_LOCATION` before the first deploy to change it.
 - **The API is not public.** Only the web app has an address; it proxies `/api` and
@@ -40,75 +40,73 @@ Choices worth knowing:
 ## How code reaches production
 
 `main` is production. Work lands on `virtuvoyager_dev`, then a PR from `virtuvoyager_dev` to
-`main`; when it merges and CI passes on `main`, the **Deploy** workflow builds both images in Azure
-and rolls them out (API first, so migrations run before the new web app calls it). It signs in to
-Azure with OpenID Connect: GitHub holds only non-secret IDs, and the app's keys stay in Azure.
-**Actions → Deploy → Run workflow** redeploys by hand; the `production` environment in the repo
-settings can require your approval before each deploy.
+`main`. When it merges and CI passes on `main`, the **Deploy** workflow runs `infra/deploy.sh`:
+it creates or updates every Azure resource from `infra/main.bicep`, builds both images in Azure
+and rolls them out (migrations run when the new API starts). **Actions → Deploy → Run workflow**
+redeploys by hand, and the `production` environment in the repo settings can require your
+approval before each deploy.
 
-The workflow ships code only. Infrastructure and secrets (`infra/main.bicep`, `.env` keys) are
-applied from your Mac with `make deploy`, always from `main`.
+GitHub signs in to Azure with OpenID Connect, so no Azure password is stored anywhere. Your
+Azure OpenAI and Speech keys and the generated database password, session key and setup code are
+encrypted secrets of the `production` environment; the endpoint, region and resource group are
+plain repository variables.
 
-## First deploy
+## One-time setup (laptop)
 
-On your Mac, from the repo root on an up-to-date `main` (merge the dev branch first), with `.env`
-holding your Azure OpenAI and Speech settings:
+GitHub cannot grant itself access to your Azure subscription, so this is done once by you, signed
+in as the subscription owner, from the repo root with `.env` holding your Azure OpenAI and Speech
+settings:
 
-1. Install and sign in to the Azure CLI, and register the services once:
+1. Install the tools, sign in and register the Azure services:
 
    ```bash
-   brew install azure-cli libpq && brew link --force libpq   # libpq gives pg_dump/pg_restore
-   az login
-   az account set --subscription "<your subscription>"
+   brew install azure-cli gh libpq && brew link --force libpq   # libpq gives pg_dump/pg_restore
+   az login && az account set --subscription "<your subscription>"
+   gh auth login
    for ns in Microsoft.App Microsoft.OperationalInsights Microsoft.DBforPostgreSQL \
              Microsoft.ContainerRegistry Microsoft.Storage Microsoft.ManagedIdentity; do
      az provider register --namespace $ns
    done
    ```
 
-2. Deploy (about 15 minutes the first time). `MF_BUDGET_EMAIL` adds a monthly budget alert on the
-   resource group (30 USD by default):
+2. Connect GitHub to Azure. `MF_BUDGET_EMAIL` adds a monthly budget alert on the resource group
+   (30 USD by default):
 
    ```bash
-   MF_BUDGET_EMAIL=you@example.com make deploy
+   MF_BUDGET_EMAIL=you@example.com make setup-github
    ```
 
-   It creates `.env.azure` (gitignored, never commit it) with a generated database password,
-   session key and setup code, builds both images in Azure (no local Docker needed) and prints the
-   address.
+   It creates the `monsieur-francais` resource group, generates the production secrets (also kept
+   in the gitignored `.env.azure`; never commit it), creates an app registration that only this
+   repo's `production` environment can sign in as, with rights on that resource group only, and
+   stores the variables and secrets in GitHub.
 
-3. Copy your data, so the hosted app has your progress, notes, glossaries and generated audio:
+3. Merge `virtuvoyager_dev` into `main`. The first Deploy run takes about 15 minutes and prints the
+   address in the run summary.
+
+4. Copy your data, so the hosted app has your progress, notes, glossaries and generated audio
+   (run `make audio` first so every clip goes along):
 
    ```bash
    make deploy-data
    ```
 
    It opens the database to your current IP for the copy only, replaces the hosted database with
-   your local one, uploads `media/` and restarts the API. Run `make audio` locally first so every
-   clip goes along.
+   your local one, uploads `media/` and restarts the API.
 
-4. Open the address on your phone, sign in with your usual passphrase, then **Share → Add to Home
+5. Open the address on your phone, sign in with your usual passphrase, then **Share → Add to Home
    Screen** (Safari) or **Install app** (Chrome) for a full-screen app.
 
-5. Turn on deploy-on-merge (needs the GitHub CLI, `brew install gh && gh auth login`):
-
-   ```bash
-   make setup-github
-   ```
-
-   It creates an Azure app registration that trusts only this repo's `production` environment and
-   may only manage the `monsieur-francais` resource group, then sets the repo variables the Deploy
-   workflow reads.
-
-   If you skip step 3, the hosted database starts empty: the first sign-in asks for a new
+   If you skip step 4, the hosted database starts empty: the first sign-in asks for a new
    passphrase and the setup code (`MF_PROD_SETUP_CODE` in `.env.azure`), so nobody else who finds
    the address can claim the account.
 
 ## Updating
 
-Merge to `main`; the Deploy workflow does the rest. Changing a key in `.env` or anything under
-`infra/` needs `make deploy` from `main` on your Mac. `make deploy` refuses to run from another
-branch, since it would replace what `main` deployed (`MF_DEPLOY_ANY_BRANCH=1` overrides).
+Merge to `main`; that is all, including changes under `infra/`. After changing a key in `.env`,
+re-run `make setup-github` (it updates the GitHub secrets) and then the Deploy workflow.
+`make deploy` runs the same deployment from a laptop as a fallback; it refuses to run from a
+branch other than `main` (`MF_DEPLOY_ANY_BRANCH=1` overrides).
 
 Content pipeline jobs run against the hosted database and media from inside the API container:
 

@@ -1,44 +1,30 @@
 #!/usr/bin/env bash
-# Build both images in Azure and deploy everything. Safe to re-run: the first run creates the
-# resources, later runs ship new images. Needs the Azure CLI (`az login`) and the repo's .env.
+# Build both images in Azure and deploy everything; safe to re-run. GitHub Actions runs this on
+# every merge to main, with settings from repository variables and secrets. From a laptop it is
+# the manual fallback and reads .env and .env.azure (both written or used by `make setup-github`).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 RG="${MF_RESOURCE_GROUP:-monsieur-francais}"
 
-# Production runs main (GitHub Actions ships it after CI); deploying another branch from here
-# would replace what main put there.
-branch=$(git rev-parse --abbrev-ref HEAD)
-if [ "$branch" != main ] && [ -z "${MF_DEPLOY_ANY_BRANCH:-}" ]; then
-  echo "deploy: on $branch, not main. Set MF_DEPLOY_ANY_BRANCH=1 to deploy it anyway." >&2
-  exit 1
+if [ -z "${GITHUB_ACTIONS:-}" ]; then
+  # Production runs main; deploying another branch from here would replace what main put there.
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  if [ "$branch" != main ] && [ -z "${MF_DEPLOY_ANY_BRANCH:-}" ]; then
+    echo "deploy: on $branch, not main. Set MF_DEPLOY_ANY_BRANCH=1 to deploy it anyway." >&2
+    exit 1
+  fi
+  if [ ! -f .env ] || [ ! -f .env.azure ]; then
+    echo "deploy: needs .env and .env.azure; run make setup-github first" >&2
+    exit 1
+  fi
+  set -a
+  # shellcheck disable=SC1091
+  . ./.env
+  # shellcheck disable=SC1091
+  . ./.env.azure
+  set +a
 fi
-LOCATION="${MF_LOCATION:-centralindia}"
-SECRETS=.env.azure
-
-if [ ! -f .env ]; then
-  echo "deploy: .env with the Azure OpenAI and Speech keys is missing" >&2
-  exit 1
-fi
-set -a
-# shellcheck disable=SC1091
-. ./.env
-set +a
-
-# Generated once and kept locally (gitignored); losing them only means signing in again
-# (secret key) or resetting the database password in the portal.
-if [ ! -f "$SECRETS" ]; then
-  umask 077
-  {
-    echo "MF_PG_PASSWORD=$(openssl rand -hex 24)"
-    echo "MF_PROD_SECRET_KEY=$(openssl rand -hex 32)"
-    echo "MF_PROD_SETUP_CODE=$(openssl rand -hex 4)"
-  } > "$SECRETS"
-fi
-set -a
-# shellcheck disable=SC1090
-. "./$SECRETS"
-set +a
 
 deploy() {
   az deployment group create --resource-group "$RG" --name monsieur \
@@ -62,7 +48,6 @@ deploy() {
 
 output() { python3 -c "import json,sys; print(json.load(sys.stdin)['$1']['value'])"; }
 
-az group create --name "$RG" --location "$LOCATION" --output none
 echo "Creating or updating the shared resources (the first run takes about 10 minutes)…"
 outputs=$(deploy false)
 registry=$(echo "$outputs" | output registryName)
@@ -78,4 +63,4 @@ server=$(echo "$outputs" | output registryServer)
 outputs=$(deploy true "$server/mf-api:$tag" "$server/mf-web:$tag")
 echo
 echo "Live at $(echo "$outputs" | output webUrl)"
-echo "First sign-in on a new database asks for the setup code: MF_PROD_SETUP_CODE in $SECRETS."
+echo "A first sign-in on a new database asks for the setup code (MF_PROD_SETUP_CODE in .env.azure)."
