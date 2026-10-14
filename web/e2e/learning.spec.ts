@@ -24,9 +24,11 @@ test("a grammar exercise gives immediate feedback", async ({ page }) => {
   await expect(page.getByText("Answer: avons")).toBeVisible();
 });
 
-test("finishing a module unlocks the next one", async ({ page }) => {
+test("finishing a module covers it, and the owner can open every module", async ({ page }) => {
   await page.goto("/path");
-  await expect(page.getByText("locked")).toBeVisible();
+  // The owner skips the one-after-another unlock (learners keep it; see test_learning_flow.py).
+  await expect(page.getByRole("link", { name: /La famille/ })).toBeVisible();
+  await expect(page.getByText("locked")).toHaveCount(0);
 
   await completeEveryLesson(page);
   await page.getByRole("link", { name: "Take the check" }).click();
@@ -52,7 +54,6 @@ test("finishing a module unlocks the next one", async ({ page }) => {
   await expect(page.getByText("Module covered")).toBeVisible();
   await page.goto("/path");
   await expect(page.getByText("covered", { exact: true })).toBeVisible();
-  await expect(page.getByRole("link", { name: /La famille/ })).toBeVisible();
 });
 
 test("completed vocabulary shows up in review and the library", async ({ page }) => {
