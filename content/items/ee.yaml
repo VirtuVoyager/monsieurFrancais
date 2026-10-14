@@ -1,0 +1,46 @@
+# Expression écrite prompts, original and in TCF format.
+skill: EE
+kind: writing
+items:
+  - slug: ee1-demenagement
+    cefr: A2
+    task: EE1
+    prompt: >
+      Vous venez de déménager dans une nouvelle ville. Écrivez un message à un ami pour lui
+      décrire votre nouveau logement et votre quartier, et invitez-le à venir vous voir.
+  - slug: ee1-cours-sport
+    cefr: A2
+    task: EE1
+    prompt: >
+      Vous voulez vous inscrire à un cours de sport. Écrivez un courriel au centre sportif pour
+      demander des informations : horaires, prix, niveau et matériel nécessaire.
+  - slug: ee2-evenement
+    cefr: B1
+    task: EE2
+    prompt: >
+      Vous avez participé à une fête de quartier le week-end dernier. Écrivez un article pour le
+      journal de votre quartier : racontez l'événement et donnez votre opinion sur son intérêt
+      pour les habitants.
+  - slug: ee2-teletravail
+    cefr: B1
+    task: EE2
+    prompt: >
+      Sur un forum, un internaute demande si le télétravail est une bonne solution. Racontez
+      votre expérience ou celle d'un proche et dites ce que vous en pensez.
+  - slug: ee3-voitures-centre
+    cefr: B2
+    task: EE3
+    prompt: >
+      « Faut-il interdire les voitures dans le centre des villes ? » Voici deux opinions.
+      Document 1 : « Les centres-villes deviendraient plus calmes, moins pollués et plus
+      agréables pour les piétons et les commerces. » Document 2 : « Beaucoup de personnes âgées,
+      de familles et de travailleurs n'ont pas d'autre moyen de se déplacer. » Présentez ces
+      deux points de vue puis donnez votre opinion argumentée.
+  - slug: ee3-ecrans-ecole
+    cefr: B2
+    task: EE3
+    prompt: >
+      « Les écrans ont-ils leur place à l'école primaire ? » Document 1 : « Les outils
+      numériques motivent les élèves et les préparent au monde de demain. » Document 2 :
+      « Les enfants passent déjà trop de temps devant les écrans ; l'école doit protéger leur
+      attention. » Présentez ces deux points de vue puis donnez votre opinion argumentée.

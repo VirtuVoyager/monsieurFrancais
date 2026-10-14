@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --surface-2: #f3f0ea;
+  --ink: #1b2433;
+  --muted: #5b6577;
+  --line: #e6e1d8;
+  --accent: #2f4db8;
+  --accent-ink: #ffffff;
+  --accent-soft: #e8ecfa;
+  --success: #2e7d5b;
+  --success-soft: #e3f2ea;
+  --warn: #a8650f;
+  --danger: #b83a3a;
+  --danger-soft: #f8e5e5;
+  --masc: #2f6fd6;
+  --fem: #c2417a;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f141c;
+    --surface: #161d28;
+    --surface-2: #1c2533;
+    --ink: #e8ecf2;
+    --muted: #9aa4b5;
+    --line: #263042;
+    --accent: #8ea2ff;
+    --accent-ink: #0f141c;
+    --accent-soft: #1e2742;
+    --success: #5cc497;
+    --success-soft: #16302a;
+    --warn: #e0a54a;
+    --danger: #ef7d7d;
+    --danger-soft: #3a1d22;
+    --masc: #7aa7ff;
+    --fem: #f08bb8;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f141c;
+  --surface: #161d28;
+  --surface-2: #1c2533;
+  --ink: #e8ecf2;
+  --muted: #9aa4b5;
+  --line: #263042;
+  --accent: #8ea2ff;
+  --accent-ink: #0f141c;
+  --accent-soft: #1e2742;
+  --success: #5cc497;
+  --success-soft: #16302a;
+  --warn: #e0a54a;
+  --danger: #ef7d7d;
+  --danger-soft: #3a1d22;
+  --masc: #7aa7ff;
+  --fem: #f08bb8;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-masc: var(--masc);
+  --color-fem: var(--fem);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

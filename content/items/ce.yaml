@@ -1,0 +1,127 @@
+# Compréhension écrite.
+skill: CE
+items:
+- slug: ce-a1-horaires
+  cefr: A1
+  passage: Bibliothèque municipale — Ouverte du mardi au samedi, de 9 h à 18 h. Fermée le dimanche et
+    le lundi.
+  prompt: Quand la bibliothèque est-elle fermée ?
+  options:
+  - Le dimanche et le lundi
+  - Le samedi
+  - Le mardi
+  answer: 0
+- slug: ce-a1-invitation
+  cefr: A1
+  passage: Salut Tom ! Je fête mon anniversaire vendredi soir chez moi, à partir de 19 h. Apporte une
+    boisson si tu veux. Nora
+  prompt: Qu'est-ce que Nora organise ?
+  options:
+  - Une sortie au cinéma
+  - Une fête d'anniversaire
+  - Un repas au restaurant
+  answer: 1
+- slug: ce-a1-panneau
+  cefr: A1
+  passage: 'Piscine : le bonnet de bain est obligatoire. Douche obligatoire avant d''entrer dans l''eau.'
+  prompt: Que faut-il faire avant d'entrer dans l'eau ?
+  options:
+  - Enlever ses lunettes
+  - Payer l'entrée
+  - Prendre une douche
+  answer: 2
+- slug: ce-a2-annonce
+  cefr: A2
+  passage: 'À vendre : vélo de ville, bon état, utilisé deux ans. 120 €. Casque offert. Disponible le
+    soir après 18 h. Tél. : 06 12 34 56 78.'
+  prompt: Qu'est-ce qui est offert avec le vélo ?
+  options:
+  - Un casque
+  - Une réparation
+  - Un antivol
+  answer: 0
+- slug: ce-a2-courriel
+  cefr: A2
+  passage: Bonjour, suite à votre commande n° 4521, nous vous informons que le colis sera livré avec deux
+    jours de retard en raison d'une grève des transporteurs. Nous vous prions de nous excuser.
+  prompt: Pourquoi le colis arrive-t-il en retard ?
+  options:
+  - L'adresse est incorrecte.
+  - Il y a une grève.
+  - Le produit n'est plus disponible.
+  answer: 1
+- slug: ce-a2-regle
+  cefr: A2
+  passage: 'Résidence Les Érables : merci de sortir les poubelles le mardi et le vendredi avant 8 h. Les
+    objets encombrants doivent être déposés à la déchetterie.'
+  prompt: Que doit-on faire des objets encombrants ?
+  options:
+  - Les sortir le mardi.
+  - Les laisser devant la porte.
+  - Les apporter à la déchetterie.
+  answer: 2
+- slug: ce-b1-cours
+  cefr: B1
+  passage: Le centre propose des cours de français intensifs de quatre semaines. Un test de niveau en
+    ligne est obligatoire avant l'inscription afin de former des groupes homogènes. Les places étant limitées,
+    il est conseillé de s'inscrire au moins un mois à l'avance.
+  prompt: Pourquoi le test de niveau est-il obligatoire ?
+  options:
+  - Pour constituer des groupes de même niveau.
+  - Pour fixer le prix du cours.
+  - Pour obtenir un diplôme.
+  answer: 0
+- slug: ce-b1-entreprise
+  cefr: B1
+  passage: Afin de réduire son empreinte carbone, l'entreprise rembourse désormais la moitié de l'abonnement
+    de transport en commun de ses employés et a installé un parking sécurisé pour les vélos.
+  prompt: Quel est l'objectif de ces mesures ?
+  options:
+  - Recruter de nouveaux employés.
+  - Réduire l'impact environnemental.
+  - Augmenter les salaires.
+  answer: 1
+- slug: ce-b1-lettre
+  cefr: B1
+  passage: Madame, Monsieur, je me permets de vous écrire concernant le bruit provenant du chantier voisin,
+    qui commence chaque jour à 6 h. Je vous serais reconnaissant de bien vouloir faire respecter les horaires
+    autorisés.
+  prompt: Que demande l'auteur de la lettre ?
+  options:
+  - Un dédommagement financier.
+  - L'arrêt définitif du chantier.
+  - Le respect des horaires autorisés.
+  answer: 2
+- slug: ce-b2-sommeil
+  cefr: B2
+  passage: 'Loin d''être une perte de temps, la sieste courte améliorerait la vigilance et la mémoire.
+    Encore faut-il qu''elle ne dépasse pas vingt minutes : au-delà, le dormeur risque d''entrer en sommeil
+    profond et de se réveiller plus fatigué qu''avant.'
+  prompt: Selon le texte, à quelle condition la sieste est-elle bénéfique ?
+  options:
+  - Si elle ne dépasse pas vingt minutes.
+  - Si elle dure plus d'une heure.
+  - Si elle a lieu le soir.
+  answer: 0
+- slug: ce-b2-emploi
+  cefr: B2
+  passage: Si l'automatisation fait disparaître certaines tâches répétitives, elle crée parallèlement
+    des besoins nouveaux en maintenance et en analyse de données. Le défi consiste donc moins à freiner
+    le progrès qu'à accompagner la reconversion des salariés concernés.
+  prompt: Quelle est la position de l'auteur ?
+  options:
+  - Il faut ralentir l'automatisation.
+  - Il faut surtout former les salariés à de nouveaux métiers.
+  - L'automatisation ne change rien à l'emploi.
+  answer: 1
+- slug: ce-b2-tourisme
+  cefr: B2
+  passage: Victime de son succès, la ville a instauré un quota quotidien de visiteurs dans son centre
+    historique. Les commerçants, d'abord hostiles, reconnaissent aujourd'hui que la mesure a permis de
+    retrouver une clientèle locale qui avait déserté le quartier.
+  prompt: Comment les commerçants perçoivent-ils la mesure aujourd'hui ?
+  options:
+  - Ils demandent sa suppression.
+  - Ils y restent opposés.
+  - Ils en voient les effets positifs.
+  answer: 2

@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: Les voyelles nasales
+focus: an / en, on and in / un, said through the nose without a final n
+cefr: A2
+sentences:
+  - fr: Mon enfant attend son grand-père devant la maison.
+    en: My child is waiting for his grandfather in front of the house.
+    tip: mon, son have on; enfant, attend, grand, devant have an. Link mon‿enfant with an n sound.
+  - fr: Le vin blanc de cette région est très bon.
+    en: The white wine from this region is very good.
+    tip: vin has in, blanc has an (the c is silent), bon has on. Three different nasal vowels, no n at the end.
+  - fr: Ils construisent un pont au centre de la ville.
+    en: They are building a bridge in the town centre.
+    tip: construisent and pont have on, un has in, centre has an. The -ent of construisent is silent.
+  - fr: En automne, nous mangeons souvent des champignons.
+    en: In autumn we often eat mushrooms.
+    tip: Link en‿automne with an n sound. mangeons, souvent, champignons mix an and on.
+  - fr: Mon voisin cherche un emploi dans l'informatique.
+    en: My neighbour is looking for a job in IT.
+    tip: voisin and informatique have in, emploi and dans have an. Link un‿emploi with an n sound.
+  - fr: Il faut prendre le train de onze heures cinquante.
+    en: We have to take the 11:50 train.
+    tip: prendre has an, train has in, onze has on, cinquante has in then an. No elision before onze - "de onze".
+  - fr: Cette chanson raconte une histoire émouvante.
+    en: This song tells a moving story.
+    tip: chanson has an then on, raconte has on, émouvante ends in an. Run une into histoire.
+  - fr: Le médecin conseille de prendre un bain chaud le matin.
+    en: The doctor recommends taking a hot bath in the morning.
+    tip: médecin, un and bain have in; conseille has on; prendre has an.
+  - fr: Nous sommes contents de commencer ce nouveau projet ensemble.
+    en: We are happy to start this new project together.
+    tip: contents has on then an; ensemble has an twice. The "comm" of commencer is not nasal - say "ko-man-sé".
+  - fr: Le lundi, les magasins ouvrent à quinze heures.
+    en: On Mondays the shops open at three in the afternoon.
+    tip: lundi has un, magasins and quinze have in. Run quinze into heures.

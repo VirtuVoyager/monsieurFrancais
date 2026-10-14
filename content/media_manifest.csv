@@ -1,0 +1,69 @@
+hash,engine,voice,rate,characters,bytes,key,text
+811940623af2300fade52828d85ba6dc9ef29dd243b5f88fd62fddddcfbf8ade,azure-speech-tts,fr-CA-SylvieNeural,1.0,63,33343,bank/co/co-a1-gare,"Le train pour Lyon part à dix heures quinze, quai numéro trois."
+6d34c3b8cbeb2104fbc99a24f35d1e8a87a12659115a68f7ffa3d4bebaf99f52,azure-speech-tts,fr-CA-AntoineNeural,1.0,69,37234,bank/co/co-a1-boulangerie,"Bonjour, je voudrais deux baguettes et un croissant, s'il vous plaît."
+e85b4282b81f2bbc6c484625616a1328a891ceac02a2952f4e8c340ada1804d4,azure-speech-tts,fr-CA-SylvieNeural,1.0,79,50356,bank/co/co-a1-rendez-vous,"Salut Karim, c'est Léa. On se retrouve devant le cinéma samedi à vingt heures ?"
+544db66798ead728e8670f3b8bd4487649deab57044cde726f24da019edc2825,azure-speech-tts,fr-CA-SylvieNeural,1.0,123,72414,bank/co/co-a2-meteo,"Demain, le temps sera nuageux le matin avec quelques averses. L'après-midi, le soleil reviendra et il fera dix-huit degrés."
+a2bddf35e8ea1b5d76da69c089690abf1bb7755c6fd603c79382adf08bffe6ce,azure-speech-tts,fr-FR-DeniseNeural,1.0,158,91681,bank/co/co-a2-message,"Bonjour Madame Dubois, ici le cabinet du docteur Martin. Votre rendez-vous de jeudi est déplacé à vendredi, même heure. Merci de nous rappeler pour confirmer."
+972075405e8006992e140569faed80765a097f39f278bd322a30576cce372b10,azure-speech-tts,fr-FR-HenriNeural,1.0,108,58621,bank/co/co-a2-magasin,"Chers clients, notre magasin fermera ses portes dans quinze minutes. Merci de vous diriger vers les caisses."
+da963827e3c4715d30522aa43e0a49d7f355191b6ba2b945643583d89b6f46b7,azure-speech-tts,fr-FR-HenriNeural,1.0,220,97692,bank/co/co-b1-teletravail,"Depuis que je travaille de chez moi trois jours par semaine, je gagne presque deux heures de transport par jour. En revanche, mes collègues me manquent, et j'ai parfois du mal à séparer vie professionnelle et vie privée."
+0e2e16a17e2a33a908c6f145979f7d5cc8f1e341dcbc0e4d33a90a7a14390712,azure-speech-tts,fr-CA-SylvieNeural,1.0,173,83899,bank/co/co-b1-benevolat,"L'association recherche des bénévoles pour distribuer des repas le week-end. Aucune expérience n'est demandée, mais il faut pouvoir s'engager au moins deux samedis par mois."
+419f609d89594d58ebcf9eae3fe754d7eecb7d08d98d5b7538db4ed47e30caa5,azure-speech-tts,fr-FR-DeniseNeural,1.0,183,91842,bank/co/co-b1-logement,"L'appartement est lumineux et proche du métro, mais le loyer a augmenté de cent euros cette année. Si le propriétaire refuse de faire les travaux promis, nous chercherons autre chose."
+ac2292daabac5bfab7fc6f97e85f1ab7c99e9328f894a7ee6b7c4e3e63dee434,azure-speech-tts,fr-FR-DeniseNeural,1.0,224,94123,bank/co/co-b2-ecrans,"Contrairement à une idée reçue, ce n'est pas tant la durée d'exposition aux écrans qui inquiète les chercheurs que la nature des contenus consultés et le moment de la journée où ils le sont, notamment juste avant le coucher."
+73bfc4ae3b8e5a8def5d52e27806529a4494c602f48ccdfdae6a9843de36a2d8,azure-speech-tts,fr-FR-DeniseNeural,1.0,216,102710,bank/co/co-b2-mobilite,"Bien que la ville ait multiplié les pistes cyclables, la part du vélo stagne. Les usagers invoquent moins le manque d'infrastructures que le sentiment d'insécurité aux carrefours, où cohabitent voitures et cyclistes."
+198879b57f04e73c249e49be4b3276d2606dc3cb28cfda82836bebffc936c16a,azure-speech-tts,fr-FR-HenriNeural,1.0,185,75795,bank/co/co-b2-alimentation,"Si les consommateurs se déclarent prêts à payer davantage pour des produits locaux, les chiffres de vente montrent qu'en pratique, le prix reste le critère décisif au moment de l'achat."
+43c0543a46dc80ff006c1067a808e33bf85bca7827e669fd78ad09f8d1eb370d,azure-speech-tts,fr-CA-AntoineNeural,1.0,270,165905,a1-01-se-presenter/ecoute,"Bonjour ! Je m'appelle Sophie Martin. J'ai vingt-huit ans et je suis française. J'habite à Lyon, mais je travaille à Genève, en Suisse. Je suis infirmière dans un grand hôpital. Je parle français, anglais et un peu d'espagnol. Le week-end, j'aime faire de la randonnée."
+e5784057fe5b3480310a0005f1019c1584df51b2c0c73e8c0edb5a3eba4c5800,azure-speech-tts,fr-CA-SylvieNeural,1.0,250,163141,a1-02-la-famille/ecoute,"Salut, c'est Marc. Je te présente ma famille. Nous sommes cinq. Mon père s'appelle Paul, il est boulanger. Ma mère, Isabelle, est professeure de mathématiques. J'ai deux sœurs : Julie a quinze ans et Emma a dix ans. Nous avons aussi un chien, Filou."
+1a4bc82565bf60700624bb0a065ca872682179baf7727bb5160ce3607ac4ed9a,azure-speech-tts,fr-CA-SylvieNeural,0.9,6,16652,a1-01-se-presenter/prénom,prénom
+ff0da87d25692b7a5b14cc6bb3e341349fe87c9a750660ee6ebe424d2c04140b,azure-speech-tts,fr-CA-AntoineNeural,0.9,14,17484,a1-01-se-presenter/nom de famille,nom de famille
+0426633708d5c2864ecce27bd29909d4951400ba06774a4b2c79f0f3d45e49c6,azure-speech-tts,fr-FR-HenriNeural,0.9,3,16652,a1-01-se-presenter/âge,âge
+c9b72a2125f03dc23fe2bdf82f2c9bb21b896c11b51652a538a58b9149d3ef46,azure-speech-tts,fr-CA-SylvieNeural,0.9,4,16652,a1-01-se-presenter/pays,pays
+f5de07828939bcf80760becfac50ebb7c2e319fc301b49499472312a7841afb8,azure-speech-tts,fr-FR-HenriNeural,0.9,5,16652,a1-01-se-presenter/ville,ville
+86543bbb457a67916372e7ffd2dd84437ab6025c9d277c830fc19d40026fb00c,azure-speech-tts,fr-FR-HenriNeural,0.9,11,17001,a1-01-se-presenter/nationalité,nationalité
+0ceef69600fe5ab934db7059a4618ef8bf5d52d8ad8da36b61ceafa82394fcbb,azure-speech-tts,fr-CA-SylvieNeural,0.9,6,16652,a1-01-se-presenter/métier,métier
+81fbe79410b9805088043a00401619f73ef0c838c42c59931348e31cc0a00cf1,azure-speech-tts,fr-FR-DeniseNeural,0.9,6,16652,a1-01-se-presenter/langue,langue
+1cba9ebd212181b20fd33d0742952517a55f9a0a0bf7c104d4f17eb8cd2e2017,azure-speech-tts,fr-FR-DeniseNeural,0.9,7,16652,a1-01-se-presenter/adresse,adresse
+9d568af9162af6d7d306a234167f2071f7710e0f5fb360e1ebade69d24004079,azure-speech-tts,fr-FR-HenriNeural,0.9,19,20060,a1-01-se-presenter/numéro de téléphone,numéro de téléphone
+91032afd4fec51f8a44a4e2485892ec0fbdab8c06e8393ad15fbbe8605ff7793,azure-speech-tts,fr-CA-AntoineNeural,0.9,8,16652,a1-01-se-presenter/courriel,courriel
+fd499c059af421ae80fb13de4f905bffdd663431dc8d5ba1204208f6f22f5454,azure-speech-tts,fr-CA-AntoineNeural,0.9,9,16652,a1-01-se-presenter/s'appeler,s'appeler
+b07e1ff3451f868fda1bd07262951234fed0112067334e78922ca552789f82f9,azure-speech-tts,fr-CA-AntoineNeural,0.9,7,16652,a1-01-se-presenter/habiter,habiter
+a2416609e231e17189cc63399f3f605392a8db55d1df34d2b112d2d15763ca3f,azure-speech-tts,fr-CA-AntoineNeural,0.9,6,16652,a1-01-se-presenter/parler,parler
+df12f8bd2ee5089ecb40e978b621bf1e2bc4fdb2f71407221a97f622800b4a52,azure-speech-tts,fr-FR-HenriNeural,0.9,10,16652,a1-01-se-presenter/travailler,travailler
+5037bcb2ea94ae95224f028bb876676d5632309175fc3851d42e7465b08a6f15,azure-speech-tts,fr-CA-AntoineNeural,0.9,8,16652,a1-01-se-presenter/venir de,venir de
+974ff90543d557644dad4aeb4d585caa100594276a4ba09642b6483c81f6b840,azure-speech-tts,fr-FR-DeniseNeural,0.9,4,16652,a1-01-se-presenter/être,être
+7c402791c0f91f4a86328f40ec444f6194f6456901fdea0c4e926701b4923d15,azure-speech-tts,fr-CA-SylvieNeural,0.9,5,16652,a1-01-se-presenter/avoir,avoir
+f97b778717c32a81fceac4f5192dc1736fe570a59384d128de8eff28195ebe7a,azure-speech-tts,fr-FR-HenriNeural,0.9,5,16652,a1-01-se-presenter/marié,marié
+356a65c7776b268e314fcaddd8af5dee0ca3cd23191f780b2048e1d0ff062ab1,azure-speech-tts,fr-FR-DeniseNeural,0.9,11,16813,a1-01-se-presenter/célibataire,célibataire
+5e3742fb0ea0b221fb5e025baf20b329568acf4e31e0f468582aec8d32c549d4,azure-speech-tts,fr-FR-DeniseNeural,0.9,4,16652,a1-02-la-famille/père,père
+59df62e9877d7a67056a8b9d44415cf9af340f40ae39e65bc9b78cb3b5c2e214,azure-speech-tts,fr-CA-SylvieNeural,0.9,4,16652,a1-02-la-famille/mère,mère
+9011ef7164b4866febd7127e641cffc07964c8e1d7f086f8e7b021419ea9e706,azure-speech-tts,fr-FR-DeniseNeural,0.9,5,16652,a1-02-la-famille/frère,frère
+9d02e6431a84571440975e9aceef85d3de81796a263261eda4a61e1a76f33db8,azure-speech-tts,fr-CA-AntoineNeural,0.9,4,16652,a1-02-la-famille/sœur,sœur
+0ecd5f1ce0cccb4abfe9dbd30be05d5ab8c5d2f1bfc13ab022029ead508effdb,azure-speech-tts,fr-FR-HenriNeural,0.9,4,16652,a1-02-la-famille/fils,fils
+aa4a234fdb56b07584e2332403582133314fd2e6d42884b6b85ef9417e117432,azure-speech-tts,fr-CA-AntoineNeural,0.9,5,16652,a1-02-la-famille/fille,fille
+6aac1dce75a30caa58993b6ee51629266428e16715e8fbc92cfd94b1516487d2,azure-speech-tts,fr-FR-DeniseNeural,0.9,6,16652,a1-02-la-famille/enfant,enfant
+678c072578d78105f9d383c58f5533c01f96fde95173e698fc7faed761b22375,azure-speech-tts,fr-FR-DeniseNeural,0.9,7,16652,a1-02-la-famille/parents,parents
+16f38c03fc6f8ca23d9bf6fa1e8f84bcf6a3ba000fa75e09a447784dd997d39d,azure-speech-tts,fr-CA-AntoineNeural,0.9,10,16652,a1-02-la-famille/grand-mère,grand-mère
+23d2396efb1d0b2f2f4010a40a7992df20acc5d1ebb6a7e4a1e902b6fe6750dc,azure-speech-tts,fr-CA-AntoineNeural,0.9,10,16652,a1-02-la-famille/grand-père,grand-père
+03d9b27a25df7a4efe760ff210061a3598b464761ed412acd7f409d04ff6eb3d,azure-speech-tts,fr-FR-DeniseNeural,0.9,4,16652,a1-02-la-famille/mari,mari
+ae80d7db7a29f8da585afd849622c5b6f72f56e226d3d2b76735ebe14e4823a5,azure-speech-tts,fr-FR-DeniseNeural,0.9,5,16652,a1-02-la-famille/femme,femme
+6b7f812fd8cf1d9367797773b91ca21af0cbba3a762e6683246af8acd969406e,azure-speech-tts,fr-CA-AntoineNeural,0.9,6,16652,a1-02-la-famille/cousin,cousin
+21a886de1f8fb20a5cb796d72393ae0619aca37ec2a190f667cb736213a3778c,azure-speech-tts,fr-CA-AntoineNeural,0.9,5,16652,a1-02-la-famille/oncle,oncle
+ea56e8e6b510c518986570a0eb98223e032feb6fc6c3743f359335dc4713b3a2,azure-speech-tts,fr-CA-AntoineNeural,0.9,5,16652,a1-02-la-famille/tante,tante
+8550a714385fd511e620e4ee0d88cc92d6b8085211c10935ac1c20d8bc57673e,azure-speech-tts,fr-CA-AntoineNeural,0.9,3,16652,a1-02-la-famille/ami,ami
+50f0aefb8d881c9383378ddac70f3d759395aa7bd1493bdf920f9c149bf5a4ff,azure-speech-tts,fr-CA-SylvieNeural,0.9,52,31894,a1-01-se-presenter/abb56f9b14,"Bonjour, je m'appelle Arjun et j'ai trente-deux ans."
+4623828f52cd294e916b0373cfd8bd5b013d3fad0bc8d3f410f3c00193149bf8,azure-speech-tts,fr-CA-SylvieNeural,0.9,36,25078,a1-01-se-presenter/a7d649abef,Je suis indien et j'habite à Mumbai.
+70b5a4e752eee82dce466e895be65a35f452e28f9bede77b9c83af1b65ebe79e,azure-speech-tts,fr-FR-HenriNeural,0.9,62,33853,a1-01-se-presenter/6b41419466,Je travaille comme ingénieur dans une entreprise informatique.
+7261047bbc6286c942e698f8025e97aba6aacc2201b0b450dec478d8410a11f8,azure-speech-tts,fr-CA-AntoineNeural,0.9,43,32055,a1-01-se-presenter/a89be36366,"Je parle hindi, anglais et un peu français."
+b2abe3aa0a7d316091261c20431fe7ba957750fdd724dbb813c24bde978f9e0f,azure-speech-tts,fr-CA-SylvieNeural,0.9,38,26876,a1-01-se-presenter/452caeba82,Je suis marié et nous avons une fille.
+43c5dca2f48559d885387ebe54a89dd6a3b09b7aab48d836251c6247547687f5,azure-speech-tts,fr-CA-AntoineNeural,0.9,57,30928,a1-01-se-presenter/9d3d4df4fd,J'apprends le français parce que je veux vivre au Canada.
+57ff43cd05fb538f2512fb926b09d6d63bac52013b762ae9b8805f39599db69a,azure-speech-tts,fr-CA-SylvieNeural,0.9,37,26715,a1-01-se-presenter/5bf741c152,Enchanté de faire votre connaissance.
+a0e454c814774de4330f90c7ba30011f5186ac4caf534129a6b3a9fba1a55612,azure-speech-tts,fr-CA-AntoineNeural,0.9,40,24112,a1-01-se-presenter/85e1d95566,"Pourriez-vous répéter, s'il vous plaît ?"
+24238ede2e5f9e1f839bcc8b4eef50d907317455d49595d2f1e6ec4e8deed7d4,azure-speech-tts,fr-FR-HenriNeural,0.9,27,17323,a1-01-se-presenter/d5d1d01d19,Comment vous appelez-vous ?
+fab354b968a0de9384f38dddfe34f5e02bbfe1fb76e358496da4320646b7c5bb,azure-speech-tts,fr-CA-SylvieNeural,0.9,17,16652,a1-01-se-presenter/beb71418b9,D'où venez-vous ?
+251326333b083f7e321cd7e87b667cf3f5e185b90697686c6973d3a2d63bd107,azure-speech-tts,fr-CA-AntoineNeural,0.9,24,20221,a1-02-la-famille/d101ba1575,J'ai une grande famille.
+129033be24a70c9b47ff4668ae157a39df10366740e980e50fc2d64e7f63bead,azure-speech-tts,fr-FR-DeniseNeural,0.9,43,29291,a1-02-la-famille/cc1edc988b,"Mes parents habitent en Inde, près de Pune."
+f729291a1a414f521cd1073bcc5f108103939ba49cb0cff23fdc1c2738f2214a,azure-speech-tts,fr-FR-HenriNeural,0.9,31,21375,a1-02-la-famille/772bde72a0,Ma sœur est plus jeune que moi.
+4744138380c29f5fe0bbcd4ef6e8c5ceccd79bec62dc98c78e1ffb6e72977194,azure-speech-tts,fr-FR-HenriNeural,0.9,35,22663,a1-02-la-famille/9e1287ed27,Nous sommes quatre dans la famille.
+a5c09a86d7a1db3a11e1ad4c9b44e4b4ab8b9a24b391ad1601874e3c675430b6,azure-speech-tts,fr-FR-DeniseNeural,0.9,36,25078,a1-02-la-famille/44ccfa5750,Le frère de mon père s'appelle Ravi.
+1a377e397512ffa4d7734b9edcafd4ca75c3e81892e08398344a84aa06803dd3,azure-speech-tts,fr-CA-AntoineNeural,0.9,31,22663,a1-02-la-famille/61bd4380ca,Mon amie Claire a deux enfants.
+4c0ea38d4aadced2702005deee2dcc2cefe2d086600da553e68b66148422b667,azure-speech-tts,fr-CA-AntoineNeural,0.9,42,23468,a1-02-la-famille/867781b546,Est-ce que vous avez des frères et sœurs ?
+67ed24c8588996d40d55ebbb7ae3052458e5a2eee4f0ff33cd5ed1a71d781db4,azure-speech-tts,fr-CA-AntoineNeural,0.9,22,16813,a1-02-la-famille/300b4d2bc8,Je n'ai pas d'enfants.

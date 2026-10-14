@@ -1,0 +1,46 @@
+# Expression orale tasks, original and in TCF format. `examiner` is private to the examiner.
+skill: EO
+kind: speaking
+items:
+  - slug: eo1-entretien
+    cefr: A2
+    task: EO1
+    prompt: >
+      Présentez-vous : parlez de vous, de votre famille, de votre travail ou de vos études, de
+      vos loisirs et de vos projets.
+    examiner: >
+      Ask about origin, family, work or studies, free time, and why the candidate is learning
+      French. Follow up on what they say.
+  - slug: eo2-colocation
+    cefr: B1
+    task: EO2
+    prompt: >
+      Vous cherchez une colocation à Montréal. Je suis la personne qui propose une chambre dans
+      son appartement. Posez-moi des questions pour obtenir des informations : loyer, quartier,
+      règles de la maison, date de disponibilité.
+    examiner: >
+      You rent out a room in a flat in the Plateau-Mont-Royal. Rent 850 $ per month, internet
+      included, electricity shared. Two flatmates: a nurse and a student. Quiet after 22 h, no
+      smoking, a cat lives there. Metro Mont-Royal is 5 minutes away. Free from 1 November.
+  - slug: eo2-cours-cuisine
+    cefr: B1
+    task: EO2
+    prompt: >
+      Vous voulez suivre un cours de cuisine. Je travaille à l'école de cuisine. Posez-moi des
+      questions pour choisir un cours : types de cours, horaires, prix, nombre de participants.
+    examiner: >
+      You work at a cooking school in Québec City. Courses: Québécois cuisine (Tuesday 18 h),
+      pastry (Saturday 10 h), vegetarian (Thursday 18 h). Each is 3 hours, 95 $ per session or
+      320 $ for four. Maximum 10 people. Ingredients and apron provided; bring a container.
+  - slug: eo3-teletravail
+    cefr: B2
+    task: EO3
+    prompt: >
+      « Le télétravail devrait devenir la norme pour tous les emplois qui le permettent. »
+      Qu'en pensez-vous ?
+  - slug: eo3-reseaux-sociaux
+    cefr: B2
+    task: EO3
+    prompt: >
+      « Les réseaux sociaux rapprochent les gens plus qu'ils ne les éloignent. » Êtes-vous
+      d'accord ?

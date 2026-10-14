@@ -159,10 +159,12 @@ These settings drive:
 | **Assessments** | Checkpoints, level exams, full mocks, placement. All run in the same `ExamShell`: timers, single-play audio, locked navigation, no hints. |
 | **Timed drills** | Pick a skill and task type; runs under exam conditions and counts at half weight. |
 | **Speaking studio** | Live voice conversation with an AI examiner (Task 2 roleplays, Task 3 debate follow-ups). Task 1 answer bank with a shadowing loop. After each session: rubric score, transcript with errors marked, pronunciation feedback. The examiner speaks only French, keeps to exam register, and answers a switch to English with an in-French repair phrase, never by switching language. |
+| **Repeat after me** | Pronunciation coaching in the speaking studio. Sets of ten model sentences (`content/repeat/`, Azure audio at natural speed, a slow replay in the browser) target sounds such as *u/ou*, nasal vowels, the French R and required liaisons. Each try is recorded, converted to 16 kHz WAV in the browser and scored word by word by Azure pronunciation assessment (fr-FR). A word needs work only when Azure marks it mispronounced or missing, or when it scores below 80 *and* one of its sounds collapses: on correct speech, sound scores next to a liaison can read 0, so neither number alone is trusted. Marked words turn red, and GPT-5.4 mini explains how to fix at most two of them (the sound, a mouth instruction, a respelling), never correcting optional liaisons. Three tries per sentence, counted by the app, then the next sentence. A mostly unrecognised recording does not use up a try. Practice only: it never feeds the skill bars. |
 | **Listening lab** | France and Québec voices; dictation; shadowing. The pre-listening transcript skim is available in practice only, never in timed work. |
 | **Writing desk** | Exam-clock editor with word count. Templates are visible in practice and hidden in assessments. Your top-5 recurring errors appear as a proofread checklist before you submit. |
 | **Library** | Everything learned: **words** (with gender), **sentences**, **grammar concepts**, **templates**, **your errors**. Searchable, with spaced-repetition review on demand. |
-| **Notes inbox** | Point it at your Obsidian vault's tutor-notes folder (read-only). New day notes are extracted into words, sentences and grammar points, shown for your approval, then added to the Library. |
+| **Hover glossary** | Hover (or tap) any French word in lessons, the Library, class notes and speaking transcripts to see its English meaning in that context, with the dictionary form (*suis* → *être*, "(I) am"; fixed phrases such as *il y a* as one unit). Built once per module by the content pipeline (`make glossary`, cached by content hash, about 2–3¢ a module) and per class note for words the course does not cover. Off in every timed or exam screen. |
+| **Notes inbox** | Upload each day's class notes (Markdown, e.g. exported from Obsidian). GPT-5.4 mini extracts words (with gender), phrases and grammar points, using the corrected form wherever the notes flag a mistake. You approve or edit each item; approved words and phrases join Review, and everything joins the Library and search. Items already approved from earlier notes are not offered again. |
 | **Progress** | The two progress bars, assessment history, trends. Nothing else. |
 | **Content studio** (settings area) | Review queue for generated items: preview (with audio), approve, reject or edit (creates a new version), bulk-approve by module. Golden-set manager for tutor-graded samples. |
 | **Export** (settings area) | Download all your data (JSON/CSV); vocabulary and sentences as an Anki deck. |
@@ -185,7 +187,7 @@ Azure is the only one of the big three clouds that covers all five on one bill. 
 | Job | Default | Escalation | Notes |
 |---|---|---|---|
 | Grading, error tagging, feedback, notes extraction, content generation and validation | **GPT-5.4 mini** (Azure OpenAI in Foundry, Global Standard) | **GPT-5.4**, only for writing/speaking grading, and only if mini fails the golden-set bar | Responses API with strict JSON schema output. Mini costs roughly 1/3 as much as the full model. The golden-set eval (§ 4.3) decides: if mini's average grading error on the /20 scale stays ≤ 1 point, it stays everywhere. |
-| Live examiner | **gpt-realtime-mini** | gpt-realtime, only if mini's French or role-play quality is noticeably worse in the phase-3 spike | WebRTC straight from the browser with a short-lived token. Mini's audio rates are about 1/3 of the full model's. Plays the examiner only, never grades. |
+| Live examiner | **gpt-realtime-2.1-mini** | gpt-realtime, only if mini's French or role-play quality is noticeably worse in the phase-3 spike | WebRTC audio straight between the browser and Azure; the API exchanges the SDP offer using a short-lived token, so the browser never holds a credential. Mini's audio rates are about 1/3 of the full model's. Plays the examiner only, never grades. |
 | Transcripts and fluency signals | **Azure Speech STT** (fr-FR / fr-CA), word timestamps | — | Also used for dictation checks. The browser records Opus/WebM; the API converts it with `ffmpeg` to 16 kHz mono WAV for Speech and keeps the Opus file as your recording. |
 | Pronunciation | **Azure Speech pronunciation assessment** (fr-FR / fr-CA) | — | Accuracy, fluency and completeness. Prosody and content scoring are English-only, so grammar and vocabulary come from the GPT grader. |
 | Listening audio | **Azure neural TTS**, France and Québec voices, SSML for pace and pauses | — | Generated once and cached, so replays cost nothing. |
@@ -227,7 +229,7 @@ Paid usage comes from two places: **Azure OpenAI** (GPT-5.4 mini and gpt-realtim
 
 - **One path for every paid call.** Each goes through `metered(service, feature, call)`, which reads usage from the provider's response and writes a `usage_events` row.
   - **GPT (Responses API):** the `usage` block (input, cached input and output tokens).
-  - **Realtime:** each `response.done` event carries text/audio input/output tokens. With WebRTC these events reach the browser, which forwards them to `POST /usage/realtime` as they happen.
+  - **Realtime:** each `response.done` event carries text/audio input/output tokens. With WebRTC these events reach the browser, which forwards them to `POST /speaking/sessions/{id}/usage` as they happen.
   - **STT and pronunciation assessment:** audio seconds (from the audio's own duration, rounded the way Azure bills).
   - **TTS:** billable characters of the SSML sent.
 - **Prices** live in `content/pricing.yaml`: per model and meter, with an effective-from date. Every usage row stores its units, computed cost and `price_version`, so history stays correct when prices change.
@@ -242,8 +244,8 @@ Paid usage comes from two places: **Azure OpenAI** (GPT-5.4 mini and gpt-realtim
 - **Realtime sessions:**
   - Before a session starts, the guard reserves the **worst-case** cost for the task's maximum duration: exam task length plus a small buffer, at the highest per-minute rate.
   - The token needed to connect is only issued if that reservation fits.
-  - The browser ends the session when the reserved time runs out, or earlier if the forwarded usage reaches the reservation.
-  - At the end, actual usage settles the reservation.
+  - The browser ends the session when the reserved time runs out, or earlier if the forwarded usage reaches the reservation. The API hangs the call up itself when usage reaches the reservation, and a job hangs up any session a minute past its deadline.
+  - At the end, the reservation is released; the per-response usage events are the actual cost.
   - Because the reservation is worst-case, the cap can't be overshot by more than one session's buffer.
 - **Offline work stays free:** the Library, spaced-repetition reviews, cached audio and past results keep working when a cap is hit. Only new grading, generation and voice sessions stop.
 
@@ -401,7 +403,7 @@ The index also powers:
    ├── Nightly job: Azure Cost Management reconciliation
    ├── Postgres 16 + pgvector (local, Docker)
    ├── media/ (catalog/: shared generated audio + images, content-addressed; users/: recordings)
-   ├── Obsidian vault folder (read-only notes source)
+   ├── Class notes uploaded in the app (Markdown)
    ├── MCP server (your learning data, for any MCP client)
    └── OpenTelemetry ──► grafana/otel-lgtm (logs, traces, metrics)
 ```
@@ -577,11 +579,11 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
   - Postgres and Grafana are never exposed outside the Docker network.
 - **Secrets:**
   - Azure keys live in `.env` (gitignored), with `gitleaks` in pre-commit and CI.
-  - Keys never reach the browser. The realtime examiner gets a **short-lived session token** minted per session, and only after the budget check.
+  - Keys never reach the browser. The API mints a **short-lived session token** per session, only after the budget check, and uses it for the SDP exchange itself.
 - **Sessions:** the passphrase is hashed with Argon2id. Session cookies are HttpOnly, SameSite=Strict and Secure over TLS. Login attempts are rate-limited.
 - **MCP server:** runs over stdio for local clients, or on `localhost` HTTP with a bearer token. It's never exposed on the LAN.
 - **Dependencies:** Dependabot, `pip-audit` and `npm audit` in CI. No known high or critical vulnerabilities on the main branch.
-- **Input handling:** everything is validated with Pydantic, SQL goes only through SQLAlchemy, and the notes importer reads the Obsidian folder **read-only** and sanitises Markdown before rendering. Content from notes or the knowledge base is passed to the LLM as data, never as instructions.
+- **Input handling:** everything is validated with Pydantic, SQL goes only through SQLAlchemy, and uploaded notes are size-limited text, and Markdown is rendered without raw HTML. Content from notes or the knowledge base is passed to the LLM as data, never as instructions.
 - **Privacy:**
   - Recordings, writing and grades stay on your machine.
   - Azure OpenAI doesn't use API data for training.
@@ -616,7 +618,7 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
 | **0. Foundations** (~1 wk) | Skeleton, Docker Compose (+ `obs` profile), Postgres + migrations, FastAPI health, Next.js shell and design system, CI, `CLAUDE.md`. Azure: free account → Pay-As-You-Go, resource group, Azure OpenAI deployments (GPT-5.4 mini, gpt-realtime-mini) with low TPM quotas, Speech F0, Azure Budget alert. **Metering + BudgetGuard + `pricing.yaml` from day 1.** | `docker compose up` shows the shell; CI green; one GPT call and one TTS call are metered into `usage_events` and visible in Grafana. |
 | **1. Path + modules + coverage + budget screen** (~2–3 wks) | Level/block/module model, lesson player, module checks, coverage bar, Library + FSRS, A1–A2 content (16 modules, generated with the free credit), budget screen, nightly reconciliation. | You can work through A2 modules and see coverage move; budget screen shows live and reconciled spend. |
 | **2. Assessment engine + receptive skills** (~3 wks) | Knowledge-base index (hybrid search, embedding queue, embeddings in content pack), `ExamShell`, question bank with difficulty, Rasch estimator, CO/CE skill bars, placement test, block checkpoints (CO/CE parts), TTS listening audio. **Golden set + mini vs full grader comparison.** | Placement sets real CO/CE estimates; a checkpoint moves the bars. |
-| **3. Writing + speaking** (~3–4 wks) | Writing desk + rubric grading (two passes), error tagging; realtime examiner with budget-checked sessions; STT + pronunciation; EE/EO skill bars; level exams + gate + repair sets (LangGraph); Notes inbox from Obsidian; MCP server. | A full level exam with all four skills produces four skill bars and a gate decision, within budget. |
+| **3. Writing + speaking** (~3–4 wks) | Writing desk + rubric grading (two passes), error tagging; realtime examiner with budget-checked sessions; STT + pronunciation; EE/EO skill bars; level exams + gate + repair sets (LangGraph); Notes inbox (uploaded class notes); MCP server. | A full level exam with all four skills produces four skill bars and a gate decision, within budget. |
 | **4. Mocks + B1–B2 content + Ask + polish** (~3–4 wks) | "Ask" assistant over the knowledge base, full TCF mocks, verdicts, monthly/weekly cadence tied to exam date, B1–B2 content (16 modules), performance and accessibility pass, PWA install. | A full 2 h 47 mock end-to-end, scored against NCLC 7. |
 | **5. C1–C2** (later) | Remaining 16 modules and higher-level question bank. | Complete A1–C2 path. |
 
@@ -645,14 +647,14 @@ Context: one learner, running locally in Docker Compose on a mid-range laptop or
 
 - Access from outside your home network. If you want it later, a free personal Tailscale tailnet is the simplest option and needs no code changes.
 - TEF Canada structure and scales (the design supports it; add the scales and task formats later).
-- Multiple users, accounts, and hosting on Azure (schema and `MediaStore` are ready; auth and Blob storage would be added).
+- Multiple users, accounts, and hosting on Azure (schema is ready; planned in [DEPLOYMENT.md](DEPLOYMENT.md)).
 - Native mobile apps (the installable PWA covers phone use).
 - Offline use away from the home machine (the PWA needs the local server).
 
 ## 22. Decided
 
 - **Exam:** TCF Canada (TEF support can be added later by adding its scales and structure).
-- **Obsidian:** read-only notes source only.
+- **Obsidian:** where notes are written; they reach the app by upload, never by the app reading the vault.
 - **Cloud:** Microsoft Azure only. **Azure OpenAI** (GPT-5.4 mini, gpt-realtime-mini) and **Azure Speech** (F0). No Claude.
 - **Budgets:** metered locally in Postgres, hard monthly caps enforced in the app, reconciled nightly with Azure Cost Management.
 - **Content storage:** shared catalogue generated once (text in git, audio/images in a content-addressed local store backed up as a GitHub Release content pack); only personal work (grading, examiner, notes) costs money per learner.

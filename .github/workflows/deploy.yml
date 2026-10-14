@@ -1,0 +1,54 @@
+name: Deploy
+
+# Ships main to Azure once CI has passed on it: creates or updates the infrastructure, builds both
+# images in Azure and rolls them out. One-off setup: `make setup-github` (docs/HOSTING.md).
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write # OpenID Connect sign-in to Azure; no Azure password is stored in GitHub
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy infrastructure and apps
+        shell: bash # with pipefail, so a failed deploy is not hidden by tee
+        run: |
+          infra/deploy.sh | tee -a deploy.log
+          grep '^Live at' deploy.log >> "$GITHUB_STEP_SUMMARY"
+        env:
+          MF_RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+          MF_BUDGET_EMAIL: ${{ vars.MF_BUDGET_EMAIL }}
+          MF_MIN_REPLICAS: ${{ vars.MF_MIN_REPLICAS }}
+          MF_AZURE_OPENAI_ENDPOINT: ${{ vars.MF_AZURE_OPENAI_ENDPOINT }}
+          MF_AZURE_OPENAI_TEXT_DEPLOYMENT: ${{ vars.MF_AZURE_OPENAI_TEXT_DEPLOYMENT }}
+          MF_AZURE_OPENAI_EMBEDDING_DEPLOYMENT: ${{ vars.MF_AZURE_OPENAI_EMBEDDING_DEPLOYMENT }}
+          MF_AZURE_OPENAI_REALTIME_DEPLOYMENT: ${{ vars.MF_AZURE_OPENAI_REALTIME_DEPLOYMENT }}
+          MF_AZURE_SPEECH_REGION: ${{ vars.MF_AZURE_SPEECH_REGION }}
+          MF_AZURE_OPENAI_API_KEY: ${{ secrets.MF_AZURE_OPENAI_API_KEY }}
+          MF_AZURE_SPEECH_KEY: ${{ secrets.MF_AZURE_SPEECH_KEY }}
+          MF_PG_PASSWORD: ${{ secrets.MF_PG_PASSWORD }}
+          MF_PROD_SECRET_KEY: ${{ secrets.MF_PROD_SECRET_KEY }}
+          MF_PROD_SETUP_CODE: ${{ secrets.MF_PROD_SETUP_CODE }}

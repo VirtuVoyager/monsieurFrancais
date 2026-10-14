@@ -1,0 +1,124 @@
+# Compréhension orale. `audio_text` is what the recorded clip says; until Azure audio is
+# generated, practice mode speaks it with the browser voice. Never shown as text.
+skill: CO
+items:
+- slug: co-a1-gare
+  cefr: A1
+  audio_text: Le train pour Lyon part à dix heures quinze, quai numéro trois.
+  prompt: À quelle heure part le train ?
+  options:
+  - 10 h 15
+  - 10 h 50
+  - 9 h 15
+  answer: 0
+- slug: co-a1-boulangerie
+  cefr: A1
+  audio_text: Bonjour, je voudrais deux baguettes et un croissant, s'il vous plaît.
+  prompt: Qu'est-ce que la cliente achète ?
+  options:
+  - Deux croissants
+  - Deux baguettes et un croissant
+  - Une baguette et deux croissants
+  answer: 1
+- slug: co-a1-rendez-vous
+  cefr: A1
+  audio_text: Salut Karim, c'est Léa. On se retrouve devant le cinéma samedi à vingt heures ?
+  prompt: Où Léa propose-t-elle de se retrouver ?
+  options:
+  - Au restaurant
+  - À la gare
+  - Devant le cinéma
+  answer: 2
+- slug: co-a2-meteo
+  cefr: A2
+  audio_text: Demain, le temps sera nuageux le matin avec quelques averses. L'après-midi, le soleil reviendra
+    et il fera dix-huit degrés.
+  prompt: Quel temps fera-t-il demain après-midi ?
+  options:
+  - Il fera beau.
+  - Il pleuvra toute la journée.
+  - Il neigera.
+  answer: 0
+- slug: co-a2-message
+  cefr: A2
+  audio_text: Bonjour Madame Dubois, ici le cabinet du docteur Martin. Votre rendez-vous de jeudi est
+    déplacé à vendredi, même heure. Merci de nous rappeler pour confirmer.
+  prompt: Pourquoi le cabinet appelle-t-il ?
+  options:
+  - Pour annuler le rendez-vous.
+  - Pour changer le jour du rendez-vous.
+  - Pour donner des résultats d'analyse.
+  answer: 1
+- slug: co-a2-magasin
+  cefr: A2
+  audio_text: Chers clients, notre magasin fermera ses portes dans quinze minutes. Merci de vous diriger
+    vers les caisses.
+  prompt: Que doivent faire les clients ?
+  options:
+  - Revenir demain matin.
+  - Attendre une promotion.
+  - Aller payer leurs achats.
+  answer: 2
+- slug: co-b1-teletravail
+  cefr: B1
+  audio_text: Depuis que je travaille de chez moi trois jours par semaine, je gagne presque deux heures
+    de transport par jour. En revanche, mes collègues me manquent, et j'ai parfois du mal à séparer vie
+    professionnelle et vie privée.
+  prompt: Quel inconvénient du télétravail la personne mentionne-t-elle ?
+  options:
+  - Elle a du mal à séparer travail et vie privée.
+  - Elle perd du temps dans les transports.
+  - Son salaire a baissé.
+  answer: 0
+- slug: co-b1-benevolat
+  cefr: B1
+  audio_text: L'association recherche des bénévoles pour distribuer des repas le week-end. Aucune expérience
+    n'est demandée, mais il faut pouvoir s'engager au moins deux samedis par mois.
+  prompt: Quelle condition faut-il remplir pour devenir bénévole ?
+  options:
+  - Travailler tous les week-ends.
+  - Être disponible au moins deux samedis par mois.
+  - Avoir de l'expérience en cuisine.
+  answer: 1
+- slug: co-b1-logement
+  cefr: B1
+  audio_text: L'appartement est lumineux et proche du métro, mais le loyer a augmenté de cent euros cette
+    année. Si le propriétaire refuse de faire les travaux promis, nous chercherons autre chose.
+  prompt: Dans quelle situation la personne va-t-elle déménager ?
+  options:
+  - Si le métro ferme.
+  - Si le loyer baisse.
+  - Si les travaux promis ne sont pas faits.
+  answer: 2
+- slug: co-b2-ecrans
+  cefr: B2
+  audio_text: Contrairement à une idée reçue, ce n'est pas tant la durée d'exposition aux écrans qui inquiète
+    les chercheurs que la nature des contenus consultés et le moment de la journée où ils le sont, notamment
+    juste avant le coucher.
+  prompt: Selon les chercheurs, qu'est-ce qui pose surtout problème ?
+  options:
+  - Le type de contenu et l'heure de consultation.
+  - Le prix des appareils.
+  - Le temps total passé devant les écrans.
+  answer: 0
+- slug: co-b2-mobilite
+  cefr: B2
+  audio_text: Bien que la ville ait multiplié les pistes cyclables, la part du vélo stagne. Les usagers
+    invoquent moins le manque d'infrastructures que le sentiment d'insécurité aux carrefours, où cohabitent
+    voitures et cyclistes.
+  prompt: Pourquoi l'usage du vélo n'augmente-t-il pas ?
+  options:
+  - Les vélos coûtent trop cher.
+  - Les cyclistes ne se sentent pas en sécurité aux carrefours.
+  - Il n'y a pas assez de pistes cyclables.
+  answer: 1
+- slug: co-b2-alimentation
+  cefr: B2
+  audio_text: Si les consommateurs se déclarent prêts à payer davantage pour des produits locaux, les
+    chiffres de vente montrent qu'en pratique, le prix reste le critère décisif au moment de l'achat.
+  prompt: Que révèlent les chiffres de vente ?
+  options:
+  - Les consommateurs achètent surtout local.
+  - Les produits locaux sont moins chers.
+  - Le prix l'emporte sur les intentions déclarées.
+  answer: 2

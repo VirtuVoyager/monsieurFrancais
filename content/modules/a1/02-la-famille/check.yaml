@@ -1,0 +1,13 @@
+items:
+  - {slug: mon-amie, skill: GR, kind: mcq, prompt: "___ amie s'appelle Inès.", options: [Ma, Mon, Mes], answer: 1,
+     explanation: "Devant une voyelle : mon amie."}
+  - {slug: des-enfants, skill: GR, kind: cloze, prompt: "Vous avez ___ enfants ?", accepted: [des]}
+  - {slug: pas-de, skill: GR, kind: mcq, prompt: "Je n'ai pas ___ voiture.", options: [une, de, la], answer: 1,
+     explanation: "Après la négation : pas de."}
+  - {slug: le-pere, skill: GR, kind: cloze, prompt: "___ père de Lucas est pilote.", accepted: [Le]}
+  - {slug: tante, skill: VO, kind: mcq, prompt: "La sœur de ma mère est ma ___.", options: [cousine, grand-mère, tante], answer: 2}
+  - {slug: cousin, skill: VO, kind: mcq, prompt: "Le fils de mon oncle est mon ___.", options: [cousin, frère, neveu], answer: 0}
+  - {slug: famille-quatre, skill: CE, kind: mcq,
+     prompt: "« Nous sommes quatre : mes parents, mon petit frère et moi. » Combien de frères a la personne ?",
+     options: [un, aucun, deux], answer: 0}
+  - {slug: ordre-parents, skill: GR, kind: order, words: [sont, retraités., Mes, parents], answer: "Mes parents sont retraités."}
