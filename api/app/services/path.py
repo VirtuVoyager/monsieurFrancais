@@ -5,7 +5,8 @@ from sqlalchemy.orm import Session
 
 from app.domain.coverage import Coverage, ModuleFacts, Status, coverage, statuses
 from app.errors import ForbiddenError, NotFoundError
-from app.models import Lesson, Module, ModuleProgress
+from app.models import Lesson, Module, ModuleProgress, User
+from app.models.learner import OWNER
 
 
 @dataclass(frozen=True)
@@ -44,7 +45,8 @@ def load_path(session: Session, user_id: int) -> PathView:
         )
         for m in modules
     ]
-    status = statuses(facts)
+    user = session.get(User, user_id)
+    status = statuses(facts, unlock_all=user is not None and user.role == OWNER)
     return PathView(modules, progress, status, coverage(facts, status))
 
 

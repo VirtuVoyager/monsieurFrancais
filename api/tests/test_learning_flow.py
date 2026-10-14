@@ -5,6 +5,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models import Item
+from app.services.users import get_or_create_learner
 
 M1 = "a1-01-se-presenter"
 M2 = "a1-02-la-famille"
@@ -30,9 +31,15 @@ def _correct_answers(session: Session, module_id: str) -> list[dict[str, Any]]:
     return answers
 
 
+def _as_learner(session: Session) -> None:
+    get_or_create_learner(session).role = "learner"
+    session.commit()
+
+
 def test_new_learner_sees_first_module_open_and_next_locked(
     client: TestClient, seeded: Session
 ) -> None:
+    _as_learner(seeded)
     path = client.get("/path").json()
 
     modules = path["levels"][0]["modules"]
@@ -42,8 +49,16 @@ def test_new_learner_sees_first_module_open_and_next_locked(
 
 
 def test_locked_module_cannot_be_opened(client: TestClient, seeded: Session) -> None:
+    _as_learner(seeded)
     assert client.get(f"/modules/{M2}").status_code == 403
     assert client.get(f"/lessons/{M2}/grammaire").status_code == 403
+
+
+def test_the_owner_can_open_every_module(client: TestClient, seeded: Session) -> None:
+    modules = client.get("/path").json()["levels"][0]["modules"]
+
+    assert [m["status"] for m in modules] == ["open", "open"]
+    assert client.get(f"/lessons/{M2}/grammaire").status_code == 200
 
 
 def test_lesson_content_hides_answers_and_checks_server_side(

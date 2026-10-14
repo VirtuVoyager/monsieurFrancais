@@ -6,7 +6,7 @@ from app.config import get_settings
 from app.db import SessionDep
 from app.errors import UnauthorizedError
 from app.models import User
-from app.schemas.auth import AuthStatus, Passphrase
+from app.schemas.auth import AuthStatus, Passphrase, Setup
 from app.services import auth
 from app.services.users import get_or_create_learner
 
@@ -20,12 +20,15 @@ def status(session: SessionDep, token: SessionCookie = None) -> AuthStatus:
     return AuthStatus(
         configured=user.passphrase_hash is not None,
         authenticated=auth.user_id_from(token) == user.id,
+        setup_code_required=get_settings().setup_code is not None,
     )
 
 
 @router.post("/setup", status_code=204)
-def setup(body: Passphrase, session: SessionDep, response: Response) -> None:
+def setup(body: Setup, session: SessionDep, request: Request, response: Response) -> None:
     user = get_or_create_learner(session)
+    client = request.client.host if request.client else "unknown"
+    auth.check_setup_code(body.setup_code, client)
     auth.set_passphrase(session, user, body.passphrase)
     _start_session(response, user)
 

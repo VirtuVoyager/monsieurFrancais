@@ -782,6 +782,8 @@ export interface components {
             configured: boolean;
             /** Authenticated */
             authenticated: boolean;
+            /** Setup Code Required */
+            setup_code_required: boolean;
         };
         /** BudgetSummary */
         BudgetSummary: {
@@ -1478,6 +1480,16 @@ export interface components {
             settings: components["schemas"]["LearnerSettings"];
             plan: components["schemas"]["ExamPlanOut"] | null;
         };
+        /** Setup */
+        Setup: {
+            /** Passphrase */
+            passphrase: string;
+            /**
+             * Setup Code
+             * @default
+             */
+            setup_code: string;
+        };
         /** SkillLevelOut */
         SkillLevelOut: {
             /** Skill */
@@ -1836,7 +1848,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["Passphrase"];
+                "application/json": components["schemas"]["Setup"];
             };
         };
         responses: {

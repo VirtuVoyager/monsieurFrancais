@@ -1,10 +1,16 @@
+import pytest
 from fastapi.testclient import TestClient
 
+from app.config import get_settings
 from app.services.auth import COOKIE_NAME
 
 
 def test_fresh_install_needs_a_passphrase(anon_client: TestClient) -> None:
-    assert anon_client.get("/auth/status").json() == {"configured": False, "authenticated": False}
+    assert anon_client.get("/auth/status").json() == {
+        "configured": False,
+        "authenticated": False,
+        "setup_code_required": False,
+    }
     assert anon_client.get("/path").status_code == 401
 
 
@@ -14,7 +20,11 @@ def test_setup_signs_in_with_a_hardened_cookie(anon_client: TestClient) -> None:
     cookie = response.headers["set-cookie"]
     assert response.status_code == 204
     assert "HttpOnly" in cookie and "SameSite=strict" in cookie
-    assert anon_client.get("/auth/status").json() == {"configured": True, "authenticated": True}
+    assert anon_client.get("/auth/status").json() == {
+        "configured": True,
+        "authenticated": True,
+        "setup_code_required": False,
+    }
     assert anon_client.get("/path").status_code == 200
 
 
@@ -51,3 +61,17 @@ def test_login_attempts_are_rate_limited(anon_client: TestClient) -> None:
     ]
 
     assert codes == [401] * 5 + [429]
+
+
+def test_a_deployed_app_asks_for_the_setup_code_first(
+    anon_client: TestClient, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(get_settings(), "setup_code", "from-the-deploy")
+    assert anon_client.get("/auth/status").json()["setup_code_required"] is True
+
+    stranger = anon_client.post("/auth/setup", json={"passphrase": "bonjour-canada"})
+    owner = anon_client.post(
+        "/auth/setup", json={"passphrase": "bonjour-canada", "setup_code": "from-the-deploy"}
+    )
+
+    assert (stranger.status_code, owner.status_code) == (403, 204)
