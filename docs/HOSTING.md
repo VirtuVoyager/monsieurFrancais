@@ -60,7 +60,8 @@ settings:
 1. Install the tools and sign in:
 
    ```bash
-   brew install azure-cli gh libpq && brew link --force libpq   # libpq gives pg_dump/pg_restore
+   brew install azure-cli gh postgresql@16   # postgresql@16 gives pg_dump/pg_restore
+   export PATH="$(brew --prefix postgresql@16)/bin:$PATH"
    az login && az account set --subscription "<your subscription>"
    gh auth login
    ```

@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 # One-off: copy your local database and media (progress, notes, generated audio, recordings)
-# into Azure, replacing what is there. Needs pg_dump/pg_restore 16+ and the Azure CLI.
+# into Azure, replacing what is there. Needs pg_dump/pg_restore 16 and the Azure CLI.
+# MF_SKIP_MEDIA=1 copies only the database (the media upload is the slow part).
 set -euo pipefail
 cd "$(dirname "$0")/.."
+
+for tool in az pg_dump pg_restore; do
+  command -v "$tool" >/dev/null || {
+    echo "copy-data: $tool not found. On macOS: brew install postgresql@16 && export PATH=\"\$(brew --prefix postgresql@16)/bin:\$PATH\"" >&2
+    exit 1
+  }
+done
 
 RG="${MF_RESOURCE_GROUP:-monsieur-francais}"
 LOCAL_DB="${MF_LOCAL_DB:-postgresql://mf:mf@localhost:5432/mf}"
@@ -33,11 +41,13 @@ if ! pg_dump --format=custom --no-owner --no-acl "$LOCAL_DB" \
   echo "pg_restore reported errors above. Ownership notices are harmless; anything else is not." >&2
 fi
 
-echo "Copying media…"
-key=$(az storage account keys list --resource-group "$RG" --account-name "$account" \
-  --query "[0].value" --output tsv)
-az storage file upload-batch --account-name "$account" --account-key "$key" \
-  --destination media --source media --output none
+if [ -z "${MF_SKIP_MEDIA:-}" ]; then
+  echo "Copying media…"
+  key=$(az storage account keys list --resource-group "$RG" --account-name "$account" \
+    --query "[0].value" --output tsv)
+  az storage file upload-batch --account-name "$account" --account-key "$key" \
+    --destination media --source media --output none
+fi
 
 # A fresh start re-runs migrations and the seed against the copied data.
 revision=$(az containerapp revision list --resource-group "$RG" --name "$api" \
