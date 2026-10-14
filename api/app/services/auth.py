@@ -48,6 +48,15 @@ def set_passphrase(session: Session, user: User, passphrase: str) -> None:
     session.commit()
 
 
+def check_setup_code(code: str, client: str) -> None:
+    expected = get_settings().setup_code
+    if expected is None:
+        return
+    _throttle(client)
+    if not secrets.compare_digest(code.encode(), expected.encode()):
+        raise ForbiddenError("Wrong setup code")
+
+
 def verify(user: User, passphrase: str, client: str) -> bool:
     _throttle(client)
     if user.passphrase_hash is None:

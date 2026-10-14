@@ -90,7 +90,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Passphrase"
+                "$ref": "#/components/schemas/Setup"
               }
             }
           },
@@ -2767,12 +2767,17 @@
           "authenticated": {
             "type": "boolean",
             "title": "Authenticated"
+          },
+          "setup_code_required": {
+            "type": "boolean",
+            "title": "Setup Code Required"
           }
         },
         "type": "object",
         "required": [
           "configured",
-          "authenticated"
+          "authenticated",
+          "setup_code_required"
         ],
         "title": "AuthStatus"
       },
@@ -4771,6 +4776,27 @@
           "plan"
         ],
         "title": "SettingsOut"
+      },
+      "Setup": {
+        "properties": {
+          "passphrase": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Passphrase"
+          },
+          "setup_code": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Setup Code",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "passphrase"
+        ],
+        "title": "Setup"
       },
       "SkillLevelOut": {
         "properties": {

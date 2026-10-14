@@ -15,15 +15,25 @@ export function AuthGate({ children }: { children: ReactNode }) {
   const status = useQuery({ queryKey: authKey, queryFn: () => unwrap(api.GET("/auth/status")) });
   if (status.isPending) return <Loading />;
   if (status.data?.authenticated) return children;
-  return <PassphraseForm firstTime={!status.data?.configured} />;
+  return (
+    <PassphraseForm
+      firstTime={!status.data?.configured}
+      needsCode={status.data?.setup_code_required ?? false}
+    />
+  );
 }
 
-function PassphraseForm({ firstTime }: { firstTime: boolean }) {
+function PassphraseForm({ firstTime, needsCode }: { firstTime: boolean; needsCode: boolean }) {
   const queryClient = useQueryClient();
   const [passphrase, setPassphrase] = useState("");
+  const [setupCode, setSetupCode] = useState("");
   const submit = useMutation({
     mutationFn: () =>
-      unwrap(api.POST(firstTime ? "/auth/setup" : "/auth/login", { body: { passphrase } })),
+      unwrap(
+        firstTime
+          ? api.POST("/auth/setup", { body: { passphrase, setup_code: setupCode } })
+          : api.POST("/auth/login", { body: { passphrase } }),
+      ),
     onSuccess: () => queryClient.invalidateQueries(),
   });
 
@@ -45,6 +55,20 @@ function PassphraseForm({ firstTime }: { firstTime: boolean }) {
               ? "Choose a passphrase (8+ characters). It protects your recordings and progress."
               : "Enter your passphrase."}
           </p>
+          {firstTime && needsCode && (
+            <label className="block text-sm font-medium">
+              Setup code
+              <input
+                autoComplete="off"
+                value={setupCode}
+                onChange={(e) => setSetupCode(e.target.value)}
+                className="mt-1 w-full rounded-xl border border-line bg-surface px-3 py-2 outline-none focus:border-accent"
+              />
+              <span className="mt-1 block text-xs font-normal text-muted">
+                From the deployment (MF_SETUP_CODE). Only needed once.
+              </span>
+            </label>
+          )}
           <label className="block text-sm font-medium">
             Passphrase
             <input

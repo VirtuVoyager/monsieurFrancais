@@ -2,7 +2,9 @@
 
 How the app goes from one learner on a laptop to a hosted app that a tutor (and later other
 examiners or learners) can use, without anyone but the owner spending money. Status: **planned,
-not started.** Read with [PLAN.md](PLAN.md) §§ 9, 11 and 17.5.
+planned.** A single-owner version is hosted first, ahead of D1: see [HOSTING.md](HOSTING.md).
+It keeps media on an Azure Files share mounted into the API (no code change) instead of Blob;
+§ 3 still applies once other people use the app. Read with [PLAN.md](PLAN.md) §§ 9, 11 and 17.5.
 
 ## 1. What costs money at runtime
 

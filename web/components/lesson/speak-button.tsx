@@ -20,7 +20,7 @@ export function SpeakButton({
       type="button"
       onClick={play}
       aria-label={`${label}: ${text}`}
-      className="rounded-lg p-1.5 text-muted transition-colors hover:bg-surface-2 hover:text-accent"
+      className="rounded-lg p-2.5 text-muted transition-colors hover:bg-surface-2 hover:text-accent md:p-1.5"
     >
       <Volume2 className="size-4" aria-hidden />
     </button>

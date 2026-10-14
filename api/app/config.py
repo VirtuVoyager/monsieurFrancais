@@ -42,6 +42,9 @@ class Settings(BaseSettings):
     jobs_enabled: bool = True
     cors_origins: list[str] = ["http://localhost:3000"]
     secret_key: str | None = None
+    # When set, the first-run passphrase setup also asks for this code, so whoever finds a
+    # freshly deployed URL first cannot claim the account.
+    setup_code: str | None = None
     cookie_secure: bool = False
     session_days: int = 30
 

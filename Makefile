@@ -1,10 +1,19 @@
-.PHONY: up down obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio note-audio glossary mcp test lint typecheck check gen-api e2e
+.PHONY: up down deploy deploy-data setup-github obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio note-audio glossary mcp test lint typecheck check gen-api e2e
 
 up:            ## Build and start db, api and web in Docker (OrbStack)
 	docker compose up -d --build
 
 down:
 	docker compose down
+
+deploy:        ## Fallback for the Deploy workflow: deploy main from this machine (docs/HOSTING.md)
+	infra/deploy.sh
+
+deploy-data:   ## One-off: copy the local database and media into Azure, replacing what is there
+	infra/copy-data.sh
+
+setup-github:  ## One-off: connect GitHub to Azure so merges to main deploy (re-run after a key change)
+	infra/setup-github.sh
 
 obs:           ## Start with the Grafana/Loki/Tempo observability stack on :3001
 	MF_OTEL_ENDPOINT=http://obs:4318 docker compose --profile obs up -d --build
@@ -30,13 +39,14 @@ grade-pending: ## Retry writing submissions deferred by a budget cap or grader o
 embed:         ## Embed knowledge-base entries that are new or changed (also runs every minute in the API)
 	cd api && uv run python -m app.jobs.embed_pending
 
-audio:         ## Generate missing catalogue audio (each clip once; set MF_SPEECH_PROVIDER=azure for real voices)
+# Both read the catalogue, so they bring the schema and the seeded content up to date first.
+audio: migrate seed  ## Generate missing catalogue audio (each clip once; set MF_SPEECH_PROVIDER=azure for real voices)
 	cd api && uv run python -m app.jobs.generate_audio
 
 note-audio:    ## Generate audio for approved class-note words and phrases (also runs every 5 minutes in the API)
 	cd api && uv run python -m app.jobs.note_audio
 
-glossary:      ## Build hover glossaries for changed modules (set MF_GLOSSARY_PROVIDER=azure for real ones)
+glossary: migrate seed  ## Build hover glossaries for changed modules (set MF_GLOSSARY_PROVIDER=azure for real ones)
 	cd api && uv run python -m app.jobs.build_glossaries
 
 mcp:           ## Run the read-only MCP server on stdio (for Claude Desktop and other clients)

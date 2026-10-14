@@ -85,18 +85,24 @@ export function AppShell({ children }: { children: ReactNode }) {
           <BookOpen className="size-5 text-accent" aria-hidden />
           <span className="font-serif font-semibold">Monsieur Français</span>
         </Link>
-        <Link href="/settings" aria-label="Settings" className="rounded-lg p-2 text-muted">
-          <Settings className="size-5" aria-hidden />
-        </Link>
+        {/* Notes and Settings live up here: the bottom bar has room for seven entries. */}
+        <div className="flex items-center gap-1">
+          <Link href="/notes" aria-label="Class notes" className="rounded-lg p-2.5 text-muted">
+            <NotebookPen className="size-5" aria-hidden />
+          </Link>
+          <Link href="/settings" aria-label="Settings" className="rounded-lg p-2.5 text-muted">
+            <Settings className="size-5" aria-hidden />
+          </Link>
+        </div>
       </header>
 
-      <main className="mx-auto w-full max-w-4xl px-4 pt-6 pb-28 sm:px-6 md:pt-10 md:pb-12">
+      <main className="mx-auto w-full max-w-4xl px-4 pt-6 pb-[calc(7rem+env(safe-area-inset-bottom))] sm:px-6 md:pt-10 md:pb-12">
         {children}
       </main>
 
       <nav
         aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-7 border-t border-line bg-surface/95 backdrop-blur md:hidden"
+        className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-7 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
       >
         {NAV.filter((item) => !item.desktopOnly).map(({ href, label, icon: Icon }) => (
           <Link

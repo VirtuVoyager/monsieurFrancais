@@ -39,8 +39,8 @@ class Coverage:
         return round(100 * self.covered / self.total, 1) if self.total else 0.0
 
 
-def statuses(ordered: list[ModuleFacts]) -> dict[str, Status]:
-    """A module opens once the one before it is covered or placed."""
+def statuses(ordered: list[ModuleFacts], unlock_all: bool = False) -> dict[str, Status]:
+    """A module opens once the one before it is covered or placed; the owner sees them all open."""
     result: dict[str, Status] = {}
     previous_done = True
     for facts in ordered:
@@ -49,7 +49,7 @@ def statuses(ordered: list[ModuleFacts]) -> dict[str, Status]:
         elif facts.lessons_complete and (facts.check_score or 0) >= CHECK_PASS_MARK:
             status = Status.COVERED
         else:
-            status = Status.OPEN if previous_done else Status.LOCKED
+            status = Status.OPEN if previous_done or unlock_all else Status.LOCKED
         result[facts.module_id] = status
         previous_done = status in DONE
     return result

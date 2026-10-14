@@ -6,12 +6,16 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db import Base, CreatedAt
 
+OWNER = "owner"
+
 
 class User(CreatedAt, Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     display_name: Mapped[str]
+    # "owner" sees every module and feature; invited learners (later) get "learner".
+    role: Mapped[str] = mapped_column(String(10), default=OWNER, server_default=OWNER)
     passphrase_hash: Mapped[str | None]
     settings: Mapped[dict[str, Any]] = mapped_column(default=dict)
 
