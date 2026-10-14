@@ -9,7 +9,7 @@ work, the tutor features and the examiner module come later ([DEPLOYMENT.md](DEP
 |---|---|---|---|
 | Web (Next.js) | Container App, public HTTPS | 0.25 vCPU, 0.5 GiB, sleeps when unused | 0–2 USD (inside the monthly free grant) |
 | API (FastAPI + background jobs) | Container App, internal only | 0.5 vCPU, 1 GiB, one replica, sleeps when unused | 0–3 USD |
-| Database | PostgreSQL Flexible Server, Burstable B1ms, 32 GB, pgvector | 7-day point-in-time backups | ~16 USD (free for 12 months on an eligible new subscription) |
+| Database | PostgreSQL Flexible Server, Burstable B1ms, 32 GB, pgvector | 7-day point-in-time backups | ~16 USD; free for 12 months while the free-account offer lasts (portal → "Free services" lists it with hours left) |
 | Media (audio, recordings, notes) | Storage account, Azure Files share mounted at `/app/media` | 20 GB quota, 7-day soft delete | < 0.50 USD |
 | Images | Container Registry, Basic | | ~5 USD |
 | Logs | Log Analytics, 30-day retention, 0.15 GB daily cap | | 0 (inside the 5 GB free allowance) |
@@ -37,9 +37,22 @@ Choices worth knowing:
   every feature is on. Who-gets-what arrives with invited users (DEPLOYMENT.md § 2), where the
   per-user budget caps already block spending by anyone with a cap of 0.
 
+## How code reaches production
+
+`main` is production. Work lands on `virtuvoyager_dev`, then a PR from `virtuvoyager_dev` to
+`main`; when it merges and CI passes on `main`, the **Deploy** workflow builds both images in Azure
+and rolls them out (API first, so migrations run before the new web app calls it). It signs in to
+Azure with OpenID Connect: GitHub holds only non-secret IDs, and the app's keys stay in Azure.
+**Actions → Deploy → Run workflow** redeploys by hand; the `production` environment in the repo
+settings can require your approval before each deploy.
+
+The workflow ships code only. Infrastructure and secrets (`infra/main.bicep`, `.env` keys) are
+applied from your Mac with `make deploy`, always from `main`.
+
 ## First deploy
 
-On your Mac, from the repo root, with `.env` holding your Azure OpenAI and Speech settings:
+On your Mac, from the repo root on an up-to-date `main` (merge the dev branch first), with `.env`
+holding your Azure OpenAI and Speech settings:
 
 1. Install and sign in to the Azure CLI, and register the services once:
 
@@ -77,14 +90,25 @@ On your Mac, from the repo root, with `.env` holding your Azure OpenAI and Speec
 4. Open the address on your phone, sign in with your usual passphrase, then **Share → Add to Home
    Screen** (Safari) or **Install app** (Chrome) for a full-screen app.
 
+5. Turn on deploy-on-merge (needs the GitHub CLI, `brew install gh && gh auth login`):
+
+   ```bash
+   make setup-github
+   ```
+
+   It creates an Azure app registration that trusts only this repo's `production` environment and
+   may only manage the `monsieur-francais` resource group, then sets the repo variables the Deploy
+   workflow reads.
+
    If you skip step 3, the hosted database starts empty: the first sign-in asks for a new
    passphrase and the setup code (`MF_PROD_SETUP_CODE` in `.env.azure`), so nobody else who finds
    the address can claim the account.
 
 ## Updating
 
-`make deploy` again: it builds images tagged with the current commit and rolls them out; database
-migrations run when the API starts. Changing a key (`.env`) also just needs `make deploy`.
+Merge to `main`; the Deploy workflow does the rest. Changing a key in `.env` or anything under
+`infra/` needs `make deploy` from `main` on your Mac. `make deploy` refuses to run from another
+branch, since it would replace what `main` deployed (`MF_DEPLOY_ANY_BRANCH=1` overrides).
 
 Content pipeline jobs run against the hosted database and media from inside the API container:
 

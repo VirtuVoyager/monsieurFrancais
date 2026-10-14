@@ -5,6 +5,14 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 RG="${MF_RESOURCE_GROUP:-monsieur-francais}"
+
+# Production runs main (GitHub Actions ships it after CI); deploying another branch from here
+# would replace what main put there.
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [ "$branch" != main ] && [ -z "${MF_DEPLOY_ANY_BRANCH:-}" ]; then
+  echo "deploy: on $branch, not main. Set MF_DEPLOY_ANY_BRANCH=1 to deploy it anyway." >&2
+  exit 1
+fi
 LOCATION="${MF_LOCATION:-centralindia}"
 SECRETS=.env.azure
 

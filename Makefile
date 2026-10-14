@@ -1,4 +1,4 @@
-.PHONY: up down deploy deploy-data obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio note-audio glossary mcp test lint typecheck check gen-api e2e
+.PHONY: up down deploy deploy-data setup-github obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio note-audio glossary mcp test lint typecheck check gen-api e2e
 
 up:            ## Build and start db, api and web in Docker (OrbStack)
 	docker compose up -d --build
@@ -11,6 +11,9 @@ deploy:        ## Build in Azure and deploy web + API (first run creates everyth
 
 deploy-data:   ## One-off: copy the local database and media into Azure, replacing what is there
 	infra/copy-data.sh
+
+setup-github:  ## One-off: let GitHub Actions deploy main to Azure (OpenID Connect, no stored secret)
+	infra/setup-github.sh
 
 obs:           ## Start with the Grafana/Loki/Tempo observability stack on :3001
 	MF_OTEL_ENDPOINT=http://obs:4318 docker compose --profile obs up -d --build

@@ -45,6 +45,7 @@ param budgetStart string = utcNow('yyyy-MM-01')
 
 var suffix = uniqueString(resourceGroup().id)
 var apiName = '${prefix}-api'
+var webName = '${prefix}-web'
 
 resource logs 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: '${prefix}-logs'
@@ -242,7 +243,7 @@ resource api 'Microsoft.App/containerApps@2024-03-01' = if (deployApps) {
 }
 
 resource web 'Microsoft.App/containerApps@2024-03-01' = if (deployApps) {
-  name: '${prefix}-web'
+  name: webName
   location: location
   identity: { type: 'UserAssigned', userAssignedIdentities: { '${identity.id}': {} } }
   dependsOn: [pull, api]
@@ -294,6 +295,7 @@ resource budget 'Microsoft.Consumption/budgets@2023-11-01' = if (!empty(budgetEm
 output registryName string = registry.name
 output registryServer string = registry.properties.loginServer
 output apiName string = apiName
+output webName string = webName
 output postgresServer string = postgres.name
 output postgresHost string = postgres.properties.fullyQualifiedDomainName
 output storageAccount string = storage.name

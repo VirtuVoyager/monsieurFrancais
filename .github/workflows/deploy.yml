@@ -1,0 +1,65 @@
+name: Deploy
+
+# Ships main to Azure once CI has passed on it. Infrastructure and app secrets are applied from
+# a workstation with `make deploy` (docs/HOSTING.md); this only builds and rolls out new images.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write # federated sign-in to Azure; no Azure secret is stored in GitHub
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      RG: ${{ vars.AZURE_RESOURCE_GROUP }}
+      SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SHA }}
+
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Read the deployed resources
+        run: |
+          out() {
+            az deployment group show -g "$RG" -n monsieur \
+              --query "properties.outputs.$1.value" -o tsv
+          }
+          {
+            echo "REGISTRY=$(out registryName)"
+            echo "SERVER=$(out registryServer)"
+            echo "API=$(out apiName)"
+            echo "WEB=$(out webName)"
+            echo "TAG=$(git rev-parse --short HEAD)"
+          } >> "$GITHUB_ENV"
+
+      - name: Build images in Azure
+        run: |
+          az acr build -r "$REGISTRY" -t "mf-api:$TAG" -f api/Dockerfile . --output none
+          az acr build -r "$REGISTRY" -t "mf-web:$TAG" --build-arg API_URL="http://$API" \
+            -f web/Dockerfile web --output none
+
+      # The API first: it migrates the database on start, before the new web app calls it.
+      - name: Roll out
+        run: |
+          az containerapp update -g "$RG" -n "$API" --image "$SERVER/mf-api:$TAG" --output none
+          az containerapp update -g "$RG" -n "$WEB" --image "$SERVER/mf-web:$TAG" --output none
+          echo "Deployed $TAG: https://$(az containerapp show -g "$RG" -n "$WEB" \
+            --query properties.configuration.ingress.fqdn -o tsv)" >> "$GITHUB_STEP_SUMMARY"
