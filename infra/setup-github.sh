@@ -47,14 +47,21 @@ if [ -z "$client" ]; then
   client=$(az ad app create --display-name "$NAME" --query appId -o tsv)
   az ad sp create --id "$client" --output none
 fi
-if ! az ad app federated-credential list --id "$client" --query "[].name" -o tsv | grep -qx production; then
+# GitHub's token names the repo either by name or, for newer repositories, by name and numeric
+# IDs (repo:Owner@123/repo@456:...). Trust both; each only matches this repo's environment.
+ids=$(gh api "repos/$REPO" --jq '"\(.owner.login)@\(.owner.id)/\(.name)@\(.id)"')
+existing=$(az ad app federated-credential list --id "$client" --query "[].name" -o tsv)
+trust() {
+  grep -qx "$1" <<<"$existing" && return
   az ad app federated-credential create --id "$client" --parameters "{
-    \"name\": \"production\",
+    \"name\": \"$1\",
     \"issuer\": \"https://token.actions.githubusercontent.com\",
-    \"subject\": \"repo:$REPO:environment:production\",
+    \"subject\": \"repo:$2:environment:production\",
     \"audiences\": [\"api://AzureADTokenExchange\"]
   }" --output none
-fi
+}
+trust production "$REPO"
+trust production-ids "$ids"
 
 # On this resource group only: Contributor to create and update everything, plus role assignment
 # rights because the template lets the apps pull images from the registry.
