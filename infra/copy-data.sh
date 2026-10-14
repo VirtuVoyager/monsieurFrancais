@@ -22,9 +22,9 @@ api=$(out apiName)
 
 # Open the database to this machine only for the copy.
 ip=$(curl -s https://api.ipify.org)
-az postgres flexible-server firewall-rule create --resource-group "$RG" --name "$server" \
-  --rule-name copy-data --start-ip-address "$ip" --end-ip-address "$ip" --output none
-trap 'az postgres flexible-server firewall-rule delete --resource-group "$RG" --name "$server" --rule-name copy-data --yes --output none' EXIT
+az postgres flexible-server firewall-rule create --resource-group "$RG" --server-name "$server" \
+  --name copy-data --start-ip-address "$ip" --end-ip-address "$ip" --output none
+trap 'az postgres flexible-server firewall-rule delete --resource-group "$RG" --server-name "$server" --name copy-data --yes --output none' EXIT
 
 echo "Copying the database…"
 if ! pg_dump --format=custom --no-owner --no-acl "$LOCAL_DB" \
