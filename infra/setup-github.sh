@@ -2,7 +2,8 @@
 # One-off: let GitHub Actions deploy main to Azure on every merge. Run from a laptop signed in to
 # Azure (`az login`, as the subscription owner) and GitHub (`gh auth login`), with .env in place.
 #
-# - Creates the resource group and generates the production secrets (kept in .env.azure too).
+# - Enables the Azure services the app uses, creates the resource group and generates the
+#   production secrets (kept in .env.azure too).
 # - Creates an app registration that GitHub signs in as via OpenID Connect: no Azure password
 #   is stored anywhere, and only this repo's "production" environment can use it.
 # - Stores the settings as repository variables and the keys as encrypted environment secrets.
@@ -37,6 +38,13 @@ set -a
 # shellcheck disable=SC1091
 . ./.env.azure
 set +a
+
+# Each Azure service must be enabled once per subscription; the deploy identity cannot do it
+# because its rights stop at the resource group.
+for ns in Microsoft.App Microsoft.OperationalInsights Microsoft.DBforPostgreSQL \
+          Microsoft.ContainerRegistry Microsoft.Storage Microsoft.ManagedIdentity; do
+  az provider register --namespace "$ns" --wait --output none
+done
 
 subscription=$(az account show --query id -o tsv)
 tenant=$(az account show --query tenantId -o tsv)
