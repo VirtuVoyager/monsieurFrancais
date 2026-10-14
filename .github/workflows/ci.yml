@@ -33,6 +33,13 @@ jobs:
       - run: uv run ruff format --check .
       - run: uv run mypy app
       - run: uv run pytest -q
+      # The image installs without dev dependencies; catch a runtime import that only dev provides.
+      - name: Import the app with runtime dependencies only
+        env:
+          UV_PROJECT_ENVIRONMENT: /tmp/runtime-env
+        run: |
+          uv sync --frozen --no-dev
+          uv run --frozen --no-sync python -c "import app.main, app.mcp_server, app.jobs.seed"
 
   web:
     runs-on: ubuntu-latest
