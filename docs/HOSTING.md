@@ -57,16 +57,13 @@ GitHub cannot grant itself access to your Azure subscription, so this is done on
 in as the subscription owner, from the repo root with `.env` holding your Azure OpenAI and Speech
 settings:
 
-1. Install the tools, sign in and register the Azure services:
+1. Install the tools and sign in:
 
    ```bash
-   brew install azure-cli gh libpq && brew link --force libpq   # libpq gives pg_dump/pg_restore
+   brew install azure-cli gh postgresql@16   # postgresql@16 gives pg_dump/pg_restore
+   export PATH="$(brew --prefix postgresql@16)/bin:$PATH"
    az login && az account set --subscription "<your subscription>"
    gh auth login
-   for ns in Microsoft.App Microsoft.OperationalInsights Microsoft.DBforPostgreSQL \
-             Microsoft.ContainerRegistry Microsoft.Storage Microsoft.ManagedIdentity; do
-     az provider register --namespace $ns
-   done
    ```
 
 2. Connect GitHub to Azure. `MF_BUDGET_EMAIL` adds a monthly budget alert on the resource group
@@ -76,7 +73,8 @@ settings:
    MF_BUDGET_EMAIL=you@example.com make setup-github
    ```
 
-   It creates the `monsieur-francais` resource group, generates the production secrets (also kept
+   It enables the Azure services the app uses (a few minutes the first time), creates the
+   `monsieur-francais` resource group, generates the production secrets (also kept
    in the gitignored `.env.azure`; never commit it), creates an app registration that only this
    repo's `production` environment can sign in as, with rights on that resource group only, and
    stores the variables and secrets in GitHub.

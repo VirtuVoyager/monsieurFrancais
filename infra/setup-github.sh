@@ -2,7 +2,8 @@
 # One-off: let GitHub Actions deploy main to Azure on every merge. Run from a laptop signed in to
 # Azure (`az login`, as the subscription owner) and GitHub (`gh auth login`), with .env in place.
 #
-# - Creates the resource group and generates the production secrets (kept in .env.azure too).
+# - Enables the Azure services the app uses, creates the resource group and generates the
+#   production secrets (kept in .env.azure too).
 # - Creates an app registration that GitHub signs in as via OpenID Connect: no Azure password
 #   is stored anywhere, and only this repo's "production" environment can use it.
 # - Stores the settings as repository variables and the keys as encrypted environment secrets.
@@ -38,6 +39,13 @@ set -a
 . ./.env.azure
 set +a
 
+# Each Azure service must be enabled once per subscription; the deploy identity cannot do it
+# because its rights stop at the resource group.
+for ns in Microsoft.App Microsoft.OperationalInsights Microsoft.DBforPostgreSQL \
+          Microsoft.ContainerRegistry Microsoft.Storage Microsoft.ManagedIdentity; do
+  az provider register --namespace "$ns" --wait --output none
+done
+
 subscription=$(az account show --query id -o tsv)
 tenant=$(az account show --query tenantId -o tsv)
 scope=$(az group create --name "$RG" --location "$LOCATION" --query id -o tsv)
@@ -47,14 +55,21 @@ if [ -z "$client" ]; then
   client=$(az ad app create --display-name "$NAME" --query appId -o tsv)
   az ad sp create --id "$client" --output none
 fi
-if ! az ad app federated-credential list --id "$client" --query "[].name" -o tsv | grep -qx production; then
+# GitHub's token names the repo either by name or, for newer repositories, by name and numeric
+# IDs (repo:Owner@123/repo@456:...). Trust both; each only matches this repo's environment.
+ids=$(gh api "repos/$REPO" --jq '"\(.owner.login)@\(.owner.id)/\(.name)@\(.id)"')
+existing=$(az ad app federated-credential list --id "$client" --query "[].name" -o tsv)
+trust() {
+  grep -qx "$1" <<<"$existing" && return
   az ad app federated-credential create --id "$client" --parameters "{
-    \"name\": \"production\",
+    \"name\": \"$1\",
     \"issuer\": \"https://token.actions.githubusercontent.com\",
-    \"subject\": \"repo:$REPO:environment:production\",
+    \"subject\": \"repo:$2:environment:production\",
     \"audiences\": [\"api://AzureADTokenExchange\"]
   }" --output none
-fi
+}
+trust production "$REPO"
+trust production-ids "$ids"
 
 # On this resource group only: Contributor to create and update everything, plus role assignment
 # rights because the template lets the apps pull images from the registry.

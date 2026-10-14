@@ -9,6 +9,7 @@ dependencies = [
     "argon2-cffi>=25.1.0",
     "fastapi>=0.141.1",
     "fsrs>=6.3.2",
+    "httpx>=0.28.1",
     "itsdangerous>=2.2.0",
     "mcp>=2.2.0",
     "numpy>=2.5.3",
@@ -28,7 +29,6 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "httpx>=0.28.1",
     "httpx2>=2.13.1",
     "mypy>=2.3.1",
     "pytest>=9.1.1",
