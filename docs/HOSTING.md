@@ -1,0 +1,118 @@
+# Hosting on Azure (single owner)
+
+The app as it is today, hosted for one person (the owner) and used mostly from a phone. Multi-user
+work, the tutor features and the examiner module come later ([DEPLOYMENT.md](DEPLOYMENT.md)).
+
+## What runs where
+
+| Piece | Azure resource | Size | Rough cost a month |
+|---|---|---|---|
+| Web (Next.js) | Container App, public HTTPS | 0.25 vCPU, 0.5 GiB, sleeps when unused | 0–2 USD (inside the monthly free grant) |
+| API (FastAPI + background jobs) | Container App, internal only | 0.5 vCPU, 1 GiB, one replica, sleeps when unused | 0–3 USD |
+| Database | PostgreSQL Flexible Server, Burstable B1ms, 32 GB, pgvector | 7-day point-in-time backups | ~16 USD (free for 12 months on an eligible new subscription) |
+| Media (audio, recordings, notes) | Storage account, Azure Files share mounted at `/app/media` | 20 GB quota, 7-day soft delete | < 0.50 USD |
+| Images | Container Registry, Basic | | ~5 USD |
+| Logs | Log Analytics, 30-day retention, 0.15 GB daily cap | | 0 (inside the 5 GB free allowance) |
+| AI | Your existing Azure OpenAI and Speech resources | unchanged | capped in the app's Budget screen |
+
+About **21 USD a month** for hosting, or about 5 USD while the database free tier lasts. These are
+list prices from memory: check them in the Azure pricing calculator for your region.
+
+Choices worth knowing:
+
+- **Sleeping apps.** With `minReplicas` 0 both apps stop after a few idle minutes and cost nothing.
+  The first visit after a pause takes 10–20 s while the API migrates, seeds and starts. Background
+  jobs (retrying deferred grading, note audio, embeddings) run only while the API is awake, and
+  catch up when it wakes. `MF_MIN_REPLICAS=1 make deploy` keeps both warm for about 10 USD more.
+- **Region.** `centralindia` by default, close to you; Azure OpenAI and Speech stay in `eastus`.
+  Set `MF_LOCATION` before the first deploy to change it.
+- **The API is not public.** Only the web app has an address; it proxies `/api` and
+  `/media/catalog` to the API inside the Container Apps environment.
+- **Database access.** Public endpoint limited to Azure services, with TLS and a generated
+  password. A private network would cost more than everything else combined.
+- **Custom domain.** Optional. Container Apps gives the default `*.azurecontainerapps.io` address
+  free HTTPS, which is all the microphone needs. A domain of your own costs only its registration
+  (about 10–15 USD a year) and Azure issues the certificate free (see below).
+- **Feature flags.** Not yet. You are the owner (`users.role = owner`): every module is open and
+  every feature is on. Who-gets-what arrives with invited users (DEPLOYMENT.md § 2), where the
+  per-user budget caps already block spending by anyone with a cap of 0.
+
+## First deploy
+
+On your Mac, from the repo root, with `.env` holding your Azure OpenAI and Speech settings:
+
+1. Install and sign in to the Azure CLI, and register the services once:
+
+   ```bash
+   brew install azure-cli libpq && brew link --force libpq   # libpq gives pg_dump/pg_restore
+   az login
+   az account set --subscription "<your subscription>"
+   for ns in Microsoft.App Microsoft.OperationalInsights Microsoft.DBforPostgreSQL \
+             Microsoft.ContainerRegistry Microsoft.Storage Microsoft.ManagedIdentity; do
+     az provider register --namespace $ns
+   done
+   ```
+
+2. Deploy (about 15 minutes the first time). `MF_BUDGET_EMAIL` adds a monthly budget alert on the
+   resource group (30 USD by default):
+
+   ```bash
+   MF_BUDGET_EMAIL=you@example.com make deploy
+   ```
+
+   It creates `.env.azure` (gitignored, never commit it) with a generated database password,
+   session key and setup code, builds both images in Azure (no local Docker needed) and prints the
+   address.
+
+3. Copy your data, so the hosted app has your progress, notes, glossaries and generated audio:
+
+   ```bash
+   make deploy-data
+   ```
+
+   It opens the database to your current IP for the copy only, replaces the hosted database with
+   your local one, uploads `media/` and restarts the API. Run `make audio` locally first so every
+   clip goes along.
+
+4. Open the address on your phone, sign in with your usual passphrase, then **Share → Add to Home
+   Screen** (Safari) or **Install app** (Chrome) for a full-screen app.
+
+   If you skip step 3, the hosted database starts empty: the first sign-in asks for a new
+   passphrase and the setup code (`MF_PROD_SETUP_CODE` in `.env.azure`), so nobody else who finds
+   the address can claim the account.
+
+## Updating
+
+`make deploy` again: it builds images tagged with the current commit and rolls them out; database
+migrations run when the API starts. Changing a key (`.env`) also just needs `make deploy`.
+
+Content pipeline jobs run against the hosted database and media from inside the API container:
+
+```bash
+az containerapp exec -g monsieur-francais -n mf-api --command "python -m app.jobs.generate_audio"
+az containerapp exec -g monsieur-francais -n mf-api --command "python -m app.jobs.build_glossaries"
+```
+
+## Custom domain (optional)
+
+Buy a domain anywhere, then:
+
+```bash
+az containerapp hostname add -g monsieur-francais -n mf-web --hostname french.example.com
+# Add the CNAME (to the app's default address) and the TXT asuid record the command prints, then:
+az containerapp hostname bind -g monsieur-francais -n mf-web --hostname french.example.com \
+  --environment mf-env --validation-method CNAME
+```
+
+## When something is wrong
+
+```bash
+az containerapp logs show -g monsieur-francais -n mf-api --follow     # API, jobs, migrations
+az containerapp logs show -g monsieur-francais -n mf-web --follow
+az containerapp revision list -g monsieur-francais -n mf-api -o table
+```
+
+- **Restore the database:** Portal → the PostgreSQL server → Backup and restore (any point in the
+  last 7 days, into a new server).
+- **Restore a deleted file share:** Portal → storage account → File shares → Show deleted.
+- **Tear everything down:** `az group delete -n monsieur-francais`. Your local copy is untouched.
