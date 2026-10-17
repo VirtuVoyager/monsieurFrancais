@@ -22,8 +22,8 @@ Choices worth knowing:
 
 - **Sleeping apps.** With `minReplicas` 0 both apps stop after a few idle minutes and cost nothing.
   The first visit after a pause takes 10–20 s while the API migrates, seeds and starts. Background
-  jobs (retrying deferred grading, note audio, embeddings) run only while the API is awake, and
-  catch up when it wakes. Setting the repository variable `MF_MIN_REPLICAS` to 1 keeps both warm for about 10 USD more.
+  jobs (retrying deferred grading, note audio, embeddings, catalogue audio and glossaries) run
+  only while the API is awake, and catch up when it wakes. Setting the repository variable `MF_MIN_REPLICAS` to 1 keeps both warm for about 10 USD more.
 - **Region.** `centralindia` by default, close to you; Azure OpenAI and Speech stay in `eastus`.
   Set `MF_LOCATION` before the first deploy to change it.
 - **The API is not public.** Only the web app has an address; it proxies `/api` and
@@ -106,7 +106,10 @@ re-run `make setup-github` (it updates the GitHub secrets) and then the Deploy w
 `make deploy` runs the same deployment from a laptop as a fallback; it refuses to run from a
 branch other than `main` (`MF_DEPLOY_ANY_BRANCH=1` overrides).
 
-Content pipeline jobs run against the hosted database and media from inside the API container:
+New or edited modules get their audio and hover glossary on their own: the API checks a couple
+of minutes after each start (and every six hours) and pays only for clips and glossaries whose
+text changed. The Bicep turns this on with `MF_CONTENT_JOBS_ENABLED`; locally it stays off, and
+`make audio` / `make glossary` remain explicit. To run the content pipeline by hand against the hosted database and media:
 
 ```bash
 az containerapp exec -g monsieur-francais -n mf-api --command "python -m app.jobs.generate_audio"
