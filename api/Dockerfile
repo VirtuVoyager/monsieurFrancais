@@ -1,5 +1,8 @@
 FROM python:3.12-slim AS base
-ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
+# Azure ACR build agents occasionally stall on files.pythonhosted.org; uv's 30s default timeout
+# and 3 retries failed a deploy.
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy \
+    UV_HTTP_TIMEOUT=120 UV_HTTP_RETRIES=5
 COPY --from=ghcr.io/astral-sh/uv:0.8 /uv /usr/local/bin/uv
 WORKDIR /app/api
 
