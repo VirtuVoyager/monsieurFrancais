@@ -27,7 +27,7 @@ Les terminaisons ressemblent au verbe *avoir* au présent : *-ai, -as, -a, -ons,
 
 - **Futur proche** (*je vais partir*) : une action proche, décidée, très courante à l'oral.
 - **Futur simple** (*je partirai*) : un projet plus lointain, une prévision, une promesse, un texte écrit.
-*Je **vais déménager** samedi. Un jour, j'**achèterai** une maison.*
+*Je **vais déménager** samedi. Un jour, j**'achèterai** une maison.*
 
 ## Quand + futur
 

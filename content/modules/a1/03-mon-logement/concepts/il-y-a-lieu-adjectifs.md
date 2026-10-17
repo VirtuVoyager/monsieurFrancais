@@ -19,7 +19,7 @@
 | à côté de / en face de / près de / loin de | *J'habite **près de** la gare, **en face de** la banque.* |
 | à gauche / à droite (de) | *La cuisine est **à droite**.* |
 
-Après **de**, l'article se contracte : *à côté **du** salon* (de + le), *près **des** magasins* (de + les), mais *à côté **de la** fenêtre, près **de l'**école*.
+Après **de**, l'article se contracte : *à côté **du** salon* (de + le), *près **des** magasins* (de + les), mais *à côté **de la** fenêtre, près **de l**'école*.
 
 ## L'accord des adjectifs
 

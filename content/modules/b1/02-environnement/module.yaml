@@ -1,0 +1,114 @@
+slug: b1-02-environnement
+level: B1
+block: 1
+order: 18
+theme: Environnement
+title: L'environnement
+summary: >
+  Parler des problèmes environnementaux, des gestes écologiques au quotidien et
+  de ce qu'il faudrait changer. Le subjonctif présent après les expressions de
+  nécessité et de volonté.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le subjonctif présent (nécessité et volonté)
+    concept: subjonctif-necessite
+    exercises:
+      - {kind: cloze, prompt: "Il faut que nous ___ moins de plastique. (utiliser)", accepted: [utilisions]}
+      - {kind: cloze, prompt: "Il est important que tu ___ tes déchets. (trier)", accepted: [tries]}
+      - kind: mcq
+        prompt: "Il faut que le gouvernement ___ plus."
+        options: [fait, fasse, fera]
+        answer: 1
+      - kind: mcq
+        prompt: "Je voudrais que mes enfants ___ conscients du problème."
+        options: [soient, sont, seront]
+        answer: 0
+      - kind: mcq
+        prompt: "Je veux ___ mon empreinte carbone."
+        options: [que je réduise, réduire, que je réduis]
+        answer: 1
+        explanation: "Même sujet dans les deux parties : on utilise l'infinitif (je veux réduire)."
+      - {kind: order, words: ["Il faut", "que", "chacun", "fasse", "un effort."], answer: "Il faut que chacun fasse un effort."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : l'environnement"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler d'écologie
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : une émission sur le gaspillage alimentaire"
+    transcript: >
+      Au Canada, on estime que plus de la moitié de la nourriture produite est perdue ou
+      gaspillée, et une bonne partie de ce gaspillage a lieu à la maison. Pour
+      le réduire, les spécialistes donnent quelques conseils simples. D'abord,
+      il faut que vous planifiiez vos repas de la semaine et que vous fassiez
+      une liste avant d'aller à l'épicerie. Ensuite, il est préférable de bien
+      comprendre les dates : « meilleur avant » ne veut pas dire que l'aliment
+      est dangereux après cette date. Enfin, il est utile que vous congeliez les
+      restes au lieu de les jeter. Moins de gaspillage, c'est aussi des
+      économies : plus de mille dollars par an pour une famille moyenne.
+    questions:
+      - {kind: mcq, prompt: "Selon l'émission, où a lieu une grande partie du gaspillage ?", options: [Dans les restaurants, À la maison, Dans les fermes], answer: 1}
+      - {kind: mcq, prompt: "Que signifie la mention « meilleur avant » ?", options: [L'aliment est toxique après cette date., Il faut jeter l'aliment le jour même., L'aliment n'est pas forcément dangereux après cette date.], answer: 2}
+      - {kind: mcq, prompt: "Quel avantage financier est mentionné ?", options: [Plus de mille dollars d'économies par an, Des aliments moins chers, Une aide du gouvernement], answer: 0}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : la ville interdit les sacs de plastique"
+    text: |
+      Sacs de plastique : la fin d'une époque
+
+      Depuis le 1er janvier, les commerces de notre ville n'ont plus le droit de
+      distribuer des sacs de plastique à usage unique, même payants. La mairie
+      souhaite que les citoyens prennent l'habitude d'apporter leurs propres
+      sacs réutilisables. Les commerçants qui ne respectent pas le règlement
+      risquent une amende de 500 $.
+
+      La mesure ne fait pas l'unanimité. Plusieurs petits commerçants regrettent
+      qu'on ne leur ait pas laissé plus de temps pour écouler leurs stocks.
+      Certains clients, eux, trouvent que les sacs en papier, qui les remplacent,
+      sont moins solides. Mais pour l'association Ville Verte, il faut que les
+      villes aillent encore plus loin et interdisent aussi les bouteilles d'eau
+      en plastique.
+    questions:
+      - kind: mcq
+        prompt: "Qu'est-ce qui est interdit depuis le 1er janvier ?"
+        options: ["Les sacs réutilisables.", "La distribution de sacs de plastique à usage unique.", "Les bouteilles d'eau en plastique."]
+        answer: 1
+      - kind: mcq
+        prompt: "Que reprochent certains commerçants à la mairie ?"
+        options: ["De ne pas leur avoir laissé assez de temps.", "Le prix des sacs en papier.", "De ne pas interdire les bouteilles."]
+        answer: 0
+      - kind: mcq
+        prompt: "Quelle est la position de l'association Ville Verte ?"
+        options: ["Elle est contre la mesure.", "Elle trouve la mesure trop sévère.", "Elle veut des mesures encore plus fortes."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : écrire au journal local"
+    task: EE2
+    prompt: >
+      Votre ville veut interdire les voitures au centre-ville le dimanche. Écrivez
+      un message au courrier des lecteurs du journal local : donnez votre avis,
+      expliquez les avantages et les inconvénients, et dites ce qu'il faudrait
+      faire selon vous.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : s'informer sur un programme de compostage (interaction)"
+    task: EO2
+    prompt: >
+      Votre ville lance un programme de collecte des déchets alimentaires
+      (compost). L'examinateur est un employé de la ville. Posez-lui des
+      questions : comment fonctionne le programme, quels déchets accepter, quand
+      a lieu la collecte, ce que cela coûte et ce qu'il faut faire en hiver.
+    seconds: 210

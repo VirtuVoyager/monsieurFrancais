@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.domain.glossary import Gloss, as_entries, content_hash, forms_in, normalize
 from app.llm.glosser import FakeGlosser
-from app.models import Lesson, ModuleGlossary, Note, UsageEvent
+from app.models import Lesson, Module, ModuleGlossary, Note, UsageEvent
 from app.services import glossary
 from app.services.users import get_or_create_learner
 
@@ -45,7 +45,8 @@ def test_module_glossaries_are_built_once_and_rebuilt_when_text_changes(
     first = glossary.build_modules(seeded, user_id, FakeGlosser())
     again = glossary.build_modules(seeded, user_id, FakeGlosser())
 
-    assert sorted(first.built) == [M1, M2] and again.built == []
+    assert first.built == list(seeded.scalars(select(Module.id).order_by(Module.order)))
+    assert again.built == []
     entries = seeded.get_one(ModuleGlossary, M1).entries
     assert entries["suis"] == {"lemma": "être", "en": "(I) am"}
     lesson = seeded.scalars(select(Lesson).where(Lesson.module_id == M1)).first()
@@ -59,7 +60,9 @@ def test_module_glossaries_are_built_once_and_rebuilt_when_text_changes(
 def test_the_learner_gets_glossaries_of_unlocked_modules_and_the_current_one(
     client: TestClient, seeded: Session
 ) -> None:
-    glossary.build_modules(seeded, get_or_create_learner(seeded).id, FakeGlosser())
+    learner = get_or_create_learner(seeded)
+    learner.role = "learner"  # the owner unlocks every module
+    glossary.build_modules(seeded, learner.id, FakeGlosser())
 
     unlocked = client.get("/glossary").json()
     current = client.get("/glossary", params={"module_id": M2}).json()

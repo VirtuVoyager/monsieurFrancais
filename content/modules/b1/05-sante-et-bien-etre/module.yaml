@@ -1,0 +1,113 @@
+slug: b1-05-sante-et-bien-etre
+level: B1
+block: 2
+order: 21
+theme: Santé
+title: Santé et bien-être
+summary: >
+  Parler d'alimentation, de sport, de stress et de santé mentale, comprendre
+  une campagne de prévention. Le pronom relatif dont, ce qui / ce que et la
+  mise en relief avec c'est… qui / c'est… que.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Dont, ce qui, ce que et la mise en relief
+    concept: dont-mise-en-relief
+    exercises:
+      - {kind: cloze, prompt: "C'est le livre ___ je t'ai parlé. (parler de)", accepted: [dont]}
+      - kind: mcq
+        prompt: "Le sport est une activité ___ j'ai vraiment besoin."
+        options: [que, dont, qui]
+        answer: 1
+        explanation: "Avoir besoin de : de + quelque chose → dont."
+      - kind: mcq
+        prompt: "___ me stresse le plus, c'est le manque de sommeil."
+        options: [Ce qui, Ce que, Ce dont]
+        answer: 0
+      - kind: mcq
+        prompt: "Dis-moi ___ tu manges au déjeuner."
+        options: [ce qui, ce dont, ce que]
+        answer: 2
+      - {kind: cloze, prompt: "C'est mon médecin ___ m'a conseillé de marcher tous les jours. (mise en relief)", accepted: [qui]}
+      - {kind: order, words: ["C'est", "le stress", "qui", "m'empêche", "de dormir."], answer: "C'est le stress qui m'empêche de dormir."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la santé et le bien-être"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles sur les habitudes de vie
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : le stress au travail"
+    transcript: >
+      Selon un sondage récent, près d'un travailleur sur deux dit se sentir
+      souvent stressé au travail. Ce qui revient le plus souvent, c'est la
+      surcharge : trop de tâches, pas assez de temps. La psychologue que nous
+      avons interrogée rappelle que le stress n'est pas toujours négatif : à
+      petite dose, il nous aide à être efficaces. Ce qu'il faut surveiller,
+      c'est le stress qui dure. Ses conseils : faire de vraies pauses loin de
+      l'écran, bouger au moins trente minutes par jour et apprendre à dire non
+      à une tâche dont on n'a pas le temps de s'occuper. Et si les symptômes
+      persistent, c'est un professionnel qu'il faut consulter.
+    questions:
+      - {kind: mcq, prompt: "Quelle est la principale cause de stress mentionnée ?", options: [Les collègues, La surcharge de travail, Le salaire], answer: 1}
+      - {kind: mcq, prompt: "Que dit la psychologue au sujet du stress ?", options: [Il est toujours dangereux., Il ne concerne que les cadres., Un peu de stress peut être utile.], answer: 2}
+      - {kind: mcq, prompt: "Que conseille-t-elle si les symptômes continuent ?", options: [Consulter un professionnel, Changer d'emploi, Prendre des vacances], answer: 0}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : le nouveau guide alimentaire"
+    text: |
+      Manger mieux, sans se compliquer la vie
+
+      Ce que recommande le guide alimentaire, ce n'est pas un régime strict,
+      mais des habitudes simples. La moitié de l'assiette devrait être composée
+      de légumes et de fruits, un quart de protéines, de préférence d'origine
+      végétale comme les lentilles ou le tofu, et un quart d'aliments à grains
+      entiers. L'eau est la boisson dont on devrait se servir en priorité.
+
+      Le guide insiste aussi sur la manière de manger : cuisiner plus souvent,
+      prendre le temps de savourer ses repas et manger en bonne compagnie.
+      C'est l'ensemble de ces habitudes qui fait la différence, et non un
+      aliment « miracle ». Enfin, il conseille de se méfier du marketing
+      alimentaire, qui pousse souvent à consommer des produits transformés.
+    questions:
+      - kind: mcq
+        prompt: "Quelle part de l'assiette devraient occuper les légumes et les fruits ?"
+        options: ["Un quart.", "La moitié.", "Les trois quarts."]
+        answer: 1
+      - kind: mcq
+        prompt: "Quelle boisson le guide recommande-t-il en priorité ?"
+        options: ["L'eau.", "Le lait.", "Le jus de fruits."]
+        answer: 0
+      - kind: mcq
+        prompt: "Selon le texte, qu'est-ce qui fait vraiment la différence ?"
+        options: ["Un aliment miracle.", "Un régime strict.", "L'ensemble des bonnes habitudes."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : un article pour le journal d'entreprise"
+    task: EE2
+    prompt: >
+      Le journal de votre entreprise prépare un numéro sur le bien-être au
+      travail. Écrivez un court article : décrivez ce qui cause du stress au
+      travail et proposez des solutions concrètes pour les employés et pour
+      l'entreprise.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : s'inscrire au centre sportif (interaction)"
+    task: EO2
+    prompt: >
+      Vous voulez vous inscrire dans un centre sportif près de chez vous.
+      L'examinateur travaille à l'accueil. Posez-lui des questions sur les
+      activités proposées, les horaires, les tarifs et les abonnements, les cours
+      pour débutants et la possibilité d'un essai gratuit.
+    seconds: 210

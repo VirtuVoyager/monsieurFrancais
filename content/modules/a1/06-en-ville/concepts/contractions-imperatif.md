@@ -6,7 +6,7 @@
 |---|---|
 | à + le = **au** | *Je vais **au** parc.* |
 | à + la = **à la** | *Je vais **à la** banque.* |
-| à + l' = **à l'** | *Je vais **à l'**hôpital.* |
+| à + l' = **à l'** | *Je vais **à l**'hôpital.* |
 | à + les = **aux** | *Je vais **aux** toilettes.* |
 
 Avec une ville, on dit **à** sans article : *Je vais **à** Montréal.* Avec un pays féminin, **en** : *en France, en Inde*; masculin, **au** : *au Canada, au Japon*; pluriel, **aux** : *aux États-Unis*.
@@ -17,7 +17,7 @@ Avec une ville, on dit **à** sans article : *Je vais **à** Montréal.* Avec un
 |---|---|
 | de + le = **du** | *Je viens **du** travail.* |
 | de + la = **de la** | *Elle revient **de la** plage.* |
-| de + l' = **de l'** | *Il sort **de l'**école.* |
+| de + l' = **de l'** | *Il sort **de l**'école.* |
 | de + les = **des** | *Nous revenons **des** magasins.* |
 
 *Venir* : je viens, tu viens, il vient, nous venons, vous venez, ils viennent.

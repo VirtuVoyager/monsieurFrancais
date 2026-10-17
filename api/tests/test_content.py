@@ -62,6 +62,12 @@ def test_grammar_lessons_reference_existing_concepts(source: Any) -> None:
             assert lesson["concept"] in source.concepts
 
 
+def test_module_order_runs_through_the_whole_course() -> None:
+    # The order is course-wide (A1 1-8, A2 9-16, …) and unique in the database.
+    orders = [int(source.meta["order"]) for source in SOURCES]
+    assert orders == list(range(1, len(SOURCES) + 1))
+
+
 def test_seed_is_idempotent(session: Session) -> None:
     first = seed(session, REPO_CONTENT)
     second = seed(session, REPO_CONTENT)

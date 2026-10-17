@@ -10,7 +10,7 @@ Ces verbes ont un pronom réfléchi qui reprend le sujet : *se lever, se réveil
 | tu **te** lèves | vous **vous** levez |
 | il / elle / on **se** lève | ils / elles **se** lèvent |
 
-- Devant une voyelle ou un *h* muet : *je **m'**habille, il **s'**appelle*.
+- Devant une voyelle ou un *h* muet : *je **m**'habille, il **s**'appelle*.
 - **Négation :** le *ne… pas* entoure le pronom et le verbe : *Je **ne** me lève **pas** tôt.*
 - Attention à l'accent : *je l**è**ve*, *nous levons*.
 
@@ -25,7 +25,7 @@ Ces verbes ont un pronom réfléchi qui reprend le sujet : *se lever, se réveil
 | vous | allez | faites |
 | ils / elles | vont | font |
 
-- *Aller* + lieu : *Je vais **au** bureau, **à la** banque, **à l'**école.*
+- *Aller* + lieu : *Je vais **au** bureau, **à la** banque, **à l**'école.*
 - *Faire* sert pour beaucoup d'activités : *faire la cuisine, faire les courses, faire du sport, faire le ménage*.
 
 ## Dire l'heure

@@ -34,11 +34,13 @@ def test_strong_placement_places_lower_modules(client: TestClient, seeded: Sessi
     ).json()
 
     path = client.get("/path").json()
+    below = [lvl for lvl in path["levels"] if lvl["id"] < outcome["placed_level"]]
+    placed = [m["status"] for lvl in below for m in lvl["modules"]]
     assert outcome["placed_level"] != "A1"
-    assert outcome["modules_placed"] == 2
+    assert outcome["modules_placed"] == len(placed) > 0
     assert outcome["levels"]["CO"] and outcome["levels"]["CE"]
-    assert [m["status"] for m in path["levels"][0]["modules"]] == ["placed", "placed"]
-    assert path["coverage"]["covered"] == 2
+    assert set(placed) == {"placed"}
+    assert path["coverage"]["covered"] == len(placed)
 
 
 def test_weak_placement_starts_at_a1_and_places_nothing(

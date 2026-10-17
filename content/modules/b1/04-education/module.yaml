@@ -1,0 +1,117 @@
+slug: b1-04-education
+level: B1
+block: 1
+order: 20
+theme: Éducation
+title: Éducation et formation
+summary: >
+  Parler de l'école, des études et de la formation continue, comparer des
+  systèmes et donner son opinion. Exprimer son opinion (indicatif ou
+  subjonctif) et organiser ses idées avec les connecteurs logiques.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Donner son opinion et organiser ses idées
+    concept: opinion-connecteurs
+    exercises:
+      - kind: mcq
+        prompt: "Je pense que l'école ___ commencer plus tard le matin."
+        options: [devrait, doive, devions]
+        answer: 0
+        explanation: "Penser que à l'affirmatif : indicatif (ou conditionnel)."
+      - kind: mcq
+        prompt: "Je ne crois pas que les devoirs ___ vraiment utiles."
+        options: [sont, soient, seront]
+        answer: 1
+        explanation: "Croire / penser à la forme négative exprime le doute : subjonctif."
+      - {kind: cloze, prompt: "Il est possible que les frais de scolarité ___ l'an prochain. (augmenter)", accepted: [augmentent]}
+      - kind: mcq
+        prompt: "Les cours en ligne sont pratiques ; ___, ils demandent beaucoup d'autonomie."
+        options: [donc, cependant, parce que]
+        answer: 1
+      - kind: mcq
+        prompt: "Il a obtenu une bourse ___ ses excellents résultats."
+        options: [grâce à, à cause de, malgré]
+        answer: 0
+      - {kind: order, words: ["D'une part,", "c'est utile ;", "d'autre part,", "c'est coûteux."], answer: "D'une part, c'est utile ; d'autre part, c'est coûteux."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : l'école et la formation"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour argumenter
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : retourner aux études à 40 ans"
+    transcript: >
+      Après quinze ans dans la vente, Nadia a décidé de retourner aux études pour
+      devenir technicienne en informatique. « Au début, j'avais peur de ne pas
+      suivre, car je n'avais pas étudié depuis longtemps. En plus, je devais
+      travailler à temps partiel pour payer mes factures. Mais le cégep offrait
+      des cours le soir et un service d'aide aux études très efficace. Ce que
+      j'ai trouvé le plus difficile, c'est l'organisation : il fallait concilier
+      le travail, les cours et la famille. Je ne regrette rien : il y a deux
+      mois, j'ai obtenu mon diplôme et j'ai été embauchée par l'entreprise où
+      j'avais fait mon stage. »
+    questions:
+      - {kind: mcq, prompt: "Pourquoi Nadia avait-elle peur au début ?", options: [Elle n'avait pas étudié depuis longtemps., Les cours étaient en anglais., Elle n'aimait pas l'informatique.], answer: 0}
+      - {kind: mcq, prompt: "Qu'est-ce qui a été le plus difficile pour elle ?", options: [Les examens, Le coût des études, Concilier travail, études et famille], answer: 2}
+      - {kind: mcq, prompt: "Comment a-t-elle trouvé son emploi actuel ?", options: [Grâce à une annonce en ligne, Grâce à son stage, Grâce à un ami], answer: 1}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : l'uniforme scolaire, pour ou contre ?"
+    text: |
+      L'uniforme à l'école : le débat revient
+
+      Un centre de services scolaire envisage de rendre l'uniforme obligatoire dans
+      toutes ses écoles secondaires. Ses partisans affirment qu'il réduit les
+      inégalités visibles entre les élèves et limite les moqueries liées aux
+      vêtements de marque. Il permettrait aussi aux familles de faire des
+      économies, puisque les enfants n'auraient plus besoin d'autant de
+      vêtements.
+
+      Pourtant, beaucoup de parents ne pensent pas que l'uniforme soit la
+      solution. D'après eux, il coûte cher à l'achat et empêche les jeunes
+      d'exprimer leur personnalité. Par ailleurs, aucune étude sérieuse n'a
+      démontré qu'il améliore les résultats scolaires. Le centre de services
+      consultera les parents avant de prendre une décision en juin.
+    questions:
+      - kind: mcq
+        prompt: "Selon les partisans, quel est l'un des avantages de l'uniforme ?"
+        options: ["Il améliore les notes.", "Il rend les différences sociales moins visibles.", "Il est gratuit."]
+        answer: 1
+      - kind: mcq
+        prompt: "Que disent les opposants au sujet des résultats scolaires ?"
+        options: ["Aucune étude ne prouve que l'uniforme les améliore.", "L'uniforme les fait baisser.", "Ils n'en parlent pas."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que va faire le centre de services avant de décider ?"
+        options: ["Demander l'avis des élèves seulement.", "Faire un essai dans une école.", "Consulter les parents."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : donner son avis sur un forum"
+    task: EE2
+    prompt: >
+      Sur un forum, on demande : « Les cours en ligne peuvent-ils remplacer les
+      cours en classe ? » Donnez votre opinion de façon organisée : présentez au
+      moins un avantage et un inconvénient, avec des exemples, puis concluez.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : s'inscrire à une formation (interaction)"
+    task: EO2
+    prompt: >
+      Vous voulez suivre une formation professionnelle le soir. L'examinateur
+      est conseiller dans un centre de formation. Posez-lui des questions sur
+      les programmes, les conditions d'admission, les horaires, le coût, les
+      aides financières et les débouchés.
+    seconds: 210

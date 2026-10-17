@@ -1,0 +1,16 @@
+items:
+  - {slug: passif-present, skill: GR, kind: mcq, prompt: "Les expositions ___ par des bénévoles.", options: [sont présentées, sont présentés, présentent], answer: 0}
+  - {slug: passif-pc, skill: GR, kind: cloze, prompt: "La pièce de théâtre a été ___ par 10 000 personnes. (voir)", accepted: [vue]}
+  - {slug: passif-futur, skill: GR, kind: mcq, prompt: "Le nouveau musée ___ en 2028.",
+     options: [sera ouvert, a été ouvert, ouvrira-t-il], answer: 0}
+  - {slug: gerondif-forme, skill: GR, kind: cloze, prompt: "Il s'est blessé en ___ du vélo. (faire, gérondif)", accepted: [faisant]}
+  - {slug: gerondif-condition, skill: GR, kind: mcq, prompt: "___ tôt, vous aurez de bonnes places.",
+     options: [En arriver, En arrivant, Arrivé], answer: 1}
+  - {slug: emprunter, skill: VO, kind: mcq, prompt: "Prendre un livre à la bibliothèque pour quelques semaines, c'est…",
+     options: [traduire, diffuser, emprunter], answer: 2}
+  - {slug: balado, skill: VO, kind: mcq, prompt: "Une émission audio qu'on écoute en ligne quand on veut, c'est…",
+     options: [un balado, une critique, un scénario], answer: 0}
+  - {slug: avis-musee, skill: CE, kind: mcq,
+     prompt: "« L'entrée au musée est gratuite le premier dimanche du mois. Les autres jours, le tarif réduit est offert aux étudiants et aux 65 ans et plus. » Un étudiant qui vient un mardi…",
+     options: [entre gratuitement, paie le tarif réduit, paie le plein tarif], answer: 1}
+  - {slug: ordre-passif, skill: GR, kind: order, words: ["Le festival", "a été annulé", "à cause", "de la tempête."], answer: "Le festival a été annulé à cause de la tempête."}

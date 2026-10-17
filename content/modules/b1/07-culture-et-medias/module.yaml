@@ -1,0 +1,112 @@
+slug: b1-07-culture-et-medias
+level: B1
+block: 2
+order: 23
+theme: Culture
+title: Culture et médias
+summary: >
+  Parler de ses goûts culturels (cinéma, musique, lecture, festivals),
+  comprendre une critique et l'actualité. La voix passive et le gérondif.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: La voix passive et le gérondif
+    concept: passif-gerondif
+    exercises:
+      - {kind: cloze, prompt: "Ce film a été ___ par Denis Villeneuve. (réaliser)", accepted: [réalisé]}
+      - kind: mcq
+        prompt: "Le festival ___ chaque été depuis 1980."
+        options: [est organisé, organise, a organisé]
+        answer: 0
+      - kind: mcq
+        prompt: "Les gagnants ___ demain."
+        options: [ont été annoncés, seront annoncés, sont annoncé]
+        answer: 1
+      - {kind: cloze, prompt: "J'ai appris le français en ___ des séries. (regarder, gérondif)", accepted: [regardant]}
+      - kind: mcq
+        prompt: "Elle écoute des balados ___ à la maison."
+        options: [en rentrer, en rentrant, en rentré]
+        answer: 1
+        explanation: "Gérondif = en + participe présent (radical de nous + -ant) : en rentrant."
+      - {kind: order, words: ["Ce roman", "a été traduit", "en vingt langues."], answer: "Ce roman a été traduit en vingt langues."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la culture et les médias"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de culture
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : une critique de film"
+    transcript: >
+      Cette semaine, on vous parle du nouveau film de Sophie Tremblay, présenté
+      en ouverture du festival de Toronto. Le film raconte l'histoire d'une
+      famille de pêcheurs gaspésiens dont la vie est bouleversée par l'arrivée
+      d'une grande entreprise. Les paysages sont magnifiques, et les acteurs, en
+      particulier la jeune Léa Gagnon, sont très convaincants. En revanche, le
+      scénario est un peu lent : on regarde sa montre en milieu de film. Malgré
+      ce défaut, je vous le recommande, surtout si vous aimez le cinéma
+      d'auteur. Le film sortira en salle le 12 octobre.
+    questions:
+      - {kind: mcq, prompt: "De quoi parle le film ?", options: [D'une famille de pêcheurs, D'un festival de cinéma, D'une actrice célèbre], answer: 0}
+      - {kind: mcq, prompt: "Quel est le point faible du film selon le critique ?", options: [Les acteurs, Les paysages, Le rythme], answer: 2}
+      - {kind: mcq, prompt: "Quelle est la conclusion du critique ?", options: [Il déconseille le film., Il recommande le film., Il n'a pas d'opinion.], answer: 1}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : la bibliothèque, lieu de vie"
+    text: |
+      Les bibliothèques se réinventent
+
+      Longtemps considérées comme des lieux silencieux réservés à la lecture,
+      les bibliothèques publiques ont été profondément transformées ces dernières
+      années. Aujourd'hui, on peut y emprunter des livres, mais aussi des jeux
+      de société, des instruments de musique ou des outils. Des ateliers de
+      conversation sont organisés pour les nouveaux arrivants, et des espaces
+      de création numérique sont mis à la disposition des jeunes.
+
+      En devenant de véritables lieux de rencontre, les bibliothèques attirent
+      un public plus varié. Leur fréquentation a d'ailleurs augmenté de 15 % en
+      cinq ans. Certains habitués regrettent cependant le calme d'autrefois ;
+      c'est pourquoi la plupart des établissements gardent une salle de lecture
+      silencieuse.
+    questions:
+      - kind: mcq
+        prompt: "Qu'est-ce qu'on peut emprunter aujourd'hui en bibliothèque ?"
+        options: ["Seulement des livres.", "Des livres, des jeux et des outils.", "Des ordinateurs portables uniquement."]
+        answer: 1
+      - kind: mcq
+        prompt: "Quelle activité est proposée aux nouveaux arrivants ?"
+        options: ["Des ateliers de conversation.", "Des cours de programmation.", "Des concerts."]
+        answer: 0
+      - kind: mcq
+        prompt: "Pourquoi garde-t-on une salle silencieuse ?"
+        options: ["Pour les étudiants en examen.", "C'est obligatoire.", "Certains usagers regrettent le calme d'avant."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : recommander un spectacle"
+    task: EE2
+    prompt: >
+      Vous avez vu un film, un spectacle ou une exposition qui vous a marqué.
+      Écrivez une critique pour le site d'un magazine culturel : présentez
+      l'œuvre, donnez vos impressions (points forts et points faibles) et dites
+      à qui vous la recommandez.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : organiser une sortie au festival (interaction)"
+    task: EO2
+    prompt: >
+      Vous voulez aller à un festival de musique avec des amis. L'examinateur
+      travaille au bureau d'information du festival. Posez-lui des questions
+      sur le programme, les dates, le prix des billets, les forfaits, l'accès en
+      transport en commun et les règles sur place (nourriture, enfants).
+    seconds: 210

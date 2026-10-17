@@ -22,7 +22,7 @@ Les terminaisons *-ais, -ait, -aient* se prononcent pareil [ɛ].
 ## Quand l'utiliser ?
 
 1. **Décrire** dans le passé (lieux, personnes, sentiments, temps qu'il faisait) :
-   *La maison **était** petite. Il **faisait** froid. J'**avais** peur du noir.*
+   *La maison **était** petite. Il **faisait** froid. J**'avais** peur du noir.*
 2. **Les habitudes** passées, souvent avec *avant, autrefois, d'habitude, tous les jours, le dimanche, souvent* :
    *Le dimanche, nous **allions** chez ma grand-mère.*
 3. **Comparer** avec aujourd'hui :

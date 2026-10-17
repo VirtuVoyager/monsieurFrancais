@@ -32,7 +32,7 @@ Le passé composé raconte une action **terminée** dans le passé : *Samedi, j'
 
 ## La négation
 
-*Ne… pas* entoure l'**auxiliaire** : *Je **n'**ai **pas** vu le film. Nous **n'**avons **jamais** mangé de poutine.*
+*Ne… pas* entoure l'**auxiliaire** : *Je **n**'ai **pas** vu le film. Nous **n**'avons **jamais** mangé de poutine.*
 
 ## Les marqueurs du récit
 

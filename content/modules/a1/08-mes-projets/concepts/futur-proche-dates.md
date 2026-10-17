@@ -19,7 +19,7 @@ Pour un projet ou une action proche, on conjugue **aller** au présent et on ajo
 Pour une action qui vient juste de se terminer :
 
 - *Je **viens de** finir mon travail.* (= il y a quelques minutes)
-- *Nous **venons d'**arriver au Canada.*
+- *Nous **venons d**'arriver au Canada.*
 - *Le cours **vient de** commencer.*
 
 ## Les expressions de temps

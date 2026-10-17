@@ -6,9 +6,9 @@ On les utilise pour une quantité qu'on ne compte pas (une partie d'une chose) :
 
 | masculin | féminin | devant une voyelle | pluriel |
 |---|---|---|---|
-| **du** pain | **de la** viande | **de l'**eau | **des** fruits |
+| **du** pain | **de la** viande | **de l**'eau | **des** fruits |
 
-- *Je mange **du** riz. Elle boit **de l'**eau. Nous achetons **des** légumes.*
+- *Je mange **du** riz. Elle boit **de l**'eau. Nous achetons **des** légumes.*
 - Avec les verbes de goût, on garde l'article **défini** : *J'aime **le** fromage* (en général), mais *Je mange **du** fromage* (une quantité).
 
 ## La négation
@@ -16,7 +16,7 @@ On les utilise pour une quantité qu'on ne compte pas (une partie d'une chose) :
 Après une négation, du / de la / de l' / des deviennent **de** (d') :
 
 - *Je bois du café.* → *Je **ne** bois **pas de** café.*
-- *Il y a de l'eau.* → *Il **n'**y a **plus d'**eau.*
+- *Il y a de l'eau.* → *Il **n**'y a **plus d**'eau.*
 
 ## Les quantités : toujours « de »
 
@@ -24,7 +24,7 @@ Après une quantité précise ou un adverbe de quantité, on utilise **de** seul
 
 | | |
 |---|---|
-| un kilo **de** pommes | une bouteille **d'**eau |
+| un kilo **de** pommes | une bouteille **d**'eau |
 | un litre **de** lait | une tranche **de** jambon |
 | un paquet **de** pâtes | une boîte **de** thon |
 | beaucoup **de** sucre | un peu **de** sel |
