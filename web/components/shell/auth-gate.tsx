@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { BookOpen } from "lucide-react";
+import Image from "next/image";
 import { useState, type FormEvent, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -46,10 +46,17 @@ function PassphraseForm({ firstTime, needsCode }: { firstTime: boolean; needsCod
     <div className="grid min-h-dvh place-items-center px-4">
       <Card className="w-full max-w-sm">
         <form onSubmit={onSubmit} className="space-y-4">
-          <div className="flex items-center gap-2">
-            <BookOpen className="size-6 text-accent" aria-hidden />
-            <h1 className="font-serif text-xl font-semibold">Monsieur Français</h1>
-          </div>
+          <h1>
+            <Image
+              src="/logo.svg"
+              alt="Monsieur Français"
+              width={170}
+              height={190}
+              priority
+              unoptimized
+              className="mx-auto"
+            />
+          </h1>
           <p className="text-sm text-muted">
             {firstTime
               ? "Choose a passphrase (8+ characters). It protects your recordings and progress."

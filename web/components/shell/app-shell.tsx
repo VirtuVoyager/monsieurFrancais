@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  BookOpen,
   Gauge,
   Home,
   Layers,
@@ -12,13 +11,13 @@ import {
   Settings,
   Timer,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { cx } from "@/components/ui/cx";
-import { api } from "@/lib/api/client";
-import { useQueryClient } from "@tanstack/react-query";
+import { useSignOut } from "@/lib/queries";
 
 // The phone bar has room for seven tabs; there, Notes is reached from the Library.
 const NAV: { href: string; label: string; icon: typeof Home; desktopOnly?: boolean }[] = [
@@ -42,7 +41,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="min-h-dvh md:grid md:grid-cols-[15rem_1fr]">
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-surface px-4 py-6 md:flex">
         <Link href="/" className="mb-8 flex items-center gap-2 px-2">
-          <BookOpen className="size-6 text-accent" aria-hidden />
+          <Image src="/mark.svg" alt="" width={36} height={36} unoptimized />
           <span className="font-serif text-lg font-semibold">Monsieur Français</span>
         </Link>
         <nav aria-label="Main" className="flex flex-col gap-1">
@@ -82,7 +81,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <header className="flex items-center justify-between border-b border-line bg-surface px-4 py-3 md:hidden">
         <Link href="/" className="flex items-center gap-2">
-          <BookOpen className="size-5 text-accent" aria-hidden />
+          <Image src="/mark.svg" alt="" width={30} height={30} unoptimized />
           <span className="font-serif font-semibold">Monsieur Français</span>
         </Link>
         {/* Notes and Settings live up here: the bottom bar has room for seven entries. */}
@@ -124,16 +123,11 @@ export function AppShell({ children }: { children: ReactNode }) {
 }
 
 function SignOut() {
-  const queryClient = useQueryClient();
-  const signOut = async () => {
-    await api.POST("/auth/logout");
-    queryClient.clear();
-    await queryClient.invalidateQueries();
-  };
+  const signOut = useSignOut();
   return (
     <button
       type="button"
-      onClick={signOut}
+      onClick={() => signOut.mutate(false)}
       className="rounded-xl px-3 py-2 text-left text-muted hover:bg-surface-2 hover:text-ink"
     >
       Sign out
