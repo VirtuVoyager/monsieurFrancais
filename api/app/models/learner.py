@@ -17,7 +17,17 @@ class User(CreatedAt, Base):
     # "owner" sees every module and feature; invited learners (later) get "learner".
     role: Mapped[str] = mapped_column(String(10), default=OWNER, server_default=OWNER)
     passphrase_hash: Mapped[str | None]
+    # Every session cookie carries this; bumping it signs out every device at once.
+    session_version: Mapped[int] = mapped_column(default=1, server_default="1")
     settings: Mapped[dict[str, Any]] = mapped_column(default=dict)
+
+
+# Passphrase and setup-code tries, kept in the database so a restart doesn't reset the limit.
+class LoginAttempt(CreatedAt, Base):
+    __tablename__ = "login_attempts"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    client: Mapped[str] = mapped_column(String(64), index=True)
 
 
 class ModuleProgress(Base):

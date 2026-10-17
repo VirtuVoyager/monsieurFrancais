@@ -340,3 +340,21 @@ export function useSearch(q: string, scope: "learned" | "catalogue" | "mine") {
     placeholderData: (previous) => previous,
   });
 }
+
+export function useChangePassphrase() {
+  return useMutation({
+    mutationFn: (body: Schemas["NewPassphrase"]) => unwrap(api.POST("/auth/passphrase", { body })),
+  });
+}
+
+export function useSignOut() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (everywhere: boolean) =>
+      unwrap(api.POST(everywhere ? "/auth/logout-everywhere" : "/auth/logout")),
+    onSuccess: async () => {
+      queryClient.clear();
+      await queryClient.invalidateQueries();
+    },
+  });
+}
