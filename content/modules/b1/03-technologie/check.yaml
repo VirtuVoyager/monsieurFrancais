@@ -1,0 +1,17 @@
+items:
+  - {slug: voudrions, skill: GR, kind: cloze, prompt: "Nous ___ réserver une salle informatique. (vouloir, conditionnel)", accepted: [voudrions]}
+  - {slug: devrais, skill: GR, kind: mcq, prompt: "Pour un conseil : « Tu ___ changer ton mot de passe. »",
+     options: [dois, devras, devrais], answer: 2}
+  - {slug: si-imparfait, skill: GR, kind: mcq, prompt: "Si nous ___ en ville, nous n'aurions pas de voiture.",
+     options: [habiterions, habitions, habiterons], answer: 1}
+  - {slug: resultat, skill: GR, kind: mcq, prompt: "S'il savait coder, il ___ son propre site.",
+     options: [créerait, créera, créait], answer: 0}
+  - {slug: serait, skill: GR, kind: cloze, prompt: "Ce ___ formidable de travailler à distance. (être, conditionnel)", accepted: [serait]}
+  - {slug: telecharger, skill: VO, kind: mcq, prompt: "Mettre une application d'internet sur son téléphone, c'est…",
+     options: [publier, télécharger, partager], answer: 1}
+  - {slug: fausse-nouvelle, skill: VO, kind: mcq, prompt: "Une information inventée qui circule en ligne, c'est…",
+     options: [une fausse nouvelle, une notification, un courriel], answer: 0}
+  - {slug: alerte-hameconnage, skill: CE, kind: mcq,
+     prompt: "« Votre banque ne vous demandera jamais votre mot de passe par courriel ou par texto. Si vous recevez un tel message, ne cliquez sur aucun lien et signalez-le. » Que faut-il faire si on reçoit un tel message ?",
+     options: [Répondre avec son mot de passe, Cliquer pour vérifier, Ne pas cliquer et le signaler], answer: 2}
+  - {slug: ordre-politesse, skill: GR, kind: order, words: ["Pourriez-vous", "m'expliquer", "comment", "ça fonctionne ?"], answer: "Pourriez-vous m'expliquer comment ça fonctionne ?"}

@@ -1,0 +1,15 @@
+items:
+  - {slug: tu-te-leves, skill: GR, kind: cloze, prompt: "Tu ___ lèves à quelle heure ? (pronom)", accepted: [te]}
+  - {slug: ils-vont, skill: GR, kind: mcq, prompt: "Ils ___ à l'école à pied.", options: [vont, allons, vas], answer: 0}
+  - {slug: vous-faites, skill: GR, kind: cloze, prompt: "Qu'est-ce que vous ___ le dimanche ? (faire)", accepted: [faites]}
+  - {slug: negation-pronominal, skill: GR, kind: mcq, prompt: "Phrase correcte :",
+     options: ["Je me ne couche pas tard.", "Je ne me couche pas tard.", "Je ne couche me pas tard."], answer: 1}
+  - {slug: heure-quart, skill: VO, kind: mcq, prompt: "Il est 9 h 45. Il est…",
+     options: [neuf heures et quart, neuf heures et demie, dix heures moins le quart], answer: 2}
+  - {slug: repas-midi, skill: VO, kind: mcq, prompt: "Le repas de midi, c'est le…",
+     options: [petit-déjeuner, déjeuner, dîner], answer: 1}
+  - {slug: tard, skill: VO, kind: mcq, prompt: "Le contraire de « tôt », c'est…", options: [tard, vite, souvent], answer: 0}
+  - {slug: horaire-piscine, skill: CE, kind: mcq,
+     prompt: "« Piscine municipale : ouverte du lundi au vendredi de 7 h à 21 h, le samedi de 9 h à 17 h. Fermée le dimanche. » Quand peut-on nager le dimanche ?",
+     options: [De 9 h à 17 h, Jamais, De 7 h à 21 h], answer: 1}
+  - {slug: ordre-habille, skill: GR, kind: order, words: ["s'habille", Elle, vite.], answer: "Elle s'habille vite."}

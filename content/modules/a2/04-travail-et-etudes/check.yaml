@@ -1,0 +1,16 @@
+items:
+  - {slug: lui-dire, skill: GR, kind: mcq, prompt: "« Tu as dit à Ahmed que la réunion est annulée ? — Oui, je ___ ai dit. »",
+     options: [le, lui, leur], answer: 1}
+  - {slug: leur-repondre, skill: GR, kind: cloze, prompt: "Les clients ont écrit ; je vais ___ répondre demain. (pronom)", accepted: [leur]}
+  - {slug: cod-coi, skill: GR, kind: mcq, prompt: "« Tu vois souvent ta directrice ? — Oui, je ___ vois tous les jours. »",
+     options: [lui, leur, la], answer: 2}
+  - {slug: savent, skill: GR, kind: cloze, prompt: "Ils ___ utiliser ce logiciel. (savoir)", accepted: [savent]}
+  - {slug: connaitre-ville, skill: GR, kind: mcq, prompt: "Vous ___ bien Ottawa ?", options: [savez, connaissez, connaît], answer: 1}
+  - {slug: entretien, skill: VO, kind: mcq, prompt: "Avant d'embaucher quelqu'un, l'entreprise fait un…",
+     options: [salaire, stage, entretien d'embauche], answer: 2}
+  - {slug: temps-partiel, skill: VO, kind: mcq, prompt: "Elle travaille 20 heures par semaine : elle travaille…",
+     options: [à temps partiel, à temps plein, en congé], answer: 0}
+  - {slug: note-service, skill: CE, kind: mcq,
+     prompt: "« À tous : la réunion de lundi est reportée à mardi, 14 h. Merci d'envoyer vos questions à Karine avant lundi midi. » Que faut-il faire avant lundi midi ?",
+     options: [Aller à la réunion, Envoyer ses questions à Karine, Appeler Karine], answer: 1}
+  - {slug: ordre-coi, skill: GR, kind: order, words: [ne, Je, "leur", "ai", pas, répondu.], answer: "Je ne leur ai pas répondu."}

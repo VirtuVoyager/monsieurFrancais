@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Exam-first French for TCF Canada",
     start_url: "/",
     display: "standalone",
-    background_color: "#0f141c",
+    background_color: "#fbf8ef",
     theme_color: "#161d28",
     icons: [{ src: "/icon", sizes: "512x512", type: "image/png" }],
   };

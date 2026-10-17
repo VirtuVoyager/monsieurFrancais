@@ -1,0 +1,106 @@
+slug: a2-02-en-voyage
+level: A2
+block: 1
+order: 10
+theme: Voyages
+title: En voyage
+summary: >
+  Raconter un voyage, réserver un hôtel, parler des transports et des
+  imprévus. Le passé composé avec être, l'accord du participe passé et les
+  verbes pronominaux au passé.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le passé composé avec être
+    concept: passe-compose-etre
+    exercises:
+      - {kind: cloze, prompt: "L'été dernier, nous ___ allés en Gaspésie. (être)", accepted: [sommes]}
+      - {kind: cloze, prompt: "Ma sœur est ___ à Vancouver hier. (arriver)", accepted: [arrivée]}
+      - kind: mcq
+        prompt: "Ils ___ partis à six heures du matin."
+        options: [ont, sont, avons]
+        answer: 1
+      - kind: mcq
+        prompt: "Elle s'est ___ tôt pour prendre l'avion."
+        options: [levé, levée, levés]
+        answer: 1
+        explanation: "Avec être, le participe s'accorde avec le sujet : elle s'est levée."
+      - kind: mcq
+        prompt: "Nous ___ visité trois villes."
+        options: [avons, sommes, êtes]
+        answer: 0
+        explanation: "Visiter n'est pas un verbe de mouvement de la liste : il prend avoir."
+      - {kind: order, words: [ne, Je, "suis", pas, sorti, "de l'hôtel."], answer: "Je ne suis pas sorti de l'hôtel."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : le voyage"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour raconter un voyage
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : un voyage compliqué"
+    transcript: >
+      Notre voyage à Paris a mal commencé ! Nous sommes arrivés à l'aéroport de
+      Montréal à dix-huit heures, mais le vol est parti avec trois heures de
+      retard. À Paris, ma valise n'est pas arrivée : elle est restée à Montréal !
+      Heureusement, la compagnie l'a livrée à l'hôtel le lendemain. Après ça,
+      tout s'est bien passé : nous sommes montés à la tour Eiffel et nous nous
+      sommes promenés le long de la Seine.
+    questions:
+      - {kind: mcq, prompt: "Quel était le premier problème ?", options: [Le vol était en retard., L'hôtel était fermé., Ils ont perdu leurs passeports.], answer: 0}
+      - {kind: mcq, prompt: "Où était la valise ?", options: [À l'hôtel, À Montréal, Dans un taxi], answer: 1}
+      - {kind: mcq, prompt: "Quand la valise est-elle arrivée à l'hôtel ?", options: [Le jour même, Une semaine après, Le jour suivant], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : une confirmation de réservation"
+    text: |
+      Auberge du Lac – Confirmation n° 4471
+
+      Bonjour M. Okafor,
+
+      Nous confirmons votre réservation d'une chambre double avec vue sur le lac,
+      du vendredi 18 au dimanche 20 juillet (2 nuits). Le petit-déjeuner est
+      compris. L'arrivée est possible à partir de 15 h et le départ doit se faire
+      avant 11 h. Le stationnement est gratuit. Pour une annulation gratuite,
+      prévenez-nous au moins 48 heures à l'avance.
+
+      Au plaisir de vous accueillir !
+    questions:
+      - kind: mcq
+        prompt: "Combien de nuits M. Okafor reste-t-il ?"
+        options: ["Une.", "Deux.", "Trois."]
+        answer: 1
+      - kind: mcq
+        prompt: "À quelle heure peut-il arriver au plus tôt ?"
+        options: ["À 15 h.", "À 11 h.", "À 18 h."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que doit-il faire pour annuler sans payer ?"
+        options: ["Appeler le jour de l'arrivée.", "Payer une petite somme.", "Prévenir deux jours avant."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : une carte postale"
+    task: EE1
+    prompt: >
+      Vous êtes en voyage. Écrivez un message à un ami : où vous êtes allé,
+      comment vous êtes arrivé, ce que vous avez visité et un petit problème
+      qui vous est arrivé.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mon plus beau voyage"
+    task: EO1
+    prompt: >
+      Parlez du plus beau voyage que vous avez fait : où, quand, avec qui, ce que
+      vous avez vu, et pourquoi il était spécial.
+    seconds: 120

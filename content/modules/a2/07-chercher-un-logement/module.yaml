@@ -1,0 +1,106 @@
+slug: a2-07-chercher-un-logement
+level: A2
+block: 2
+order: 15
+theme: Logement
+title: Chercher un logement
+summary: >
+  Comprendre une annonce, visiter un logement, poser des questions au
+  propriétaire et parler d'un bail. Les pronoms relatifs qui, que, où et les
+  pronoms y et en.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Qui, que, où, y et en
+    concept: relatifs-y-en
+    exercises:
+      - {kind: cloze, prompt: "C'est un appartement ___ a deux chambres. (relatif)", accepted: [qui]}
+      - {kind: cloze, prompt: "Le quartier ___ j'habite est très calme. (relatif)", accepted: [où]}
+      - kind: mcq
+        prompt: "La maison ___ nous avons visitée est trop chère."
+        options: [qui, que, où]
+        answer: 1
+      - kind: mcq
+        prompt: "« Vous allez à Gatineau demain ? — Oui, j'___ vais en autobus. »"
+        options: [y, en, le]
+        answer: 0
+      - kind: mcq
+        prompt: "« Il y a des laveuses dans l'immeuble ? — Oui, il y ___ a deux au sous-sol. »"
+        options: [y, les, en]
+        answer: 2
+        explanation: "En remplace un nom introduit par de / des, souvent avec une quantité : il y en a deux."
+      - {kind: order, words: ["n'en", Je, ai, pas, besoin.], answer: "Je n'en ai pas besoin."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la location"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour visiter un logement
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : un appel au propriétaire"
+    transcript: >
+      — Bonjour, je vous appelle pour l'annonce du quatre et demie sur la rue
+      Fleury. Il est toujours disponible ?
+      — Oui, il est libre à partir du premier juillet.
+      — Est-ce que le chauffage est inclus ?
+      — Oui, le chauffage et l'eau chaude sont inclus, mais pas l'électricité.
+      — Et pour le stationnement ?
+      — Il y en a un derrière l'immeuble, c'est cinquante dollars de plus par
+      mois. Vous voulez le visiter ? Je peux vous le montrer samedi matin.
+    questions:
+      - {kind: mcq, prompt: "Quand l'appartement est-il libre ?", options: [Le 1er juin, Tout de suite, Le 1er juillet], answer: 2}
+      - {kind: mcq, prompt: "Qu'est-ce qui n'est pas inclus ?", options: [L'électricité, Le chauffage, L'eau chaude], answer: 0}
+      - {kind: mcq, prompt: "Combien coûte le stationnement ?", options: [Il est gratuit., Cinquante dollars par mois, Cent dollars par mois], answer: 1}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : vos droits de locataire"
+    text: |
+      Locataires : ce qu'il faut savoir avant de signer un bail au Québec
+
+      Le bail est le contrat qui lie le locataire et le propriétaire. Il dure
+      généralement un an, du 1er juillet au 30 juin. Le propriétaire peut
+      demander le premier mois de loyer à l'avance, mais il ne peut pas exiger
+      de dépôt de sécurité. Avant de signer, visitez le logement et vérifiez
+      l'état des fenêtres, du chauffage et des appareils. Si vous voulez quitter
+      le logement à la fin du bail, vous devez prévenir le propriétaire par écrit,
+      entre trois et six mois avant la fin.
+    questions:
+      - kind: mcq
+        prompt: "Que peut demander le propriétaire avant l'arrivée ?"
+        options: ["Un dépôt de sécurité.", "Le premier mois de loyer.", "Trois mois de loyer."]
+        answer: 1
+      - kind: mcq
+        prompt: "Que conseille le texte avant de signer ?"
+        options: ["Visiter et vérifier le logement.", "Payer en espèces.", "Signer le plus vite possible."]
+        answer: 0
+      - kind: mcq
+        prompt: "Comment annoncer son départ à la fin du bail ?"
+        options: ["Par téléphone, un mois avant.", "Par écrit, un mois avant.", "Par écrit, trois à six mois avant."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : répondre à une annonce"
+    task: EE1
+    prompt: >
+      Vous avez vu une annonce pour un appartement qui vous intéresse. Écrivez au
+      propriétaire : présentez-vous, posez des questions (loyer, charges,
+      quartier, date) et proposez une date de visite.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : le logement idéal"
+    task: EO1
+    prompt: >
+      Décrivez le logement où vous habitez maintenant et le logement idéal que
+      vous cherchez (ou que vous aimeriez avoir). Qu'est-ce qui est important
+      pour vous ?
+    seconds: 120

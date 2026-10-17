@@ -1,0 +1,118 @@
+slug: b1-08-ville-ou-campagne
+level: B1
+block: 2
+order: 24
+theme: Société
+title: Ville ou campagne ?
+summary: >
+  Comparer la vie en ville et en région, débattre et défendre un point de vue
+  nuancé. Exprimer la concession et l'opposition (bien que, même si, malgré,
+  pourtant) et construire un argument en trois temps.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: La concession et l'opposition
+    concept: concession-opposition
+    exercises:
+      - kind: mcq
+        prompt: "Bien que la vie en ville ___ chère, beaucoup de jeunes s'y installent."
+        options: [est, soit, sera]
+        answer: 1
+        explanation: "Bien que est toujours suivi du subjonctif."
+      - kind: mcq
+        prompt: "Même si les loyers ___ moins élevés en région, les salaires le sont aussi."
+        options: [sont, soient, seraient]
+        answer: 0
+        explanation: "Même si est suivi de l'indicatif."
+      - {kind: cloze, prompt: "___ la distance, ils vont travailler en ville chaque jour. (despite)", accepted: [Malgré]}
+      - kind: mcq
+        prompt: "Il habite à la campagne ; ___, il n'a pas de voiture."
+        options: [donc, pourtant, car]
+        answer: 1
+      - kind: mcq
+        prompt: "En ville, on a accès à tout, ___ à la campagne, il faut souvent prendre la voiture."
+        options: [alors que, parce que, puisque]
+        answer: 0
+      - {kind: order, words: ["Bien qu'il", "fasse froid,", "nous", "sortons", "tous les jours."], answer: "Bien qu'il fasse froid, nous sortons tous les jours."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la ville et les régions"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour débattre
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : ils ont quitté Montréal"
+    transcript: >
+      Il y a trois ans, Kevin et Amina ont quitté leur petit appartement de
+      Montréal pour s'installer dans un village des Cantons-de-l'Est. « Avec le
+      télétravail, plus rien ne nous retenait en ville », explique Amina. Pour le
+      prix de leur ancien loyer, ils remboursent aujourd'hui l'hypothèque d'une
+      maison avec un grand terrain. Pourtant, tout n'est pas parfait. Bien que
+      le village soit charmant, les services sont limités : le médecin le plus
+      proche est à trente minutes et il n'y a pas de transport en commun. « On a
+      dû acheter une deuxième voiture, ce qui coûte cher. Mais malgré ces
+      inconvénients, on ne reviendrait pas en arrière : nos enfants jouent
+      dehors et on connaît tous nos voisins. »
+    questions:
+      - {kind: mcq, prompt: "Qu'est-ce qui a permis au couple de quitter la ville ?", options: [Un héritage, Le télétravail, La retraite], answer: 1}
+      - {kind: mcq, prompt: "Quel inconvénient mentionnent-ils ?", options: [L'éloignement des services, Le bruit, Les voisins difficiles], answer: 0}
+      - {kind: mcq, prompt: "Regrettent-ils leur décision ?", options: [Oui, ils veulent revenir en ville., Ils hésitent., Non, malgré les inconvénients.], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : les régions attirent les jeunes familles"
+    text: |
+      Exode urbain : effet de mode ou tendance durable ?
+
+      Pour la première fois depuis longtemps, plusieurs régions du Québec
+      accueillent plus de nouveaux résidents qu'elles n'en perdent. Le prix des
+      logements dans les grandes villes et la généralisation du travail à
+      distance expliquent en grande partie ce phénomène.
+
+      Pourtant, les élus régionaux restent prudents. Même si l'arrivée de jeunes
+      familles redonne vie aux villages, elle crée aussi de nouveaux besoins :
+      places en garderie, écoles, accès à internet haute vitesse. Dans certaines
+      municipalités, le prix des maisons a d'ailleurs fortement augmenté, si
+      bien que les habitants de longue date ont du mal à se loger. Les experts
+      estiment que la tendance se maintiendra, à condition que les services
+      suivent.
+    questions:
+      - kind: mcq
+        prompt: "Quelles sont les principales causes du phénomène ?"
+        options: ["Le climat et la nature.", "Le prix des logements en ville et le télétravail.", "Les impôts moins élevés en région."]
+        answer: 1
+      - kind: mcq
+        prompt: "Quel effet négatif est mentionné ?"
+        options: ["Les prix des maisons ont augmenté pour les habitants.", "Les écoles ont fermé.", "Les jeunes repartent en ville."]
+        answer: 0
+      - kind: mcq
+        prompt: "Selon les experts, la tendance va-t-elle durer ?"
+        options: ["Non, c'est une mode.", "Oui, dans tous les cas.", "Oui, si les services suivent."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : un texte argumentatif"
+    task: EE2
+    prompt: >
+      Un magazine pose la question : « Vaut-il mieux élever ses enfants en ville
+      ou à la campagne ? » Écrivez un texte pour donner votre opinion. Présentez
+      des arguments pour les deux côtés, avec des exemples, en utilisant des
+      mots de concession (bien que, même si, pourtant), puis concluez.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : exprimer un point de vue (débat)"
+    task: EO3
+    prompt: >
+      « Avec le télétravail, il n'y a plus de bonnes raisons de vivre dans une
+      grande ville. » Qu'en pensez-vous ? Donnez votre opinion, avec des
+      arguments et des exemples, et parlez aussi du point de vue opposé.
+    seconds: 270

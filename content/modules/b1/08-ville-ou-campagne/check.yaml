@@ -1,0 +1,16 @@
+items:
+  - {slug: bien-que, skill: GR, kind: mcq, prompt: "Bien que nous ___ loin, nous venons souvent vous voir.", options: [habitons, habitions, habiterons], answer: 1}
+  - {slug: meme-si, skill: GR, kind: mcq, prompt: "Même s'il ___, nous irons au marché.", options: [pleut, pleuve, pleuvrait], answer: 0}
+  - {slug: malgre, skill: GR, kind: cloze, prompt: "Ils ont acheté la maison ___ son prix élevé. (despite)", accepted: [malgré]}
+  - {slug: pourtant, skill: GR, kind: mcq, prompt: "Elle a un bon salaire ; ___, elle n'arrive pas à se loger en ville.",
+     options: [donc, parce que, pourtant], answer: 2}
+  - {slug: alors-que, skill: GR, kind: mcq, prompt: "Mon frère adore la ville ___ moi, je préfère la campagne.",
+     options: [alors que, puisque, malgré], answer: 0}
+  - {slug: inconvenient, skill: VO, kind: mcq, prompt: "Le contraire d'« avantage », c'est…",
+     options: [tendance, inconvénient, isolement], answer: 1}
+  - {slug: embouteillage, skill: VO, kind: mcq, prompt: "Beaucoup de voitures bloquées sur la route, c'est…",
+     options: [une garderie, une banlieue, un embouteillage], answer: 2}
+  - {slug: sondage, skill: CE, kind: mcq,
+     prompt: "« Selon un sondage, 40 % des citadins aimeraient vivre en région, mais seulement 8 % ont un projet concret de déménagement. » Que montre ce sondage ?",
+     options: [Beaucoup en rêvent, mais peu passent à l'action., La majorité va déménager., Les citadins n'aiment pas les régions.], answer: 0}
+  - {slug: ordre-malgre, skill: GR, kind: order, words: ["Malgré", "les inconvénients,", "nous", "ne regrettons rien."], answer: "Malgré les inconvénients, nous ne regrettons rien."}

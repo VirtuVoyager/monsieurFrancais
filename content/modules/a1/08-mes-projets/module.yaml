@@ -1,0 +1,101 @@
+slug: a1-08-mes-projets
+level: A1
+block: 2
+order: 8
+theme: Projets
+title: Mes projets
+summary: >
+  Parler de ses projets proches et de ce qu'on vient de faire : les dates, les
+  mois et les rendez-vous. Le futur proche (aller + infinitif) et le passé récent
+  (venir de + infinitif).
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le futur proche, le passé récent et les dates
+    concept: futur-proche-dates
+    exercises:
+      - {kind: cloze, prompt: "Demain, nous ___ visiter Québec. (aller, futur proche)", accepted: [allons]}
+      - {kind: cloze, prompt: "Le train ___ de partir : il n'est plus là ! (venir)", accepted: [vient]}
+      - kind: mcq
+        prompt: "Ce soir, je ___ regarder un film."
+        options: [vais, viens de, vas]
+        answer: 0
+      - kind: mcq
+        prompt: "Négation correcte :"
+        options: ["Je ne vais travailler pas.", "Je vais ne pas travailler demain.", "Je ne vais pas travailler demain."]
+        answer: 2
+        explanation: "Ne… pas entoure le verbe aller : je ne vais pas travailler."
+      - kind: mcq
+        prompt: "Mon anniversaire est ___ 14 mars."
+        options: [le, en, à]
+        answer: 0
+      - {kind: order, words: ["vont", "en juillet.", Ils, déménager], answer: "Ils vont déménager en juillet."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : le temps et les projets"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de ses projets
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : un message sur le répondeur"
+    transcript: >
+      Bonjour, c'est Léa ! Je viens d'arriver à Toronto pour mon nouveau travail.
+      La semaine prochaine, je vais chercher un appartement. Le samedi
+      vingt-deux, je vais organiser une petite fête pour mon anniversaire. Tu
+      vas venir ? Rappelle-moi ce soir après dix-neuf heures. Bisous !
+    questions:
+      - {kind: mcq, prompt: "Pourquoi Léa est-elle à Toronto ?", options: [Pour ses études, Pour un nouveau travail, Pour des vacances], answer: 1}
+      - {kind: mcq, prompt: "Que va-t-elle faire la semaine prochaine ?", options: [Chercher un appartement, Partir en voyage, Commencer son travail], answer: 0}
+      - {kind: mcq, prompt: "Quand fait-elle la fête ?", options: [Ce soir, Le samedi 12, Le samedi 22], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : un courriel de l'école de langues"
+    text: |
+      Objet : Votre inscription au cours de français
+
+      Madame Diallo,
+
+      Nous venons de recevoir votre inscription. Merci ! Votre cours commence le
+      lundi 8 septembre et finit le 12 décembre. Les cours ont lieu le lundi et
+      le mercredi, de 18 h à 20 h. Le premier jour, vous allez passer un petit
+      test de niveau. N'oubliez pas d'apporter une pièce d'identité.
+
+      L'équipe de l'École Horizon
+    questions:
+      - kind: mcq
+        prompt: "Quand le cours commence-t-il ?"
+        options: ["Le 12 décembre.", "Le 8 septembre.", "Le 18 septembre."]
+        answer: 1
+      - kind: mcq
+        prompt: "Qu'est-ce que Mme Diallo va faire le premier jour ?"
+        options: ["Payer le cours.", "Rencontrer les autres élèves.", "Passer un test de niveau."]
+        answer: 2
+      - kind: mcq
+        prompt: "Qu'est-ce qu'elle doit apporter ?"
+        options: ["Une pièce d'identité.", "Un dictionnaire.", "Une photo."]
+        answer: 0
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : mes projets pour l'été"
+    task: EE1
+    prompt: >
+      Écrivez un message à un ami pour lui raconter ce que vous venez de faire
+      cette semaine et ce que vous allez faire pendant les vacances d'été.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mes projets"
+    task: EO1
+    prompt: >
+      Parlez de vos projets : ce que vous allez faire ce week-end, cette année,
+      et pourquoi vous apprenez le français. Quand allez-vous passer le TCF ?
+    seconds: 60

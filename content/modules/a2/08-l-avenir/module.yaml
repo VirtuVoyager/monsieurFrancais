@@ -1,0 +1,103 @@
+slug: a2-08-l-avenir
+level: A2
+block: 2
+order: 16
+theme: Avenir
+title: L'avenir
+summary: >
+  Parler de ses projets à long terme, faire des prévisions et des promesses,
+  poser des conditions. Le futur simple et la phrase avec si + présent.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le futur simple et si + présent
+    concept: futur-simple
+    exercises:
+      - {kind: cloze, prompt: "L'année prochaine, je ___ en Alberta. (travailler)", accepted: [travaillerai]}
+      - {kind: cloze, prompt: "Nous ___ le TCF en mai. (passer)", accepted: [passerons]}
+      - kind: mcq
+        prompt: "Demain, il ___ beau."
+        options: [fera, faira, fait]
+        answer: 0
+      - kind: mcq
+        prompt: "Quand tu ___ au Canada, appelle-moi !"
+        options: [arriveras, arrives, arriverais]
+        answer: 0
+        explanation: "Après quand, pour le futur, on utilise le futur simple : quand tu arriveras."
+      - kind: mcq
+        prompt: "Si tu étudies tous les jours, tu ___ ton examen."
+        options: [réussis, réussiras, réussirais]
+        answer: 1
+      - {kind: order, words: [ira, "S'il", "fait beau,", "on", "à la plage."], answer: "S'il fait beau, on ira à la plage."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : projets et avenir"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de l'avenir
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : les projets de Rania"
+    transcript: >
+      Dans un an, j'aurai fini mes études d'infirmière, enfin, je l'espère ! Après,
+      je chercherai un poste dans un hôpital à Sherbrooke, parce que mon copain
+      y habite. Si je trouve du travail rapidement, nous achèterons une petite
+      maison avec un jardin. Plus tard, nous aurons sûrement des enfants. Et
+      quand j'aurai un peu d'argent, je ferai un grand voyage en Amérique du
+      Sud avec ma meilleure amie.
+    questions:
+      - {kind: mcq, prompt: "Quel métier Rania va-t-elle faire ?", options: [Médecin, Infirmière, Professeure], answer: 1}
+      - {kind: mcq, prompt: "Pourquoi veut-elle travailler à Sherbrooke ?", options: [Son copain y habite., Les salaires y sont meilleurs., Elle y est née.], answer: 0}
+      - {kind: mcq, prompt: "Avec qui fera-t-elle son grand voyage ?", options: [Avec ses enfants, Avec son copain, Avec sa meilleure amie], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : la ville en 2040"
+    text: |
+      À quoi ressemblera notre ville en 2040 ?
+
+      Selon le plan d'urbanisme présenté par la mairie, le centre-ville sera
+      presque sans voitures : il y aura plus de pistes cyclables, de rues
+      piétonnes et deux nouvelles lignes de tramway. Chaque quartier aura son
+      parc et son marché. Les nouveaux immeubles produiront une partie de leur
+      énergie grâce à des panneaux solaires. La mairie promet aussi que les
+      transports en commun seront gratuits pour les moins de 18 ans. Certains
+      commerçants ont peur de perdre des clients ; les habitants pourront
+      donner leur avis lors d'une consultation publique le 15 mars.
+    questions:
+      - kind: mcq
+        prompt: "Qu'est-ce qui va diminuer au centre-ville ?"
+        options: ["Les parcs.", "Les voitures.", "Les marchés."]
+        answer: 1
+      - kind: mcq
+        prompt: "Qui pourra utiliser les transports gratuitement ?"
+        options: ["Les jeunes de moins de 18 ans.", "Les personnes âgées.", "Tout le monde."]
+        answer: 0
+      - kind: mcq
+        prompt: "Qui n'est pas complètement d'accord avec le projet ?"
+        options: ["Les cyclistes.", "La mairie.", "Certains commerçants."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : ma vie dans cinq ans"
+    task: EE1
+    prompt: >
+      Un ami vous demande : « Comment imagines-tu ta vie dans cinq ans ? »
+      Répondez-lui : votre travail, votre logement, votre niveau de français et
+      un rêve que vous réaliserez.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : pourquoi le Canada ?"
+    task: EO1
+    prompt: >
+      Parlez de vos projets au Canada : où vous habiterez, quel travail vous
+      ferez, ce que vous ferez si vous obtenez votre résidence permanente.
+    seconds: 120

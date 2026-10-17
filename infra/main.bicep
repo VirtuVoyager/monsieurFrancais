@@ -211,6 +211,7 @@ resource api 'Microsoft.App/containerApps@2024-03-01' = if (deployApps) {
               { name: 'MF_SECRET_KEY', secretRef: 'secret-key' }
               { name: 'MF_SETUP_CODE', secretRef: 'setup-code' }
               { name: 'MF_COOKIE_SECURE', value: 'true' }
+              { name: 'MF_CONTENT_JOBS_ENABLED', value: 'true' }
               { name: 'MF_TIMEZONE', value: timezone }
               { name: 'MF_AZURE_OPENAI_ENDPOINT', value: azureOpenAiEndpoint }
               { name: 'MF_AZURE_OPENAI_API_KEY', secretRef: 'openai-key' }

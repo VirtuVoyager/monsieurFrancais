@@ -1,0 +1,102 @@
+slug: a2-03-chez-le-medecin
+level: A2
+block: 1
+order: 11
+theme: Santé
+title: Chez le médecin
+summary: >
+  Expliquer ses symptômes, prendre rendez-vous, comprendre un conseil médical.
+  Avoir mal à, les pronoms compléments directs (le, la, les), il faut et devoir.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Avoir mal à, les pronoms COD, il faut et devoir
+    concept: cod-il-faut
+    exercises:
+      - {kind: cloze, prompt: "J'ai mal ___ tête. (à + la)", accepted: [à la]}
+      - {kind: cloze, prompt: "Il a mal ___ dents. (à + les)", accepted: [aux]}
+      - kind: mcq
+        prompt: "« Tu prends tes médicaments ? — Oui, je ___ prends le matin. »"
+        options: [les, la, leur]
+        answer: 0
+      - kind: mcq
+        prompt: "« Vous voyez le médecin demain ? — Oui, je ___ vois à 10 h. »"
+        options: [la, lui, le]
+        answer: 2
+      - kind: mcq
+        prompt: "Pour guérir, il ___ vous reposer."
+        options: [faut, doit, devez]
+        answer: 0
+        explanation: "Il faut + infinitif est impersonnel : il faut se reposer, il faut vous reposer."
+      - {kind: order, words: [le, Je, prends, ne, "pas le soir."], answer: "Je ne le prends pas le soir."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : le corps et la santé"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles chez le médecin
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : la consultation"
+    transcript: >
+      — Bonjour, qu'est-ce qui ne va pas ?
+      — Depuis trois jours, j'ai mal à la gorge et j'ai de la fièvre la nuit.
+      — Vous toussez ?
+      — Oui, un peu, surtout le matin.
+      — Bon, ce n'est pas grave, c'est un virus. Vous devez boire beaucoup d'eau
+      et vous reposer. Je vous donne un sirop : prenez-le trois fois par jour.
+      Si la fièvre continue après le week-end, revenez me voir.
+    questions:
+      - {kind: mcq, prompt: "Depuis quand le patient est-il malade ?", options: [Depuis hier, Depuis trois jours, Depuis une semaine], answer: 1}
+      - {kind: mcq, prompt: "Qu'est-ce que le médecin donne ?", options: [Des antibiotiques, Un arrêt de travail, Un sirop], answer: 2}
+      - {kind: mcq, prompt: "Quand faut-il revenir ?", options: [Si la fièvre continue après le week-end, Demain matin, Dans un mois], answer: 0}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : la clinique sans rendez-vous"
+    text: |
+      Clinique médicale du Plateau – Service sans rendez-vous
+
+      Pour les problèmes de santé qui ne sont pas des urgences (rhume, petite
+      blessure, infection), venez sans rendez-vous du lundi au vendredi entre
+      8 h et 20 h. Présentez votre carte d'assurance maladie à l'accueil.
+      Le temps d'attente peut être de deux à quatre heures. En cas de douleur à
+      la poitrine ou de difficulté à respirer, appelez immédiatement le 911.
+      Pour un conseil, vous pouvez aussi téléphoner à Info-Santé au 811.
+    questions:
+      - kind: mcq
+        prompt: "Pour quels problèmes cette clinique est-elle prévue ?"
+        options: ["Les problèmes peu graves.", "Les urgences graves.", "Les opérations."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que faut-il montrer à l'accueil ?"
+        options: ["Son passeport.", "Sa carte d'assurance maladie.", "Une ordonnance."]
+        answer: 1
+      - kind: mcq
+        prompt: "Que faire si on a du mal à respirer ?"
+        options: ["Attendre à la clinique.", "Appeler le 811.", "Appeler le 911."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : prévenir de son absence"
+    task: EE1
+    prompt: >
+      Vous êtes malade et vous ne pouvez pas aller au travail (ou au cours)
+      aujourd'hui. Écrivez un courriel à votre responsable : expliquez vos
+      symptômes, ce que le médecin a dit et quand vous pensez revenir.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : rester en forme"
+    task: EO1
+    prompt: >
+      Parlez de votre santé et de vos habitudes : qu'est-ce que vous faites pour
+      rester en forme ? Racontez la dernière fois que vous avez été malade.
+    seconds: 120

@@ -1,0 +1,21 @@
+lemma,pos,gender,en,example_fr,example_en
+tête,noun,f,head,J'ai mal à la tête.,I have a headache.
+gorge,noun,f,throat,Elle a mal à la gorge.,She has a sore throat.
+dos,noun,m,back,Il a mal au dos depuis une semaine.,He has had back pain for a week.
+ventre,noun,m,stomach; belly,J'ai mal au ventre après le repas.,I have a stomach ache after the meal.
+dent,noun,f,tooth,Le dentiste soigne les dents.,The dentist treats teeth.
+fièvre,noun,f,fever,J'ai de la fièvre la nuit.,I have a fever at night.
+symptôme,noun,m,symptom,Quels sont vos symptômes ?,What are your symptoms?
+médicament,noun,m,medicine; medication,Prenez ce médicament le soir.,Take this medicine in the evening.
+ordonnance,noun,f,prescription,La pharmacienne lit l'ordonnance.,The pharmacist reads the prescription.
+pharmacien,noun,m,pharmacist,Demandez conseil au pharmacien.,Ask the pharmacist for advice.
+urgence,noun,f,emergency,"Pour une urgence, appelez le 911.","For an emergency, call 911."
+carte d'assurance maladie,noun,f,health insurance card,Présentez votre carte d'assurance maladie.,Show your health insurance card.
+blessure,noun,f,injury,C'est une petite blessure.,It's a minor injury.
+tousser,verb,,to cough,Je tousse surtout le matin.,I cough mostly in the morning.
+guérir,verb,,to heal; to get better,Il faut du repos pour guérir.,You need rest to get better.
+soigner,verb,,to treat; to look after,Le médecin soigne ses patients.,The doctor treats his patients.
+se casser,verb,,to break (a bone),Il s'est cassé la jambe au ski.,He broke his leg skiing.
+malade,adjective,,ill; sick,Je suis malade depuis lundi.,I've been ill since Monday.
+grave,adjective,,serious,Ce n'est pas grave.,It's not serious.
+depuis,preposition,,since; for (duration),J'ai mal au dos depuis deux jours.,I've had back pain for two days.

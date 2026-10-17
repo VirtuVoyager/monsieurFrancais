@@ -13,3 +13,8 @@ class Passphrase(BaseModel):
 
 class Setup(Passphrase):
     setup_code: str = Field(default="", max_length=200)
+
+
+class NewPassphrase(BaseModel):
+    current: str = Field(min_length=1, max_length=200)
+    new: str = Field(min_length=1, max_length=200)

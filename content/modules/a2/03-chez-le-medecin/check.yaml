@@ -1,0 +1,16 @@
+items:
+  - {slug: mal-au-dos, skill: GR, kind: mcq, prompt: "Je porte des boîtes lourdes : j'ai mal ___ dos.", options: [à la, aux, au], answer: 2}
+  - {slug: cod-les, skill: GR, kind: mcq, prompt: "« Vous avez vos résultats ? — Oui, je ___ ai reçus hier. »",
+     options: [les, leur, le], answer: 0}
+  - {slug: cod-neg, skill: GR, kind: mcq, prompt: "« Tu prends le sirop ? — Non, ___. »",
+     options: [je ne prends le pas, je ne le prends pas, je le ne prends pas], answer: 1}
+  - {slug: imperatif-le, skill: GR, kind: cloze, prompt: "Ce médicament ? Prenez-___ avant le repas. (pronom)", accepted: [le]}
+  - {slug: doivent, skill: GR, kind: cloze, prompt: "Les patients ___ attendre leur tour. (devoir)", accepted: [doivent]}
+  - {slug: ordonnance, skill: VO, kind: mcq, prompt: "Le papier du médecin pour acheter des médicaments, c'est…",
+     options: [une ordonnance, une urgence, une blessure], answer: 0}
+  - {slug: il-ne-faut-pas, skill: VO, kind: mcq, prompt: "« Il ne faut pas fumer à l'hôpital » veut dire :",
+     options: [On peut fumer., Ce n'est pas obligatoire de fumer., C'est interdit de fumer.], answer: 2}
+  - {slug: notice, skill: CE, kind: mcq,
+     prompt: "« Adultes : 1 comprimé toutes les 6 heures. Maximum 4 comprimés par jour. Ne pas donner aux enfants de moins de 12 ans. » Combien de comprimés un adulte peut-il prendre au maximum par jour ?",
+     options: ["6", "4", "12"], answer: 1}
+  - {slug: ordre-depuis, skill: GR, kind: order, words: [mal, "J'ai", "à la tête", depuis ce matin.], answer: "J'ai mal à la tête depuis ce matin."}

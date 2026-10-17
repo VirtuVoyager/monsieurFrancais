@@ -1,0 +1,114 @@
+slug: b1-01-s-installer-au-canada
+level: B1
+block: 1
+order: 17
+theme: Immigration
+title: S'installer au Canada
+summary: >
+  Raconter son arrivée et ses premières démarches, parler des difficultés et de
+  l'adaptation. Le récit au passé : passé composé et imparfait ensemble, et les
+  marqueurs chronologiques.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Passé composé ou imparfait ?
+    concept: pc-imparfait-recit
+    exercises:
+      - kind: mcq
+        prompt: "Quand je ___ à Montréal, il faisait moins vingt."
+        options: [suis arrivé, arrivais, arriverai]
+        answer: 0
+        explanation: "L'arrivée est un événement précis (passé composé) ; le froid est le décor (imparfait)."
+      - kind: mcq
+        prompt: "Je cherchais un appartement quand j'___ cette annonce."
+        options: [voyais, ai vu, vois]
+        answer: 1
+      - {kind: cloze, prompt: "Les premiers mois, je ___ seul et ma famille me manquait. (se sentir, imparfait)", accepted: [me sentais]}
+      - kind: mcq
+        prompt: "Pendant deux ans, elle ___ dans un restaurant, puis elle a trouvé un poste d'infirmière."
+        options: [a travaillé, travaillait, travaille]
+        answer: 0
+        explanation: "Une durée délimitée et terminée (pendant deux ans) prend le passé composé."
+      - {kind: cloze, prompt: "Nous dormions quand le téléphone ___. (sonner, passé composé)", accepted: [a sonné]}
+      - {kind: order, words: ["Il neigeait", "quand", "je suis sorti", "de l'aéroport."], answer: "Il neigeait quand je suis sorti de l'aéroport."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : l'immigration et les démarches"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour raconter son installation
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : le témoignage de Diego"
+    transcript: >
+      Je suis arrivé à Québec en janvier 2022 avec ma femme et notre fille. Il
+      faisait très froid et nous ne connaissions personne. Les premières
+      semaines ont été difficiles : il fallait trouver un logement, ouvrir un
+      compte bancaire, demander la carte d'assurance maladie… Heureusement, un
+      organisme d'aide aux immigrants nous a accompagnés dans toutes ces
+      démarches. Au début, je travaillais dans un entrepôt, alors que j'étais
+      ingénieur au Mexique. J'ai suivi des cours de francisation le soir pendant
+      un an, et l'année dernière, j'ai enfin obtenu un poste dans mon domaine.
+      Aujourd'hui, on se sent vraiment chez nous.
+    questions:
+      - {kind: mcq, prompt: "Comment était la situation de Diego à son arrivée ?", options: [Il avait déjà un emploi d'ingénieur., Il ne connaissait personne., Il habitait chez des amis.], answer: 1}
+      - {kind: mcq, prompt: "Qui l'a aidé dans ses démarches ?", options: [Un organisme d'aide aux immigrants, Son employeur, Ses voisins], answer: 0}
+      - {kind: mcq, prompt: "Qu'est-ce qui lui a permis de trouver un poste dans son domaine ?", options: [Un diplôme canadien, Un déménagement à Montréal, Des cours de français et de la persévérance], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : vos premières démarches"
+    text: |
+      Nouvel arrivant au Québec : par où commencer ?
+
+      Dès votre arrivée, demandez votre numéro d'assurance sociale (NAS) à
+      Service Canada : il est obligatoire pour travailler et pour recevoir des
+      prestations. Inscrivez-vous ensuite à la Régie de l'assurance maladie
+      (RAMQ). Attention : selon votre statut, un délai de carence peut
+      s'appliquer avant que vous soyez couvert ; il est donc prudent de
+      souscrire une assurance privée pour les premiers mois.
+
+      Si vous avez des enfants, inscrivez-les à l'école de votre quartier le
+      plus tôt possible. Enfin, les cours de francisation sont gratuits pour
+      les personnes immigrantes, et une aide financière est parfois offerte
+      pendant les cours à temps plein.
+    questions:
+      - kind: mcq
+        prompt: "Pourquoi le NAS est-il important ?"
+        options: ["Il permet de voter.", "Il est nécessaire pour travailler.", "Il donne accès aux cours de français."]
+        answer: 1
+      - kind: mcq
+        prompt: "Pourquoi le texte conseille-t-il une assurance privée ?"
+        options: ["La couverture publique n'est peut-être pas immédiate.", "L'assurance publique ne couvre pas les enfants.", "Elle est obligatoire pour les immigrants."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que dit le texte au sujet des cours de francisation ?"
+        options: ["Ils coûtent cher.", "Ils sont réservés aux étudiants.", "Ils sont gratuits pour les personnes immigrantes."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : un témoignage pour un blog"
+    task: EE2
+    prompt: >
+      Un blogue pour nouveaux arrivants publie des témoignages. Racontez votre
+      arrivée dans un nouveau pays ou une nouvelle ville (ou imaginez-la) : ce
+      que vous avez ressenti, les difficultés que vous avez rencontrées et ce
+      qui vous a aidé. Donnez un conseil aux lecteurs.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : demander des informations (interaction)"
+    task: EO2
+    prompt: >
+      Vous venez d'arriver dans une nouvelle ville au Québec. L'examinateur
+      travaille dans un organisme d'accueil pour les immigrants. Posez-lui des
+      questions pour savoir quels services l'organisme offre, comment trouver un
+      logement et des cours de français, et combien cela coûte.
+    seconds: 210
