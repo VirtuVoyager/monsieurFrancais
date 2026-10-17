@@ -1,0 +1,21 @@
+lemma,pos,gender,en,example_fr,example_en
+épicerie,noun,f,grocery store,L'épicerie est au coin de la rue.,The grocery store is on the corner.
+marché,noun,m,market,"Le samedi, je vais au marché.","On Saturdays, I go to the market."
+boulangerie,noun,f,bakery,J'achète du pain à la boulangerie.,I buy bread at the bakery.
+pain,noun,m,bread,Je voudrais du pain frais.,I would like some fresh bread.
+viande,noun,f,meat,Elle ne mange pas de viande.,She doesn't eat meat.
+poisson,noun,m,fish,"Le vendredi, nous mangeons du poisson.","On Fridays, we eat fish."
+légume,noun,m,vegetable,Il faut manger des légumes.,You should eat vegetables.
+fruit,noun,m,fruit,Je prends un fruit au dessert.,I have a fruit for dessert.
+fromage,noun,m,cheese,Vous avez du fromage ?,Do you have cheese?
+lait,noun,m,milk,Il n'y a plus de lait.,There is no more milk.
+eau,noun,f,water,"Une bouteille d'eau, s'il vous plaît.","A bottle of water, please."
+sucre,noun,m,sugar,Je prends mon café sans sucre.,I take my coffee without sugar.
+pomme de terre,noun,f,potato,Un kilo de pommes de terre.,A kilo of potatoes.
+bouteille,noun,f,bottle,Il achète une bouteille de jus.,He buys a bottle of juice.
+kilo,noun,m,kilo,"Deux kilos de pommes, s'il vous plaît.","Two kilos of apples, please."
+prix,noun,m,price,Quel est le prix de ce fromage ?,What is the price of this cheese?
+acheter,verb,,to buy,Nous achetons des fruits au marché.,We buy fruit at the market.
+coûter,verb,,to cost,Combien coûtent les fraises ?,How much are the strawberries?
+payer,verb,,to pay,Je peux payer par carte ?,Can I pay by card?
+cher,adjective,,expensive,Les fraises sont chères en hiver.,Strawberries are expensive in winter.

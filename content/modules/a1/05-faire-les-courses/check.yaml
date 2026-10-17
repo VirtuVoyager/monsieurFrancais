@@ -1,0 +1,15 @@
+items:
+  - {slug: de-la-salade, skill: GR, kind: mcq, prompt: "Je mange ___ salade.", options: [du, de la, des], answer: 1}
+  - {slug: de-l-eau, skill: GR, kind: cloze, prompt: "Vous voulez ___ eau ? (partitif)", accepted: ["de l'"]}
+  - {slug: pas-de-the, skill: GR, kind: mcq, prompt: "Elle ne boit pas ___ thé.", options: [du, de, le], answer: 1,
+     explanation: "À la négation : pas de."}
+  - {slug: beaucoup-de, skill: GR, kind: cloze, prompt: "Il y a beaucoup ___ monde au marché.", accepted: [de]}
+  - {slug: nous-pouvons, skill: GR, kind: mcq, prompt: "Nous ___ venir à 19 h.", options: [pouvez, peuvent, pouvons], answer: 2}
+  - {slug: voudrais, skill: VO, kind: mcq, prompt: "Au café, pour commander poliment :",
+     options: ["Je voudrais un thé.", "Je veux un thé !", "Donne un thé."], answer: 0}
+  - {slug: boulangerie, skill: VO, kind: mcq, prompt: "On achète du pain à la…",
+     options: [boucherie, boulangerie, pharmacie], answer: 1}
+  - {slug: promo, skill: CE, kind: mcq,
+     prompt: "« Promotion : 2 pizzas achetées, la 3e gratuite. » Combien de pizzas faut-il payer pour en avoir trois ?",
+     options: [Une, Trois, Deux], answer: 2}
+  - {slug: ordre-combien, skill: GR, kind: order, words: [coûtent, Combien, "les fraises ?"], answer: "Combien coûtent les fraises ?"}

@@ -1,0 +1,101 @@
+slug: a2-05-souvenirs-d-enfance
+level: A2
+block: 2
+order: 1
+theme: Souvenirs
+title: Souvenirs d'enfance
+summary: >
+  Décrire son enfance, ses habitudes d'autrefois et comparer avec aujourd'hui.
+  L'imparfait : formation, description et habitudes passées.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: L'imparfait
+    concept: imparfait
+    exercises:
+      - {kind: cloze, prompt: "Quand j'étais petit, j'___ dans un village. (habiter)", accepted: [habitais]}
+      - {kind: cloze, prompt: "Nous ___ au parc tous les dimanches. (aller)", accepted: [allions]}
+      - kind: mcq
+        prompt: "Ma grand-mère ___ très gentille."
+        options: [était, été, étais]
+        answer: 0
+      - kind: mcq
+        prompt: "Avant, ils ___ beaucoup de temps dehors."
+        options: [passaient, passent, ont passé]
+        answer: 0
+        explanation: "« Avant » et une habitude passée : imparfait."
+      - kind: mcq
+        prompt: "À dix ans, tu ___ quel sport ?"
+        options: [faisiez, faisais, faisait]
+        answer: 1
+      - {kind: order, words: ["Quand", "j'étais", "petite,", "je jouais", "dans la rue."], answer: "Quand j'étais petite, je jouais dans la rue."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : l'enfance et l'école"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour raconter ses souvenirs
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : grand-père raconte"
+    transcript: >
+      Quand j'étais enfant, en Haïti, la vie était très différente. Nous
+      n'avions pas de télévision. Le soir, toute la famille se réunissait dans la
+      cour et ma grand-mère racontait des histoires. L'école était à cinq
+      kilomètres, alors je marchais une heure chaque matin avec mes frères. Nous
+      n'avions pas beaucoup d'argent, mais nous étions heureux. Aujourd'hui, mes
+      petits-enfants ont des tablettes et ils ne marchent presque jamais !
+    questions:
+      - {kind: mcq, prompt: "Que faisait la famille le soir ?", options: [Elle regardait la télévision., Elle écoutait des histoires., Elle allait au cinéma.], answer: 1}
+      - {kind: mcq, prompt: "Comment allait-il à l'école ?", options: [En autobus, À vélo, À pied], answer: 2}
+      - {kind: mcq, prompt: "Comment décrit-il son enfance ?", options: [Pauvre mais heureuse, Riche et heureuse, Triste et difficile], answer: 0}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : mon école primaire"
+    text: |
+      Je me souviens bien de mon école primaire à Casablanca. C'était un vieux
+      bâtiment blanc avec une grande cour. Notre maîtresse s'appelait Mme Benali ;
+      elle était sévère, mais elle nous aimait beaucoup. Les cours commençaient
+      à huit heures et finissaient à seize heures. À midi, je rentrais manger
+      chez moi. Pendant la récréation, les filles jouaient à la corde à sauter
+      et les garçons jouaient au football. Je n'aimais pas les mathématiques,
+      mais j'adorais les cours de dessin.
+    questions:
+      - kind: mcq
+        prompt: "Comment était la maîtresse ?"
+        options: ["Stricte mais affectueuse.", "Gentille mais absente.", "Jeune et drôle."]
+        answer: 0
+      - kind: mcq
+        prompt: "Où l'auteur mangeait-il à midi ?"
+        options: ["À la cantine.", "Chez lui.", "Dans la cour."]
+        answer: 1
+      - kind: mcq
+        prompt: "Quelle matière préférait-il ?"
+        options: ["Les mathématiques.", "Le sport.", "Le dessin."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : un souvenir d'enfance"
+    task: EE1
+    prompt: >
+      Un site internet demande à ses lecteurs : « Comment était votre enfance ? »
+      Écrivez un court texte : où vous habitiez, comment était votre école, ce
+      que vous faisiez après l'école et pendant les vacances.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : avant et maintenant"
+    task: EO1
+    prompt: >
+      Parlez de votre enfance : votre ville, votre famille, vos jeux, vos
+      vacances. Qu'est-ce qui a changé entre votre vie d'enfant et votre vie
+      d'aujourd'hui ?
+    seconds: 120

@@ -1,0 +1,106 @@
+slug: a2-06-faire-des-achats
+level: A2
+block: 2
+order: 2
+theme: Consommation
+title: Faire des achats
+summary: >
+  Comparer des produits, acheter en magasin ou en ligne, échanger un article et
+  faire une réclamation simple. Le comparatif, le superlatif et les pronoms
+  démonstratifs.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le comparatif, le superlatif et les démonstratifs
+    concept: comparatif-superlatif
+    exercises:
+      - {kind: cloze, prompt: "Ce manteau est ___ cher que l'autre. (more)", accepted: [plus]}
+      - {kind: cloze, prompt: "Ce téléphone est ___ que l'ancien. (bon, comparatif)", accepted: [meilleur]}
+      - kind: mcq
+        prompt: "C'est la boutique ___ chère du quartier."
+        options: [la plus, le plus, plus]
+        answer: 0
+      - kind: mcq
+        prompt: "En ligne, on paie souvent ___ cher qu'en magasin."
+        options: [moins, mieux, meilleur]
+        answer: 0
+      - kind: mcq
+        prompt: "« Quelle robe préfères-tu ? — ___ -ci, la bleue. »"
+        options: [Celui, Celle, Ceux]
+        answer: 1
+      - {kind: order, words: [aussi, Ce sac, que, "est", "pratique", "l'autre."], answer: "Ce sac est aussi pratique que l'autre."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : les achats"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles en magasin
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : au service à la clientèle"
+    transcript: >
+      — Bonjour, j'ai acheté ce grille-pain la semaine dernière, mais il ne
+      fonctionne pas. Je voudrais l'échanger.
+      — Vous avez votre reçu ?
+      — Oui, le voici.
+      — D'accord. Malheureusement, nous n'avons plus ce modèle. Je peux vous
+      proposer celui-ci : il est un peu plus cher, mais il est de meilleure
+      qualité. Ou alors, je vous rembourse.
+      — Je préfère le remboursement, merci.
+    questions:
+      - {kind: mcq, prompt: "Quel est le problème ?", options: [L'appareil ne marche pas., Le prix est trop élevé., La couleur ne plaît pas.], answer: 0}
+      - {kind: mcq, prompt: "Pourquoi le client ne peut-il pas avoir le même modèle ?", options: [Il a perdu son reçu., Le magasin ne l'a plus., C'est trop tard.], answer: 1}
+      - {kind: mcq, prompt: "Que choisit le client ?", options: [Un autre modèle, Une réparation, Le remboursement], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : comparer deux offres"
+    text: |
+      Forfaits cellulaires – Promotion de septembre
+
+      Forfait Essentiel : 35 $ par mois, 10 Go de données, appels illimités au
+      Canada. Engagement de 12 mois.
+
+      Forfait Liberté : 45 $ par mois, 25 Go de données, appels illimités au
+      Canada et aux États-Unis. Sans engagement : vous pouvez annuler quand vous
+      voulez.
+
+      Pour les deux forfaits, les messages texte sont illimités et le premier
+      mois est gratuit si vous vous abonnez en ligne avant le 30 septembre.
+    questions:
+      - kind: mcq
+        prompt: "Quel forfait est le moins cher ?"
+        options: ["Le forfait Liberté.", "Le forfait Essentiel.", "Ils coûtent le même prix."]
+        answer: 1
+      - kind: mcq
+        prompt: "Quel est l'avantage du forfait Liberté ?"
+        options: ["Il est gratuit pendant un an.", "Il inclut un téléphone.", "On peut l'annuler à tout moment."]
+        answer: 2
+      - kind: mcq
+        prompt: "Comment avoir le premier mois gratuit ?"
+        options: ["S'abonner en ligne avant le 30 septembre.", "Choisir le forfait Essentiel.", "Aller en magasin."]
+        answer: 0
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : une réclamation"
+    task: EE1
+    prompt: >
+      Vous avez commandé un article en ligne, mais vous avez reçu le mauvais
+      produit (mauvaise taille ou couleur). Écrivez au service à la clientèle :
+      expliquez le problème et dites ce que vous voulez.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : en ligne ou en magasin ?"
+    task: EO1
+    prompt: >
+      Où préférez-vous faire vos achats : en magasin ou en ligne ? Comparez les
+      deux. Parlez du dernier achat important que vous avez fait.
+    seconds: 120

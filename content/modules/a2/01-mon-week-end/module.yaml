@@ -1,0 +1,100 @@
+slug: a2-01-mon-week-end
+level: A2
+block: 1
+order: 1
+theme: Récit personnel
+title: Raconter son week-end
+summary: >
+  Raconter ce qu'on a fait : un week-end, une soirée, une journée spéciale. Le
+  passé composé avec avoir, les participes passés réguliers et irréguliers, et
+  les marqueurs de temps du récit.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le passé composé avec avoir
+    concept: passe-compose-avoir
+    exercises:
+      - {kind: cloze, prompt: "Samedi, j'___ regardé un film avec ma sœur. (avoir)", accepted: [ai]}
+      - {kind: cloze, prompt: "Nous avons ___ une pizza. (prendre)", accepted: [pris]}
+      - kind: mcq
+        prompt: "Hier soir, ils ont ___ leurs devoirs."
+        options: [fait, faire, faisé]
+        answer: 0
+      - kind: mcq
+        prompt: "Tu as ___ ma lettre ?"
+        options: [lisé, lit, lu]
+        answer: 2
+      - kind: mcq
+        prompt: "Négation correcte :"
+        options: ["Je n'ai mangé pas.", "Je n'ai pas mangé.", "Je ne pas ai mangé."]
+        answer: 1
+        explanation: "Ne… pas entoure l'auxiliaire : je n'ai pas mangé."
+      - {kind: order, words: [avons, "Dimanche,", nous, "fait", "une randonnée."], answer: "Dimanche, nous avons fait une randonnée."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : sorties et activités"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour raconter
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : lundi matin au bureau"
+    transcript: >
+      — Salut Inès ! Tu as passé un bon week-end ?
+      — Oui, super ! Samedi matin, j'ai fait le marché avec mon copain, puis
+      l'après-midi, on a visité le nouveau musée d'art. Le soir, on a dîné chez
+      des amis. Et toi ?
+      — Moi, c'était plus calme. J'ai eu un rhume, alors j'ai dormi presque tout
+      le samedi. Dimanche, j'ai lu un roman et j'ai appelé mes parents.
+    questions:
+      - {kind: mcq, prompt: "Qu'est-ce qu'Inès a fait samedi après-midi ?", options: [Elle a fait le marché., Elle a visité un musée., Elle a dormi.], answer: 1}
+      - {kind: mcq, prompt: "Où Inès a-t-elle dîné samedi soir ?", options: [Au restaurant, Chez elle, Chez des amis], answer: 2}
+      - {kind: mcq, prompt: "Pourquoi le collègue a-t-il passé un week-end calme ?", options: [Il était malade., Il a travaillé., Il n'avait pas d'argent.], answer: 0}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : un avis sur un restaurant"
+    text: |
+      ★★★★☆ Une belle soirée au Bistro du Port
+
+      Samedi dernier, nous avons fêté l'anniversaire de mon mari au Bistro du
+      Port. Nous avons réservé une table sur la terrasse. J'ai choisi le saumon
+      et mon mari a pris le steak-frites : tout était délicieux. Le serveur a été
+      très gentil, mais nous avons attendu quarante minutes pour le plat
+      principal. Le prix est raisonnable. Nous allons revenir, c'est sûr !
+    questions:
+      - kind: mcq
+        prompt: "Pourquoi sont-ils allés au restaurant ?"
+        options: ["Pour un anniversaire.", "Pour un repas d'affaires.", "Pour fêter un nouveau travail."]
+        answer: 0
+      - kind: mcq
+        prompt: "Quel est le point négatif ?"
+        options: ["Le prix.", "L'attente.", "Le serveur."]
+        answer: 1
+      - kind: mcq
+        prompt: "Que pense la cliente du restaurant en général ?"
+        options: ["Elle ne va pas revenir.", "Elle trouve que c'est trop cher.", "Elle est satisfaite."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : raconter un week-end"
+    task: EE1
+    prompt: >
+      Un ami vous écrit : « Alors, ce week-end ? » Répondez-lui. Racontez ce que
+      vous avez fait samedi et dimanche, avec qui, et dites si vous avez aimé.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mon dernier week-end"
+    task: EO1
+    prompt: >
+      Racontez votre dernier week-end en détail : ce que vous avez fait, où, avec
+      qui, ce que vous avez mangé, et ce que vous avez aimé ou pas.
+    seconds: 120

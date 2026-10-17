@@ -1,0 +1,103 @@
+slug: a1-06-en-ville
+level: A1
+block: 2
+order: 2
+theme: Ville et transports
+title: En ville
+summary: >
+  Se repérer en ville, demander et donner son chemin, prendre les transports en
+  commun. À + article (au, à la, aux), venir de et l'impératif.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Au, à la, aux, venir de et l'impératif
+    concept: contractions-imperatif
+    exercises:
+      - {kind: cloze, prompt: "Je vais ___ cinéma ce soir. (à + le)", accepted: [au]}
+      - {kind: cloze, prompt: "Elle revient ___ États-Unis. (de + les)", accepted: [des]}
+      - kind: mcq
+        prompt: "Nous allons ___ pharmacie."
+        options: [au, à la, aux]
+        answer: 1
+      - kind: mcq
+        prompt: "Pour aller à la gare, ___ la première rue à droite."
+        options: [prends, prenez, prendre]
+        answer: 1
+        explanation: "On vouvoie une personne inconnue : prenez."
+      - kind: mcq
+        prompt: "Tu viens ___ bureau ?"
+        options: [de la, des, du]
+        answer: 2
+      - {kind: order, words: [tout droit, Continuez, jusqu'au feu.], answer: "Continuez tout droit jusqu'au feu."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la ville et les transports"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour demander son chemin
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : où est la bibliothèque ?"
+    transcript: >
+      — Pardon monsieur, la bibliothèque municipale, s'il vous plaît ?
+      — Ce n'est pas loin. Allez tout droit jusqu'au feu, puis tournez à gauche
+      dans la rue Saint-Denis. Continuez deux cents mètres. La bibliothèque est
+      à droite, en face du musée.
+      — C'est à combien de minutes à pied ?
+      — Cinq minutes environ.
+      — Merci beaucoup !
+    questions:
+      - {kind: mcq, prompt: "Où faut-il tourner à gauche ?", options: [Au feu, À la gare, Au musée], answer: 0}
+      - {kind: mcq, prompt: "Où est la bibliothèque ?", options: [À côté du musée, En face du musée, Derrière le musée], answer: 1}
+      - {kind: mcq, prompt: "Combien de temps faut-il ?", options: [Deux minutes, Vingt minutes, Cinq minutes], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : le message de Paul"
+    text: |
+      Salut Ana !
+
+      Pour venir chez moi samedi, prends la ligne orange du métro jusqu'à la
+      station Jean-Talon. Sors par la rue Bélanger. Ensuite, prends l'autobus 93
+      et descends au troisième arrêt. Mon immeuble est juste à côté de
+      l'épicerie. J'habite au 4e étage, appartement 12. Appelle-moi si tu es
+      perdue !
+
+      Paul
+    questions:
+      - kind: mcq
+        prompt: "Quel transport Ana prend-elle en premier ?"
+        options: ["L'autobus.", "Le métro.", "Le train."]
+        answer: 1
+      - kind: mcq
+        prompt: "Où Ana descend-elle de l'autobus ?"
+        options: ["Au troisième arrêt.", "À la station Jean-Talon.", "Au dernier arrêt."]
+        answer: 0
+      - kind: mcq
+        prompt: "Où est l'immeuble de Paul ?"
+        options: ["En face de la station.", "Loin de l'arrêt d'autobus.", "À côté de l'épicerie."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : expliquer le chemin"
+    task: EE1
+    prompt: >
+      Une amie vient chez vous pour la première fois. Écrivez-lui un message pour
+      expliquer comment venir de la gare (ou de l'arrêt d'autobus) jusqu'à chez
+      vous.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : ma ville"
+    task: EO1
+    prompt: >
+      Présentez votre ville ou votre quartier : ce qu'il y a (magasins, parcs,
+      services), comment vous vous déplacez et ce que vous aimez.
+    seconds: 60

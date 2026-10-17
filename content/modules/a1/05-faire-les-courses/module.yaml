@@ -1,0 +1,102 @@
+slug: a1-05-faire-les-courses
+level: A1
+block: 2
+order: 1
+theme: Alimentation
+title: Faire les courses
+summary: >
+  Acheter à manger au marché ou à l'épicerie, demander un prix et commander au
+  café. Les articles partitifs, les quantités et les verbes vouloir et pouvoir.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Les partitifs, les quantités, vouloir et pouvoir
+    concept: partitifs-quantites
+    exercises:
+      - {kind: cloze, prompt: "Le matin, je bois ___ café. (partitif)", accepted: [du]}
+      - {kind: cloze, prompt: "Je voudrais un kilo ___ tomates.", accepted: [de]}
+      - kind: mcq
+        prompt: "Tu manges ___ viande ?"
+        options: [du, de la, des]
+        answer: 1
+      - kind: mcq
+        prompt: "Non merci, je ne prends pas ___ sucre."
+        options: [de, du, le]
+        answer: 0
+        explanation: "À la négation, du / de la / des deviennent de."
+      - kind: mcq
+        prompt: "Est-ce que je ___ payer par carte ?"
+        options: [peux, veux, peut]
+        answer: 0
+      - {kind: order, words: [voudrais, Je, "d'eau,", une bouteille, "s'il vous plaît."], answer: "Je voudrais une bouteille d'eau, s'il vous plaît."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : les aliments et les commerces"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour acheter et commander
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : au marché"
+    transcript: >
+      — Bonjour madame, qu'est-ce que vous désirez ?
+      — Bonjour. Je voudrais un kilo de pommes et des fraises, s'il vous plaît.
+      — Une barquette de fraises ? Elles sont très bonnes aujourd'hui.
+      — Oui, une barquette. Et vous avez du fromage ?
+      — Non, désolé, pas de fromage. Ça fait huit dollars cinquante.
+      — Voilà dix dollars.
+      — Merci, et voici votre monnaie.
+    questions:
+      - {kind: mcq, prompt: "Combien de pommes la cliente achète-t-elle ?", options: [Un kilo, Deux kilos, Un demi-kilo], answer: 0}
+      - {kind: mcq, prompt: "Qu'est-ce que le vendeur n'a pas ?", options: [Des fraises, Des pommes, Du fromage], answer: 2}
+      - {kind: mcq, prompt: "Combien coûtent les achats ?", options: ["10 $", "8,50 $", "1,50 $"], answer: 1}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : la liste de courses"
+    text: |
+      Chéri,
+
+      Pour le souper de ce soir, il faut acheter : un poulet, un kilo de pommes
+      de terre, des carottes, une bouteille de lait et du pain. Il reste du riz,
+      alors ce n'est pas nécessaire. Prends aussi des croissants pour demain
+      matin ! L'épicerie ferme à 21 h. Merci !
+
+      Julie
+    questions:
+      - kind: mcq
+        prompt: "Pour quel repas Julie écrit-elle la liste ?"
+        options: ["Pour le petit-déjeuner.", "Pour le dîner du midi.", "Pour le repas du soir."]
+        answer: 2
+        explanation: "Au Québec, le souper est le repas du soir."
+      - kind: mcq
+        prompt: "Pourquoi ne faut-il pas acheter de riz ?"
+        options: ["Il y en a encore à la maison.", "Il est trop cher.", "L'épicerie n'en a pas."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que faut-il acheter pour demain matin ?"
+        options: ["Du lait.", "Des croissants.", "Du pain."]
+        answer: 1
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : une invitation à dîner"
+    task: EE1
+    prompt: >
+      Vous invitez des amis à dîner samedi. Écrivez-leur un message : dites ce
+      que vous allez préparer et demandez-leur d'apporter quelque chose.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mes habitudes alimentaires"
+    task: EO1
+    prompt: >
+      Parlez de ce que vous mangez d'habitude : le petit-déjeuner, le midi et le
+      soir. Où faites-vous les courses ? Quel est votre plat préféré ?
+    seconds: 60

@@ -1,0 +1,100 @@
+slug: a1-07-loisirs-et-meteo
+level: A1
+block: 2
+order: 3
+theme: Loisirs
+title: Loisirs et météo
+summary: >
+  Parler de ses loisirs, de ses goûts et du temps qu'il fait selon les saisons.
+  Poser des questions (est-ce que, inversion, mots interrogatifs), jouer à et
+  faire de.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Poser des questions, jouer à et faire de
+    concept: questions-loisirs
+    exercises:
+      - {kind: cloze, prompt: "___ est-ce que tu fais le week-end ? (what)", accepted: ["Qu'"]}
+      - {kind: cloze, prompt: "Je joue ___ soccer avec mes collègues. (à + le)", accepted: [au]}
+      - kind: mcq
+        prompt: "Elle fait ___ natation le mardi."
+        options: [du, de la, des]
+        answer: 1
+      - kind: mcq
+        prompt: "___ vas-tu au cinéma ? — Le vendredi soir."
+        options: [Où, Quand, Pourquoi]
+        answer: 1
+      - kind: mcq
+        prompt: "Question formelle correcte :"
+        options: ["Vous aimez lire ?", "Aimez-vous lire ?", "Aimez vous lire ?"]
+        answer: 1
+        explanation: "L'inversion met un trait d'union entre le verbe et le pronom : aimez-vous."
+      - {kind: order, words: ["Est-ce que", la musique, "aimez", "vous", "?"], answer: "Est-ce que vous aimez la musique ?"}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : les loisirs et la météo"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de ses goûts
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : la météo du week-end"
+    transcript: >
+      Voici la météo pour ce week-end à Montréal. Samedi, il fera beau et chaud :
+      vingt-six degrés et beaucoup de soleil. Une belle journée pour aller au
+      parc ou à la plage ! Dimanche, attention : il y aura des nuages le matin et
+      de la pluie l'après-midi. Il fera plus frais, environ dix-huit degrés.
+      Prenez votre parapluie !
+    questions:
+      - {kind: mcq, prompt: "Samedi, quel temps fait-il ?", options: ["Il pleut.", "Il fait beau.", "Il neige."], answer: 1}
+      - {kind: mcq, prompt: "Quelle température dimanche ?", options: [Environ 18 degrés, Environ 26 degrés, Environ 8 degrés], answer: 0}
+      - {kind: mcq, prompt: "Que conseille la radio pour dimanche ?", options: [D'aller à la plage, De rester au lit, De prendre un parapluie], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : le programme du centre communautaire"
+    text: |
+      Centre communautaire Rosemont – Activités d'hiver
+
+      - Patinage libre : samedi et dimanche, de 13 h à 16 h (gratuit)
+      - Cours de peinture pour adultes : mardi, 19 h (60 $ pour 8 cours)
+      - Club de lecture : premier jeudi du mois, 18 h 30
+      - Yoga doux : lundi et mercredi, 10 h
+
+      Inscription à l'accueil ou sur notre site internet.
+    questions:
+      - kind: mcq
+        prompt: "Quelle activité ne coûte rien ?"
+        options: ["Le patinage libre.", "Le cours de peinture.", "Le yoga doux."]
+        answer: 0
+      - kind: mcq
+        prompt: "Quand a lieu le club de lecture ?"
+        options: ["Tous les jeudis.", "Le mardi soir.", "Une fois par mois."]
+        answer: 2
+      - kind: mcq
+        prompt: "Comment peut-on s'inscrire ?"
+        options: ["Par téléphone seulement.", "À l'accueil ou en ligne.", "Par la poste."]
+        answer: 1
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : proposer une sortie"
+    task: EE1
+    prompt: >
+      Écrivez un message à un collègue pour lui proposer une activité ce
+      week-end. Dites quoi, où, quand, et posez-lui deux ou trois questions.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mes loisirs"
+    task: EO1
+    prompt: >
+      Parlez de vos loisirs : ce que vous aimez faire, quand, avec qui, et votre
+      saison préférée. Qu'est-ce que vous faites quand il fait mauvais ?
+    seconds: 60

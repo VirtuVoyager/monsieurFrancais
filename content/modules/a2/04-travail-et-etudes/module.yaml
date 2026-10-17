@@ -1,0 +1,104 @@
+slug: a2-04-travail-et-etudes
+level: A2
+block: 1
+order: 4
+theme: Travail
+title: Travail et études
+summary: >
+  Présenter son parcours, son poste et ses tâches, échanger avec des collègues.
+  Les pronoms compléments indirects (lui, leur), et les verbes savoir et
+  connaître.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Les pronoms COI, savoir et connaître
+    concept: coi-savoir-connaitre
+    exercises:
+      - kind: mcq
+        prompt: "« Tu as écrit au client ? — Oui, je ___ ai écrit ce matin. »"
+        options: [le, lui, leur]
+        answer: 1
+      - kind: mcq
+        prompt: "« Tu parles souvent à tes collègues ? — Oui, je ___ parle tous les jours. »"
+        options: [leur, les, lui]
+        answer: 0
+      - {kind: cloze, prompt: "Je ___ conduire, mais je n'ai pas de voiture. (savoir)", accepted: [sais]}
+      - {kind: cloze, prompt: "Vous ___ ma collègue Sarah ? (connaître)", accepted: [connaissez]}
+      - kind: mcq
+        prompt: "Est-ce que tu ___ où est la salle de réunion ?"
+        options: [connais, sais, sait]
+        answer: 1
+        explanation: "Savoir + où / quand / si / que ; connaître + nom (une personne, un lieu)."
+      - {kind: order, words: [lui, Je, "vais", téléphoner, demain.], answer: "Je vais lui téléphoner demain."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : le monde du travail"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de son travail
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : un premier jour"
+    transcript: >
+      Bienvenue dans l'équipe, Priya ! Je vais vous présenter vos collègues.
+      Voici Marc, notre chef de projet : vous allez lui envoyer vos rapports
+      chaque vendredi. Et voici Julie et Ahmed, les développeurs. Vous allez
+      travailler avec eux sur l'application mobile. Votre bureau est près de la
+      fenêtre. La réunion d'équipe a lieu tous les lundis à neuf heures trente.
+      Si vous avez une question, demandez-leur, ils sont très sympathiques.
+    questions:
+      - {kind: mcq, prompt: "Qui est Marc ?", options: [Un développeur, Le chef de projet, Le directeur], answer: 1}
+      - {kind: mcq, prompt: "Quand Priya envoie-t-elle ses rapports ?", options: [Chaque vendredi, Chaque lundi, Tous les jours], answer: 0}
+      - {kind: mcq, prompt: "Quand a lieu la réunion d'équipe ?", options: [Le vendredi à 9 h 30, Le lundi à 10 h 30, Le lundi à 9 h 30], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : une offre d'emploi"
+    text: |
+      Commis administratif(ve) – Temps plein – Laval
+
+      Notre entreprise de transport cherche un(e) commis pour son bureau de
+      Laval. Tâches : répondre au téléphone, accueillir les clients, classer
+      les documents et préparer les factures.
+      Profil : diplôme d'études secondaires, bonne connaissance d'Excel,
+      français et anglais. Une première expérience est un atout.
+      Horaire : du lundi au vendredi, de 8 h à 16 h. Salaire : 22 $ de l'heure.
+      Envoyez votre CV et une lettre de motivation avant le 30 avril.
+    questions:
+      - kind: mcq
+        prompt: "Qu'est-ce que la personne ne fera pas ?"
+        options: ["Répondre au téléphone.", "Préparer les factures.", "Conduire des camions."]
+        answer: 2
+      - kind: mcq
+        prompt: "L'expérience est-elle obligatoire ?"
+        options: ["Non, mais c'est un avantage.", "Oui, au moins deux ans.", "Oui, dans le transport."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que faut-il envoyer ?"
+        options: ["Un diplôme universitaire.", "Un CV et une lettre de motivation.", "Une photo."]
+        answer: 1
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : répondre à une offre"
+    task: EE1
+    prompt: >
+      Vous avez vu une offre d'emploi dans un café de votre quartier. Écrivez un
+      courriel au gérant : présentez-vous, parlez de votre expérience et de vos
+      disponibilités, et demandez un entretien.
+    min_words: 60
+    max_words: 90
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mon travail"
+    task: EO1
+    prompt: >
+      Parlez de votre travail ou de vos études : votre poste, vos tâches, vos
+      collègues, ce que vous aimez et ce que vous aimez moins. Quel est votre
+      parcours ?
+    seconds: 120

@@ -1,0 +1,14 @@
+items:
+  - {slug: moins-de, skill: GR, kind: mcq, prompt: "Il y a ___ clients le lundi que le samedi.", options: [moins de, moins, moins que], answer: 0}
+  - {slug: mieux, skill: GR, kind: mcq, prompt: "Ce nouvel ordinateur fonctionne ___ que l'ancien.", options: [meilleur, mieux, plus bon], answer: 1}
+  - {slug: la-plus, skill: GR, kind: cloze, prompt: "C'est la robe ___ plus élégante du magasin. (article)", accepted: [la]}
+  - {slug: aussi-que, skill: GR, kind: cloze, prompt: "Ce sac est ___ grand que le mien. (=)", accepted: [aussi]}
+  - {slug: ceux, skill: GR, kind: mcq, prompt: "« Tu aimes ces chaussures ? — Je préfère ___ en cuir. »",
+     options: [celles, ceux, celle], answer: 0}
+  - {slug: recu, skill: VO, kind: mcq, prompt: "Pour échanger un article, il faut souvent montrer le…",
+     options: [rabais, reçu, forfait], answer: 1}
+  - {slug: pointure, skill: VO, kind: mcq, prompt: "Pour des chaussures, on demande la…", options: [taille, caisse, pointure], answer: 2}
+  - {slug: politique-retour, skill: CE, kind: mcq,
+     prompt: "« Retours acceptés dans les 30 jours avec le reçu. Les articles en solde ne sont ni repris ni échangés. » Un client a acheté une chemise en solde. Que peut-il faire ?",
+     options: ["La retourner avec le reçu.", "L'échanger contre une autre.", "Rien : elle n'est ni reprise ni échangée."], answer: 2}
+  - {slug: ordre-meilleur, skill: GR, kind: order, words: [le meilleur, "C'est", de la ville., restaurant], answer: "C'est le meilleur restaurant de la ville."}

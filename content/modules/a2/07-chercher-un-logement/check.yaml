@@ -1,0 +1,15 @@
+items:
+  - {slug: qui-sujet, skill: GR, kind: mcq, prompt: "J'ai une voisine ___ travaille à l'hôpital.", options: [que, qui, où], answer: 1}
+  - {slug: que-cod, skill: GR, kind: cloze, prompt: "Le studio ___ tu as vu est déjà loué. (relatif)", accepted: [que]}
+  - {slug: ou-lieu, skill: GR, kind: mcq, prompt: "C'est la ville ___ je suis né.", options: [où, que, qui], answer: 0}
+  - {slug: y-lieu, skill: GR, kind: mcq, prompt: "« Tu habites à Sherbrooke ? — Oui, j'___ habite depuis 2023. »",
+     options: [en, le, y], answer: 2}
+  - {slug: en-quantite, skill: GR, kind: cloze, prompt: "« Tu as des colocataires ? — Oui, j'___ ai trois. » (pronom)", accepted: [en]}
+  - {slug: bail, skill: VO, kind: mcq, prompt: "Le contrat entre le locataire et le propriétaire s'appelle le…",
+     options: [dépôt, bail, loyer], answer: 1}
+  - {slug: emmenager, skill: VO, kind: mcq, prompt: "Le jour où on arrive dans un nouveau logement, on…",
+     options: [emménage, quitte, prévient], answer: 0}
+  - {slug: annonce-4-1-2, skill: CE, kind: mcq,
+     prompt: "« 4 ½ rénové, Rosemont. 1 250 $/mois, chauffé, éclairé. Non-fumeurs. Libre le 1er août. » Que veut dire « chauffé, éclairé » ?",
+     options: [Le chauffage et l'électricité sont inclus., L'appartement a beaucoup de fenêtres., Il fait chaud en été.], answer: 0}
+  - {slug: ordre-y, skill: GR, kind: order, words: ["n'y", Nous, allons, "pas ce soir."], answer: "Nous n'y allons pas ce soir."}

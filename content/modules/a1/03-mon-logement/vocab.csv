@@ -1,0 +1,22 @@
+lemma,pos,gender,en,example_fr,example_en
+logement,noun,m,housing; place to live,Je cherche un logement près du centre.,I am looking for a place near downtown.
+appartement,noun,m,apartment,Notre appartement a deux chambres.,Our apartment has two bedrooms.
+maison,noun,f,house,Mes parents ont une maison avec un jardin.,My parents have a house with a garden.
+pièce,noun,f,room,L'appartement a quatre pièces.,The apartment has four rooms.
+salon,noun,m,living room,Le salon est grand et lumineux.,The living room is big and bright.
+cuisine,noun,f,kitchen,La cuisine est petite mais moderne.,The kitchen is small but modern.
+chambre,noun,f,bedroom,Ma chambre donne sur la rue.,My bedroom looks onto the street.
+salle de bains,noun,f,bathroom,Il y a une seule salle de bains.,There is only one bathroom.
+étage,noun,m,floor; storey,J'habite au deuxième étage.,I live on the second floor.
+loyer,noun,m,rent,Le loyer est de mille dollars par mois.,The rent is a thousand dollars a month.
+quartier,noun,m,neighbourhood,Mon quartier est calme.,My neighbourhood is quiet.
+voisin,noun,m,neighbour,Mes voisins sont très gentils.,My neighbours are very kind.
+lit,noun,m,bed,Le lit est à côté de la fenêtre.,The bed is next to the window.
+armoire,noun,f,wardrobe,Il y a une armoire dans la chambre.,There is a wardrobe in the bedroom.
+canapé,noun,m,sofa,Le chat dort sur le canapé.,The cat sleeps on the sofa.
+fenêtre,noun,f,window,La fenêtre est grande.,The window is big.
+lumineux,adjective,,bright; full of light,C'est un appartement très lumineux.,It's a very bright apartment.
+calme,adjective,,quiet; calm,La rue est calme le soir.,The street is quiet in the evening.
+meublé,adjective,,furnished,Je loue un studio meublé.,I rent a furnished studio.
+déménager,verb,,to move (house),Nous déménageons en juillet.,We are moving in July.
+louer,verb,,to rent,Ils louent un appartement à Montréal.,They rent an apartment in Montreal.

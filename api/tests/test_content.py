@@ -33,6 +33,9 @@ def _words(text: str) -> list[str]:
 @pytest.mark.parametrize("source", SOURCES, ids=lambda s: s.slug)
 def test_every_exercise_in_repo_content_is_well_formed(source: Any) -> None:
     for ex in _exercises(source.meta, source.check_items):
+        # YAML reads a bare on / yes / no as a boolean; every choice must stay text.
+        assert all(isinstance(t, str) for t in ex.get("options", []) + ex.get("words", [])), ex
+        assert isinstance(ex.get("prompt", ""), str), ex
         if ex["kind"] == "mcq":
             assert 0 <= ex["answer"] < len(ex["options"]), ex
         elif ex["kind"] == "cloze":
@@ -41,6 +44,15 @@ def test_every_exercise_in_repo_content_is_well_formed(source: Any) -> None:
             assert _words(" ".join(ex["words"])) == _words(ex["answer"]), ex
         else:
             pytest.fail(f"unknown kind {ex['kind']}")
+
+
+@pytest.mark.parametrize("source", SOURCES, ids=lambda s: s.slug)
+def test_every_vocab_and_sentence_row_has_exactly_its_columns(source: Any) -> None:
+    # An unquoted comma in an example shifts the columns; DictReader files the rest under None.
+    for row in source.vocab + source.sentences:
+        assert None not in row and all(v is not None for v in row.values()), row
+    assert all(row["lemma"] and row["en"] and row["example_fr"] for row in source.vocab)
+    assert all(row["fr"] and row["en"] for row in source.sentences)
 
 
 @pytest.mark.parametrize("source", SOURCES, ids=lambda s: s.slug)

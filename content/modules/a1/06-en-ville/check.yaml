@@ -1,0 +1,13 @@
+items:
+  - {slug: aux-toilettes, skill: GR, kind: mcq, prompt: "Les enfants vont ___ toilettes.", options: [au, à la, aux], answer: 2}
+  - {slug: a-l-hopital, skill: GR, kind: cloze, prompt: "Mon père travaille ___ hôpital. (à + l')", accepted: ["à l'"]}
+  - {slug: du-travail, skill: GR, kind: mcq, prompt: "Je rentre ___ travail à 18 h.", options: [du, de le, de la], answer: 0}
+  - {slug: tournez, skill: GR, kind: cloze, prompt: "___ à droite après la banque. (tourner, vous, impératif)", accepted: [Tournez]}
+  - {slug: au-canada, skill: GR, kind: mcq, prompt: "Ils habitent ___ Canada.", options: [en, au, à], answer: 1}
+  - {slug: feu, skill: VO, kind: mcq, prompt: "Rouge, orange, vert : c'est le…", options: [coin, feu, billet], answer: 1}
+  - {slug: tout-droit, skill: VO, kind: mcq, prompt: "Pour ne pas tourner, on va…",
+     options: [à gauche, à droite, tout droit], answer: 2}
+  - {slug: travaux, skill: CE, kind: mcq,
+     prompt: "« Travaux : la station Mont-Royal est fermée jusqu'au 30 juin. Descendez à Laurier. » Que doivent faire les passagers ?",
+     options: [Descendre à une autre station, Attendre le 30 juin, Prendre la station Mont-Royal], answer: 0}
+  - {slug: ordre-gare, skill: GR, kind: order, words: [la gare, Où, "se trouve", "?"], answer: "Où se trouve la gare ?"}

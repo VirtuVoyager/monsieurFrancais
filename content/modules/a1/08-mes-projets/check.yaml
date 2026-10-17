@@ -1,0 +1,16 @@
+items:
+  - {slug: vont-partir, skill: GR, kind: cloze, prompt: "Mes parents ___ partir en voyage. (aller)", accepted: [vont]}
+  - {slug: viens-de, skill: GR, kind: mcq, prompt: "« Tu as mangé ? — Oui, je ___ manger. »",
+     options: [vais, viens de, vas], answer: 1}
+  - {slug: negation-futur, skill: GR, kind: mcq, prompt: "Phrase correcte :",
+     options: ["Il va ne pas pleuvoir.", "Il ne pleuvoir va pas.", "Il ne va pas pleuvoir."], answer: 2}
+  - {slug: pronominal-futur, skill: GR, kind: cloze, prompt: "Je vais ___ coucher tôt ce soir. (pronom)", accepted: [me]}
+  - {slug: en-juillet, skill: GR, kind: mcq, prompt: "Nous partons ___ juillet.", options: [en, le, au], answer: 0}
+  - {slug: prochain, skill: VO, kind: mcq, prompt: "Aujourd'hui, c'est lundi. Mardi, c'est…",
+     options: [hier, demain, le mois prochain], answer: 1}
+  - {slug: anniversaire, skill: VO, kind: mcq, prompt: "Le jour de votre naissance, chaque année, c'est votre…",
+     options: [rendez-vous, congé, anniversaire], answer: 2}
+  - {slug: rendez-vous, skill: CE, kind: mcq,
+     prompt: "« Rappel : votre rendez-vous chez le médecin est déplacé du mardi 4 au jeudi 6 juin, même heure. » Quel jour est le nouveau rendez-vous ?",
+     options: [Le jeudi 6 juin, Le mardi 4 juin, Le mardi 6 juin], answer: 0}
+  - {slug: ordre-venons, skill: GR, kind: order, words: ["d'arriver", Nous, venons, au Canada.], answer: "Nous venons d'arriver au Canada."}

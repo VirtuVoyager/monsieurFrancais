@@ -1,0 +1,97 @@
+slug: a1-04-ma-journee
+level: A1
+block: 1
+order: 4
+theme: Vie quotidienne
+title: Ma journée
+summary: >
+  Raconter sa routine du matin au soir et dire l'heure. Les verbes pronominaux
+  (se lever, se coucher) et les verbes aller et faire au présent.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Les verbes pronominaux, aller, faire et l'heure
+    concept: pronominaux-heure
+    exercises:
+      - {kind: cloze, prompt: "Je ___ lève à sept heures. (pronom)", accepted: [me]}
+      - {kind: cloze, prompt: "Nous ___ du sport le samedi. (faire)", accepted: [faisons]}
+      - kind: mcq
+        prompt: "Elle ___ au travail en métro."
+        options: [va, vais, vont]
+        answer: 0
+      - kind: mcq
+        prompt: "Vous ___ couchez tard ?"
+        options: [se, vous, nous]
+        answer: 1
+        explanation: "Le pronom réfléchi suit le sujet : vous vous couchez."
+      - kind: mcq
+        prompt: "Il est 8 h 30. Il est huit heures ___."
+        options: [et quart, moins le quart, et demie]
+        answer: 2
+      - {kind: order, words: [ne, Je, pas, me, réveille, tôt.], answer: "Je ne me réveille pas tôt."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la routine"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour raconter sa journée
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : la journée de Karim"
+    transcript: >
+      Je me lève à six heures et demie. Je prends une douche, je m'habille et je
+      prends mon petit-déjeuner : un café et des tartines. Je pars à sept heures
+      et quart et je vais au bureau en autobus. Je travaille de huit heures à
+      seize heures. Le soir, je fais la cuisine et je me couche vers onze heures.
+    questions:
+      - {kind: mcq, prompt: "À quelle heure Karim se lève-t-il ?", options: ["6 h 30", "7 h 15", "6 h 15"], answer: 0}
+      - {kind: mcq, prompt: "Comment va-t-il au bureau ?", options: [En métro, À pied, En autobus], answer: 2}
+      - {kind: mcq, prompt: "Que fait-il le soir ?", options: ["Il fait du sport.", "Il fait la cuisine.", "Il regarde la télé."], answer: 1}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : le blog de Mei"
+    text: |
+      Ma semaine à Ottawa
+
+      Du lundi au vendredi, je me réveille à six heures. Je vais à mon cours de
+      français à huit heures. L'après-midi, je travaille dans un café du
+      centre-ville. Le mercredi soir, je fais du yoga avec ma colocataire. Le
+      week-end, je me repose : je ne me lève jamais avant dix heures !
+    questions:
+      - kind: mcq
+        prompt: "Que fait Mei le matin en semaine ?"
+        options: ["Elle travaille dans un café.", "Elle va à son cours de français.", "Elle fait du yoga."]
+        answer: 1
+      - kind: mcq
+        prompt: "Quand fait-elle du yoga ?"
+        options: ["Le mercredi soir.", "Le samedi matin.", "Tous les jours."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que fait-elle le week-end ?"
+        options: ["Elle se lève à six heures.", "Elle travaille.", "Elle se lève tard."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : une journée typique"
+    task: EE1
+    prompt: >
+      Un ami francophone vous demande comment est votre vie au quotidien.
+      Décrivez une journée typique de la semaine, avec les heures : le matin,
+      l'après-midi et le soir.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : ma routine"
+    task: EO1
+    prompt: >
+      Racontez votre journée habituelle : l'heure du réveil, le travail ou les
+      études, les repas et ce que vous faites le soir.
+    seconds: 60
