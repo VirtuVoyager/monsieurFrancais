@@ -161,6 +161,100 @@
         }
       }
     },
+    "/auth/logout-everywhere": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Logout Everywhere",
+        "operationId": "logout_everywhere_auth_logout_everywhere_post",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/passphrase": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Change Passphrase",
+        "operationId": "change_passphrase_auth_passphrase_post",
+        "parameters": [
+          {
+            "name": "mf_session",
+            "in": "cookie",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Mf Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPassphrase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/budget": {
       "get": {
         "tags": [
@@ -3868,6 +3962,28 @@
           "check_score"
         ],
         "title": "ModuleSummary"
+      },
+      "NewPassphrase": {
+        "properties": {
+          "current": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Current"
+          },
+          "new": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "New"
+          }
+        },
+        "type": "object",
+        "required": [
+          "current",
+          "new"
+        ],
+        "title": "NewPassphrase"
       },
       "NextLesson": {
         "properties": {

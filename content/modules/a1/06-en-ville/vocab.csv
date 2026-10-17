@@ -1,0 +1,21 @@
+lemma,pos,gender,en,example_fr,example_en
+rue,noun,f,street,J'habite dans une petite rue.,I live on a small street.
+feu,noun,m,traffic light,Tournez à droite au feu.,Turn right at the lights.
+coin,noun,m,corner,La banque est au coin de la rue.,The bank is on the corner of the street.
+gare,noun,f,train station,La gare est loin d'ici ?,Is the station far from here?
+arrêt d'autobus,noun,m,bus stop,L'arrêt d'autobus est devant l'école.,The bus stop is in front of the school.
+métro,noun,m,subway; metro,Je prends le métro tous les jours.,I take the metro every day.
+billet,noun,m,ticket,Un billet coûte trois dollars.,A ticket costs three dollars.
+bibliothèque,noun,f,library,Je travaille à la bibliothèque.,I work at the library.
+hôpital,noun,m,hospital,L'hôpital est en face du parc.,The hospital is opposite the park.
+banque,noun,f,bank,Elle va à la banque.,She is going to the bank.
+mairie,noun,f,town hall,La mairie est au centre-ville.,The town hall is downtown.
+pharmacie,noun,f,pharmacy,Il y a une pharmacie près d'ici ?,Is there a pharmacy near here?
+centre-ville,noun,m,downtown; city centre,Nous allons au centre-ville.,We are going downtown.
+tourner,verb,,to turn,Tournez à gauche.,Turn left.
+traverser,verb,,to cross,Traversez la rue au feu.,Cross the street at the lights.
+descendre,verb,,to get off; to go down,Descendez au prochain arrêt.,Get off at the next stop.
+se trouver,verb,,to be located,Où se trouve la gare ?,Where is the station?
+tout droit,adverb,,straight ahead,Allez tout droit.,Go straight ahead.
+loin,adverb,,far,Ce n'est pas loin.,It isn't far.
+à pied,phrase,,on foot,J'y vais à pied.,I walk there.

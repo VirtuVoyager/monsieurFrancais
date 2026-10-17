@@ -1,0 +1,16 @@
+items:
+  - {slug: soyons, skill: GR, kind: cloze, prompt: "Il faut que nous ___ plus responsables. (être)", accepted: [soyons]}
+  - {slug: aille, skill: GR, kind: mcq, prompt: "Il est nécessaire que tout le monde ___ voter.", options: [va, aille, ira], answer: 1}
+  - {slug: prennent, skill: GR, kind: mcq, prompt: "Je souhaite que mes voisins ___ le vélo plus souvent.",
+     options: [prennent, prendront, prenaient], answer: 0}
+  - {slug: infinitif, skill: GR, kind: mcq, prompt: "Phrase correcte :",
+     options: ["Je veux que je change mes habitudes.", "Je veux que change mes habitudes.", "Je veux changer mes habitudes."], answer: 2}
+  - {slug: puissent, skill: GR, kind: cloze, prompt: "Il est important que les enfants ___ jouer dehors. (pouvoir)", accepted: [puissent]}
+  - {slug: gaspillage, skill: VO, kind: mcq, prompt: "Jeter de la nourriture encore bonne, c'est du…",
+     options: [recyclage, gaspillage, compost], answer: 1}
+  - {slug: usage-unique, skill: VO, kind: mcq, prompt: "Un gobelet « à usage unique » est un gobelet…",
+     options: [qu'on utilise une seule fois, réutilisable, en verre], answer: 0}
+  - {slug: collecte, skill: CE, kind: mcq,
+     prompt: "« À partir du 1er mai, la collecte des matières recyclables aura lieu toutes les deux semaines, le mercredi, au lieu de chaque semaine le lundi. » Qu'est-ce qui change ?",
+     options: [Le recyclage est supprimé., Le recyclage devient payant., La collecte est moins fréquente et change de jour.], answer: 2}
+  - {slug: ordre-subj, skill: GR, kind: order, words: ["Il est important", "que", "vous", "recycliez."], answer: "Il est important que vous recycliez."}

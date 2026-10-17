@@ -1,0 +1,16 @@
+items:
+  - {slug: finissaient, skill: GR, kind: mcq, prompt: "Les cours ___ à quinze heures.", options: [finissait, finissaient, finissions], answer: 1}
+  - {slug: etions, skill: GR, kind: cloze, prompt: "Nous ___ très contents de nos vacances. (être, imparfait)", accepted: [étions]}
+  - {slug: mangeais, skill: GR, kind: cloze, prompt: "Je ___ souvent chez ma tante. (manger, imparfait)", accepted: [mangeais]}
+  - {slug: habitude, skill: GR, kind: mcq, prompt: "« Avant, tous les samedis, nous ___ au marché. »",
+     options: [sommes allés, allions, allons], answer: 1}
+  - {slug: description, skill: GR, kind: mcq, prompt: "Description correcte du passé :",
+     options: ["Il a fait beau et la mer était calme.", "Il faisait beau et la mer était calme.", "Il fait beau et la mer a été calme."], answer: 1}
+  - {slug: grandir, skill: VO, kind: mcq, prompt: "« J'ai ___ à Dakar » = j'ai passé mon enfance à Dakar.",
+     options: [grandi, raconté, souvenu], answer: 0}
+  - {slug: autrefois, skill: VO, kind: mcq, prompt: "Le contraire de « maintenant » :",
+     options: [souvent, toujours, autrefois], answer: 2}
+  - {slug: temoignage, skill: CE, kind: mcq,
+     prompt: "« Enfant, je passais mes étés au chalet de mon oncle. On pêchait le matin et on se baignait l'après-midi. » De quoi parle la personne ?",
+     options: [De ses habitudes d'été, D'un seul voyage, De ses projets], answer: 0}
+  - {slug: ordre-imparfait, skill: GR, kind: order, words: [souvent, "Nous", allions, à la plage.], answer: "Nous allions souvent à la plage."}

@@ -42,10 +42,10 @@ def test_new_learner_sees_first_module_open_and_next_locked(
     _as_learner(seeded)
     path = client.get("/path").json()
 
-    modules = path["levels"][0]["modules"]
-    assert [m["status"] for m in modules] == ["open", "locked"]
+    statuses = [m["status"] for level in path["levels"] for m in level["modules"]]
+    assert statuses == ["open"] + ["locked"] * (len(statuses) - 1)
     assert path["next_lesson"]["lesson_id"] == f"{M1}/grammaire"
-    assert path["coverage"] == {"covered": 0, "total": 2, "percent": 0.0}
+    assert path["coverage"] == {"covered": 0, "total": len(statuses), "percent": 0.0}
 
 
 def test_locked_module_cannot_be_opened(client: TestClient, seeded: Session) -> None:
@@ -55,9 +55,9 @@ def test_locked_module_cannot_be_opened(client: TestClient, seeded: Session) -> 
 
 
 def test_the_owner_can_open_every_module(client: TestClient, seeded: Session) -> None:
-    modules = client.get("/path").json()["levels"][0]["modules"]
+    levels = client.get("/path").json()["levels"]
 
-    assert [m["status"] for m in modules] == ["open", "open"]
+    assert {m["status"] for level in levels for m in level["modules"]} == {"open"}
     assert client.get(f"/lessons/{M2}/grammaire").status_code == 200
 
 
@@ -96,7 +96,7 @@ def test_passing_the_check_covers_the_module_and_unlocks_the_next(
     assert completed["module"]["lessons_done"] == 7
     assert outcome["passed"] is True
     assert outcome["module"]["status"] == "covered"
-    assert [m["status"] for m in path["levels"][0]["modules"]] == ["covered", "open"]
+    assert [m["status"] for m in path["levels"][0]["modules"]][:2] == ["covered", "open"]
     assert path["coverage"]["covered"] == 1
 
 

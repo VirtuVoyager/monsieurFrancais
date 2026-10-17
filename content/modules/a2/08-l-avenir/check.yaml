@@ -1,0 +1,16 @@
+items:
+  - {slug: serons, skill: GR, kind: cloze, prompt: "En juin, nous ___ en vacances. (être, futur)", accepted: [serons]}
+  - {slug: viendront, skill: GR, kind: mcq, prompt: "Mes parents ___ nous voir à Noël.", options: [viendront, venront, viennent-ils], answer: 0}
+  - {slug: si-present, skill: GR, kind: mcq, prompt: "Si vous ___ le formulaire aujourd'hui, vous recevrez une réponse en mai.",
+     options: [enverrez, envoyez, enverriez], answer: 1}
+  - {slug: quand-futur, skill: GR, kind: mcq, prompt: "Quand je ___ à Montréal, je t'écrirai.",
+     options: [suis, serai, serais], answer: 1}
+  - {slug: pourras, skill: GR, kind: cloze, prompt: "Tu ___ venir avec nous ? (pouvoir, futur)", accepted: [pourras]}
+  - {slug: dans-deux-ans, skill: VO, kind: mcq, prompt: "Nous sommes en 2026. En 2028, c'est…",
+     options: [il y a deux ans, dans deux ans, depuis deux ans], answer: 1}
+  - {slug: economiser, skill: VO, kind: mcq, prompt: "Garder de l'argent pour plus tard, c'est…",
+     options: [dépenser, promettre, économiser], answer: 2}
+  - {slug: horoscope, skill: CE, kind: mcq,
+     prompt: "« Cette semaine, vous recevrez une bonne nouvelle au travail. Si vous êtes patient, vos efforts seront récompensés. » Ce texte parle…",
+     options: [Du passé, Du futur, Du présent seulement], answer: 1}
+  - {slug: ordre-futur, skill: GR, kind: order, words: [ferai, "Je", un grand voyage, "un jour."], answer: "Je ferai un grand voyage un jour."}

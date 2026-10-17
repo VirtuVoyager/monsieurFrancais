@@ -24,7 +24,6 @@ from sqlalchemy.orm import Session
 from app.config import get_settings
 from app.db import engine, get_session
 from app.main import create_app
-from app.services import auth
 from app.services.content import seed
 from app.services.users import current_user, get_or_create_learner
 
@@ -53,7 +52,6 @@ def session(connection: Connection) -> Iterator[Session]:
 
 @pytest.fixture
 def anon_client(session: Session) -> Iterator[TestClient]:
-    auth._attempts.clear()
     app = create_app()
     app.dependency_overrides[get_session] = lambda: session
     with TestClient(app) as test_client:

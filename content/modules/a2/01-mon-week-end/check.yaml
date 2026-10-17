@@ -1,0 +1,15 @@
+items:
+  - {slug: ont-choisi, skill: GR, kind: cloze, prompt: "Ils ont ___ un appartement près du métro. (choisir)", accepted: [choisi]}
+  - {slug: avez-vu, skill: GR, kind: mcq, prompt: "Vous avez ___ le dernier film de Denis Villeneuve ?", options: [vu, voir, vous], answer: 0}
+  - {slug: a-bu, skill: GR, kind: cloze, prompt: "Elle a ___ un thé. (boire)", accepted: [bu]}
+  - {slug: neg-pc, skill: GR, kind: mcq, prompt: "Phrase correcte :",
+     options: ["Nous n'avons pas compris.", "Nous avons ne pas compris.", "Nous n'avons compris pas."], answer: 0}
+  - {slug: auxiliaire, skill: GR, kind: mcq, prompt: "Tu ___ écrit à ta grand-mère ?", options: [es, as, a], answer: 1}
+  - {slug: ensuite, skill: VO, kind: mcq, prompt: "« D'abord, j'ai mangé. ___, j'ai fait la vaisselle. »",
+     options: [Hier, Ensuite, Il y a], answer: 1}
+  - {slug: il-y-a, skill: VO, kind: mcq, prompt: "Nous sommes le 10 mai. Le 3 mai, c'était…",
+     options: [la semaine prochaine, dans une semaine, il y a une semaine], answer: 2}
+  - {slug: carte-postale, skill: CE, kind: mcq,
+     prompt: "« Hier, nous avons visité les chutes du Niagara. Il a fait beau, mais nous avons été mouillés par l'eau des chutes ! » Pourquoi étaient-ils mouillés ?",
+     options: [À cause de la pluie, À cause des chutes, Ils ont nagé], answer: 1}
+  - {slug: ordre-pc, skill: GR, kind: order, words: [pas, "Je n'ai", fini, mon travail.], answer: "Je n'ai pas fini mon travail."}

@@ -7,7 +7,7 @@ import { Button, ButtonLink } from "@/components/ui/button";
 import { Card, SectionTitle } from "@/components/ui/card";
 import { ErrorState, Loading } from "@/components/ui/states";
 import type { Schemas } from "@/lib/api/client";
-import { useSettings, useUpdateSettings } from "@/lib/queries";
+import { useChangePassphrase, useSettings, useSignOut, useUpdateSettings } from "@/lib/queries";
 
 const input =
   "mt-1 w-full rounded-xl border border-line bg-surface px-3 py-2 outline-none focus:border-accent";
@@ -29,7 +29,102 @@ export function SettingsPage() {
           Budget
         </ButtonLink>
       </Card>
+      <SecurityCard />
     </div>
+  );
+}
+
+function SecurityCard() {
+  const change = useChangePassphrase();
+  const signOut = useSignOut();
+  const [current, setCurrent] = useState("");
+  const [next, setNext] = useState("");
+  const [repeat, setRepeat] = useState("");
+  const mismatch = repeat !== "" && repeat !== next;
+
+  const submit = (event: FormEvent) => {
+    event.preventDefault();
+    change.mutate(
+      { current, new: next },
+      {
+        onSuccess: () => {
+          setCurrent("");
+          setNext("");
+          setRepeat("");
+        },
+      },
+    );
+  };
+
+  return (
+    <Card className="space-y-5">
+      <SectionTitle>Sign-in and security</SectionTitle>
+      <form onSubmit={submit} className="space-y-4">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <label className="block text-sm font-medium">
+            Current passphrase
+            <input
+              type="password"
+              autoComplete="current-password"
+              value={current}
+              onChange={(e) => setCurrent(e.target.value)}
+              className={input}
+            />
+          </label>
+          <label className="block text-sm font-medium">
+            New passphrase
+            <input
+              type="password"
+              autoComplete="new-password"
+              minLength={8}
+              value={next}
+              onChange={(e) => setNext(e.target.value)}
+              className={input}
+            />
+          </label>
+          <label className="block text-sm font-medium">
+            New passphrase again
+            <input
+              type="password"
+              autoComplete="new-password"
+              value={repeat}
+              onChange={(e) => setRepeat(e.target.value)}
+              className={input}
+            />
+          </label>
+        </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            type="submit"
+            disabled={!current || next.length < 8 || next !== repeat || change.isPending}
+          >
+            Change passphrase
+          </Button>
+          {mismatch && <span className="text-sm text-danger">The new passphrases differ</span>}
+          {change.isSuccess && (
+            <span role="status" className="text-sm text-success">
+              Changed. Your other devices are signed out.
+            </span>
+          )}
+          {change.isError && (
+            <span role="alert" className="text-sm text-danger">
+              {change.error.message}
+            </span>
+          )}
+        </div>
+      </form>
+      <div className="flex flex-wrap items-center gap-3 border-t border-line pt-4">
+        <Button variant="secondary" onClick={() => signOut.mutate(false)}>
+          Sign out
+        </Button>
+        <Button variant="secondary" onClick={() => signOut.mutate(true)}>
+          Sign out everywhere
+        </Button>
+        <p className="text-sm text-muted">
+          Everywhere ends every session on every device, including this one.
+        </p>
+      </div>
+    </Card>
   );
 }
 

@@ -1,0 +1,99 @@
+slug: a1-03-mon-logement
+level: A1
+block: 1
+order: 3
+theme: Logement
+title: Mon logement
+summary: >
+  Décrire son appartement ou sa maison : les pièces, les meubles et le quartier.
+  Il y a, les prépositions de lieu et l'accord des adjectifs.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Il y a, les prépositions de lieu et les adjectifs
+    concept: il-y-a-lieu-adjectifs
+    exercises:
+      - {kind: cloze, prompt: "Dans ma chambre, il y ___ un lit et un bureau.", accepted: [a]}
+      - kind: mcq
+        prompt: "Il n'y a pas ___ jardin."
+        options: [un, de, le]
+        answer: 1
+        explanation: "Après « il n'y a pas », un / une / des deviennent de."
+      - {kind: cloze, prompt: "La cuisine est petite mais très ___. (lumineux)", accepted: [lumineuse]}
+      - kind: mcq
+        prompt: "J'habite dans un ___ appartement."
+        options: [grand, grande, grands]
+        answer: 0
+        explanation: "Appartement est masculin singulier, et grand se place avant le nom."
+      - kind: mcq
+        prompt: "Le chat dort ___ le canapé."
+        options: [sous, dans, entre]
+        answer: 0
+      - {kind: order, words: ["la", "fenêtre.", "est", "à côté de", "Le bureau"], answer: "Le bureau est à côté de la fenêtre."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : la maison et le quartier"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour décrire son logement
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : la visite d'un appartement"
+    transcript: >
+      Alors, voici l'appartement. Il est au troisième étage, il y a un
+      ascenseur. Ici, c'est le salon, il est grand et lumineux. La cuisine est à
+      droite, elle est petite mais moderne. Il y a deux chambres et une salle de
+      bains. Le loyer est de mille deux cents dollars par mois, chauffage compris.
+    questions:
+      - {kind: mcq, prompt: "À quel étage est l'appartement ?", options: [au premier, au deuxième, au troisième], answer: 2}
+      - {kind: mcq, prompt: "Comment est la cuisine ?", options: ["Grande et ancienne.", "Petite et moderne.", "Grande et lumineuse."], answer: 1}
+      - {kind: mcq, prompt: "Combien de chambres y a-t-il ?", options: [deux, une, trois], answer: 0}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : une annonce de colocation"
+    text: |
+      Colocation à Québec – chambre libre le 1er juillet
+
+      Nous sommes deux étudiantes et nous cherchons une troisième colocataire.
+      La chambre est meublée : un lit, une armoire et un bureau. La cuisine et le
+      salon sont communs. L'appartement est près de l'université et à cinq
+      minutes à pied d'un arrêt d'autobus. Le loyer est de 550 $ par mois,
+      internet compris. Pas d'animaux, s'il vous plaît.
+    questions:
+      - kind: mcq
+        prompt: "Qui écrit l'annonce ?"
+        options: ["Un propriétaire.", "Deux étudiantes.", "Une famille."]
+        answer: 1
+      - kind: mcq
+        prompt: "Qu'est-ce qu'il y a dans la chambre ?"
+        options: ["Un lit, une armoire et un bureau.", "Un lit et un canapé.", "Rien, elle est vide."]
+        answer: 0
+      - kind: mcq
+        prompt: "Qu'est-ce qui n'est pas accepté ?"
+        options: ["Les fumeurs.", "Les étudiants.", "Les animaux."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : décrire son logement"
+    task: EE1
+    prompt: >
+      Vous venez d'emménager. Écrivez un message à un ami pour décrire votre
+      nouveau logement : les pièces, ce qu'il y a dans votre chambre et le
+      quartier.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : chez moi"
+    task: EO1
+    prompt: >
+      Décrivez votre logement : maison ou appartement, combien de pièces, votre
+      pièce préférée et pourquoi, et ce qu'il y a dans votre quartier.
+    seconds: 60

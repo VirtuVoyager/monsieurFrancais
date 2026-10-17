@@ -1,0 +1,15 @@
+items:
+  - {slug: il-y-a, skill: GR, kind: cloze, prompt: "Dans le salon, il ___ a un canapé.", accepted: [y]}
+  - {slug: pas-de-jardin, skill: GR, kind: mcq, prompt: "Il n'y a pas ___ ascenseur.", options: [un, d', l'], answer: 1,
+     explanation: "Après la négation : pas de, et d' devant une voyelle."}
+  - {slug: grande-maison, skill: GR, kind: mcq, prompt: "Ils ont une ___ maison.", options: [grande, grand, grands], answer: 0}
+  - {slug: lumineuses, skill: GR, kind: cloze, prompt: "Les chambres sont ___. (lumineux)", accepted: [lumineuses]}
+  - {slug: a-cote-du, skill: GR, kind: mcq, prompt: "La cuisine est à côté ___ salon.", options: [de le, du, de la], answer: 1,
+     explanation: "De + le se contracte en du."}
+  - {slug: loyer, skill: VO, kind: mcq, prompt: "L'argent qu'on paie chaque mois pour un appartement, c'est le ___.",
+     options: [quartier, loyer, étage], answer: 1}
+  - {slug: chambre, skill: VO, kind: mcq, prompt: "On dort dans la ___.", options: [cuisine, salle de bains, chambre], answer: 2}
+  - {slug: annonce-studio, skill: CE, kind: mcq,
+     prompt: "« Studio meublé à louer, 3e étage sans ascenseur, près du métro. » Qu'est-ce qu'il n'y a pas ?",
+     options: [de meubles, d'ascenseur, de métro], answer: 1}
+  - {slug: ordre-lit, skill: GR, kind: order, words: [la fenêtre., Le lit, sous, est], answer: "Le lit est sous la fenêtre."}

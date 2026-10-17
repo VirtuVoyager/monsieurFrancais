@@ -1,0 +1,14 @@
+items:
+  - {slug: sont-venues, skill: GR, kind: mcq, prompt: "Mes cousines ___ nous voir en août.", options: [ont venu, sont venues, sont venus], answer: 1}
+  - {slug: est-nee, skill: GR, kind: cloze, prompt: "Ma fille est ___ à Calgary en 2020. (naître)", accepted: [née]}
+  - {slug: s-est-amuse, skill: GR, kind: mcq, prompt: "Les enfants ___ amusés à la plage.", options: [se sont, ont, se ont], answer: 0}
+  - {slug: avons-pris, skill: GR, kind: mcq, prompt: "Nous ___ pris le train pour Québec.", options: [sommes, avons, êtes], answer: 1}
+  - {slug: tombee, skill: GR, kind: cloze, prompt: "Elle est ___ dans l'escalier. (tomber)", accepted: [tombée]}
+  - {slug: retard, skill: VO, kind: mcq, prompt: "Le train part à 10 h au lieu de 9 h : il a une heure de…",
+     options: [réservation, valise, retard], answer: 2}
+  - {slug: lendemain, skill: VO, kind: mcq, prompt: "Nous sommes arrivés lundi et nous sommes repartis le lendemain, donc…",
+     options: [mardi, dimanche, lundi soir], answer: 0}
+  - {slug: annonce-vol, skill: CE, kind: mcq,
+     prompt: "« Les passagers du vol AC 870 à destination de Paris sont priés de se présenter à la porte 52. L'embarquement commence. » Que doivent faire les passagers ?",
+     options: [Aller à la porte 52, Récupérer leurs valises, Attendre une annonce], answer: 0}
+  - {slug: ordre-etre, skill: GR, kind: order, words: [sommes, Nous, rentrés, "dimanche soir."], answer: "Nous sommes rentrés dimanche soir."}

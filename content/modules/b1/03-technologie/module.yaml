@@ -1,0 +1,113 @@
+slug: b1-03-technologie
+level: B1
+block: 1
+order: 19
+theme: Technologie
+title: Technologie et réseaux sociaux
+summary: >
+  Parler de ses usages numériques, des avantages et des risques des écrans et
+  des réseaux sociaux, imaginer d'autres situations. Le conditionnel présent
+  (souhait, conseil, politesse) et l'hypothèse avec si + imparfait.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le conditionnel présent et si + imparfait
+    concept: conditionnel
+    exercises:
+      - {kind: cloze, prompt: "J'___ besoin d'un nouvel ordinateur. (avoir, conditionnel)", accepted: [aurais]}
+      - {kind: cloze, prompt: "Si j'avais plus de temps, je ___ un cours de programmation. (suivre)", accepted: [suivrais]}
+      - kind: mcq
+        prompt: "___-vous m'aider à installer cette application ?"
+        options: [Pourriez, Pourrez, Pouviez]
+        answer: 0
+        explanation: "Le conditionnel rend la demande plus polie : pourriez-vous… ?"
+      - kind: mcq
+        prompt: "Si les enfants ___ moins d'écrans, ils dormiraient mieux."
+        options: [utiliseraient, utilisaient, utilisent]
+        answer: 1
+        explanation: "Si + imparfait, puis conditionnel. Jamais de conditionnel après si."
+      - kind: mcq
+        prompt: "À ta place, je ___ ce message."
+        options: [supprime, supprimerai, supprimerais]
+        answer: 2
+      - {kind: order, words: ["Si", "j'étais toi,", "je", "ne publierais pas", "cette photo."], answer: "Si j'étais toi, je ne publierais pas cette photo."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : le numérique"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour donner des conseils et imaginer
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : une semaine sans téléphone"
+    transcript: >
+      Le mois dernier, notre journaliste Camille a relevé un défi : vivre une
+      semaine sans téléphone intelligent. « Les deux premiers jours ont été
+      vraiment pénibles. Je cherchais mon téléphone toutes les dix minutes, par
+      réflexe. Je ne savais même plus comment aller chez une amie sans GPS ! Mais
+      à partir du troisième jour, j'ai remarqué que je dormais mieux et que je
+      lisais davantage. Est-ce que je recommencerais ? Oui, mais pas pour mon
+      travail : sans messagerie, ce serait impossible. Par contre, j'aimerais
+      garder une habitude : plus d'écran dans la chambre. »
+    questions:
+      - {kind: mcq, prompt: "Comment Camille a-t-elle vécu le début du défi ?", options: [Facilement, Difficilement, Avec indifférence], answer: 1}
+      - {kind: mcq, prompt: "Quel effet positif a-t-elle remarqué ?", options: [Elle dormait mieux., Elle travaillait plus vite., Elle voyait plus d'amis.], answer: 0}
+      - {kind: mcq, prompt: "Quelle habitude veut-elle garder ?", options: [Ne plus utiliser de GPS, Lire ses messages le soir seulement, Ne pas avoir d'écran dans la chambre], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : les ados et les réseaux sociaux"
+    text: |
+      Faut-il interdire les réseaux sociaux aux moins de 16 ans ?
+
+      Plusieurs pays envisagent d'interdire l'accès aux réseaux sociaux avant
+      l'âge de 16 ans. Pour les défenseurs de cette mesure, les plateformes sont
+      conçues pour capter l'attention : elles nuiraient au sommeil, à la
+      concentration et parfois à l'estime de soi des adolescents.
+
+      Les opposants reconnaissent ces risques, mais doutent que l'interdiction
+      soit efficace : selon eux, les jeunes trouveraient facilement des moyens
+      de la contourner. Ils proposent plutôt d'enseigner l'éducation aux médias
+      à l'école et de mieux accompagner les parents. « Ce serait plus utile
+      d'apprendre aux jeunes à reconnaître les fausses nouvelles que de leur
+      fermer la porte », explique une enseignante.
+    questions:
+      - kind: mcq
+        prompt: "Selon les défenseurs de la mesure, quel est le problème des plateformes ?"
+        options: ["Elles coûtent trop cher.", "Elles sont conçues pour retenir l'attention.", "Elles sont interdites à l'école."]
+        answer: 1
+      - kind: mcq
+        prompt: "Pourquoi les opposants doutent-ils de l'interdiction ?"
+        options: ["Les jeunes pourraient la contourner.", "Les parents ne sont pas d'accord.", "Les réseaux sociaux sont sans danger."]
+        answer: 0
+      - kind: mcq
+        prompt: "Que propose l'enseignante ?"
+        options: ["Interdire les téléphones à la maison.", "Fermer les réseaux sociaux.", "Apprendre aux jeunes à repérer les fausses nouvelles."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : un conseil à un ami"
+    task: EE2
+    prompt: >
+      Un ami vous écrit qu'il passe plus de six heures par jour sur son
+      téléphone et qu'il a du mal à dormir et à se concentrer au travail.
+      Répondez-lui : montrez que vous comprenez, donnez-lui des conseils
+      concrets et dites ce que vous feriez à sa place.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : acheter un ordinateur (interaction)"
+    task: EO2
+    prompt: >
+      Vous voulez acheter un ordinateur portable pour vos études. L'examinateur
+      est vendeur dans un magasin d'électronique. Posez-lui des questions pour
+      comparer deux modèles : prix, puissance, autonomie de la batterie,
+      garantie et possibilités de paiement.
+    seconds: 210

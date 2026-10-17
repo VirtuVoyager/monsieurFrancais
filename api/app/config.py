@@ -40,6 +40,9 @@ class Settings(BaseSettings):
     default_cap_total_usd: float = 6.0
 
     jobs_enabled: bool = True
+    # The hosted app builds audio and glossaries for new modules itself; locally that stays the
+    # explicit `make audio` / `make glossary`, so a dev server never spends on its own.
+    content_jobs_enabled: bool = False
     cors_origins: list[str] = ["http://localhost:3000"]
     secret_key: str | None = None
     # When set, the first-run passphrase setup also asks for this code, so whoever finds a

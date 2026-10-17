@@ -1,0 +1,16 @@
+items:
+  - {slug: pqp-etre, skill: GR, kind: mcq, prompt: "Quand je l'ai appelée, elle ___ déjà partie.", options: [avait, était, est], answer: 1}
+  - {slug: pqp-anteriorite, skill: GR, kind: cloze, prompt: "Il n'a pas reconnu le collègue qu'il ___ rencontré l'an dernier. (avoir, imparfait)", accepted: [avait]}
+  - {slug: indirect-present, skill: GR, kind: mcq, prompt: "« Où est le dossier ? » → Elle demande ___ est le dossier.",
+     options: [où, si, ce qui], answer: 0}
+  - {slug: indirect-passe, skill: GR, kind: mcq, prompt: "« Je finirai demain. » → Il a dit qu'il ___ le lendemain.",
+     options: [finira, finissait, finirait], answer: 2}
+  - {slug: indirect-imperatif, skill: GR, kind: cloze, prompt: "« Rappelez le client ! » → Elle m'a demandé ___ rappeler le client.", accepted: [de]}
+  - {slug: demissionner, skill: VO, kind: mcq, prompt: "Quitter son emploi de sa propre initiative, c'est…",
+     options: [démissionner, licencier, négocier], answer: 0}
+  - {slug: avantages-sociaux, skill: VO, kind: mcq, prompt: "L'assurance dentaire et le régime de retraite offerts par l'employeur sont des…",
+     options: [délais, avantages sociaux, syndicats], answer: 1}
+  - {slug: politique-teletravail, skill: CE, kind: mcq,
+     prompt: "« Le télétravail est autorisé jusqu'à deux jours par semaine, après la période d'essai et avec l'accord du gestionnaire. » Un nouvel employé en période d'essai peut-il faire du télétravail ?",
+     options: [Oui, deux jours par semaine, Oui, s'il le demande, Non, pas encore], answer: 2}
+  - {slug: ordre-pqp, skill: GR, kind: order, words: ["Elle", "m'a dit", "qu'elle", "avait déjà", "envoyé le contrat."], answer: "Elle m'a dit qu'elle avait déjà envoyé le contrat."}

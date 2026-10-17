@@ -1,0 +1,17 @@
+items:
+  - {slug: je-trouve-que, skill: GR, kind: mcq, prompt: "Je trouve que ce programme ___ très complet.", options: [soit, est, être], answer: 1}
+  - {slug: doute, skill: GR, kind: mcq, prompt: "Je doute que le cégep ___ ce cours en ligne.",
+     options: [offre, offrira, offrait], answer: 0}
+  - {slug: neg-croire, skill: GR, kind: cloze, prompt: "Je ne crois pas qu'il ___ raison. (avoir)", accepted: [ait]}
+  - {slug: consequence, skill: GR, kind: mcq, prompt: "Il n'a pas assez étudié ; ___, il a échoué.",
+     options: [pourtant, par conséquent, grâce à], answer: 1}
+  - {slug: a-cause-de, skill: GR, kind: mcq, prompt: "L'école est fermée ___ la neige.",
+     options: [grâce à, parce que, à cause de], answer: 2}
+  - {slug: bourse, skill: VO, kind: mcq, prompt: "De l'argent donné à un étudiant pour payer ses études, c'est…",
+     options: [une bourse, une note, un débouché], answer: 0}
+  - {slug: concilier, skill: VO, kind: mcq, prompt: "« Concilier travail et études » signifie :",
+     options: [abandonner ses études, réussir à faire les deux en même temps, choisir le travail], answer: 1}
+  - {slug: inscription, skill: CE, kind: mcq,
+     prompt: "« Les inscriptions pour la session d'automne sont ouvertes jusqu'au 1er mars. Les dossiers incomplets ou reçus après cette date ne seront pas étudiés. » Un dossier envoyé le 5 mars…",
+     options: [sera étudié en priorité, sera étudié pour l'automne, ne sera pas étudié], answer: 2}
+  - {slug: ordre-opinion, skill: GR, kind: order, words: ["Je ne pense pas", "que", "ce soit", "une bonne idée."], answer: "Je ne pense pas que ce soit une bonne idée."}

@@ -1,0 +1,16 @@
+items:
+  - {slug: decor, skill: GR, kind: mcq, prompt: "Le jour de mon arrivée, il ___ et les rues étaient blanches.",
+     options: [a neigé, neigeait, neigera], answer: 1}
+  - {slug: interruption, skill: GR, kind: mcq, prompt: "Je remplissais le formulaire quand mon ordinateur ___.",
+     options: [s'éteignait, s'éteint, s'est éteint], answer: 2}
+  - {slug: pendant, skill: GR, kind: mcq, prompt: "___ six mois, j'ai vécu chez mon cousin.", options: [Pendant, Depuis, Il y a], answer: 0}
+  - {slug: depuis, skill: GR, kind: cloze, prompt: "Nous habitons à Laval ___ 2021. (since)", accepted: [depuis]}
+  - {slug: habitude-passee, skill: GR, kind: cloze, prompt: "À Delhi, je ___ au bureau en métro tous les jours. (aller, imparfait)", accepted: [allais]}
+  - {slug: manquer, skill: VO, kind: mcq, prompt: "« Mes parents me manquent » signifie :",
+     options: [Je suis triste loin de mes parents., Mes parents sont en retard., Je n'ai pas de parents.], answer: 0}
+  - {slug: s-integrer, skill: VO, kind: mcq, prompt: "Faire du bénévolat aide souvent les nouveaux arrivants à…",
+     options: [s'inscrire, s'intégrer, reconnaître], answer: 1}
+  - {slug: avis-francisation, skill: CE, kind: mcq,
+     prompt: "« Centre Horizon : nos cours de français à temps complet donnent droit à une allocation de participation, à condition d'assister à au moins 90 % des cours. » Que faut-il faire pour recevoir l'allocation ?",
+     options: [Réussir l'examen final, Payer l'inscription, Être présent à presque tous les cours], answer: 2}
+  - {slug: ordre-recit, skill: GR, kind: order, words: ["Quand", "je suis arrivé,", "je ne parlais pas", "français."], answer: "Quand je suis arrivé, je ne parlais pas français."}

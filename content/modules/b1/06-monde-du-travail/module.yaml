@@ -1,0 +1,117 @@
+slug: b1-06-monde-du-travail
+level: B1
+block: 2
+order: 22
+theme: Travail
+title: Le monde du travail
+summary: >
+  Parler du télétravail, des conditions de travail et des relations
+  professionnelles, rapporter ce que quelqu'un a dit. Le plus-que-parfait et le
+  discours rapporté (indirect) au présent et au passé.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Le plus-que-parfait et le discours rapporté
+    concept: pqp-discours-rapporte
+    exercises:
+      - {kind: cloze, prompt: "Quand je suis arrivé à la réunion, elle ___ déjà commencé. (avoir, imparfait)", accepted: [avait]}
+      - kind: mcq
+        prompt: "Il a perdu le fichier qu'il ___ la veille."
+        options: [a créé, avait créé, créera]
+        answer: 1
+        explanation: "Une action antérieure à une autre action passée : plus-que-parfait."
+      - kind: mcq
+        prompt: "« Je travaille de chez moi. » → Elle dit qu'elle ___ de chez elle."
+        options: [travaille, travaillait, travaillera]
+        answer: 0
+      - kind: mcq
+        prompt: "« Je suis fatigué. » → Il m'a dit qu'il ___ fatigué."
+        options: [est, sera, était]
+        answer: 2
+        explanation: "Verbe introducteur au passé : présent → imparfait."
+      - kind: mcq
+        prompt: "« Est-ce que tu viens demain ? » → Il me demande ___ je viens demain."
+        options: [si, que, ce que]
+        answer: 0
+      - {kind: order, words: ["Ma cheffe", "m'a demandé", "ce que", "je pensais", "du projet."], answer: "Ma cheffe m'a demandé ce que je pensais du projet."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : les conditions de travail"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour rapporter et négocier
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : le retour au bureau"
+    transcript: >
+      Depuis septembre, l'entreprise de Marc-André exige que ses employés
+      viennent au bureau trois jours par semaine. Pendant la pandémie, il avait
+      pris l'habitude de travailler entièrement à distance et il s'était
+      installé un vrai bureau à la maison. « Au début, j'étais contre. J'avais
+      déménagé à une heure de Montréal, justement parce que je n'avais plus
+      besoin de me déplacer tous les jours. Mais je dois reconnaître que les
+      échanges avec mes collègues me manquaient. » Son employeur lui a promis
+      qu'il rembourserait une partie de ses frais de transport. Marc-André dit
+      qu'il demandera quand même de passer à deux jours au bureau l'an prochain.
+    questions:
+      - {kind: mcq, prompt: "Combien de jours Marc-André doit-il aller au bureau ?", options: [Deux jours, Trois jours, Cinq jours], answer: 1}
+      - {kind: mcq, prompt: "Pourquoi avait-il déménagé loin de Montréal ?", options: [Il n'avait plus besoin d'aller au bureau chaque jour., Les loyers étaient trop chers., Sa famille habitait là.], answer: 0}
+      - {kind: mcq, prompt: "Qu'est-ce que son employeur lui a promis ?", options: [Une augmentation, Un bureau individuel, Le remboursement d'une partie du transport], answer: 2}
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : la semaine de quatre jours"
+    text: |
+      Travailler moins pour travailler mieux ?
+
+      Une entreprise de logiciels de Sherbrooke a testé la semaine de quatre
+      jours pendant six mois, sans baisse de salaire. Avant le projet, la
+      direction avait fixé une condition : la productivité ne devait pas
+      diminuer. Résultat : selon le bilan publié en mars, les projets ont été
+      livrés dans les délais et les absences pour maladie ont baissé de 30 %.
+
+      Les employés, eux, affirment qu'ils se sentent moins épuisés et qu'ils
+      ont plus de temps pour leur famille. Le directeur reconnaît toutefois que
+      l'organisation n'a pas été simple : il a fallu réduire le nombre de
+      réunions et mieux planifier le service à la clientèle, qui doit rester
+      ouvert cinq jours. L'entreprise a annoncé qu'elle conserverait ce
+      modèle.
+    questions:
+      - kind: mcq
+        prompt: "Quelle condition la direction avait-elle posée ?"
+        options: ["Que les salaires baissent.", "Que la productivité ne diminue pas.", "Que le service à la clientèle ferme le vendredi."]
+        answer: 1
+      - kind: mcq
+        prompt: "Quel résultat est mentionné ?"
+        options: ["Moins d'absences pour maladie.", "Plus de réunions.", "Des projets en retard."]
+        answer: 0
+      - kind: mcq
+        prompt: "Quelle difficulté le directeur mentionne-t-il ?"
+        options: ["Les employés ont refusé le projet.", "Les clients se sont plaints.", "L'organisation du travail a dû changer."]
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : demander du télétravail"
+    task: EE2
+    prompt: >
+      Vous souhaitez travailler à distance deux jours par semaine. Écrivez un
+      courriel à votre responsable : expliquez votre demande, présentez les
+      avantages pour vous et pour l'entreprise, et proposez une période d'essai.
+    min_words: 120
+    max_words: 150
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : se renseigner sur un poste (interaction)"
+    task: EO2
+    prompt: >
+      Vous avez vu une offre d'emploi qui vous intéresse. L'examinateur est le
+      responsable des ressources humaines de l'entreprise. Posez-lui des
+      questions sur le poste, les horaires, le télétravail, le salaire et les
+      avantages sociaux, et les possibilités de formation.
+    seconds: 210

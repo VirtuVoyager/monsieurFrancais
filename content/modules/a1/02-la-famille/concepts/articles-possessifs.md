@@ -13,9 +13,9 @@
 
 ## La négation : pas de
 
-Après une négation, **un, une, des** deviennent **de** (ou **d'**) :
+Après une négation, **un, une, des** deviennent **de** (ou **d**') :
 
-- *J'ai des enfants.* → *Je n'ai pas **d'**enfants.*
+- *J'ai des enfants.* → *Je n'ai pas **d**'enfants.*
 - *Il a une voiture.* → *Il n'a pas **de** voiture.*
 
 Les articles définis ne changent pas : *Je n'aime pas **le** café.*

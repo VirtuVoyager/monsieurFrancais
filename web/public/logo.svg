@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="330 110 340 380" role="img" aria-label="Monsieur Français">
+  <rect x="330" y="110" width="340" height="380" rx="40" fill="#fbf8ef" />
+  <g id="surrounding-elements">
+    <g fill="#3677bd">
+      <path d="M 380 153 C 392 153 403 157 412 165 L 412 212 C 403 205 392 202 380 202 Z" />
+      <path d="M 447 153 C 435 153 424 157 415 165 L 415 212 C 424 205 435 202 447 202 Z" />
+    </g>
+    <path d="M 455 150 A 105 105 0 0 1 500 140 L 500 168 A 77 77 0 0 0 468 176 Z" fill="#46a764" />
+    <path d="M 500 146 A 99 99 0 0 1 527 151 L 530 169 A 77 77 0 0 0 500 168 Z" fill="#ffffff" />
+    <path d="M 580 135 C 602 135 620 151 620 171 C 620 190 603 206 581 207 L 561 224 L 561 203 C 549 197 542 185 542 171 C 542 151 558 135 580 135 Z" fill="#f36c4f" />
+    <path d="M 596 218 A 105 105 0 0 1 596 285 L 569 275 A 77 77 0 0 0 569 228 Z" fill="#25998c" />
+    <circle cx="574" cy="269" r="11" fill="#ffffff" />
+    <path d="M 549 298 L 593 298 A 44 44 0 0 1 549 342 Z" fill="#25998c" />
+    <path d="M 446 334 A 105 105 0 0 1 418 306 L 429 296 A 90 90 0 0 0 451 322 Z" fill="#46a764" />
+    <path d="M 451 322 A 90 90 0 0 1 429 296 L 441 286 A 77 77 0 0 0 457 310 Z" fill="#ffffff" />
+    <path d="M 404 285 A 105 105 0 0 1 404 218 L 432 228 A 77 77 0 0 0 432 275 Z" fill="#f36c4f" />
+  </g>
+  <g id="character">
+    <circle cx="461" cy="266" r="15" fill="#d3b27e" />
+    <circle cx="539" cy="266" r="15" fill="#d3b27e" />
+    <path d="M 458 225 L 500 233 L 500 325 C 476 325 458 304 458 280 Z" fill="#d3b27e" />
+    <path d="M 500 233 L 542 241 L 542 280 C 542 304 524 325 500 325 Z" fill="#ecd5b0" />
+    <g fill="none" stroke="#a8763e" stroke-width="5">
+      <circle cx="479" cy="259" r="15" />
+      <circle cx="521" cy="259" r="15" />
+      <path d="M 494 259 Q 500 252 506 259" stroke-width="4" />
+    </g>
+    <path d="M 500 288 C 494 279 484 279 478 287 C 473 293 468 290 468 287 C 467 297 477 303 486 302 C 493 301 498 298 500 295 C 502 298 507 301 514 302 C 523 303 533 297 532 287 C 532 290 527 293 522 287 C 516 279 506 279 500 288 Z" fill="#182a45" />
+    <g fill="#182a45">
+      <path d="M 505 198 C 507 190 512 185 516 187 C 519 189 518 194 511 200 Z" />
+      <path d="M 458 220 C 446 211 453 190 479 191 C 507 192 542 208 551 226 C 556 236 551 244 538 241 C 515 236 475 226 458 220 Z" />
+    </g>
+    <g fill="#c52b2a">
+      <polygon points="469,322 496,337 496,345 469,359" />
+      <polygon points="531,322 504,337 504,345 531,359" />
+      <rect x="494" y="334" width="12" height="14" rx="2" fill="#a82221" />
+    </g>
+  </g>
+  <g text-anchor="middle" font-family="'Montserrat', 'Gotham', 'Helvetica Neue', 'Arial', sans-serif">
+    <text x="500" y="418" font-size="60" font-weight="800" fill="#25998c" letter-spacing="-0.5">Monsieur</text>
+    <text x="500" y="462" font-size="40" font-weight="800" fill="#182a45" letter-spacing="1.5">FRANÇAIS</text>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+items:
+  - {slug: dont-besoin, skill: GR, kind: mcq, prompt: "Voici la liste des documents ___ vous aurez besoin.", options: [que, dont, où], answer: 1}
+  - {slug: dont-possession, skill: GR, kind: cloze, prompt: "C'est une clinique ___ les médecins parlent cinq langues. (relatif)", accepted: [dont]}
+  - {slug: ce-que, skill: GR, kind: mcq, prompt: "Je ne comprends pas ___ le pharmacien m'a expliqué.",
+     options: [ce qui, ce dont, ce que], answer: 2}
+  - {slug: ce-qui, skill: GR, kind: mcq, prompt: "___ est important, c'est de dormir huit heures.",
+     options: [Ce qui, Ce que, Ce dont], answer: 0}
+  - {slug: relief-que, skill: GR, kind: cloze, prompt: "C'est le dimanche ___ je cuisine pour la semaine. (mise en relief)", accepted: [que]}
+  - {slug: epuisement, skill: VO, kind: mcq, prompt: "Un état de grande fatigue causé par le travail, c'est…",
+     options: [un épuisement professionnel, un abonnement, un régime], answer: 0}
+  - {slug: se-mefier, skill: VO, kind: mcq, prompt: "« Méfiez-vous des produits miracles » signifie :",
+     options: [Achetez ces produits., Soyez prudent avec ces produits., Ces produits sont gratuits.], answer: 1}
+  - {slug: campagne, skill: CE, kind: mcq,
+     prompt: "« Pas besoin d'aller au gym pour être actif : monter les escaliers, marcher pour aller au travail ou jardiner, ça compte aussi ! » Quel est le message ?",
+     options: [Il faut s'abonner à un gym., Le jardinage est dangereux., Les activités du quotidien comptent comme activité physique.], answer: 2}
+  - {slug: ordre-ce-qui, skill: GR, kind: order, words: ["Ce qui", "me fatigue,", "c'est", "le bruit."], answer: "Ce qui me fatigue, c'est le bruit."}

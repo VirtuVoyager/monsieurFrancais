@@ -1,0 +1,16 @@
+items:
+  - {slug: pourquoi, skill: GR, kind: mcq, prompt: "« ___ aimes-tu l'hiver ? — Parce que j'adore le ski. »",
+     options: [Pourquoi, Comment, Où], answer: 0}
+  - {slug: aime-t-il, skill: GR, kind: mcq, prompt: "Inversion correcte :",
+     options: ["Aime-il le jazz ?", "Aime-t-il le jazz ?", "Il aime-t-il le jazz ?"], answer: 1}
+  - {slug: du-piano, skill: GR, kind: cloze, prompt: "Ma fille joue ___ piano. (de + le)", accepted: [du]}
+  - {slug: quelle-saison, skill: GR, kind: cloze, prompt: "___ est ta saison préférée ? (which)", accepted: [Quelle]}
+  - {slug: faire-du-ski, skill: GR, kind: mcq, prompt: "En hiver, nous faisons ___ ski.", options: [au, de la, du], answer: 2}
+  - {slug: il-pleut, skill: VO, kind: mcq, prompt: "Quand il y a de la pluie, on dit…",
+     options: [Il neige., Il fait beau., Il pleut.], answer: 2}
+  - {slug: parapluie, skill: VO, kind: mcq, prompt: "Quand il pleut, on prend un…",
+     options: [parapluie, billet, maillot de bain], answer: 0}
+  - {slug: annonce-concert, skill: CE, kind: mcq,
+     prompt: "« Concert en plein air annulé en cas de pluie. Remboursement des billets à la billetterie. » S'il pleut, que se passe-t-il ?",
+     options: [Le concert a lieu à l'intérieur, Le concert n'a pas lieu, Le concert commence plus tard], answer: 1}
+  - {slug: ordre-ou, skill: GR, kind: order, words: [allez-vous, Où, "ce soir ?"], answer: "Où allez-vous ce soir ?"}

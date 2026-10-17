@@ -1,10 +1,8 @@
-import { ImageResponse } from "next/og";
-
-import { Mark } from "./icon";
+import { markPng } from "./icon";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 export default function AppleIcon() {
-  return new ImageResponse(<Mark fontSize={84} />, size);
+  return markPng(size.width);
 }
