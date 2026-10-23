@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     embedding_provider: Provider = "fake"
     speech_provider: Provider = "fake"
     realtime_provider: Provider = "fake"
+    content_provider: Provider = "fake"
     azure_openai_endpoint: str | None = None
     azure_openai_api_key: str | None = None
     azure_openai_text_deployment: str = "gpt-5.4-mini"

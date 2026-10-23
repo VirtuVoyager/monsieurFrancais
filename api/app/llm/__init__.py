@@ -11,6 +11,7 @@ from app.llm.glosser import AzureGlosser, FakeGlosser, Glosser
 from app.llm.grader import Grader
 from app.llm.notes import AzureNoteExtractor, FakeNoteExtractor, NoteExtractor
 from app.llm.realtime import AzureRealtime, FakeRealtime, Realtime
+from app.llm.writer import AzureItemWriter, FakeItemWriter, ItemWriter
 
 
 @cache
@@ -73,3 +74,11 @@ def get_realtime() -> Realtime:
     if settings.realtime_provider == "fake":
         return FakeRealtime()
     return AzureRealtime(_client(), settings.azure_openai_realtime_deployment)
+
+
+@cache
+def get_item_writer() -> ItemWriter:
+    settings = get_settings()
+    if settings.content_provider == "fake":
+        return FakeItemWriter()
+    return AzureItemWriter(_client(), settings.azure_openai_text_deployment)
