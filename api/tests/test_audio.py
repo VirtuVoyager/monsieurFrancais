@@ -9,6 +9,7 @@ from app.config import get_settings
 from app.models import UsageEvent
 from app.services import audio
 from app.services.users import get_or_create_learner
+from app.speech import get_synthesizer
 
 
 def _generate(session: Session) -> audio.AudioReport:
@@ -19,8 +20,10 @@ def test_every_clip_is_generated_once_and_logged(seeded: Session) -> None:
     first = _generate(seeded)
     second = _generate(seeded)
 
-    expected = len(audio.catalogue_requests(seeded))
-    assert (first.generated, second.generated, second.existing) == (expected, 0, expected)
+    requests = audio.catalogue_requests(seeded)
+    # The same text in the same voice (a sentence in two modules) is one clip.
+    expected = len({r.content_hash(get_synthesizer().model) for r in requests})
+    assert (first.generated, second.generated, second.existing) == (expected, 0, len(requests))
     events = seeded.scalars(select(UsageEvent).where(UsageEvent.feature == "tts_listening")).all()
     assert len(events) == expected
     with get_settings().media_manifest.open() as f:

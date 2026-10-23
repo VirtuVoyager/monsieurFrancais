@@ -9,12 +9,11 @@ class Voice:
     locale: str
 
 
-# The TCF plays a range of francophone accents; the catalogue mixes France and Québec.
+# Standard French only: the course teaches the exam's norm, not a regional variety. Clips that
+# used these two voices before keep their SSML, so only the former Québec clips regenerate.
 VOICES = (
     Voice("fr-FR-DeniseNeural", "fr-FR"),
     Voice("fr-FR-HenriNeural", "fr-FR"),
-    Voice("fr-CA-SylvieNeural", "fr-CA"),
-    Voice("fr-CA-AntoineNeural", "fr-CA"),
 )
 # Dialogues alternate a woman and a man, as in the exam's recordings. The woman always speaks
 # first, so a writer can make each line agree with its speaker (« je suis contente »).
