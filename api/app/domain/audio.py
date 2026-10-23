@@ -16,7 +16,8 @@ VOICES = (
     Voice("fr-CA-SylvieNeural", "fr-CA"),
     Voice("fr-CA-AntoineNeural", "fr-CA"),
 )
-# Dialogues alternate a woman and a man, as in the exam's recordings.
+# Dialogues alternate a woman and a man, as in the exam's recordings. The woman always speaks
+# first, so a writer can make each line agree with its speaker (« je suis contente »).
 DIALOGUE_VOICES = (VOICES[0], VOICES[1])
 TURN = "- "
 EXAM_RATE = 1.0
@@ -42,9 +43,7 @@ class AudioRequest:
             voice = self.voice
             body = self._spoken(voice, self.text)
             return f'<speak version="1.0" xml:lang="{voice.locale}">{body}</speak>'
-        # Who speaks first is stable per clip, like the single voice.
-        first = hashlib.sha256(self.key.encode()).digest()[0] % 2
-        voices = [DIALOGUE_VOICES[(first + n) % 2] for n in range(len(turns))]
+        voices = [DIALOGUE_VOICES[n % 2] for n in range(len(turns))]
         body = "".join(self._spoken(v, t) for v, t in zip(voices, turns, strict=True))
         return f'<speak version="1.0" xml:lang="{voices[0].locale}">{body}</speak>'
 

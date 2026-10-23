@@ -59,14 +59,11 @@ def generate(
     """
     writer = writer or get_item_writer()
     content_dir = get_settings().content_dir
-    tasks = yaml.safe_load((content_dir / "exam_tasks.yaml").read_text())
-    batches = parse_request(yaml.safe_load(request.read_text()))
+    tasks = _tasks()
     drafts_dir = content_dir / "drafts" / request.stem
     taken = _bank_slugs(content_dir) | _draft_slugs(drafts_dir)
     report = GenerationReport()
-    for batch in batches:
-        text = brief(tasks, batch)
-        key = batch.key(text, writer.fingerprint, writer.model)
+    for batch, text, key in _batches(request, writer, tasks):
         path = drafts_dir / f"{batch.cefr.lower()}-{key[:12]}.yaml"
         if path.exists():
             report.cached += 1
@@ -81,16 +78,24 @@ def generate(
     return report
 
 
-def promote(request: Path) -> int:
-    """Rebuilds the request's item bank from its drafts; edit the drafts, never the bank."""
+def promote(request: Path, writer: ItemWriter | None = None) -> int:
+    """Rebuilds the request's item bank from its drafts; edit the drafts, never the bank.
+
+    Only drafts of the request's current batches count: a draft left over from an older brief
+    or prompt is superseded, not promoted alongside its replacement.
+    """
+    writer = writer or get_item_writer()
     content_dir = get_settings().content_dir
     target = content_dir / "items" / f"{request.stem}.yaml"
     if target.exists() and yaml.safe_load(target.read_text()).get("generated_from") != request.stem:
         raise ValueError(f"{target.name} was written by hand; choose another request name")
-    drafts = [
-        yaml.safe_load(p.read_text())
-        for p in sorted((content_dir / "drafts" / request.stem).glob("*.yaml"))
-    ]
+    by_key = {
+        draft["key"]: draft
+        for p in (content_dir / "drafts" / request.stem).glob("*.yaml")
+        if (draft := yaml.safe_load(p.read_text()))
+    }
+    current = [key for _, _, key in _batches(request, writer, _tasks())]
+    drafts = [by_key[key] for key in current if key in by_key]
     if not drafts:
         raise ValueError(f"No drafts for {request.stem}; run `make generate` first")
     items = [e["item"] for d in drafts for e in d["items"] if e["status"] in ACCEPTED]
@@ -101,6 +106,25 @@ def promote(request: Path) -> int:
     )
     target.write_text(header + _dump(bank))
     return len(items)
+
+
+def _tasks() -> dict[str, Any]:
+    tasks: dict[str, Any] = yaml.safe_load(
+        (get_settings().content_dir / "exam_tasks.yaml").read_text()
+    )
+    return tasks
+
+
+def _batches(
+    request: Path, writer: ItemWriter, tasks: dict[str, Any]
+) -> list[tuple[Batch, str, str]]:
+    """Each batch with its brief and the cache key of what it asks for."""
+    batches = parse_request(yaml.safe_load(request.read_text()))
+    briefs = [brief(tasks, batch) for batch in batches]
+    return [
+        (batch, text, batch.key(text, writer.fingerprint, writer.model))
+        for batch, text in zip(batches, briefs, strict=True)
+    ]
 
 
 def _run_batch(

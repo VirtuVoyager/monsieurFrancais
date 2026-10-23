@@ -128,7 +128,7 @@ def test_dialogues_alternate_two_voices_and_other_clips_keep_one() -> None:
     voices = re.findall(r'<voice name="([^"]+)"', dialogue.ssml)
 
     assert dialogue_turns(dialogue.text) == ["Vous réglez comment ?", "Par chèque.", "Désolé."]
-    assert len(voices) == 3 and voices[0] == voices[2] != voices[1]
+    assert voices == ["fr-FR-DeniseNeural", "fr-FR-HenriNeural", "fr-FR-DeniseNeural"]
     assert dialogue_turns("- Une seule ligne.") == []
     assert dialogue_turns("Bonjour.\n- Pas un dialogue.") == []
     assert len(re.findall("<voice", AudioRequest("k", "Le train part.").ssml)) == 1
@@ -176,6 +176,11 @@ def test_batches_are_paid_once_and_promoted_into_a_live_bank(
     assert "bank/co-test/co-a2-document-1" in live
     item = session.scalars(select(Item).where(Item.key == "bank/co-test/co-b1-document-2")).one()
     assert len(item.payload["options"]) == 4 and item.payload["audio_text"]
+    # A rewritten batch supersedes its old draft, which promote then leaves out.
+    reworded = yaml.safe_load(request.read_text())
+    reworded["batches"][1]["themes"] = ["santé"]
+    request.write_text(yaml.safe_dump(reworded, allow_unicode=True))
+    assert generation.promote(request) == 3
 
 
 def test_rejected_items_stay_in_the_draft_and_hand_written_banks_are_protected(

@@ -17,8 +17,9 @@ REPLY_PROMPT = (
 )
 LETTERS = "ABCD"
 DIALOGUE = (
-    'A dialogue is written one turn per line, each line starting with "- ", between two people '
-    "(one woman, one man): it is read with two voices. A monologue has no dashes."
+    'A dialogue is written one turn per line, each line starting with "- ", between a woman and a '
+    "man: the woman speaks first, then they alternate, and each line agrees with its speaker's "
+    "gender. It is read with two voices. A monologue has no dashes."
 )
 
 
