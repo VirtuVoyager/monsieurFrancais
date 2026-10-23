@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: Entendre le pluriel
+focus: Singular and plural are often heard only in the article - le / les, ce / ces, de / des
+cefr: A1
+sentences:
+  - fr: Le livre est sur la table, les livres sont dans le sac.
+    en: The book is on the table, the books are in the bag.
+    tip: le has a short, soft e; les sounds like the é of café. livre and livres sound the same, so only the article tells you.
+  - fr: Ce garçon et ces filles sont mes cousins.
+    en: This boy and these girls are my cousins.
+    tip: ce has the soft e, ces the closed é. mes is a closed é too.
+  - fr: Je voudrais de l'eau et des fruits.
+    en: I would like some water and some fruit.
+    tip: de has the soft e; des has the closed é. The s of fruits is silent.
+  - fr: Il parle avec le voisin, elle parle avec les voisins.
+    en: He talks to the neighbour, she talks to the neighbours.
+    tip: voisin and voisins sound the same. Make le and les clearly different.
+  - fr: Ce matin, ces étudiants sont en retard.
+    en: This morning, these students are late.
+    tip: ce matin with the soft e. ces‿étudiants is linked with a z sound - a second clue that it is plural.
+  - fr: Les enfants regardent le film.
+    en: The children are watching the film.
+    tip: Link les‿enfants with a z sound. regardent sounds like regarde - the -ent is silent.
+  - fr: Le prix des billets augmente le samedi.
+    en: The price of tickets goes up on Saturdays.
+    tip: le prix (soft e), des billets (closed é). The x of prix and the s of billets are silent.
+  - fr: Ces hôtels sont près de la gare.
+    en: These hotels are near the station.
+    tip: The h is silent, so ces‿hôtels is linked with a z sound. de la gare - soft e in de.
+  - fr: Je connais le directeur et les employés.
+    en: I know the manager and the employees.
+    tip: le directeur against les‿employés, linked with a z sound.
+  - fr: Ce sont des amis de mon frère.
+    en: They are friends of my brother.
+    tip: ce sont with the soft e; des‿amis linked with z; de with the soft e again.

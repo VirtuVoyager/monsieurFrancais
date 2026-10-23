@@ -1,11 +1,11 @@
 from app.domain.audio import VOICES, AudioRequest, media_path
 
 
-def test_voice_is_stable_per_item_and_mixes_accents() -> None:
+def test_voice_is_stable_per_item_and_mixes_standard_french_voices() -> None:
     requests = [AudioRequest(f"bank/co/item-{i}", "Bonjour.") for i in range(40)]
 
     assert AudioRequest("bank/co/item-1", "x").voice == requests[1].voice
-    assert {r.voice.locale for r in requests} == {"fr-FR", "fr-CA"}
+    assert {r.voice.locale for r in requests} == {"fr-FR"}
     assert {r.voice for r in requests} == set(VOICES)
 
 

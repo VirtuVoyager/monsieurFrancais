@@ -1,0 +1,14 @@
+items:
+  - {slug: heureuse, skill: GR, kind: cloze, prompt: "Ma mère est très ___. (heureux)", accepted: [heureuse]}
+  - {slug: actives, skill: GR, kind: cloze, prompt: "Mes sœurs sont ___. (actif)", accepted: [actives]}
+  - {slug: nouvel, skill: GR, kind: mcq, prompt: "J'ai un ___ ami à Montréal.", options: [nouvel, nouveau, nouvelle], answer: 0}
+  - {slug: groupe-mixte, skill: GR, kind: mcq, prompt: "Mon mari et ma fille sont ___.", options: [blonds, blondes, blond], answer: 0}
+  - {slug: c-est-un, skill: GR, kind: mcq, prompt: "Regarde l'homme là-bas : ___ un acteur célèbre.", options: [il est, c'est, elle est], answer: 1}
+  - {slug: elle-est, skill: GR, kind: mcq, prompt: "Voici ma cousine. ___ très drôle.", options: [C'est, Elle est, Il est], answer: 1}
+  - {slug: eux, skill: GR, kind: mcq, prompt: "Mes voisins sont sympas. Je dîne souvent chez ___.", options: [ils, leur, eux], answer: 2}
+  - {slug: place-adjectif, skill: GR, kind: mcq, prompt: "Phrase correcte :",
+     options: ["C'est une sportive jeune femme.", "C'est une jeune femme sportive.", "C'est une femme jeune sportive."], answer: 1}
+  - {slug: bavard, skill: VO, kind: mcq, prompt: "Une personne qui parle beaucoup est…", options: [timide, calme, bavarde], answer: 2}
+  - {slug: annonce-colocataire, skill: CE, kind: mcq,
+     prompt: "« Cherche colocataire calme et propre. Je suis étudiante, sérieuse et pas très bavarde. Pas de fêtes ! » Quelle personne cherche-t-elle ?",
+     options: [Une personne qui organise des fêtes, Une personne calme, Une personne très bavarde], answer: 1}

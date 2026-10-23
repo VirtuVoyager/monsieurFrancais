@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: L'intonation
+focus: The voice rises for a yes/no question and for each item of a list, and falls at the end of a statement or a question-word question
+cefr: A1
+sentences:
+  - fr: Tu as un vélo ?
+    en: Do you have a bike?
+    tip: A yes/no question with no question word - the voice rises on the last syllable, lo.
+  - fr: Où est-ce que tu travailles ?
+    en: Where do you work?
+    tip: A question with a question word - start high on où and let the voice fall to the end.
+  - fr: Le matin, je me lève, je me douche, je m'habille et je pars.
+    en: In the morning I get up, shower, get dressed and leave.
+    tip: The voice rises at the end of each action and falls only on the last one, pars.
+  - fr: Vous êtes libre samedi soir ?
+    en: Are you free on Saturday evening?
+    tip: Rising yes/no question. Link vous‿êtes with a z sound.
+  - fr: Comment est-ce que vous venez au travail ?
+    en: How do you come to work?
+    tip: Question word first, so the voice falls. Keep est-ce que short - "ess-keu".
+  - fr: J'aime le cinéma, la musique et la lecture.
+    en: I like cinema, music and reading.
+    tip: Rise on cinéma and musique, fall on lecture to close the list.
+  - fr: Est-ce que la chambre est libre ?
+    en: Is the room free?
+    tip: est-ce que asks a yes/no question, so the voice still rises at the end, on libre.
+  - fr: Je suis indien, j'habite à Lyon et je travaille dans l'informatique.
+    en: I am Indian, I live in Lyon and I work in IT.
+    tip: Three parts - rise on indien and Lyon, fall on informatique. A good opening for speaking Task 1.
+  - fr: Pourquoi vous apprenez le français ?
+    en: Why are you learning French?
+    tip: Spoken style with the question word first; the voice falls. Link vous‿apprenez with a z sound.
+  - fr: Il fait beau, alors on va au parc.
+    en: The weather is nice, so we are going to the park.
+    tip: The voice rises a little on beau (the sentence goes on) and falls at the end, on parc.

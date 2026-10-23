@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: Le é et le è
+focus: The closed é (né, parler, chez) against the open è (mère, fête, lait)
+cefr: A1
+sentences:
+  - fr: Ma mère est née en février.
+    en: My mother was born in February.
+    tip: mère and est have the open è (mouth wider, jaw lower); née and février have the closed é (lips spread, as in a smile).
+  - fr: Vous parlez français avec votre frère ?
+    en: Do you speak French with your brother?
+    tip: parlez ends in a closed é, the z is silent. frère has an open è. The -çais of français is open too.
+  - fr: Elle achète du lait frais le samedi.
+    en: She buys fresh milk on Saturdays.
+    tip: elle, achète, lait and frais all have the open è; ai is said like è. samedi has no é - its e is short and soft.
+  - fr: J'ai rendez-vous chez le médecin à dix heures.
+    en: I have a doctor's appointment at ten.
+    tip: j'ai and chez have é; médecin starts with é. The z of rendez and chez is silent.
+  - fr: Mon père préfère le café sans sucre.
+    en: My father prefers coffee without sugar.
+    tip: père has è; préfère has é then è - the accents tell you. café ends in a closed é.
+  - fr: Cette fête est très célèbre en été.
+    en: This festival is very famous in summer.
+    tip: cette, fête, est and très have è; célèbre is é then è; été is two closed é.
+  - fr: Nous allons étudier l'anglais et le portugais.
+    en: We are going to study English and Portuguese.
+    tip: étudier has é at both ends - the -er of an infinitive is a closed é. anglais and portugais end in an open è.
+  - fr: Mes clés sont sur la chaise de ma chambre.
+    en: My keys are on the chair in my bedroom.
+    tip: mes and clés have é; chaise has è. In mes, the s is silent.
+  - fr: Il appelle sa nièce chaque semaine.
+    en: He calls his niece every week.
+    tip: appelle has è (e before a double consonant) and nièce has è. semaine has è in -maine; chaque has a plain a.
+  - fr: Le musée ferme à six heures en hiver.
+    en: The museum closes at six in winter.
+    tip: musée ends in é; ferme and hiver have è (e before a pronounced consonant). Link six‿heures with a z sound.

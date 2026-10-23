@@ -23,6 +23,7 @@ Module        8 per level, ~6–8 h of study each    → Module check at the end
 ```
 
 - **48 modules** in total. A1–B2 (32 modules) are built first; C1–C2 follow once the target level is within reach.
+- A level can carry extra modules where class work shows a gap: A1 has three more (origins and nationalities, describing people, the working week), taken from topics taught in class, so its blocks hold six and five modules.
 - Each **module** has a theme from the recurring exam topics (housing, work, health, environment, technology, education, immigration, culture…). It contains:
   - **Grammar:** 1–2 concepts, following the sequence pronouns → articles/nouns → adjectives → verbs/negation/questions → tenses → conditional/subjunctive at A1–B1, then B2+ structures (concordance des temps, participle agreement, relative pronouns *dont/lequel*, connectors, nominalisation).
   - **Vocabulary:** 40–60 words by theme, gender colour-coded, drilled English → French and spoken aloud.

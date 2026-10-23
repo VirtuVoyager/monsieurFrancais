@@ -104,7 +104,16 @@ def test_the_coach_sees_only_the_marked_words_and_where_they_went_wrong() -> Non
 
 def test_sets_are_seeded_with_their_sentences(client: TestClient, seeded: Session) -> None:
     sets = client.get("/repeat/sets").json()
-    assert [s["id"] for s in sets] == ["u-ou", "voyelles-nasales", "r-et-liaisons"]
+    assert [s["id"] for s in sets] == [
+        "u-ou",
+        "voyelles-nasales",
+        "r-et-liaisons",
+        "e-ferme-e-ouvert",
+        "eu-ferme-eu-ouvert",
+        "singulier-pluriel",
+        "intonation",
+        "nombres-et-heures",
+    ]
     assert all(s["sentences"] == 10 for s in sets)
 
     detail = client.get("/repeat/sets/u-ou").json()

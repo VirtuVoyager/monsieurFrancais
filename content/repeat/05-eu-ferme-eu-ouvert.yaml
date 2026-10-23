@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: Les deux eu
+focus: The closed eu of deux and peu against the open eu of peur and jeune
+cefr: A2
+sentences:
+  - fr: Il veut deux œufs, mais ils veulent un gâteau.
+    en: He wants two eggs, but they want a cake.
+    tip: veut and deux have the closed eu (lips rounded, mouth almost shut). veulent has the open eu. In deux œufs, the f of œufs is silent.
+  - fr: Ma sœur a peur des chiens.
+    en: My sister is afraid of dogs.
+    tip: sœur and peur have the open eu, because a pronounced r follows. Keep the lips rounded.
+  - fr: Le jeune homme travaille un peu le jeudi.
+    en: The young man works a little on Thursdays.
+    tip: jeune has the open eu; peu and jeudi have the closed eu.
+  - fr: Ils peuvent venir à neuf heures.
+    en: They can come at nine.
+    tip: "peuvent has the open eu; neuf and heures have it too. Link neuf‿heures: the f sounds like v."
+  - fr: Mon neveu est très curieux.
+    en: My nephew is very curious.
+    tip: neveu and curieux both end in the closed eu. The x of curieux is silent.
+  - fr: Je préfère les fleurs bleues.
+    en: I prefer blue flowers.
+    tip: fleurs has the open eu (r follows); bleues has the closed eu - the final e and s are silent.
+  - fr: Le professeur est sérieux et généreux.
+    en: The teacher is serious and generous.
+    tip: professeur has the open eu; sérieux and généreux end in the closed eu, with a silent x.
+  - fr: Il pleut un peu ce soir, mais j'ai peur de l'orage.
+    en: It is raining a little tonight, but I am afraid of the storm.
+    tip: pleut and peu have the closed eu; peur has the open eu, because it ends in a pronounced r.
+  - fr: Leur directeur veut des résultats rapides.
+    en: Their manager wants quick results.
+    tip: leur and directeur have the open eu; veut has the closed eu.
+  - fr: Nous mangeons du beurre et du fromage le dimanche.
+    en: We eat butter and cheese on Sundays.
+    tip: beurre has the open eu. Do not confuse du (u) with deux (closed eu) - round the lips for both, open the mouth more for eu.

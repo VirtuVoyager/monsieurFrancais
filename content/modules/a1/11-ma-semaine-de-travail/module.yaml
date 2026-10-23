@@ -1,0 +1,127 @@
+slug: a1-11-ma-semaine-de-travail
+level: A1
+block: 2
+order: 7
+theme: Travail
+title: Ma semaine de travail
+summary: >
+  Parler de son métier, de ses horaires et de ses obligations. Les métiers au
+  masculin et au féminin, le pronom on, devoir, pouvoir et vouloir, l'heure
+  officielle et l'heure de tous les jours, et les mots de la fréquence.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: "Métiers, horaires, on, devoir et la fréquence"
+    concept: semaine-de-travail
+    exercises:
+      - {kind: cloze, prompt: "Le matin, on ___ au bureau à huit heures. (arriver)", accepted: [arrive]}
+      - {kind: cloze, prompt: "Nous ___ finir ce rapport aujourd'hui. (devoir)", accepted: [devons]}
+      - kind: mcq
+        prompt: "Il est infirmier et sa femme est ___ aussi."
+        options: [infirmière, infirmier, infirmièrre]
+        answer: 0
+      - kind: mcq
+        prompt: "La banque est ouverte ___ vendredi."
+        options: [du lundi au, de lundi à, le lundi au]
+        answer: 0
+        explanation: "Pour une période : du lundi au vendredi (de + le = du, à + le = au)."
+      - kind: mcq
+        prompt: "Je fais du sport le mardi et le jeudi : ___."
+        options: [deux fois par semaine, toujours, tous les jours]
+        answer: 0
+        explanation: "Toujours veut dire « always », pas « every day ». Every day, c'est tous les jours."
+      - kind: mcq
+        prompt: "Il est 14 h 45. À la radio, on dit : il est quatorze heures ___."
+        options: [quarante-cinq, moins le quart, et quart]
+        answer: 0
+        explanation: "L'heure officielle compte les minutes : quatorze heures quarante-cinq. Moins le quart va avec l'heure de tous les jours : trois heures moins le quart."
+      - {kind: order, words: [ne, Je, jamais, travaille, le, dimanche.], answer: "Je ne travaille jamais le dimanche."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : le travail et les horaires"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de son travail
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : le répondeur du cabinet"
+    transcript: >
+      Bonjour, vous êtes bien au cabinet médical des Lilas. Le cabinet est ouvert
+      du lundi au jeudi, de huit heures trente à dix-huit heures, et le vendredi
+      de huit heures trente à midi. Le cabinet est fermé le samedi et le dimanche.
+      Pour prendre rendez-vous, vous pouvez aussi utiliser notre site internet. En
+      cas d'urgence, appelez le quinze. Merci et bonne journée.
+    questions:
+      - kind: mcq
+        prompt: "Quand le cabinet est-il ouvert le vendredi ?"
+        options: [Toute la journée, Seulement le matin, Seulement l'après-midi, Jamais]
+        answer: 1
+      - kind: mcq
+        prompt: "À quelle heure le cabinet ferme-t-il le mardi ?"
+        options: [À 12 h, À 17 h, À 18 h, À 18 h 30]
+        answer: 2
+      - kind: mcq
+        prompt: "Que faut-il faire en cas d'urgence ?"
+        options:
+          - Aller sur le site internet.
+          - Venir au cabinet le samedi.
+          - Appeler le quinze.
+          - Rappeler le lundi.
+        answer: 2
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : le message de Lucie"
+    text: |
+      Salut Nadia,
+
+      Ça y est, je travaille comme infirmière à l'hôpital de Sherbrooke ! Je
+      travaille trois jours par semaine, de sept heures à dix-neuf heures. Les
+      autres jours, je me repose ou je fais du sport. Une fois par mois, je dois
+      travailler la nuit : c'est difficile, mais on peut échanger ses horaires
+      avec une collègue. Mes collègues sont très sympathiques et on déjeune
+      souvent ensemble. Et toi, ton nouveau travail, ça va ?
+
+      Bises,
+      Lucie
+    questions:
+      - kind: mcq
+        prompt: "Combien de jours par semaine Lucie travaille-t-elle ?"
+        options: [Deux, Trois, Cinq, Sept]
+        answer: 1
+      - kind: mcq
+        prompt: "Que doit-elle faire une fois par mois ?"
+        options: [Faire du sport, Travailler la nuit, Changer d'hôpital, Déjeuner avec Nadia]
+        answer: 1
+      - kind: mcq
+        prompt: "Qu'est-ce qu'on peut faire à l'hôpital ?"
+        options:
+          - Choisir son salaire.
+          - Travailler à la maison.
+          - Échanger ses horaires avec une collègue.
+          - Partir à seize heures.
+        answer: 2
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : mon emploi du temps"
+    task: EE1
+    prompt: >
+      Un ami francophone vous demande comment est votre semaine de travail ou
+      d'études. Écrivez-lui un message : votre métier, vos horaires, ce que vous
+      devez faire chaque semaine et ce que vous faites souvent ou jamais.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mon travail"
+    task: EO1
+    prompt: >
+      Parlez de votre travail ou de vos études : où vous travaillez, vos horaires,
+      ce que vous aimez et ce que vous devez faire chaque jour.
+    seconds: 60
