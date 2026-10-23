@@ -16,6 +16,9 @@ VOICES = (
     Voice("fr-CA-SylvieNeural", "fr-CA"),
     Voice("fr-CA-AntoineNeural", "fr-CA"),
 )
+# Dialogues alternate a woman and a man, as in the exam's recordings.
+DIALOGUE_VOICES = (VOICES[0], VOICES[1])
+TURN = "- "
 EXAM_RATE = 1.0
 PRACTICE_RATE = 0.9
 
@@ -34,15 +37,33 @@ class AudioRequest:
 
     @property
     def ssml(self) -> str:
-        voice = self.voice
+        turns = dialogue_turns(self.text)
+        if not turns:
+            voice = self.voice
+            body = self._spoken(voice, self.text)
+            return f'<speak version="1.0" xml:lang="{voice.locale}">{body}</speak>'
+        # Who speaks first is stable per clip, like the single voice.
+        first = hashlib.sha256(self.key.encode()).digest()[0] % 2
+        voices = [DIALOGUE_VOICES[(first + n) % 2] for n in range(len(turns))]
+        body = "".join(self._spoken(v, t) for v, t in zip(voices, turns, strict=True))
+        return f'<speak version="1.0" xml:lang="{voices[0].locale}">{body}</speak>'
+
+    def _spoken(self, voice: Voice, text: str) -> str:
         return (
-            f'<speak version="1.0" xml:lang="{voice.locale}">'
             f'<voice name="{voice.name}"><prosody rate="{self.rate:.2f}">'
-            f"{escape(self.text.strip())}</prosody></voice></speak>"
+            f"{escape(text.strip())}</prosody></voice>"
         )
 
     def content_hash(self, engine: str) -> str:
         return hashlib.sha256(f"{engine}\n{self.ssml}".encode()).hexdigest()
+
+
+def dialogue_turns(text: str) -> list[str]:
+    """The turns of a dialogue written one per line with a leading dash; [] for anything else."""
+    lines = [line.strip() for line in text.strip().splitlines() if line.strip()]
+    if len(lines) < 2 or not all(line.startswith(TURN) for line in lines):
+        return []
+    return [line.removeprefix(TURN) for line in lines]
 
 
 def media_path(content_hash: str) -> str:

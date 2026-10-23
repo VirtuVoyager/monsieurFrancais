@@ -1,3 +1,4 @@
+import re
 import shutil
 from dataclasses import replace
 from pathlib import Path
@@ -8,11 +9,13 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
+from app.domain.audio import AudioRequest, dialogue_turns
 from app.domain.cost import Metered
 from app.domain.generation import (
     Batch,
     Draft,
     Verdict,
+    bank_item,
     brief,
     check,
     parse_request,
@@ -90,11 +93,45 @@ def test_briefs_follow_the_exam_tasks_and_identical_batches_are_refused() -> Non
     listening = brief(tasks, Batch("CO", "B2", 6, ("travail",)))
     reading = brief(tasks, Batch("CE", "A2", 6, ()))
 
-    assert "100 to 190 words" in listening and "single voice" in listening
-    assert "exactly 4" in reading and "single voice" not in reading
+    assert "100 to 190 words" in listening and "two voices" in listening
+    assert "exactly 4" in reading and "two voices" not in reading
     batch = {"cefr": "A1", "count": 4, "themes": ["transports"]}
     with pytest.raises(ValueError, match="same thing"):
         parse_request({"skill": "CO", "batches": [batch, batch]})
+    with pytest.raises(ValueError, match="No 'reply' format for CE"):
+        parse_request({"skill": "CE", "batches": [{**batch, "format": "reply"}]})
+
+
+def test_in_the_reply_format_the_replies_are_heard_and_only_letters_are_shown() -> None:
+    reply = Batch("CO", "A1", 8, (), "reply")
+    question = replace(DRAFT, document="Qu'est-ce que vous prenez au petit déjeuner ?", answer=2)
+
+    item = bank_item(reply, question)
+
+    assert item["audio_text"].splitlines() == [
+        "Qu'est-ce que vous prenez au petit déjeuner ?",
+        "A. 10 h 15",
+        "B. 10 h 50",
+        "C. 9 h 15",
+        "D. 11 h",
+    ]
+    assert (item["options"], item["answer"]) == (
+        ["Réponse A", "Réponse B", "Réponse C", "Réponse D"],
+        2,
+    )
+    assert item["prompt"].startswith("Écoutez la question")
+    assert bank_item(Batch("CE", "A1", 8, ()), DRAFT)["passage"] == DRAFT.document
+
+
+def test_dialogues_alternate_two_voices_and_other_clips_keep_one() -> None:
+    dialogue = AudioRequest("bank/co/x", "- Vous réglez comment ?\n- Par chèque.\n- Désolé.")
+    voices = re.findall(r'<voice name="([^"]+)"', dialogue.ssml)
+
+    assert dialogue_turns(dialogue.text) == ["Vous réglez comment ?", "Par chèque.", "Désolé."]
+    assert len(voices) == 3 and voices[0] == voices[2] != voices[1]
+    assert dialogue_turns("- Une seule ligne.") == []
+    assert dialogue_turns("Bonjour.\n- Pas un dialogue.") == []
+    assert len(re.findall("<voice", AudioRequest("k", "Le train part.").ssml)) == 1
 
 
 @pytest.fixture

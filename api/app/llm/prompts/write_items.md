@@ -6,12 +6,13 @@ the length, the themes and the item-writing rules. Follow it exactly.
 For each item:
 - `title`: two to four French words naming the situation, for example "retard du train".
 - `document`: the complete text of the document. For CO it is exactly what is heard, written as
-  natural spoken French (no stage directions, no speaker labels, numbers as words where they are
-  spoken). For CE it is the text as printed: a notice, an email, an article, with its usual
-  layout reduced to plain text.
+  natural spoken French: no stage directions, no speaker names, numbers as words where they are
+  spoken, and a dialogue laid out as the brief says. For CE it is the text as printed: a notice,
+  an email, an article, with its usual layout reduced to plain text. In the "reply" format it is
+  only the question that is heard.
 - `focus`: what the question tests, in a few French words, chosen from the brief.
 - `question`: one question in French, as it would appear on the exam paper.
-- `options`: exactly four short options in French.
+- `options`: exactly four short options in French (in the "reply" format, the four replies).
 - `answer`: the 0-based index of the correct option.
 - `explanation`: one or two French sentences saying where the document gives the answer and why
   each distractor is wrong.

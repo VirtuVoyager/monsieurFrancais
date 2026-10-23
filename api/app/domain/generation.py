@@ -8,11 +8,17 @@ from typing import Any, Literal
 # Bump to regenerate every batch after a change to how briefs are built.
 VERSION = 1
 Status = Literal["ok", "fixed", "rejected"]
-# Listening clips are synthesised with one voice, so a dialogue would sound like one person
-# talking to themselves. Lift this once audio supports several speakers.
-SINGLE_VOICE = (
-    "The document is read aloud by a single voice: write one speaker (announcement, voicemail, "
-    "radio segment, testimony, one side of an interview), never a dialogue."
+Format = Literal["document", "reply"]
+# In the "reply" format the document is just the question heard before the four replies.
+REPLY_WORDS = (3, 30)
+REPLY_PROMPT = (
+    "Écoutez la question et les quatre réponses. "
+    "Choisissez la réponse qui correspond à la question."
+)
+LETTERS = "ABCD"
+DIALOGUE = (
+    'A dialogue is written one turn per line, each line starting with "- ", between two people '
+    "(one woman, one man): it is read with two voices. A monologue has no dashes."
 )
 
 
@@ -22,6 +28,7 @@ class Batch:
     cefr: str
     count: int
     themes: tuple[str, ...]
+    format: Format = "document"
 
     def key(self, brief: str, instructions: str, model: str) -> str:
         """What the batch was asked for: the same request is never paid for twice."""
@@ -59,8 +66,18 @@ class Verdict:
 def parse_request(raw: dict[str, Any]) -> list[Batch]:
     skill = raw["skill"]
     batches = [
-        Batch(skill, b["cefr"], int(b["count"]), tuple(b.get("themes", ()))) for b in raw["batches"]
+        Batch(
+            skill,
+            b["cefr"],
+            int(b["count"]),
+            tuple(b.get("themes", ())),
+            b.get("format", "document"),
+        )
+        for b in raw["batches"]
     ]
+    for batch in batches:
+        if batch.format not in ("document", "reply") or (batch.format == "reply" and skill != "CO"):
+            raise ValueError(f"No {batch.format!r} format for {skill}")
     if len(set(batches)) != len(batches):
         # Identical batches share a cache key, so the second would silently never run.
         raise ValueError("Two batches ask for the same thing; give them different themes")
@@ -70,21 +87,44 @@ def parse_request(raw: dict[str, Any]) -> list[Batch]:
 def brief(tasks: dict[str, Any], batch: Batch) -> str:
     spec = tasks[batch.skill]
     level = spec["levels"][batch.cefr]
-    low, high = level["words"]
+    low, high = words_for(tasks, batch)
     lines = [
         f"Exam: {tasks['exam']}, section {batch.skill}, level {batch.cefr}.",
         f"Language: {tasks['language']['standard']}.",
-        f"Documents at this level: {', '.join(level['documents'])}.",
-        f"What the question tests: {level['focus']}.",
+    ]
+    if batch.format == "reply":
+        lines += [
+            f"Format: {spec['formats']['reply']['task'].strip()}",
+            "The document is the question that is heard, a natural question or remark someone "
+            "would say to the listener. The options are the four replies, all heard: one is the "
+            "natural answer; the others are well-formed replies to a different question.",
+        ]
+    else:
+        lines += [
+            f"Documents at this level: {', '.join(level['documents'])}.",
+            f"What the question tests: {level['focus']}.",
+        ]
+        if batch.skill == "CO":
+            lines += [
+                f"Format: {spec['formats']['document']['task'].strip()}",
+                "The question is asked after the recording, which is heard once.",
+                DIALOGUE,
+            ]
+    lines += [
         f"Document length: {low} to {high} words.",
         f"Options: exactly {spec['format']['options']}, one correct.",
         f"Themes for this batch: {', '.join(batch.themes) or 'any everyday subject'}.",
         "Item-writing rules:",
         *(f"- {rule}" for rule in tasks["mcq_rules"]["rules"]),
     ]
-    if batch.skill == "CO":
-        lines.append(SINGLE_VOICE)
     return "\n".join(lines)
+
+
+def words_for(tasks: dict[str, Any], batch: Batch) -> tuple[int, int]:
+    if batch.format == "reply":
+        return REPLY_WORDS
+    low, high = tasks[batch.skill]["levels"][batch.cefr]["words"]
+    return int(low), int(high)
 
 
 def check(draft: Draft, words: tuple[int, int], options: int) -> list[str]:
@@ -143,16 +183,21 @@ def settle(draft: Draft, verdict: Verdict, words: tuple[int, int], options: int)
     return Outcome(rebalance(draft), "ok")
 
 
-def bank_item(skill: str, cefr: str, draft: Draft) -> dict[str, Any]:
-    document = "audio_text" if skill == "CO" else "passage"
+def bank_item(batch: Batch, draft: Draft) -> dict[str, Any]:
+    document, prompt, options = draft.document, draft.prompt, list(draft.options)
+    if batch.format == "reply":
+        # As in the exam, the replies are heard, not read: the paper shows only the letters.
+        spoken = [f"{letter}. {option}" for letter, option in zip(LETTERS, options, strict=False)]
+        document = "\n".join([document, *spoken])
+        prompt, options = REPLY_PROMPT, [f"Réponse {letter}" for letter in LETTERS[: len(options)]]
     return {
         "slug": draft.slug,
-        "cefr": cefr,
+        "cefr": batch.cefr,
         "origin": "generated",
         "focus": draft.focus,
-        document: draft.document,
-        "prompt": draft.prompt,
-        "options": list(draft.options),
+        "audio_text" if batch.skill == "CO" else "passage": document,
+        "prompt": prompt,
+        "options": options,
         "answer": draft.answer,
         "explanation": draft.explanation,
     }

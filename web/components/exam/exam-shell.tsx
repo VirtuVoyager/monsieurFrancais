@@ -114,13 +114,16 @@ function Question({
         </div>
       )}
       {exercise.passage && (
-        <p lang="fr" className="rounded-xl bg-surface-2 p-4 leading-relaxed">
+        <p lang="fr" className="rounded-xl bg-surface-2 p-4 leading-relaxed whitespace-pre-line">
           {fr(exercise.passage)}
         </p>
       )}
-      <p lang="fr" className="font-medium">
-        {fr(exercise.prompt ?? "")}
-      </p>
+      {/* As in the TCF, a listening question is asked only after the recording. */}
+      {(!hasAudio || played) && (
+        <p lang="fr" className="font-medium">
+          {fr(exercise.prompt ?? "")}
+        </p>
+      )}
       <div role="radiogroup" className="grid gap-2">
         {exercise.options?.map((option, i) => (
           <button

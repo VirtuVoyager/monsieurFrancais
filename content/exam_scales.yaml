@@ -1,6 +1,7 @@
-# TCF Canada score conversions. Source: IRCC language test equivalency charts.
+# TCF Canada score conversions. Sources: IRCC language test equivalency charts and the FEI
+# Manuel du candidat (version Q, Sept 2026), whose NCLC table matches the floors below.
 # Re-verify on canada.ca if this date is more than ~6 months old.
-verified_as_of: "2026-09"
+verified_as_of: "2026-10"
 exam: TCF Canada
 
 cefr_bands:
@@ -11,13 +12,13 @@ cefr_bands:
     B2: [400, 499]
     C1: [500, 599]
     C2: [600, 699]
-  productive:  # /20, writing and speaking
-    A1: [0, 3]
-    A2: [4, 5]
+  productive:  # /20, writing and speaking (Manuel du candidat, version Q, Sept 2026, p. 25)
+    A1: [0, 1]
+    A2: [2, 5]
     B1: [6, 9]
     B2: [10, 13]
-    C1: [14, 15]
-    C2: [16, 20]
+    C1: [14, 17]
+    C2: [18, 20]
 
 nclc:  # lowest score for each NCLC level, per skill
   CO: {4: 331, 5: 369, 6: 398, 7: 458, 8: 503, 9: 523, 10: 549}

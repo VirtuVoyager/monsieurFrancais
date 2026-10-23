@@ -51,7 +51,10 @@ def test_tcf_scale_matches_cefr_band_centres() -> None:
         ("CE", 452, "B2", 6),
         ("EE", 10, "B2", 7),
         ("EO", 9, "B1", 6),
-        ("EO", 3, "A1", None),
+        # The manual's grid: A1 is 1/20, A2 2 to 5, C1 14 to 17, C2 18 to 20.
+        ("EO", 3, "A2", None),
+        ("EO", 1, "A1", None),
+        ("EE", 16, "C1", 10),
         ("CE", 650, "C2", 10),
     ],
 )
