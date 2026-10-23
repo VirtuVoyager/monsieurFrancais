@@ -1,0 +1,168 @@
+# What each TCF Canada task looks like and what it measures: the brief the content generators
+# write to. Numbers the app enforces (timers, word limits, score bands) stay in exam_scales.yaml.
+#
+# `source` on each entry says how far to trust it:
+#   official  — France Éducation international (FEI); `quote` is verbatim, `summary` is not
+#   consensus — agreed by several preparation sites; not yet checked against the official
+#               Manuel du candidat
+#   cefr      — CEFR level descriptors, applied to this exam's task types
+#   design    — our own choice, made so generated items match the exam; change freely
+# The official pages could only be read through search excerpts, so re-check every
+# `consensus` entry against the Manuel du candidat when it can be read in full.
+verified_as_of: "2026-10"
+exam: TCF Canada
+
+sources:
+  fei-tcf-canada: https://france-education-international.fr/test/tcf-canada
+  fei-evaluation: https://www.france-education-international.fr/article/evaluation-epreuves-tcf
+  manuel-candidat: https://www.afsf.com/exams/tcf/Manuel_du_candidat_TCF_Canada.pdf
+  consensus:
+    - https://tcfcad.com/blog/expression-ecrite-tcf-canada.html
+    - https://primo-tcf.cloud/blog/expression-ecrite-tcf-canada-3-taches
+    - https://www.tcfenligne.com/expression-orale-tcf-canada/
+    - https://prep2pass.ca/exam-explanation
+    - https://tcfcanadaformation.com/tcf-canada/epreuves
+
+language:
+  source: design
+  # The exam is set by a French body; teach the standard, not a regional variety.
+  standard: français standard, registre neutre à soutenu selon la tâche
+  voice_locale: fr-FR
+
+# Item-writing rules for every multiple-choice question, from standard test-development
+# practice: each one removes a way to answer without understanding the document.
+mcq_rules:
+  source: design
+  rules:
+    - Exactly one option is correct, and an expert would agree without hesitation.
+    - The question cannot be answered from general knowledge without the document.
+    - Distractors are plausible, mention things present in the document where possible, and
+      match the key in length, grammar and register.
+    - The key does not repeat the document's exact words when the distractors do not.
+    - Never "toutes les réponses" or "aucune réponse".
+    - The question and options are in French; options are short.
+    - Each item tests one thing, named in `focus`.
+
+CO:
+  format:
+    source: official
+    quote: "39 questions à choix multiple (4 choix de réponses, une seule réponse correcte). Durée : 35 minutes."
+    options: 4
+    plays: 1
+    # Consensus: questions run from A1 to C2 in increasing difficulty, and there is no going
+    # back once an answer is validated.
+    progression: A1 → C2
+  levels:
+    A1:
+      source: cefr
+      documents: [annonce dans une gare ou un magasin, message court sur répondeur, échange simple de la vie quotidienne]
+      focus: une information concrète (heure, lieu, prix, nombre, objet)
+      words: [15, 35]
+    A2:
+      source: cefr
+      documents: [message sur répondeur, annonce publique, dialogue au guichet ou chez le médecin, météo]
+      focus: information concrète ou but du message
+      words: [30, 70]
+    B1:
+      source: cefr
+      documents: [interview courte, conversation entre amis ou collègues, annonce radio, témoignage]
+      focus: idée principale, intention du locuteur, opinion exprimée
+      words: [60, 130]
+    B2:
+      source: cefr
+      documents: [extrait d'émission radio, débat, reportage, interview d'expert]
+      focus: argument, attitude du locuteur, information implicite, nuance
+      words: [100, 190]
+    C1:
+      source: cefr
+      documents: [chronique radio, conférence, débat sur un sujet abstrait]
+      focus: implicite, ironie, structure de l'argumentation, point de vue nuancé
+      words: [150, 250]
+
+CE:
+  format:
+    source: official
+    summary: 39 questions à choix multiple, 4 choix, une seule réponse correcte, 60 minutes.
+    options: 4
+    progression: A1 → C2
+  levels:
+    A1:
+      source: consensus
+      documents: [panneau, horaire, petite annonce, SMS, invitation]
+      focus: repérer une information précise
+      words: [20, 50]
+    A2:
+      source: consensus
+      documents: [courriel, petite annonce, règlement simple, programme, menu]
+      focus: information précise, but du document
+      words: [40, 90]
+    B1:
+      source: consensus
+      documents: [lettre ou courriel formel, article court, page d'information pratique]
+      focus: idée principale, détail important, intention de l'auteur
+      words: [100, 180]
+    B2:
+      source: consensus
+      documents: [article de presse, texte d'opinion, rapport, éditorial]
+      focus: argumentation, opinion de l'auteur, sens implicite
+      words: [180, 300]
+    C1:
+      source: consensus
+      documents: [éditorial, essai, critique, texte argumentatif complexe]
+      focus: implicite, ton, nuance, structure logique
+      words: [250, 400]
+
+EE:
+  format:
+    source: official
+    quote: "Épreuve collective : 3 exercices. Durée : 60 minutes."
+  tasks:
+    EE1:
+      source: consensus
+      # Word limits and minutes are in exam_scales.yaml.
+      task: Un message pour décrire, raconter ou expliquer, adressé à un ou plusieurs destinataires précisés dans la consigne.
+      forms: [courriel à un ami, message à un collègue, invitation, réponse à une annonce]
+    EE2:
+      source: consensus
+      task: Un article, un courrier ou une note pour raconter une expérience et la commenter (donner son avis, ses impressions).
+      forms: [article de blog, article pour le journal du quartier, message sur un forum, lettre]
+    EE3:
+      source: consensus
+      task: >
+        Deux courts documents présentent deux points de vue opposés sur un même sujet. Première
+        partie : présenter les deux points de vue (40 à 60 mots). Deuxième partie : donner son
+        opinion argumentée (80 à 120 mots).
+      forms: [sujet de société]
+  # FEI names only the linguistic dimension; the task and coherence criteria are consensus.
+  criteria:
+    official: [étendue du lexique, correction grammaticale, orthographe, degré d'élaboration des phrases]
+    consensus: [réalisation de la tâche et respect de la consigne, cohérence et cohésion, adéquation au destinataire et au registre]
+  marking:
+    source: official
+    note: Corrigée deux fois, de façon indépendante et en double aveugle, par des correcteurs formés.
+
+EO:
+  format:
+    source: official
+    summary: Épreuve individuelle en face à face, 3 exercices, 12 minutes dont 2 minutes de préparation.
+  tasks:
+    EO1:
+      source: consensus
+      task: Entretien dirigé sans préparation. Le candidat parle de lui, de sa vie, de ses habitudes et de ses projets en répondant à l'examinateur.
+    EO2:
+      source: consensus
+      task: Exercice en interaction. Jeu de rôle dans une situation de la vie quotidienne où le candidat pose des questions pour obtenir des informations. Seule tâche avec préparation.
+    EO3:
+      source: consensus
+      task: Expression d'un point de vue. Le candidat répond à une question posée par l'examinateur et défend son opinion de façon spontanée et convaincante.
+  criteria:
+    source: consensus
+    linguistic: [étendue du lexique, correction grammaticale, prononciation, aisance]
+    pragmatic: [structure, cohérence, développement des idées]
+    sociolinguistic: [registre adapté à la situation et à l'interlocuteur]
+
+# Recurring subjects across EE, EO and the longer CO/CE documents.
+themes:
+  source: consensus
+  list: [logement, travail, santé, environnement, technologie, éducation, immigration et intégration,
+    culture et loisirs, transports, consommation, famille et société, alimentation, voyages, médias]
