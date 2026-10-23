@@ -1,0 +1,119 @@
+slug: a1-10-portraits
+level: A1
+block: 1
+order: 4
+theme: Relations
+title: Portraits
+summary: >
+  Décrire une personne : son physique et son caractère. L'accord des adjectifs au
+  féminin et au pluriel, leur place, c'est ou il est, et les pronoms toniques
+  (moi, toi, lui, eux).
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: "Les adjectifs, c'est / il est et les pronoms toniques"
+    concept: adjectifs-portrait
+    exercises:
+      - {kind: cloze, prompt: "Ma sœur est très ___. (sportif)", accepted: [sportive]}
+      - {kind: cloze, prompt: "Les enfants sont ___. (gentil)", accepted: [gentils]}
+      - kind: mcq
+        prompt: "C'est une ___ femme."
+        options: [belle, beau, bel]
+        answer: 0
+      - kind: mcq
+        prompt: "Mon voisin aide tout le monde. Il est très ___."
+        options: [généreux, généreuse, généreuses]
+        answer: 0
+      - kind: mcq
+        prompt: "Paul et Léa sont ___ de leur voyage."
+        options: [contents, contentes, content]
+        answer: 0
+        explanation: "Un groupe mixte prend le masculin pluriel : Paul et Léa sont contents."
+      - kind: mcq
+        prompt: "Voici Thomas. ___ infirmier."
+        options: [Il est, C'est, Il est un]
+        answer: 0
+        explanation: "Il est + profession, sans article. Avec un article, on dit : c'est un infirmier."
+      - {kind: order, words: ["Moi,", je, suis, un, peu, timide.], answer: "Moi, je suis un peu timide."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : le physique et le caractère"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour décrire une personne
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : le nouveau collègue"
+    transcript: |
+      - Alors, ton nouveau collègue, il est comment ?
+      - Il s'appelle Marc. Il est grand et brun, avec des lunettes.
+      - Et il est sympa ?
+      - Oui, très. Il est drôle et toujours souriant. Mais il est un peu bavard !
+      - Et ta nouvelle directrice ?
+      - Elle, c'est madame Duval. Elle est sérieuse, mais elle est gentille.
+    questions:
+      - kind: mcq
+        prompt: "Comment est Marc ?"
+        options: [Petit et blond, Grand et blond, Grand et brun, Petit et brun]
+        answer: 2
+      - kind: mcq
+        prompt: "Quel est le petit défaut de Marc ?"
+        options: [Il est timide., Il est méchant., Il est bavard., Il est sérieux.]
+        answer: 2
+      - kind: mcq
+        prompt: "Comment est madame Duval ?"
+        options: [Drôle et bavarde, Timide et calme, Sévère et méchante, Sérieuse et gentille]
+        answer: 3
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : une famille cherche une personne au pair"
+    text: |
+      Famille Leroy, Bordeaux
+
+      Nous sommes une famille de quatre personnes. Paul, le père, est grand, calme
+      et très sportif : il fait du vélo tous les week-ends. Claire, la mère, est
+      souriante et un peu timide. Nos deux enfants, Léo (huit ans) et Inès (cinq
+      ans), sont adorables, mais très actifs ! Nous cherchons une jeune femme ou un
+      jeune homme au pair, patient, gentil et dynamique, pour le mois de septembre.
+    questions:
+      - kind: mcq
+        prompt: "Comment est le père ?"
+        options: [Timide et souriant, Calme et sportif, Petit et actif, Drôle et bavard]
+        answer: 1
+      - kind: mcq
+        prompt: "Qui est un peu timide ?"
+        options: [Paul, Léo, Inès, Claire]
+        answer: 3
+      - kind: mcq
+        prompt: "Quelle personne la famille cherche-t-elle ?"
+        options:
+          - Une personne sportive et calme
+          - Une personne patiente et dynamique
+          - Une personne timide et sérieuse
+          - Une personne âgée et gentille
+        answer: 1
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : présenter un ami"
+    task: EE1
+    prompt: >
+      Un ami va venir habiter dans votre ville. Écrivez un message à vos collègues
+      pour le présenter : son nom, son âge, son métier, son physique et son
+      caractère.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : une personne importante pour moi"
+    task: EO1
+    prompt: >
+      Parlez d'une personne importante pour vous : qui est-ce ? Comment est-elle
+      physiquement ? Quel est son caractère ? Pourquoi est-elle importante ?
+    seconds: 60
