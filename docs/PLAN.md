@@ -77,7 +77,7 @@ These sections are multiple choice, so they can be measured precisely.
   - Word count against the target, and whether the attempt finished within time.
   - For speaking: speech rate, pause ratio and filled pauses (*euh*), taken from word timestamps. Also Azure's **pronunciation accuracy and fluency** scores for fr-FR/fr-CA.
 - **Time is part of the score.** Writing runs on the exam clock with a word counter. Speaking runs on the task's clock, and silences and hesitations are measured.
-- The skill estimate is a **recency-weighted mean** of the counted scores, with uncertainty from their spread. It converts to CEFR/NCLC using the TCF bands (/20: 4–5 A2, 6–9 B1, 10–13 B2, 14–15 C1, 16–20 C2; NCLC 7 = 10–11).
+- The skill estimate is a **recency-weighted mean** of the counted scores, with uncertainty from their spread. It converts to CEFR/NCLC using the TCF bands (/20: 2–5 A2, 6–9 B1, 10–13 B2, 14–17 C1, 18–20 C2, per the Manuel du candidat; NCLC 7 = 10–11).
 - The grader is checked against the golden set in CI (§ 16). A prompt change that shifts the average error by more than 1 point fails the build.
 
 ### 4.4 How the bar looks

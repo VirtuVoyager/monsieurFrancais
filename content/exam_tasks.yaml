@@ -1,0 +1,225 @@
+# What each TCF Canada task looks like and what it measures: the brief the content generators
+# write to. Numbers the app enforces (timers, word limits, score bands) stay in exam_scales.yaml.
+#
+# `source` on each entry says how far to trust it:
+#   manual    — FEI, Manuel du candidat au TCF, version Q (septembre 2026); `quote` is verbatim
+#   examples  — FEI's published sample questions and sample EE/EO papers (formats only: FEI
+#               forbids reusing its subjects, so never copy one into the catalogue)
+#   cefr      — CEFR level descriptors, applied to this exam's documents
+#   design    — our own choice, made so generated items match the exam; change freely
+verified_as_of: "2026-10"
+exam: TCF Canada
+
+sources:
+  manual: https://france-education-international.fr/document/manuelcandidattoutes20dc3a9clinaisonsi
+  examples: https://france-education-international.fr/test/exemples-epreuves-tcf
+  example-ee: https://france-education-international.fr/document/tcf-tp-qc-ca-exemple-epreuve-ee
+  example-eo: https://france-education-international.fr/document/tcf-tp-qc-ca-exemple-epreuve-eo
+
+language:
+  source: design
+  # The exam is set by a French body; teach the standard, not a regional variety.
+  standard: français standard, registre neutre à soutenu selon la tâche
+
+# Item-writing rules for every multiple-choice question, from standard test-development
+# practice: each one removes a way to answer without understanding the document.
+mcq_rules:
+  source: design
+  rules:
+    - Exactly one option is correct, and an expert would agree without hesitation.
+    - The question cannot be answered from general knowledge without the document.
+    - Distractors are plausible, mention things present in the document where possible, and
+      match the key in length, grammar and register.
+    - The key does not repeat the document's exact words when the distractors do not.
+    - Never "toutes les réponses" or "aucune réponse".
+    - The question and options are in French; options are short.
+    - Each item tests one thing, named in `focus`.
+
+# Only right answers score and a wrong answer costs nothing, so a learner should never leave a
+# question blank. (manual: "Seules les bonnes réponses comptent ... 0 point.")
+
+CO:
+  format:
+    source: manual
+    quote: "Pour chaque question, il y a 4 choix de réponse (A, B, C, D) mais une seule réponse est exacte."
+    options: 4
+    plays: 1  # "Chaque enregistrement n'est diffusé qu'une seule fois."
+    question_after_audio: true  # "La question est posée après l'écoute du document sonore."
+    progression: A1 → C2  # "Les épreuves se présentent selon un principe de difficulté progressive."
+  # The manual's list of what is tested, easiest first.
+  tests:
+    source: manual
+    list:
+      - des mots familiers et des expressions courantes dans des situations de communication courante (dialogues, interviews, entretiens, discussions au téléphone, etc.)
+      - l'essentiel de messages et d'annonces simples et claires
+      - des informations portant sur des personnes, des faits ou des événements dans des émissions de radio ou de télévision sur l'actualité ou sur des sujets personnels ou professionnels
+      - des exposés traitant de sujets concrets ou abstraits
+      - tout genre de discours prononcé à un débit courant
+  # The published sample questions use three formats. The picture format (four spoken
+  # sentences, choose the one matching a drawing) needs images, so it is not generated yet.
+  formats:
+    reply:
+      source: examples
+      task: >
+        On entend une question puis quatre réponses possibles ; on choisit la réponse qui
+        correspond à la question. Les quatre réponses sont entendues, pas lues.
+      levels: [A1, A2]
+    document:
+      source: examples
+      task: >
+        On entend un document sonore (dialogue ou monologue), puis une question ; les quatre
+        réponses sont imprimées dans le livret.
+      levels: [A1, A2, B1, B2, C1]
+      # In the samples a dialogue is written one turn per line, each line starting with "- ".
+      dialogue_lines: "- "
+  levels:
+    A1:
+      source: cefr
+      documents: [question simple de la vie quotidienne, annonce dans une gare ou un magasin, échange court entre deux personnes]
+      focus: une information concrète (heure, lieu, prix, nombre, objet) ou la réponse adaptée à une question
+      words: [10, 40]
+    A2:
+      source: cefr
+      documents: [dialogue au guichet, dans un magasin ou au téléphone, message sur répondeur, annonce publique]
+      focus: information concrète, but du message, ce que doit faire une personne
+      words: [30, 80]
+    B1:
+      source: cefr
+      documents: [conversation entre collègues ou amis, interview courte, annonce radio, témoignage]
+      focus: idée principale, intention du locuteur, opinion exprimée
+      words: [60, 130]
+    B2:
+      source: cefr
+      documents: [extrait d'émission de radio ou de télévision, interview, débat, reportage]
+      focus: argument, attitude du locuteur, information implicite, nuance
+      words: [100, 190]
+    C1:
+      source: cefr
+      documents: [exposé sur un sujet abstrait, présentation institutionnelle, chronique, débat d'idées]
+      focus: rôle ou objectif d'un organisme ou d'un discours, implicite, structure de l'argumentation
+      words: [150, 250]
+
+CE:
+  format:
+    source: manual
+    quote: "Pour chaque question, il y a 4 choix de réponse (A, B, C, D) mais une seule réponse est exacte."
+    options: 4
+    progression: A1 → C2
+  tests:
+    source: manual
+    list:
+      - des noms familiers, des mots et des phrases très simples utilisés dans des situations de communication (messages et lettres amicales ou administratives)
+      - des informations contenues dans des documents courants (petites annonces, prospectus, menus et horaires, etc.)
+      - des informations portant sur des personnes, des faits ou des événements (lettres personnelles)
+      - des textes en langue courante relatifs à la vie quotidienne ou au travail
+      - des articles et des comptes rendus dans lesquels les auteurs prennent position sur des sujets concrets ou abstraits
+      - des textes factuels ou littéraires longs et complexes, des articles spécialisés
+      - des textes abstraits ou complexes extraits d'ouvrages, d'articles spécialisés
+  levels:
+    A1:
+      source: manual
+      documents: [panneau ou affiche, horaires, menu, message amical très court, petite annonce]
+      focus: repérer une information précise
+      words: [20, 50]
+    A2:
+      source: manual
+      documents: [lettre ou courriel administratif, prospectus, petite annonce, lettre personnelle]
+      focus: information précise, ce que doit faire le destinataire, ce qu'on propose
+      words: [40, 100]
+    B1:
+      source: manual
+      documents: [lettre personnelle, texte en langue courante sur la vie quotidienne ou le travail, article court]
+      focus: idée principale, détail important, intention de l'auteur
+      words: [100, 180]
+    B2:
+      source: manual
+      documents: [article ou compte rendu où l'auteur prend position, article de presse avec des données]
+      focus: ce qu'on apprend dans le texte, opinion de l'auteur, sens implicite
+      words: [180, 300]
+    C1:
+      source: manual
+      documents: [texte factuel ou littéraire long, article spécialisé, extrait d'ouvrage]
+      focus: implicite, ton, nuance, structure logique
+      words: [250, 400]
+
+EE:
+  format:
+    source: manual
+    quote: "Expression écrite : 3 exercices — 60 minutes"
+    # The sample paper's definition, which the word counters must follow.
+    word: "1 mot = tout ensemble de signes placé entre deux espaces. Exemples : Un bon sujet = 3 mots ; C'est-à-dire = 1 mot."
+    order: Les tâches se font dans l'ordre 1, 2, 3.
+  tasks:
+    EE1:
+      source: manual
+      # Word limits and minutes are in exam_scales.yaml.
+      quote: "rédaction d'un message pour décrire, raconter et/ou expliquer, adressé à un ou plusieurs destinataires, dont le statut a été précisé dans la consigne."
+      forms: [fiche ou formulaire à compléter, courriel à un ami, message à un collègue, réponse à une annonce]
+    EE2:
+      source: manual
+      quote: "rédaction d'un article, d'un courrier, d'une note, … à l'intention de plusieurs destinataires pour faire un compte rendu d'expérience ou un récit. Comptes rendus et récits seront accompagnés de commentaires, d'opinions ou d'arguments, en fonction d'un objectif (ex : revendiquer, se réconcilier, …)."
+      forms: [réponse à un courriel en justifiant ses conseils, article pour un journal ou un site, lettre de réclamation, message sur un forum]
+    EE3:
+      source: manual
+      quote: "rédaction d'un texte (pour un journal, un site Internet, un collègue, un supérieur hiérarchique, …) qui compare deux points de vue portant sur un fait de société, exprimés dans deux documents. Le candidat donne son avis sur le thème traité dans les deux documents."
+      # From the sample paper's consigne.
+      parts: "Première partie : présenter les deux opinions avec ses propres mots (entre 40 et 60 mots). Deuxième partie : donner sa position sur le thème général, commun à ces deux opinions (entre 80 et 120 mots)."
+  assessed:
+    source: manual
+    list: [communiquer un message de façon claire, donner les informations demandées, "décrire, raconter, expliquer", "justifier un choix, une position, une décision", enchaîner des idées et faire preuve de cohérence, exprimer son avis et l'argumenter, utiliser un vocabulaire et des structures adaptés à la tâche]
+  criteria:
+    source: manual
+    linguistic: [étendue du lexique, correction grammaticale, orthographe, degré d'élaboration des phrases]
+    pragmatic: [cohérence et cohésion, développement thématique]
+    sociolinguistic: [adéquation à la situation de communication]
+  marking:
+    source: manual
+    note: >
+      Deux correcteurs indépendants, en double aveugle, donnent chacun un niveau (de « A1 non
+      atteint » à C2) à chaque tâche ; une règle de calcul sur les 6 niveaux donne la note /20.
+  # Each of these sinks the whole paper, so practice and grading must flag them.
+  a1_not_reached:
+    source: manual
+    list: [une tâche sans le nombre de mots exigé, une production hors-sujet, une tâche non réalisée, des phrases recopiées du sujet ou d'un document, un texte appris par cœur]
+
+EO:
+  format:
+    source: manual
+    quote: "Expression orale : 3 exercices (épreuve individuelle en face à face avec un examinateur) — 12 minutes"
+  tasks:
+    EO1:
+      source: manual
+      quote: "Entretien dirigé sans préparation ... le candidat fait preuve de sa capacité à échanger avec une personne qu'il ne connaît pas (l'examinateur)."
+      opening: "Voici la première tâche. Cette partie de l'épreuve dure 2 minutes. Est-ce que vous pouvez vous présenter ?"
+      themes: [état civil, caractère, langues parlées, famille, relations amicales, formation et études, situation professionnelle, "activités et habitudes (travail, université, chez soi, loisirs)", "aptitudes, goûts, centres d'intérêt", événement ou activité passés, "conditions de vie (lieu, logement, environnement, équipements, météo)", objets personnels, "projets, souhaits, désirs", "déplacements, voyages", "institutions publiques, infrastructures, associations"]
+    EO2:
+      source: manual
+      quote: "le candidat fait preuve de sa capacité à obtenir des informations dans une situation de la vie quotidienne courante. Le statut de l'interlocuteur et du candidat sont précisés dans la consigne."
+      # From the sample paper: the subject gives the examiner's role, and the candidate leads.
+      how: "Le sujet donne le rôle de l'examinateur (par exemple « Je dirige une association… Posez-moi des questions pour savoir… »). Le candidat prépare ses questions 2 minutes, parle en premier et conduit la conversation ; il peut demander des précisions ou faire répéter."
+    EO3:
+      source: manual
+      quote: "le candidat fait preuve de sa capacité à parler de manière spontanée, continue et convaincante en répondant à une question choisie par l'examinateur. L'examinateur est autorisé à interrompre le candidat en lui posant des questions en lien avec l'expression de son point de vue."
+      how: "Le sujet est une question d'opinion courte (par exemple « Voyager nous rend meilleurs. Êtes-vous d'accord ? Pourquoi ? »). Le candidat argumente, avec des exemples, en essayant de convaincre."
+  assessed:
+    source: manual
+    list: ["parler de soi, de son environnement familial et professionnel", poser des questions adaptées à la situation de communication proposée, "donner son opinion et expliquer les avantages et inconvénients d'un projet, exprimer son accord et son désaccord", présenter une argumentation claire et structurée dans un style approprié au contexte, "présenter de façon détaillée et structurée des sujets complexes, les développer et conclure"]
+  criteria:
+    source: manual
+    linguistic: [étendue et maîtrise du lexique, correction grammaticale, aisance, prononciation, fluidité globale du discours]
+    pragmatic: [interaction, structuration du discours, cohérence et cohésion, développement thématique]
+    sociolinguistic: [adéquation à la situation de communication]
+  marking:
+    source: manual
+    note: L'examinateur puis un correcteur, en double aveugle, donnent un niveau à chaque tâche.
+  # Templates must stay flexible chunks: a recited answer is treated as fraud.
+  recitation:
+    source: manual
+    quote: "L'épreuve d'expression orale pourrait être évaluée « A1 non atteint » si le candidat récite un ou des textes appris par cœur."
+
+# Recurring subjects across EE, EO and the longer CO/CE documents.
+themes:
+  source: design
+  list: [logement, travail, santé, environnement, technologie, éducation, immigration et intégration,
+    culture et loisirs, transports, consommation, famille et société, alimentation, voyages, médias,
+    vie associative, services publics]
