@@ -1,0 +1,153 @@
+request: ce-bank
+skill: CE
+cefr: A1
+themes:
+- culture et loisirs
+- transports
+format: document
+model: gpt-5.4-mini
+key: 01746be13ff98a560b51ff5fbd0304cd420138861dfb006ac2581a9f261cb93c
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-concert-au-musee
+    cefr: A1
+    origin: generated
+    focus: date du concert
+    passage: Samedi douze mai, à la Maison des arts, concert de piano à dix-huit heures. Entrée gratuite
+      pour tous. Réservation à l'accueil.
+    prompt: Quand a lieu le concert ?
+    options:
+    - Dimanche 12 mai
+    - Samedi 12 mai
+    - Vendredi 10 mai
+    - Lundi 14 mai
+    answer: 1
+    explanation: Le document indique clairement « samedi douze mai ». Les autres dates ne correspondent
+      pas à l'affiche.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-bus-du-matin
+    cefr: A1
+    origin: generated
+    focus: premier départ
+    passage: 'Bus quatre — Centre-ville vers Parc des loisirs. Départs : sept heures trente, huit heures,
+      huit heures trente, neuf heures. Arrêt principal devant la mairie.'
+    prompt: À quelle heure part le premier bus ?
+    options:
+    - 8 h
+    - 8 h 15
+    - 7 h 30
+    - 9 h
+    answer: 2
+    explanation: Le premier horaire donné est « sept heures trente ». Les autres propositions sont des
+      départs plus tardifs ou n'apparaissent pas.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-menu-du-theatre
+    cefr: A1
+    origin: generated
+    focus: dessert proposé
+    passage: 'Au café du théâtre : soupe du jour cinq euros, sandwich au fromage six euros, salade de
+      fruits quatre euros, jus d''orange deux euros. Service de midi à dix-huit heures.'
+    prompt: Quel dessert est proposé ?
+    options:
+    - Soupe du jour
+    - Sandwich au fromage
+    - Jus d'orange
+    - Salade de fruits
+    answer: 3
+    explanation: Le dessert est « salade de fruits ». La soupe, le sandwich et le jus sont proposés, mais
+      ce ne sont pas des desserts.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-seance-de-cinema
+    cefr: A1
+    origin: generated
+    focus: heure du cinéma
+    passage: Salut Karim, la séance de cinéma commence à vingt heures quinze. Retrouvons-nous devant l'entrée
+      à vingt heures. À tout à l'heure, Maya.
+    prompt: À quelle heure commence la séance ?
+    options:
+    - 20 h
+    - 20 h 30
+    - 20 h 15
+    - 21 h
+    answer: 2
+    explanation: Le message dit que la séance commence à « vingt heures quinze ». Vingt heures est l'heure
+      du rendez-vous, pas celle du film.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-velos-a-louer
+    cefr: A1
+    origin: generated
+    focus: objet en location
+    passage: 'À louer : deux vélos à la gare du Sud. Prix : huit euros la demi-journée. Casque fourni.
+      Réservation chez monsieur Duret.'
+    prompt: Que peut-on louer ?
+    options:
+    - Des billets
+    - Une voiture
+    - Des cartes
+    - Deux vélos
+    answer: 3
+    explanation: L'annonce propose « deux vélos à louer ». Les autres objets ne sont pas mentionnés.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-billets-de-danse
+    cefr: A1
+    origin: generated
+    focus: prix d'un billet
+    passage: 'À vendre : deux billets pour le spectacle de danse de samedi, au théâtre Orion. Prix : dix-huit
+      euros l''unité. Contact par message.'
+    prompt: Quel est le prix d'un billet ?
+    options:
+    - 18 €
+    - 20 €
+    - 25 €
+    - 30 €
+    answer: 0
+    explanation: L'annonce précise « dix-huit euros l'unité ». Les autres prix ne figurent pas dans le
+      texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-expo-de-photos
+    cefr: A1
+    origin: generated
+    focus: lieu de l'exposition
+    passage: Exposition de photos marines au centre culturel Lune Bleue, du mardi au samedi, de dix heures
+      à dix-sept heures. Entrée libre pour tous.
+    prompt: Où se trouve l'exposition ?
+    options:
+    - Centre culturel Lune Bleue
+    - Musée des arts
+    - Parc municipal
+    - Salle des fêtes
+    answer: 0
+    explanation: Le lieu indiqué est « le centre culturel Lune Bleue ». Les autres lieux ne sont pas ceux
+      de l'exposition.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-navette-du-port
+    cefr: A1
+    origin: generated
+    focus: dernier départ
+    passage: 'Navette Lac Bleu. Du lundi au vendredi : six heures cinquante, huit heures vingt, douze
+      heures dix, dix-sept heures quarante. Le trajet dure quinze minutes.'
+    prompt: Quel est l'horaire du dernier départ ?
+    options:
+    - 6 h 50
+    - 8 h 20
+    - 18 h
+    - 17 h 40
+    answer: 3
+    explanation: Le dernier horaire listé est « dix-sept heures quarante ». Les autres propositions sont
+      des départs plus tôt ou une heure qui n'apparaît pas.

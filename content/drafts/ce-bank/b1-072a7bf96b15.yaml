@@ -1,0 +1,196 @@
+request: ce-bank
+skill: CE
+cefr: B1
+themes:
+- culture et loisirs
+- transports
+format: document
+model: gpt-5.4-mini
+key: 072a7bf96b15b1daaa216cd65126a215fc6dda78cb142154068257fe34efa5d6
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-reprise-du-cine-club
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: Le Ciné-Agora a rouvert cette semaine dans la salle Iris, après plusieurs mois de travaux.
+      Le lieu ne propose plus seulement des projections du vendredi soir. Désormais, chaque séance sera
+      suivie d'un échange de vingt minutes animé par un critique local, et le programme changera chaque
+      mois selon les votes des adhérents. La direction a aussi choisi de baisser le tarif pour les moins
+      de vingt-cinq ans et d'ajouter une séance en après-midi le dimanche. Selon sa responsable, l'objectif
+      n'est pas d'attirer les grands succès du moment, mais de faire venir un public plus large, y compris
+      des personnes qui n'osaient pas entrer au cinéma. Le premier cycle sera consacré aux films d'aventure.
+    prompt: Quel est l'objectif principal du Ciné-Agora ?
+    options:
+    - Vendre plus de popcorn
+    - Diffuser uniquement des nouveautés
+    - Fermer le dimanche
+    - Attirer un public plus varié
+    answer: 3
+    explanation: 'Le texte précise que la responsable veut « faire venir un public plus large ». Les autres
+      propositions ne correspondent pas : il n’est pas question de nourriture, d’exclusivité des nouveautés
+      ni de fermeture.'
+- status: fixed
+  issues:
+  - The explanation contains a non-French word and should be fully in French.
+  item:
+    slug: ce-b1-atelier-de-theatre
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      Salut Marc,
+      Samedi dernier, j'ai assisté à la première séance de l'atelier théâtre au centre Orion, et j'ai tout de suite pensé à toi. L'ambiance est simple, personne ne se prend au sérieux, et la prof nous fait travailler sur des scènes courtes, avec des exercices pour la voix et la respiration. On doit aussi choisir une petite pièce pour la fin du trimestre. Ils cherchent encore deux participants, parce que plusieurs personnes ont quitté le groupe après les vacances. Je me suis dit que ce serait parfait pour toi, surtout si tu veux reprendre une activité en soirée sans pression. Si ça t'intéresse, passe jeudi prochain ; je peux t'accompagner.
+      À bientôt,
+      Élodie
+    prompt: Que cherche à faire Élodie ?
+    options:
+    - Convaincre Marc de rejoindre l'atelier
+    - Lui demander d'acheter des billets
+    - Annuler la séance de jeudi
+    - Lui raconter un problème de santé
+    answer: 0
+    explanation: 'Élodie explique qu’elle pense que l’atelier conviendrait bien à Marc et l’invite à venir
+      jeudi. Les autres réponses sont hors sujet : elle ne parle ni de billets, ni d’annulation, ni de
+      santé.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-festival-litteraire
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: 'Du 8 au 10 juillet, la ville de Montreval accueillera la première édition de « Pages d''été
+      ». L''événement ne sera pas réservé aux lecteurs passionnés : les organisateurs ont prévu des rencontres
+      avec trois auteurs, des lectures dans le jardin public, un atelier d''écriture pour adolescents
+      et deux concerts en soirée. Les livres resteront au centre de la programmation, mais l''idée est
+      d''offrir des activités différentes pour que chacun puisse y trouver sa place. Les billets vendus
+      à l''avance donnent aussi accès à une visite commentée de l''ancienne imprimerie, transformée depuis
+      peu en salle d''exposition. La mairie espère ainsi faire du festival un rendez-vous culturel plus
+      vivant qu''une simple suite de conférences.'
+    prompt: De quoi parle surtout cet article ?
+    options:
+    - D'un concours de romans
+    - D'une fermeture de salle
+    - Du programme varié d'un festival
+    - D'une grève des libraires
+    answer: 2
+    explanation: 'L’article présente surtout les différentes activités prévues pour « Pages d''été ».
+      Les autres propositions ne sont pas développées : il n’y a ni concours, ni fermeture, ni grève.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-bus-de-nuit
+    cefr: B1
+    origin: generated
+    focus: détail important
+    passage: À l'occasion de la Fête des quais, le réseau Urbis met en place deux lignes de bus de nuit,
+      N1 et N2, du vendredi au dimanche inclus. Les départs auront lieu toutes les vingt minutes entre
+      onze heures du soir et deux heures du matin. Pour le retour, les arrêts seront marqués près de la
+      place des Halles, du théâtre municipal et du parc des Érables. Le dernier départ de la ligne N1
+      est fixé à une heure quarante au départ de la place des Halles ; après cette heure, il n'y aura
+      plus de passage jusqu'au lendemain. Les usagers sont invités à préparer leur titre de transport
+      à l'avance afin de monter plus rapidement.
+    prompt: Jusqu'à quelle heure part le dernier bus de la ligne N1 ?
+    options:
+    - Une heure quarante
+    - Deux heures
+    - Onze heures
+    - Vingt heures
+    answer: 0
+    explanation: 'Le document donne clairement l’horaire du dernier départ : une heure quarante. Deux
+      heures est l’heure de fin du service, onze heures est l’heure de début, et vingt heures ne correspond
+      pas au texte.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-travaux-du-tram
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: Depuis ce lundi, les voyageurs de la ligne de tram T3 doivent s'organiser autrement. La circulation
+      est interrompue entre la gare Saint-Pierre et le quartier du Port jusqu'au 18 septembre, en raison
+      de travaux sur les rails. Pendant toute la durée du chantier, des bus de remplacement desserviront
+      les mêmes arrêts, mais leur trajet sera légèrement plus long. La société de transport conseille
+      aux passagers de prévoir dix minutes de marge, surtout aux heures de pointe. Les commerces du secteur
+      restent ouverts, et les abonnés peuvent utiliser leur carte habituelle dans les bus. Les conducteurs
+      espèrent une reprise normale avant la rentrée d'octobre, si les conditions météo ne retardent pas
+      le chantier.
+    prompt: Quelle est l'idée principale du texte ?
+    options:
+    - Un nouveau tram est inauguré
+    - Le billet coûte moins cher
+    - Les commerces ferment pour l'été
+    - Le tram est modifié temporairement
+    answer: 3
+    explanation: Le texte annonce une interruption temporaire et des bus de remplacement à cause de travaux.
+      Il ne s’agit ni d’une inauguration, ni d’un changement de prix, ni d’une fermeture des commerces.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-quai-de-depart
+    cefr: B1
+    origin: generated
+    focus: détail important
+    passage: |-
+      Bonjour,
+      Je vous écris au sujet du voyage prévu samedi avec l'association Horizons. La compagnie RailOuest nous informe que, pour des raisons techniques, le départ du train pour Valcenne n'aura pas lieu à la gare Centrale comme annoncé au départ. Le groupe devra se présenter à la gare du Nord, quai trois, à dix-huit heures moins le quart. Nous vous conseillons d'arriver vingt minutes en avance, car les contrôles seront faits sur le quai. Les voyageurs qui doivent récupérer des billets papier pourront le faire au comptoir « Informations » avant dix-sept heures trente. Merci de transmettre ce changement à ceux qui viennent sans téléphone.
+    prompt: Où le groupe doit-il prendre le train ?
+    options:
+    - À la gare du Nord
+    - À la gare Centrale
+    - À la gare de l'Est
+    - À la gare Maritime
+    answer: 0
+    explanation: Le message indique que le départ se fera à la gare du Nord, quai trois. La gare Centrale
+      est justement écartée, et les autres gares ne sont pas mentionnées.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-covoiturage-culturel
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: 'Pour faciliter les sorties au théâtre et au musée, la ville de Bréval lance une nouvelle
+      plateforme de covoiturage baptisée « Sorties ensemble ». Le principe est simple : les habitants
+      qui vont au même spectacle ou au même concert peuvent proposer une place libre dans leur voiture
+      et partager les frais de route. La mairie espère réduire les problèmes de stationnement autour des
+      salles culturelles, surtout le samedi soir. Les usagers pourront aussi signaler s''ils partent tôt
+      ou s''ils souhaitent rentrer juste après la représentation. Le service est gratuit, mais il faut
+      créer un compte avec une adresse électronique. Selon les premiers tests, ce système intéresse surtout
+      les personnes qui vivent en périphérie et n''ont pas de bus après 22 heures.'
+    prompt: De quoi parle cet article ?
+    options:
+    - D'une hausse du prix des places
+    - De la fermeture des musées
+    - D'un nouveau parking couvert
+    - D'une plateforme de covoiturage pour les sorties
+    answer: 3
+    explanation: 'L’article présente une plateforme qui permet de partager sa voiture pour aller à des
+      sorties culturelles. Les autres réponses ne correspondent pas au contenu : il n’est ni question
+      d’augmenter les tarifs, ni de fermer des lieux, ni de construire un parking.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-train-touristique
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: 'Le vieux train touristique de la vallée reprend du service chaque week-end d''avril à septembre.
+      Entre Lormont et Belair, il traverse trois ponts et longe les vergers avant d''arriver au village
+      de Saint-Luce, où les passagers disposent d''une heure pour visiter le marché et prendre un café.
+      Le billet comprend aussi un petit guide historique distribué à bord. Les responsables du syndicat
+      touristique insistent : ce n''est pas un moyen de transport rapide, mais une manière de découvrir
+      la région autrement, sans voiture. Cette année, un arrêt supplémentaire a été ajouté près du belvédère
+      pour permettre aux randonneurs de commencer leur marche plus facilement.'
+    prompt: Quel est le but principal de ce train ?
+    options:
+    - Transporter les voyageurs très vite
+    - Faire découvrir la région aux voyageurs
+    - Remplacer les bus urbains
+    - Desservir l'aéroport
+    answer: 1
+    explanation: Le texte insiste sur la découverte de la région « autrement » et sur le caractère touristique
+      du trajet. Il ne s’agit ni de rapidité, ni de bus urbains, ni de liaison vers un aéroport.

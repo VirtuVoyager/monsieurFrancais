@@ -1,0 +1,203 @@
+request: co-bank
+skill: CO
+cefr: B2
+themes:
+- transports
+- consommation
+format: document
+model: gpt-5.4-mini
+key: d4c6127c4fa754b6154b079b08ae8f55bb7be699f1ccb70bcd26470e0f928748
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-couloir-de-bus
+    cefr: B2
+    origin: generated
+    focus: argument pour le projet
+    audio_text: |-
+      - Bonjour. Votre association soutient la suppression d’une voie de stationnement sur l’avenue Delorme. Pourquoi une mesure aussi impopulaire ?
+      - Parce qu’aujourd’hui, le bus est pris dans le même bouchon que tout le monde. Tant que les véhicules de livraison et les voitures particulières occupent toute la chaussée, le bus ne peut pas respecter son passage toutes les dix minutes.
+      - Mais les commerçants disent qu’ils vont perdre des clients.
+      - Je les entends, bien sûr. C’est pourquoi nous demandons des créneaux de livraison le matin et un accès maintenu pour les riverains qui ont des difficultés à se déplacer. Ce projet n’a pas pour but d’interdire la voiture ; il cherche surtout à rendre le transport collectif enfin prévisible.
+      - Donc, pour vous, le vrai bénéfice concerne…
+    prompt: Quel est l’argument principal du monsieur ?
+    options:
+    - Rendre les bus plus réguliers
+    - Créer davantage de places de stationnement
+    - Interdire l’accès aux riverains
+    - Accélérer les livraisons
+    answer: 0
+    explanation: 'Le monsieur dit que le projet vise à rendre le transport collectif « enfin prévisible
+      » et à faire respecter les passages du bus. Les autres propositions contredisent le document : il
+      ne veut ni plus de stationnement, ni exclure les riverains, ni privilégier les livraisons.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-telephone-reconditionne
+    cefr: B2
+    origin: generated
+    focus: avantage du produit
+    audio_text: On me demande souvent si acheter un téléphone reconditionné est un bon calcul. La réponse
+      est oui, mais pas pour les raisons que l’on croit. Ce n’est pas un produit miracle ni un gadget
+      d’occasion vendu à moitié prix. L’intérêt, c’est qu’il a été vérifié, remis en état, puis revendu
+      avec une garantie. Du coup, on évite de payer le tarif du dernier modèle, alors que, pour la plupart
+      des usages, la différence est minime. Et surtout, on prolonge la vie d’un appareil qui aurait pu
+      finir au rebut. Bien sûr, il faut accepter qu’il ne soit pas neuf et qu’il présente parfois une
+      batterie moins performante. Mais si l’on cherche un achat raisonnable, c’est souvent un meilleur
+      compromis que le tout neuf acheté sur un coup de tête.
+    prompt: Pourquoi le journaliste trouve-t-il cet achat intéressant ?
+    options:
+    - Il est toujours plus performant
+    - Il permet de payer moins et d’éviter le gaspillage
+    - Il remplace la garantie du fabricant
+    - Il convient seulement aux petits budgets
+    answer: 1
+    explanation: 'Le document insiste sur le fait qu’on paie moins que pour le dernier modèle et qu’on
+      prolonge la vie de l’appareil. Les autres réponses sont fausses : le téléphone n’est pas présenté
+      comme plus performant, ni comme remplaçant la garantie, ni comme réservé aux petits budgets.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-train-de-nuit
+    cefr: B2
+    origin: generated
+    focus: intérêt des trains de nuit
+    audio_text: |-
+      - On parle beaucoup du retour des trains de nuit. Est-ce un vrai changement ou un simple effet de mode ?
+      - Un effet de mode, non. Ce qui change, c’est la façon de compter le temps. Un vol paraît rapide, mais il faut souvent ajouter l’aller à l’aéroport, l’attente, puis une nuit d’hôtel à l’arrivée si l’on veut être en forme le lendemain. Le train de nuit, lui, permet de dormir pendant le trajet et d’arriver directement au centre-ville.
+      - Donc, il n’est intéressant que pour les voyageurs pressés ?
+      - Pas uniquement. Il attire aussi ceux qui veulent éviter une correspondance ou réduire leur empreinte de transport. Mais il faut être honnête : le confort n’est pas celui d’un hôtel, et les horaires doivent être fiables. Sans cela, l’argument perd vite sa force.
+    prompt: Selon le monsieur, pourquoi les trains de nuit redeviennent-ils attractifs ?
+    options:
+    - Ils sont plus rapides que l’avion
+    - Ils permettent de voyager sans perdre la nuit
+    - Ils évitent de passer par l’aéroport
+    - Ils sont plus confortables qu’un hôtel
+    answer: 1
+    explanation: 'Le monsieur explique que le train de nuit permet de dormir pendant le trajet et de ne
+      pas perdre une nuit d’hôtel. Les autres options ne correspondent pas au document : il ne dit ni
+      qu’ils sont plus rapides, ni qu’ils suppriment l’aéroport, ni qu’ils sont plus confortables qu’un
+      hôtel.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-carte-de-fidelite
+    cefr: B2
+    origin: generated
+    focus: idée principale
+    audio_text: Les cartes de fidélité ont longtemps été présentées comme un moyen simple de faire des
+      économies. En réalité, elles sont efficaces surtout pour les clients qui ont déjà un panier assez
+      stable. Si vous achetez toujours les mêmes produits, vous pouvez comparer les remises et profiter
+      des points. En revanche, si vous vous laissez guider par les offres et que vous achetez davantage
+      parce qu’un produit est « à gagner », la carte devient surtout un outil pour dépenser plus. On oublie
+      aussi que certains rabais ne concernent que des articles très précis, rarement ceux qu’on met d’habitude
+      dans son caddie. Autrement dit, la bonne question n’est pas de savoir si la carte est utile en soi,
+      mais si elle correspond vraiment à vos habitudes de consommation.
+    prompt: Quelle est l’idée principale du journaliste ?
+    options:
+    - La carte fait économiser sur tous les produits
+    - La carte est utile si les achats sont déjà prévus
+    - La carte oblige à acheter en grande quantité
+    - La carte doit être interdite en magasin
+    answer: 1
+    explanation: 'Le journaliste dit clairement que la carte est efficace surtout pour des clients qui
+      achètent déjà les mêmes produits. Les autres propositions ne sont pas défendues : la carte ne fait
+      pas économiser sur tout, n’oblige pas à acheter en grande quantité et n’est pas présentée comme
+      à interdire.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-covoiturage-organise
+    cefr: B2
+    origin: generated
+    focus: condition d’efficacité
+    audio_text: |-
+      - On dit souvent que le covoiturage est la solution la plus simple pour réduire les trajets en voiture. Est-ce vraiment si évident ?
+      - Pas tout à fait. Le principe est bon, mais il fonctionne seulement si les personnes acceptent un cadre commun. Il faut un horaire fixe, un point de rendez-vous clair et, parfois, un détour léger pour aller chercher un passager. Si chacun veut partir au dernier moment ou être déposé exactement devant sa porte, cela ne marche plus.
+      - Pourtant, beaucoup d’applications promettent une grande liberté.
+      - Justement, et c’est là le malentendu. Le covoiturage n’est pas un service de taxi bon marché. C’est une organisation partagée, donc un petit effort de prévisibilité de la part de tous.
+    prompt: Qu’est-ce qui est indispensable pour que le covoiturage fonctionne bien ?
+    options:
+    - Une voiture électrique
+    - Des horaires et un accord commun
+    - Un détour important
+    - Une assurance spéciale
+    answer: 1
+    explanation: 'Le monsieur insiste sur la nécessité d’un horaire fixe, d’un point de rendez-vous clair
+      et d’une organisation commune. Les autres réponses ne sont pas mentionnées comme indispensables
+      : ni voiture électrique, ni gros détour, ni assurance spéciale.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-achats-sans-emballage
+    cefr: B2
+    origin: generated
+    focus: nuance sur les comportements
+    audio_text: 'Dans les enquêtes d’opinion, une majorité de consommateurs dit vouloir moins d’emballages.
+      Mais, sur le terrain, le discours change dès qu’il faut apporter son contenant, attendre un peu
+      plus longtemps ou vérifier le poids de ses achats. Beaucoup réclament des rayons en vrac, puis choisissent
+      le produit déjà emballé parce qu’il paraît plus pratique. Ce n’est pas forcément de la mauvaise
+      foi : le quotidien impose des contraintes réelles. Cependant, il faut reconnaître que la demande
+      de simplicité est souvent plus forte que la volonté de limiter les déchets. Les enseignes l’ont
+      compris et travaillent surtout sur des solutions très faciles à utiliser, faute de quoi les bonnes
+      intentions restent au niveau des sondages.'
+    prompt: Quelle nuance le journaliste souligne-t-il ?
+    options:
+    - Les consommateurs passent souvent de l’intention à la pratique
+    - Les magasins ne veulent pas réduire les emballages
+    - Le vrac est toujours moins cher
+    - Les clients achètent surtout par manque de choix
+    answer: 0
+    explanation: 'Le document oppose les déclarations favorables aux emballages réduits et les choix réels
+      des clients en magasin. Les autres réponses ne résument pas le propos : le journaliste ne dit pas
+      que les magasins refusent de changer, ni que le vrac est toujours moins cher, ni que le problème
+      vient seulement du manque de choix.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-tarifs-variables
+    cefr: B2
+    origin: generated
+    focus: logique de la tarification
+    audio_text: |-
+      - Vos tarifs changent beaucoup d’un jour à l’autre. Beaucoup de voyageurs ont l’impression d’être pénalisés.
+      - Je comprends cette impression. Pourtant, l’objectif n’est pas de faire payer tout le monde au maximum. Quand un train se remplit, le prix plus élevé sert à répartir les réservations sur plusieurs jours et à éviter que tous les départs soient pris d’assaut au dernier moment. Ceux qui s’organisent tôt paient souvent moins, et cela nous aide à mieux remplir les trains.
+      - Mais ce système reste difficile à lire.
+      - Oui, et c’est un vrai problème. Si le client ne comprend pas la logique du tarif, il finit par penser que tout est arbitraire. Nous travaillons justement à rendre l’information plus lisible.
+    prompt: Pourquoi ces tarifs variables sont-ils utilisés ?
+    options:
+    - Pour faire payer davantage les abonnés
+    - Pour répartir les réservations dans le temps
+    - Pour remplacer les réductions de dernière minute
+    - Pour supprimer les trains trop remplis
+    answer: 1
+    explanation: 'Le représentant explique que les prix servent à répartir les réservations sur plusieurs
+      jours et à éviter l’afflux de dernière minute. Les autres options ne correspondent pas : il ne parle
+      pas de punir les abonnés, de remplacer des réductions, ni de supprimer des trains.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-consigne-colis
+    cefr: B2
+    origin: generated
+    focus: avantage principal
+    audio_text: 'Recevoir un colis en consigne automatique, ce n’est pas seulement une question de confort.
+      Pour les transporteurs, le système évite beaucoup d’allers-retours inutiles : quand un client est
+      absent, le livreur n’a pas à repasser le lendemain. Pour les villes, cela limite aussi le nombre
+      de camionnettes qui tournent dans les rues. Évidemment, le service n’est intéressant que si le point
+      de retrait se trouve sur un trajet habituel, près du travail ou du domicile. Sinon, on perd son
+      temps à faire un détour. Mais lorsqu’il est bien placé, le casier devient une solution assez sobre
+      : moins d’échecs de livraison, moins de circulation et, souvent, des frais un peu plus bas que la
+      remise à domicile.'
+    prompt: Quel avantage principal est mis en avant ?
+    options:
+    - Moins de livraisons ratées et moins de circulation
+    - Un service réservé aux gros colis
+    - Un retrait plus rapide que partout ailleurs
+    - Des frais identiques à domicile
+    answer: 0
+    explanation: 'Le document met en avant la réduction des échecs de livraison et du trafic de camionnettes
+      en ville. Les autres propositions sont incompatibles avec le texte : le service n’est pas réservé
+      aux gros colis, n’est pas présenté comme toujours plus rapide et n’a pas des frais identiques à
+      domicile.'

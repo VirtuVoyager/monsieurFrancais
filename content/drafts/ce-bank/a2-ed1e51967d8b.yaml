@@ -1,0 +1,178 @@
+request: ce-bank
+skill: CE
+cefr: A2
+themes:
+- travail
+- santé
+format: document
+model: gpt-5.4-mini
+key: ed1e51967d8b475089f3740f913243950061cf24f45407356fcd7f3d7e1a4418
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-visite-medicale
+    cefr: A2
+    origin: generated
+    focus: démarche à faire
+    passage: |-
+      Objet : Visite médicale
+      Bonjour,
+      Le médecin du travail sera présent au siège mardi prochain, de huit heures trente à onze heures trente. Les employés intéressés doivent réserver un créneau auprès de Nadia, à l’accueil, avant lundi soir. Un rendez-vous de quinze minutes sera attribué à chacun. Pensez à apporter votre carnet de santé.
+      Cordialement,
+      Service des ressources humaines
+    prompt: Que doit faire le salarié pour s’inscrire ?
+    options:
+    - Téléphoner au médecin
+    - Envoyer sa carte d’identité
+    - Réserver un créneau à l’accueil
+    - Venir sans prévenir
+    answer: 2
+    explanation: 'Le texte précise que les employés doivent réserver un créneau auprès de Nadia, à l’accueil.
+      Les autres réponses ne correspondent pas : on ne doit ni téléphoner au médecin, ni envoyer une carte,
+      ni venir sans prévenir.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-journee-prevention
+    cefr: A2
+    origin: generated
+    focus: service proposé
+    passage: Samedi 12 octobre, le centre de santé Bellevue organise une journée de prévention gratuite.
+      Des infirmières mesureront la tension et le taux de sucre entre neuf heures et treize heures. Il
+      suffit de venir avec votre carte d’identité. Un café sera offert après le contrôle. Les enfants
+      ne sont pas acceptés dans la salle d’examen.
+    prompt: Que propose cette journée ?
+    options:
+    - Un contrôle gratuit de la santé
+    - Une consultation payante
+    - Un cours de sport
+    - Un repas offert
+    answer: 0
+    explanation: 'Le document annonce une journée de prévention gratuite avec un contrôle de la tension
+      et du taux de sucre. Les autres propositions ne sont pas justes : il n’est pas question d’une consultation
+      payante, d’un cours de sport ou d’un repas.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-cours-de-stretching
+    cefr: A2
+    origin: generated
+    focus: proposition
+    passage: |-
+      Salut Lucie,
+      Depuis que j’ai commencé mon nouveau travail, je suis souvent fatiguée. Pour me détendre, je vais essayer un cours de stretching le jeudi soir, près de chez moi. Si cela te tente, tu peux venir avec moi dès la semaine prochaine. La séance commence à dix-huit heures trente et dure une heure. J’ai déjà réservé deux places.
+      À bientôt,
+      Inès
+    prompt: Que propose Inès ?
+    options:
+    - Aller au cinéma avec elle
+    - Faire les courses dimanche
+    - L’accompagner à son cours
+    - La rejoindre au bureau
+    answer: 2
+    explanation: Inès invite Lucie à venir avec elle à un cours de stretching. Les autres réponses parlent
+      d’activités qui ne sont pas mentionnées dans la lettre.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-emploi-du-matin
+    cefr: A2
+    origin: generated
+    focus: document demandé
+    passage: 'Entreprise Lamy Services recherche un aide-magasinier pour le matin. Les tâches sont simples
+      : préparer les colis, vérifier les étiquettes et ranger les étagères. Le poste est à temps partiel,
+      du lundi au vendredi, de six heures à dix heures. Aucune expérience n’est exigée. Envoyez un CV
+      par courriel avant vendredi.'
+    prompt: Que doit envoyer le candidat ?
+    options:
+    - Une photo d’identité
+    - Une lettre de motivation
+    - Un diplôme
+    - Un CV
+    answer: 3
+    explanation: L’annonce demande d’envoyer un CV par courriel avant vendredi. Les autres documents ne
+      sont pas demandés dans le texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-prise-de-sang
+    cefr: A2
+    origin: generated
+    focus: consigne
+    passage: |-
+      Madame,
+      Votre prise de sang est prévue vendredi à huit heures. Merci de ne rien manger ni boire, sauf de l’eau, pendant les douze heures précédentes. Si vous prenez un médicament le matin, appelez le secrétariat avant jeudi. Pensez aussi à apporter l’ordonnance et votre carte d’assurance.
+      Cordialement,
+      Laboratoire des Tilleuls
+    prompt: Que devez-vous faire avant la prise de sang ?
+    options:
+    - Prendre un petit déjeuner léger
+    - Apporter un repas
+    - Rester à jeun
+    - Faire une promenade
+    answer: 2
+    explanation: 'Le laboratoire demande de ne rien manger ni boire pendant douze heures : il faut donc
+      rester à jeun. Les autres réponses contredisent cette consigne.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-atelier-cv
+    cefr: A2
+    origin: generated
+    focus: service proposé
+    passage: Vous cherchez un nouvel emploi ? Le Centre Horizon propose, chaque mercredi soir, un atelier
+      gratuit pour apprendre à rédiger un CV et une lettre de motivation. Les participants travaillent
+      aussi en petits groupes pour préparer un entretien d’embauche. L’inscription se fait à l’accueil
+      ou par téléphone. Les places sont limitées.
+    prompt: Que propose le centre ?
+    options:
+    - Un atelier pour préparer sa candidature
+    - Un atelier de cuisine
+    - Un examen médical
+    - Un stage payé
+    answer: 0
+    explanation: Le texte présente un atelier gratuit pour aider à rédiger un CV, une lettre de motivation
+      et préparer un entretien. Les autres choix ne correspondent pas à ce service.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-arret-maladie
+    cefr: A2
+    origin: generated
+    focus: motif de l’absence
+    passage: |-
+      Salut Marc,
+      Je suis arrêté jusqu’à vendredi, car j’ai une grippe. Mon médecin m’a conseillé de rester au calme et de boire beaucoup d’eau. Tu peux passer samedi matin si tu veux : je serai chez moi et je pourrai te rendre le livre que tu m’avais prêté.
+      À bientôt,
+      Karim
+    prompt: Pourquoi Karim ne travaille-t-il pas ?
+    options:
+    - Il est en vacances
+    - Il est malade
+    - Il change d’emploi
+    - Il travaille à distance
+    answer: 1
+    explanation: Karim dit clairement qu’il est arrêté parce qu’il a une grippe. Les autres réponses ne
+      sont pas mentionnées dans la lettre.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-entretien-annuel
+    cefr: A2
+    origin: generated
+    focus: document à apporter
+    passage: |-
+      Bonjour,
+      Votre entretien annuel aura lieu mardi 5 avril à neuf heures dans le bureau de Mme Duroc. Merci de préparer le bilan de votre année et d’apporter les dossiers de vos projets terminés. Si vous ne pouvez pas venir, prévenez-moi avant lundi midi.
+      Bien cordialement,
+      Service du personnel
+    prompt: Que doit préparer le salarié avant l’entretien ?
+    options:
+    - Son badge d’entrée
+    - Le bilan de son année
+    - Un certificat médical
+    - Le contrat de travail
+    answer: 1
+    explanation: Le courriel demande de préparer le bilan de l’année avant l’entretien. Les autres réponses
+      ne sont pas demandées dans le message.

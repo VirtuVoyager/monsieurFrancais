@@ -1,0 +1,183 @@
+request: ce-bank
+skill: CE
+cefr: B2
+themes:
+- médias
+- vie associative
+format: document
+model: gpt-5.4-mini
+key: a05af6746a6efa5ea58dde0c29c5e974cd717423c852bccd937f60964282f602
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-presse-de-quartier
+    cefr: B2
+    origin: generated
+    focus: rôle du journal local
+    passage: |-
+      Dans les kiosques de la ville d’Aubéval, le petit hebdomadaire Le Trait d’Union semble aller à contre-courant. Alors que 68 % des habitants disent s’informer d’abord sur les réseaux sociaux, le journal papier a pourtant gagné 12 % d’abonnés en deux ans. Pourquoi ? Parce qu’il ne cherche ni le buzz ni la polémique. Ses pages accueillent les annonces des associations, les comptes rendus des conseils de quartier et les portraits de bénévoles. Selon une enquête interne, 41 % des lecteurs disent avoir découvert au moins une initiative locale grâce à ce titre. Depuis que le journal réserve chaque semaine un encart gratuit aux associations, les inscriptions aux activités de quartier ont progressé de 23 %.
+
+      L’auteur de l’article ne cache pas sa position : à ses yeux, la presse locale ne doit pas copier les grands médias, encore moins les plateformes rapides qui publient avant de vérifier. Elle sert surtout à relier des habitants qui ne se croiseraient pas autrement. Dans une époque où chacun reçoit des informations différentes, parfois contradictoires, ce travail patient de tri et de mise en lien devient précieux. Le Trait d’Union n’est pas seulement un journal ; c’est un espace commun.
+    prompt: Pourquoi, selon l’auteur, l’hebdomadaire garde-t-il sa place ?
+    options:
+    - Parce qu’il remplace les réseaux sociaux.
+    - Parce qu’il consacre surtout ses pages au sport national.
+    - Parce qu’il publie plus vite que les sites d’actualité.
+    - Parce qu’il relaie la vie associative avec fiabilité.
+    answer: 3
+    explanation: 'L’article insiste sur l’encart gratuit, les initiatives locales découvertes par les
+      lecteurs et le rôle de lien social. Les autres propositions contredisent le texte : le journal ne
+      remplace pas les réseaux sociaux, ne traite pas surtout de sport national et ne mise pas sur la
+      vitesse.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-podcast-associatif
+    cefr: B2
+    origin: generated
+    focus: place du numérique
+    passage: |-
+      Au départ, l’idée paraissait modeste : enregistrer chaque mois une conversation de quinze minutes avec des responsables d’associations de quartier. Un an plus tard, le podcast Voix solidaires compte plus de huit mille écoutes et, surtout, il a changé la façon dont plusieurs structures présentent leur action. D’après les chiffres publiés par la coordination qui pilote le projet, 54 % des associations participantes disent avoir reçu davantage de demandes d’information après la diffusion d’un épisode. Chez les moins de trente-cinq ans, la curiosité est plus forte encore : sept auditeurs sur dix déclarent avoir découvert une association dont ils ignoraient l’existence.
+
+      L’auteur voit là un signe encourageant, mais refuse l’enthousiasme naïf. Un podcast, écrit-il, donne envie d’écouter ; il ne crée pas à lui seul de l’engagement. Les structures qui obtiennent les meilleurs résultats sont celles qui prolongent l’écoute par une rencontre, une permanence ou une visite sur place. Autrement dit, le numérique sert d’appel, pas de substitut. Là où le projet fonctionne, c’est quand la parole enregistrée ouvre vers du concret. Sans cela, l’audio reste une consommation discrète, facilement oubliée.
+    prompt: Quelle idée ressort de l’article ?
+    options:
+    - Le podcast suffit à lui seul pour recruter.
+    - Le podcast intéresse surtout les plus de trente-cinq ans.
+    - Le podcast a été abandonné après un an.
+    - Le podcast attire, mais ne remplace pas le contact direct.
+    answer: 3
+    explanation: 'L’auteur dit clairement que le podcast « donne envie d’écouter » mais qu’il doit être
+      prolongé par une rencontre ou une visite. Les autres réponses sont incompatibles avec les données
+      : l’engagement n’est pas automatique, les jeunes sont les plus concernés et le projet continue.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-campagne-locale
+    cefr: B2
+    origin: generated
+    focus: efficacité des supports
+    passage: |-
+      À la fin de l’hiver, l’association Mains solidaires devait recruter en urgence des bénévoles pour ses distributions alimentaires. Son équipe de communication n’a pas parié sur un seul canal. Elle a diffusé un bref message sponsorisé sur les réseaux sociaux, distribué mille cinq cents flyers dans les commerces et obtenu deux interviews sur une radio locale. Résultat : en trois semaines, 480 personnes ont rempli le formulaire d’inscription, soit presque le double de l’année précédente.
+
+      Le détail le plus intéressant, selon l’auteur, tient à la répartition des réponses. Les jeunes ont surtout réagi aux messages en ligne ; les plus de cinquante ans ont davantage retenu la radio et le papier. L’association a donc touché des publics différents avec des outils différents. L’article en tire une leçon assez nette : dans le domaine associatif, l’efficacité ne dépend pas d’un support miracle, mais de la cohérence entre plusieurs supports. Le numérique donne de la portée, le papier rassure, et la radio localise le message. Quand ces trois canaux se renforcent au lieu de se concurrencer, la campagne gagne en crédibilité et en efficacité.
+    prompt: Que montre surtout cette campagne ?
+    options:
+    - Que les réseaux sociaux suffisent pour recruter.
+    - Que les flyers sont devenus inutiles.
+    - Qu’un mélange de supports touche davantage de publics.
+    - Que la radio locale remplace les autres moyens.
+    answer: 2
+    explanation: 'L’article explique que chaque canal a atteint un public différent et conclut qu’ils
+      se renforcent ensemble. Les autres réponses simplifient ou déforment le constat : les réseaux sociaux
+      ne suffisent pas, les flyers restent utiles et la radio ne remplace pas les autres moyens.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-journal-et-associations
+    cefr: B2
+    origin: generated
+    focus: critique implicite
+    passage: |-
+      Le dernier baromètre de la vie associative dans la région de Valmer est sans appel : 61 % des petites associations ont le sentiment de n’apparaître dans les médias qu’au moment d’une crise, d’un conflit ou d’un appel aux dons. Pour beaucoup de responsables, cette visibilité ponctuelle ne reflète pas le travail réel accompli tout au long de l’année. C’est précisément ce que défend l’auteur de l’article. Selon lui, les médias locaux ne manquent pas de sujets ; ils manquent de temps accordé au quotidien des structures, à leurs petites réussites, à leurs difficultés ordinaires.
+
+      L’article cite plusieurs exemples : une association d’aide aux devoirs qui suit cent vingt enfants, un atelier de réparation qui évite des centaines d’objets jetés, un groupe de lecteurs qui maintient du lien dans un quartier isolé. Pourtant, aucun de ces projets n’a eu droit à une couverture durable. L’auteur en déduit que l’enjeu n’est pas seulement de « parler des associations », mais de les regarder autrement. Il ne s’agit pas de les célébrer à tout prix, encore moins de les transformer en objets d’émotion passagère. Il s’agit de montrer leur rôle continu dans la vie locale. C’est, selon lui, une condition pour que le public leur fasse confiance.
+    prompt: Que déplore l’auteur ?
+    options:
+    - Que les associations refusent toute visibilité.
+    - Que les lecteurs préfèrent exclusivement les rubriques sportives.
+    - Que les médias ne suivent les associations qu’en cas de crise.
+    - Que les projets associatifs manquent d’intérêt public.
+    answer: 2
+    explanation: 'Le texte dit que les associations n’apparaissent dans les médias qu’au moment des crises,
+      des conflits ou des appels aux dons. Les autres propositions ne correspondent pas : l’auteur ne
+      reproche pas un refus de visibilité, ne parle pas de sport et valorise au contraire l’intérêt public
+      des projets.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-bulletin-partage
+    cefr: B2
+    origin: generated
+    focus: solution équilibrée
+    passage: |-
+      Depuis dix ans, l’association des Jardins de Clarel envoyait à ses adhérents un bulletin imprimé quatre fois par an. Mais les coûts ont augmenté, et la petite équipe bénévole peinait à tenir le rythme. Un passage au tout numérique a donc été envisagé. Sur le papier, l’économie semblait évidente : près de 7 000 euros par an de frais d’impression et d’envoi pourraient être réduits de plus de moitié. Pourtant, un test mené pendant six mois a révélé une autre réalité. Les messages électroniques étaient bien lus par les familles actives, mais une partie des membres âgés ne les ouvrait pas, ou les ouvrait trop tard pour s’inscrire aux sorties.
+
+      L’auteur ne présente pas ce résultat comme un échec, mais comme un rappel utile : l’efficacité d’un outil ne se mesure pas seulement à son prix. Dans une association, le mode de communication fait partie du lien collectif. C’est pourquoi le comité a finalement choisi une formule mixte : une version papier plus courte pour ceux qui en ont besoin, et une version numérique plus complète pour les autres. Cette décision, écrit l’auteur, n’a rien de conservateur. Elle évite au contraire qu’une économie budgétaire se transforme en exclusion discrète.
+    prompt: Quelle est la solution jugée la plus équilibrée ?
+    options:
+    - Conserver les deux versions du bulletin.
+    - Supprimer totalement la version papier.
+    - Réserver le bulletin aux seules sorties.
+    - Confier la communication à une plateforme commerciale.
+    answer: 0
+    explanation: 'Le texte indique clairement que le comité choisit « une formule mixte » avec papier
+      et numérique. Les autres options sont écartées par l’article : il ne supprime pas le papier, ne
+      limite pas le bulletin aux sorties et ne parle pas d’une plateforme commerciale.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-info-en-continu
+    cefr: B2
+    origin: generated
+    focus: opinion de l’auteur
+    passage: |-
+      Les chaînes d’information en continu se félicitent souvent d’offrir au public une présence permanente : un événement à peine commencé, et déjà des images, des réactions, des commentaires. L’auteur de l’article reconnaît volontiers que cette rapidité répond à une attente réelle. Pourtant, il estime qu’elle a un coût élevé. À force de vouloir être les premières, ces chaînes donnent parfois l’impression d’expliquer un pays sans jamais lui laisser le temps de respirer. Le spectateur passe d’un sujet à l’autre avant d’avoir compris ce qui est en jeu.
+
+      L’article s’appuie sur une étude menée auprès de 1 200 téléspectateurs : 58 % disent regarder ces chaînes pour « savoir tout de suite », mais seulement 22 % leur font pleinement confiance pour comprendre un dossier complexe. L’auteur y voit le signe d’un malentendu. Le problème n’est pas l’existence d’un flux continu ; c’est l’idée que l’urgence suffirait à faire de l’information. Selon lui, le véritable journalisme commence quand on prend le temps de hiérarchiser, de vérifier et de remettre les faits en perspective. Sans cela, l’abondance d’images produit moins de savoir que de fatigue.
+    prompt: Selon l’auteur, quel est le principal défaut des chaînes d’information en continu ?
+    options:
+    - Elles diffusent trop peu d’images.
+    - Elles parlent surtout de sujets locaux.
+    - Elles refusent de suivre l’actualité immédiate.
+    - Elles privilégient l’urgence au détriment du recul.
+    answer: 3
+    explanation: 'L’article oppose explicitement la rapidité des chaînes à la nécessité de vérifier et
+      de mettre en perspective. Les autres propositions ne conviennent pas : il n’y a pas trop peu d’images,
+      le texte ne dit pas qu’elles parlent surtout de sujets locaux et il critique au contraire leur obsession
+      de l’immédiat.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-radio-de-voisinage
+    cefr: B2
+    origin: generated
+    focus: fonction de la radio
+    passage: |-
+      Dans le quartier Saint-Lubin, la radio associative L’Écho des rues diffuse trois heures par jour avec une équipe de quinze bénévoles. À première vue, l’antenne paraît modeste : pas de plateau sophistiqué, peu de moyens techniques, et une audience qui ne rivalise évidemment pas avec celle des grandes stations. Pourtant, les chiffres recueillis par l’université de Brétonne sont éloquents : 80 % des auditeurs réguliers disent apprendre grâce à cette radio ce qui se passe dans leur secteur, et 67 % déclarent avoir déjà assisté à une réunion ou à une activité après en avoir entendu parler à l’antenne.
+
+      Pour l’auteur, ces résultats disent quelque chose d’important sur le rôle des médias de proximité. L’Écho des rues n’est pas un simple loisir pour passionnés de micro. C’est un lieu où l’on donne la parole à des habitants qui ne l’ont presque jamais ailleurs : parents d’élèves, responsables d’associations, jeunes en recherche de projet, retraités engagés dans la vie du quartier. Le ton est sobre, les sujets concrets, et la valeur de cette radio tient justement à ce qu’elle ne cherche pas à faire du spectaculaire. Elle crée de la circulation entre les personnes et les initiatives. À l’heure où beaucoup de médias parlent d’un territoire de loin, elle le fait entendre de l’intérieur.
+    prompt: Comment l’auteur considère-t-il cette radio associative ?
+    options:
+    - Comme un simple divertissement.
+    - Comme un média dépassé.
+    - Comme un support réservé aux élus.
+    - Comme un outil civique essentiel.
+    answer: 3
+    explanation: 'L’auteur insiste sur la parole donnée aux habitants, la circulation entre personnes
+      et initiatives, et le fait de « faire entendre » le territoire. Cela correspond à un outil civique.
+      Les autres réponses sont incompatibles avec le texte : la radio n’est ni un simple divertissement,
+      ni dépassée, ni réservée aux élus.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-ateliers-media
+    cefr: B2
+    origin: generated
+    focus: enseignement tiré
+    passage: |-
+      Au centre culturel de Saint-Évariste, l’association Paroles nettes anime depuis janvier des ateliers d’éducation aux médias pour des publics très variés : lycéens, parents, demandeurs d’emploi et seniors. En quatre mois, 18 séances ont réuni un peu plus de 300 participants. Le programme n’a rien d’un cours théorique. On y compare des titres de presse, on repère les images trompeuses, on vérifie une source et on discute de la différence entre une information, une opinion et une rumeur. D’après le bilan publié par l’association, 74 % des participants disent avoir changé au moins une habitude de lecture en ligne.
+
+      L’auteur prend clairement position : dans un univers saturé de messages, la première compétence n’est pas de tout savoir, mais de savoir douter avec méthode. Il ne présente pas ces ateliers comme une solution miracle contre la désinformation. Leur intérêt est plus modeste et plus durable : rendre chacun un peu moins dépendant du hasard des fils d’actualité. Le texte souligne aussi un point souvent négligé : les personnes les plus demandeuses ne sont pas forcément les plus jeunes. Beaucoup d’adultes qui se disent « perdus » devant certains contenus souhaitent surtout retrouver des repères simples pour décider à qui faire confiance. En ce sens, l’association répond à un besoin de vie citoyenne autant qu’à un besoin technique.
+    prompt: Quel enseignement l’article met-il surtout en avant ?
+    options:
+    - Les jeunes sont les seuls à avoir besoin d’aide.
+    - Les ateliers empêchent toute désinformation.
+    - Les réseaux sociaux remplacent les journaux.
+    - Apprendre à vérifier compte plus que mémoriser des règles.
+    answer: 3
+    explanation: 'Le texte affirme que la compétence essentielle est de « savoir douter avec méthode »
+      et de vérifier les sources. Les autres propositions sont rejetées par le document : l’aide ne concerne
+      pas seulement les jeunes, les ateliers ne suppriment pas toute désinformation et les réseaux sociaux
+      ne remplacent pas la presse.'

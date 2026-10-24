@@ -1,0 +1,193 @@
+request: co-bank
+skill: CO
+cefr: A2
+themes:
+- technologie
+- éducation
+format: reply
+model: gpt-5.4-mini
+key: 2e29d8fc4cace6e83f1f7e7483b00d7f587ad69666f114a37eb32a0e1ba8a773
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-tablette-allumee
+    cefr: A2
+    origin: generated
+    focus: aide technique
+    audio_text: |-
+      Tu peux m'aider à allumer la tablette ?
+      A. Je l'ai mise dans mon sac.
+      B. Non, il n'y a pas de cours aujourd'hui.
+      C. Je préfère écrire au tableau.
+      D. Oui, appuie sur le bouton du haut.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 3
+    explanation: Le document demande une aide pour allumer la tablette ; la première réponse donne une
+      consigne adaptée. Les autres parlent d’un sac, d’un cours ou du tableau, donc elles ne répondent
+      pas.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-mot-de-passe
+    cefr: A2
+    origin: generated
+    focus: mot de passe
+    audio_text: |-
+      Vous avez oublié votre mot de passe ?
+      A. Je l'ai noté sur un papier.
+      B. Oui, je vais le réinitialiser.
+      C. Je commence le cours à neuf heures.
+      D. Elle est dans la salle voisine.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 1
+    explanation: La question porte sur un mot de passe oublié ; seule la deuxième réponse propose de le
+      réinitialiser. Les autres parlent d’une note, d’un horaire ou d’un lieu, donc elles ne conviennent
+      pas.
+- status: fixed
+  issues:
+  - 'The correct option uses an unnatural preposition: "sur la prise" should be "dans la prise" or "à
+    la prise".'
+  item:
+    slug: co-a2-ordinateur-branche
+    cefr: A2
+    origin: generated
+    focus: brancher ordinateur
+    audio_text: |-
+      Où faut-il brancher l'ordinateur portable ?
+      A. Dans la salle de sport.
+      B. Au deuxième étage, demain.
+      C. Dans la prise près du bureau.
+      D. Je l'ai acheté hier.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 2
+    explanation: Le document demande où brancher l’ordinateur portable ; la deuxième réponse indique un
+      endroit précis avec une prise. Les autres proposent un lieu sans rapport, un moment, ou une information
+      d’achat.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-document-envoye
+    cefr: A2
+    origin: generated
+    focus: envoi par courriel
+    audio_text: |-
+      Tu peux m'envoyer le document par courriel ?
+      A. Je prends le train à huit heures.
+      B. Oui, je te l'envoie tout à l'heure.
+      C. Oui, j'ai réservé une salle.
+      D. Non, il est fermé le mercredi.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 1
+    explanation: La question demande d’envoyer un document par courriel ; la troisième réponse accepte
+      et précise le moment. Les autres parlent d’un train, d’une réservation ou d’une fermeture, donc
+      elles ne répondent pas.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-page-du-manuel
+    cefr: A2
+    origin: generated
+    focus: page du manuel
+    audio_text: |-
+      On commence à quelle page du manuel ?
+      A. Après le déjeuner.
+      B. Dans deux semaines.
+      C. Avec trois élèves.
+      D. À la page douze.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 3
+    explanation: Le document demande la page de départ du manuel ; la troisième réponse donne un numéro
+      de page. Les autres renvoient à un moment, à une date ou à un nombre d’élèves.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-controle-demain
+    cefr: A2
+    origin: generated
+    focus: date du contrôle
+    audio_text: |-
+      Quand a lieu le contrôle ?
+      A. Avec le professeur Martin.
+      B. Pour le cours de français.
+      C. Dans la bibliothèque.
+      D. Demain matin.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 3
+    explanation: La question porte sur le moment du contrôle ; la deuxième réponse donne clairement une
+      date et une heure. Les autres parlent d’une personne, d’une matière ou d’un lieu.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-devoir-en-ligne
+    cefr: A2
+    origin: generated
+    focus: devoir en ligne
+    audio_text: |-
+      Tu as fait le devoir en ligne ?
+      A. Je préfère le lundi.
+      B. Oui, la porte est ouverte.
+      C. Oui, je l'ai envoyé hier.
+      D. Non, il pleut ce soir.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 2
+    explanation: Le document demande si le devoir en ligne a été fait ; la quatrième réponse confirme
+      et précise l’envoi. Les autres parlent d’un jour, d’une porte ou de la météo, donc elles ne conviennent
+      pas.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-salle-de-cours
+    cefr: A2
+    origin: generated
+    focus: salle de cours
+    audio_text: |-
+      On se retrouve dans quelle salle ?
+      A. En salle quatre.
+      B. À midi, à la cafétéria.
+      C. Avec les nouveaux étudiants.
+      D. Pour la présentation.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 0
+    explanation: La question demande le numéro de la salle de rendez-vous ; la quatrième réponse donne
+      une salle précise. Les autres indiquent un moment, un groupe de personnes ou une raison.

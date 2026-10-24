@@ -1,0 +1,178 @@
+request: co-bank
+skill: CO
+cefr: A2
+themes:
+- transports
+- consommation
+format: document
+model: gpt-5.4-mini
+key: ecf40b483cd909b09d55ce75a659602f04fbe36ab58aee077ca8c0bfae31b0bd
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-car-retarde
+    cefr: A2
+    origin: generated
+    focus: lieu du départ
+    audio_text: Mesdames et messieurs, le départ du car pour Valpierre, prévu à quinze heures, est retardé
+      de vingt minutes. Le car partira finalement de la porte quatre. Merci de vous y rendre avec votre
+      billet.
+    prompt: Où les voyageurs doivent-ils aller ?
+    options:
+    - À la porte deux
+    - Au guichet
+    - Au parking
+    - À la porte quatre
+    answer: 3
+    explanation: Le message indique clairement que le car part de la porte quatre. La porte deux, le guichet
+      et le parking sont des lieux possibles, mais ils ne sont pas donnés comme point de départ.
+- status: fixed
+  issues:
+  - The dialogue starts with a man, but the brief requires the woman to speak first.
+  - The question asks about the woman, but the customer who needs the ID is the man.
+  item:
+    slug: co-a2-location-de-velo
+    cefr: A2
+    origin: generated
+    focus: pièce à présenter
+    audio_text: |-
+      - Bonjour monsieur, je voudrais louer un vélo pour la journée.
+      - Bien sûr. Il faut votre carte d'identité et une caution de trente euros.
+      - D'accord. Je dois aussi signer quelque chose ?
+      - Oui, juste ce formulaire.
+    prompt: Qu'est-ce que la femme doit apporter ?
+    options:
+    - Sa carte d'identité
+    - Un casque
+    - Du carburant
+    - Un permis de conduire
+    answer: 0
+    explanation: L'employé dit qu'il faut une carte d'identité. Le casque, le carburant et le permis de
+      conduire ne sont pas demandés dans le dialogue.
+- status: fixed
+  issues:
+  - The explanation contains an unrelated non-French fragment.
+  item:
+    slug: co-a2-colis-a-recuperer
+    cefr: A2
+    origin: generated
+    focus: action à faire
+    audio_text: Bonjour, ici la société Colis+ . Votre paquet est arrivé. Vous pouvez le récupérer demain
+      entre neuf heures et midi au bureau de la rue des Tilleuls. N'oubliez pas votre pièce d'identité.
+    prompt: Que doit faire la personne ?
+    options:
+    - Attendre le livreur à midi
+    - Téléphoner samedi
+    - Payer en ligne
+    - Aller chercher le colis demain
+    answer: 3
+    explanation: Le message dit d'aller récupérer le paquet demain au bureau indiqué. Il ne s'agit ni
+      d'attendre le livreur, ni d'appeler samedi, ni de payer en ligne.
+- status: fixed
+  issues:
+  - The dialogue starts with a man, but the brief requires the woman to speak first.
+  item:
+    slug: co-a2-veste-trop-petite
+    cefr: A2
+    origin: generated
+    focus: intention d'échange
+    audio_text: |-
+      - Bonjour monsieur, je voudrais changer cette veste. Elle est trop petite.
+      - Pas de problème. Vous avez le ticket de caisse ?
+      - Oui, le voici.
+      - Très bien. Nous pouvons vous proposer la taille au-dessus.
+    prompt: Que veut faire la femme ?
+    options:
+    - Réparer la veste
+    - L'offrir
+    - La laver
+    - Échanger la veste
+    answer: 3
+    explanation: La femme dit qu'elle veut changer la veste parce qu'elle est trop petite. Le texte ne
+      parle ni de réparation, ni de cadeau, ni de lavage.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-travaux-sur-ligne
+    cefr: A2
+    origin: generated
+    focus: première ligne
+    audio_text: Attention, en raison de travaux, la ligne bleue ne circule plus jusqu'à la station Centrale.
+      Les voyageurs doivent prendre la ligne verte puis changer à Saint-Paul. Merci de votre compréhension.
+    prompt: Quelle ligne les voyageurs doivent-ils prendre d'abord ?
+    options:
+    - La ligne bleue
+    - La ligne rouge
+    - La ligne verte
+    - Le tramway
+    answer: 2
+    explanation: L'annonce précise qu'il faut d'abord prendre la ligne verte. La ligne bleue est interrompue,
+      et la ligne rouge et le tramway ne sont pas mentionnés.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-radio-reparee
+    cefr: A2
+    origin: generated
+    focus: heure limite
+    audio_text: |-
+      - Bonjour, votre radio est réparée.
+      - Parfait. Je peux passer aujourd'hui ?
+      - Oui, mais seulement avant dix-huit heures. Après, le magasin ferme.
+      - Très bien, je viens cet après-midi.
+    prompt: Jusqu'à quelle heure peut-elle venir ?
+    options:
+    - Avant dix-huit heures
+    - À dix-neuf heures
+    - Demain matin
+    - Après le dîner
+    answer: 0
+    explanation: Le vendeur dit qu'elle peut venir seulement avant dix-huit heures. Les autres propositions
+      sont incompatibles avec l'heure de fermeture indiquée.
+- status: fixed
+  issues:
+  - The dialogue starts with a man, but the brief requires the woman to speak first.
+  item:
+    slug: co-a2-train-de-seize-heures
+    cefr: A2
+    origin: generated
+    focus: heure de départ
+    audio_text: |-
+      - Bonjour monsieur, un billet aller-retour pour Saint-Laurent, s'il vous plaît.
+      - Le prochain train part à seize heures vingt.
+      - Très bien, je prends celui-là.
+      - Je vous mets aussi une place côté fenêtre ?
+      - Non merci.
+    prompt: À quelle heure part le train ?
+    options:
+    - Quinze heures vingt
+    - Seize heures vingt
+    - Seize heures quarante
+    - Dix-huit heures vingt
+    answer: 1
+    explanation: L'employé annonce que le prochain train part à seize heures vingt. Les autres horaires
+      sont proches, mais ils ne correspondent pas au document.
+- status: fixed
+  issues:
+  - The dialogue starts with a man, but the brief requires the woman to speak first.
+  - The question uses a feminine pronoun, but the original customer speaker is male.
+  item:
+    slug: co-a2-location-de-voiture
+    cefr: A2
+    origin: generated
+    focus: document nécessaire
+    audio_text: |-
+      - Bonjour monsieur, je dois louer une voiture pour samedi.
+      - Très bien. Il nous faut votre permis de conduire et une carte de crédit.
+      - Je les ai. Est-ce que je peux rendre la voiture le soir ?
+      - Oui, avant vingt heures.
+    prompt: Quel document doit-elle présenter ?
+    options:
+    - Son permis de conduire
+    - Son passeport
+    - Un abonnement
+    - Son billet de train
+    answer: 0
+    explanation: L'employée demande un permis de conduire et une carte de crédit ; la bonne réponse est
+      donc le permis. Le passeport, l'abonnement et le billet de train ne sont pas mentionnés.

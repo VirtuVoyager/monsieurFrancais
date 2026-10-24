@@ -1,0 +1,208 @@
+request: ce-bank
+skill: CE
+cefr: B1
+themes:
+- environnement
+- technologie
+format: document
+model: gpt-5.4-mini
+key: ad4ad40fbf78a848dbbca405b79a1155552960ec1df48408d68b414bb23beef1
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-cafe-de-reparation
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      Bonjour Lucie,
+
+      Samedi dernier, j’ai découvert le café de réparation du quartier, et j’ai tout de suite pensé à toi. On y apporte un objet abîmé, puis des bénévoles vous aident à le remettre en état. J’y ai fait réparer mon grille-pain, et une étudiante a même réussi à redémarrer mon vieux portable. L’ambiance était simple et conviviale : chacun échange des conseils, et personne ne repart avec l’impression d’avoir jeté de l’argent par la fenêtre.
+
+      La prochaine rencontre aura lieu le premier samedi du mois prochain, à la maison des associations. Si tu as une lampe, un aspirateur ou un appareil électronique qui ne fonctionne plus, viens avec moi. Ce sera l’occasion de tester ce service et de limiter les déchets.
+
+      À bientôt,
+      Nicolas
+    prompt: Pourquoi Nicolas écrit-il à Lucie ?
+    options:
+    - Pour l’inviter à participer
+    - Pour lui vendre un appareil
+    - Pour se plaindre d’une panne
+    - Pour annoncer un déménagement
+    answer: 0
+    explanation: 'Nicolas termine sa lettre en proposant à Lucie de venir avec lui au café de réparation.
+      Les autres réponses ne correspondent pas : il ne vend rien, ne se plaint pas d’une panne et ne parle
+      pas de déménagement.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-arrosage-du-parc
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: La ville de Montrevert va modifier l’arrosage de son grand parc municipal. Jusqu’ici, les
+      pelouses et les massifs étaient arrosés à heures fixes, même après une pluie. Désormais, des capteurs
+      mesureront l’humidité du sol et déclencheront l’arrosage seulement lorsque cela sera nécessaire.
+      Le système fonctionnera surtout la nuit, afin de limiter l’évaporation. Selon le service des espaces
+      verts, cette mesure permettra de préserver la qualité des plantations tout en réduisant la consommation
+      d’eau. Les jardiniers continueront à surveiller les zones les plus fragiles, notamment les jeunes
+      arbres et les fleurs de saison. La mairie précise que l’installation des nouveaux capteurs se fera
+      en plusieurs étapes, sans fermer le parc au public. Une campagne d’information sera affichée à l’entrée
+      dès la semaine prochaine.
+    prompt: Quel est l’objectif principal de cette mesure ?
+    options:
+    - Augmenter les horaires du parc
+    - Remplacer les jardiniers
+    - Fermer le parc le soir
+    - Économiser l’eau d’arrosage
+    answer: 3
+    explanation: 'Le texte dit clairement que le nouveau système sert à « réduire la consommation d’eau
+      ». Les autres propositions ne sont pas l’objectif annoncé : le parc reste ouvert, les jardiniers
+      ne sont pas remplacés et les horaires ne changent pas.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-tri-au-bureau
+    cefr: B1
+    origin: generated
+    focus: détail important
+    passage: |-
+      Bonjour à toutes et à tous,
+
+      À partir de lundi, notre service passe à une nouvelle organisation pour limiter l’usage du papier. Les contrats, notes internes et comptes rendus seront désormais envoyés par voie électronique. Pour les documents de travail indispensables, merci d’utiliser l’impression recto verso et de vérifier d’abord si une version numérique peut suffire. Nous installerons aussi un dossier partagé sur l’intranet, afin que chacun retrouve facilement les fichiers à jour. Pensez à y déposer vos documents avant la fin de la semaine, car les anciennes versions seront ensuite archivées.
+
+      Cette évolution ne demande pas de matériel particulier, mais elle suppose l’attention de chacun. Si vous avez besoin d’aide pour classer vos dossiers ou signer un document en ligne, l’équipe informatique restera disponible mardi et jeudi matin.
+
+      Merci de votre coopération,
+      Camille Morel
+    prompt: Que doivent faire les employés pour les documents de travail ?
+    options:
+    - Les envoyer par courrier
+    - Les traduire avant lundi
+    - Les supprimer après lecture
+    - Imprimer seulement si c’est indispensable
+    answer: 3
+    explanation: 'Le message demande de limiter l’impression et d’utiliser d’abord la version numérique.
+      Les autres options sont incompatibles avec le texte : il n’est pas question de courrier, de traduction
+      ni de suppression des documents.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-batteries-usees
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: Dès le mois prochain, les habitants de Clairval pourront déposer leurs piles et petites batteries
+      usées dans de nouveaux points de collecte installés chez trois commerçants de la ville. Le dispositif
+      concerne les piles de télécommande, de lampe de poche, de jouets et d’appareils sans fil. Une fois
+      les boîtes pleines, les objets seront récupérés par une entreprise spécialisée, puis envoyés dans
+      un centre de traitement. D’après la mairie, cette solution évitera que des déchets dangereux finissent
+      dans les ordures ménagères ou dans la nature. Un afficheur explicatif sera placé près des caisses
+      pour rappeler les bons gestes de tri. Les habitants pourront aussi obtenir gratuitement un petit
+      sac de stockage à l’accueil de la mairie pendant tout le printemps. Cette opération s’inscrit dans
+      un programme plus large de réduction des déchets.
+    prompt: De quoi parle surtout ce texte ?
+    options:
+    - D’une hausse des taxes
+    - D’un nouveau système de collecte
+    - D’une panne d’électricité
+    - D’un changement de marque
+    answer: 1
+    explanation: 'L’article présente l’installation de points de collecte pour les piles et batteries
+      usées. Les autres réponses ne conviennent pas : il n’est pas question de taxe, de panne ni de marque.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-trajet-en-train
+    cefr: B1
+    origin: generated
+    focus: détail important
+    passage: |-
+      Salut Élodie,
+
+      Je voulais te prévenir que je ne viendrai pas en voiture comme prévu. J’ai regardé les informations routières, et il y aura des travaux sur l’autoroute tout le week-end. J’ai donc pris un billet de train pour samedi matin. Finalement, ce sera plus calme, et je pourrai avancer sur mon dossier pendant le trajet. En plus, je n’aurai pas à chercher une place de stationnement en arrivant en ville.
+
+      Je serai à la gare vers dix heures et demie. Si tu peux venir me chercher, ce sera parfait ; sinon, je prendrai le tram jusqu’à ton quartier. J’apporterai seulement mon sac et l’ordinateur, car je n’ai pas besoin d’autres affaires pour deux jours.
+
+      À samedi,
+      Martin
+    prompt: Pourquoi Martin change-t-il de moyen de transport ?
+    options:
+    - Pour transporter des cartons
+    - À cause des travaux et pour travailler
+    - Pour faire une visite imprévue
+    - Pour partir plus tard que prévu
+    answer: 1
+    explanation: Martin explique qu’il évite la voiture à cause des travaux sur l’autoroute et qu’il profite
+      du train pour avancer sur son dossier. Les autres réponses ne correspondent pas au contenu de la
+      lettre.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-atelier-numerique
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      La médiathèque Jules-Ferry propose, à partir du 12 mars, un atelier numérique gratuit destiné aux adultes de plus de soixante ans. Pendant six séances d’une heure et demie, un médiateur expliquera comment envoyer un message, joindre une photo, utiliser une application de transport et prendre rendez-vous sur Internet. Les participants pourront venir avec leur propre téléphone ou emprunter une tablette sur place. L’objectif n’est pas de former des experts, mais de rendre chacun plus autonome dans les gestes du quotidien.
+
+      Le groupe sera limité à dix personnes afin de permettre un accompagnement individuel. Les inscriptions se font à l’accueil ou par téléphone jusqu’au 8 mars. Aucune connaissance préalable n’est demandée, mais il est conseillé d’apporter ses lunettes et, si possible, le code de déverrouillage de son appareil.
+    prompt: Quel est le but de cet atelier ?
+    options:
+    - Acheter un nouvel appareil
+    - Réparer la médiathèque
+    - Apprendre des gestes simples
+    - Réduire la durée des séances
+    answer: 2
+    explanation: 'Le texte précise que l’atelier sert à aider les participants à réaliser des actions
+      courantes et à devenir plus autonomes. Les autres propositions ne sont pas mentionnées : on n’y
+      vend rien, on ne répare pas le bâtiment et la durée des séances ne change pas.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-serveur-partage
+    cefr: B1
+    origin: generated
+    focus: détail important
+    passage: |-
+      Bonjour,
+
+      Dans le cadre de la mise à jour de notre système informatique, toutes les équipes doivent transférer leurs dossiers de travail sur le serveur partagé avant vendredi dix-huit heures. Merci de conserver une copie locale jusqu’à la validation par le service informatique, car certains fichiers devront être vérifiés manuellement. Les dossiers concernés sont ceux de l’année en cours seulement ; les archives resteront dans leur emplacement actuel.
+
+      Pour éviter toute perte, nommez clairement les fichiers et ne modifiez pas leur structure de base. Si vous avez des documents trop volumineux ou des difficultés de connexion, contactez l’assistance technique dès aujourd’hui. À partir de lundi, l’ancien espace de stockage sera en lecture seule.
+
+      Cette organisation doit améliorer la sécurité des données et faciliter le travail à distance.
+
+      Le service informatique
+    prompt: Que doivent faire les équipes en premier ?
+    options:
+    - Commander du matériel
+    - Transférer leurs dossiers
+    - Supprimer les archives
+    - Modifier leur contrat
+    answer: 1
+    explanation: 'La consigne principale est de déplacer les dossiers vers le serveur partagé avant vendredi.
+      Les autres réponses ne conviennent pas : il n’est pas question d’acheter du matériel, de supprimer
+      les archives ni de modifier des contrats.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-toits-solaires
+    cefr: B1
+    origin: generated
+    focus: attitude de l'auteur
+    passage: |-
+      On voit parfois les projets écologiques comme des dépenses de plus. Pourtant, l’installation de panneaux solaires sur les toits des bâtiments publics mérite d’être prise au sérieux. À Saint-Laurent, l’école Victor-Hugo produit déjà une partie de son électricité grâce à ces équipements, et la facture annuelle a nettement baissé. Surtout, les élèves suivent maintenant de près la consommation du bâtiment et proposent eux-mêmes des idées pour éviter le gaspillage. Bien sûr, ce type d’aménagement demande un investissement de départ, mais les bénéfices apparaissent rapidement lorsque la gestion est rigoureuse.
+
+      Il serait donc regrettable de réserver ces solutions aux grandes entreprises. Les collectivités locales peuvent, elles aussi, montrer l’exemple et encourager des habitudes plus responsables. Dans une période où l’énergie coûte cher, il est utile de soutenir ce genre d’initiative plutôt que de le considérer comme un simple effet de mode.
+    prompt: Quelle est l’opinion de l’auteur sur ce projet ?
+    options:
+    - Il le soutient clairement
+    - Il le juge inutile
+    - Il veut le reporter
+    - Il le trouve dangereux
+    answer: 0
+    explanation: 'L’auteur défend l’installation de panneaux solaires et estime qu’il faut soutenir ce
+      type d’initiative. Les autres réponses sont contredites par le texte : il ne parle ni d’inutilité,
+      ni de report, ni de danger.'

@@ -1,0 +1,157 @@
+request: co-bank
+skill: CO
+cefr: A1
+themes:
+- santé
+- environnement
+format: document
+model: gpt-5.4-mini
+key: 10c8733abd06acb861da79707d268c212b63738b792e73e23113093389834f0a
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-pharmacie-du-parc
+    cefr: A1
+    origin: generated
+    focus: lieu de la pharmacie
+    audio_text: |-
+      - Bonjour monsieur, je cherche la pharmacie Verte.
+      - Elle est à droite du parc, sur l'avenue des Tilleuls.
+    prompt: Où est la pharmacie Verte ?
+    options:
+    - Près de la gare
+    - Dans l'hôpital
+    - Rue des Lilas
+    - À droite du parc
+    answer: 3
+    explanation: Le texte dit clairement « à droite du parc, sur l'avenue des Tilleuls ». Les autres lieux
+      ne sont pas donnés.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-rendez-vous-medical
+    cefr: A1
+    origin: generated
+    focus: heure du rendez-vous
+    audio_text: |-
+      - Bonjour Madame Lenoir. Votre rendez-vous chez le médecin est à neuf heures et quart.
+      - Merci, à demain.
+    prompt: À quelle heure est le rendez-vous ?
+    options:
+    - À neuf heures et quart
+    - À huit heures et quart
+    - À dix heures
+    - À neuf heures
+    answer: 0
+    explanation: L'heure annoncée est « neuf heures et quart ». Les autres propositions sont proches mais
+      ne correspondent pas au document.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-verre-recycle
+    cefr: A1
+    origin: generated
+    focus: lieu du verre
+    audio_text: Demain, la collecte du verre aura lieu derrière l'immeuble, dans le conteneur vert. Merci
+      de sortir vos bouteilles avant huit heures.
+    prompt: Où faut-il mettre les bouteilles en verre ?
+    options:
+    - Dans le conteneur vert
+    - Dans la poubelle jaune
+    - Devant l'école
+    - Au sous-sol
+    answer: 0
+    explanation: Le document indique « dans le conteneur vert ». Les autres réponses parlent d'autres
+      lieux qui ne sont pas mentionnés.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-creme-pour-les-mains
+    cefr: A1
+    origin: generated
+    focus: prix
+    audio_text: |-
+      - Bonjour, je voudrais cette crème pour les mains.
+      - Bien sûr, elle coûte douze euros.
+    prompt: Combien coûte la crème ?
+    options:
+    - Huit euros
+    - Douze euros
+    - Dix-sept euros
+    - Vingt euros
+    answer: 1
+    explanation: Le prix donné est « douze euros ». Les autres montants sont des distracteurs plausibles,
+      mais ils ne sont pas dans le dialogue.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-marche-verte
+    cefr: A1
+    origin: generated
+    focus: nombre de gants
+    audio_text: |-
+      - Pour la marche verte, combien de gants faut-il par personne ?
+      - Deux par personne, s'il vous plaît.
+    prompt: Combien de gants faut-il par personne ?
+    options:
+    - Quatre
+    - Un
+    - Trois
+    - Deux
+    answer: 3
+    explanation: La réponse est « deux par personne ». Les autres nombres ne correspondent pas à la consigne.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-sirop-du-matin
+    cefr: A1
+    origin: generated
+    focus: moment du sirop
+    audio_text: |-
+      - Monsieur, prenez ce sirop le matin, après le petit déjeuner.
+      - D'accord, merci docteur.
+    prompt: Quand doit-il prendre le sirop ?
+    options:
+    - Le soir
+    - À midi
+    - La nuit
+    - Le matin
+    answer: 3
+    explanation: Le médecin dit de le prendre « le matin ». Les autres moments ne sont pas les bons.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-ramassage-plastique
+    cefr: A1
+    origin: generated
+    focus: jour du ramassage
+    audio_text: Le ramassage du plastique est vendredi matin. Mettez vos sacs bleus devant la porte la
+      veille au soir.
+    prompt: Quel jour a lieu le ramassage du plastique ?
+    options:
+    - Lundi
+    - Jeudi
+    - Dimanche
+    - Vendredi
+    answer: 3
+    explanation: Le document précise « vendredi matin ». Les autres jours ne correspondent pas à l'annonce.
+- status: fixed
+  issues:
+  - The question uses a feminine pronoun that is not supported by the dialogue.
+  item:
+    slug: co-a1-carte-medicale
+    cefr: A1
+    origin: generated
+    focus: document à apporter
+    audio_text: |-
+      - Bonjour, pour l'examen, n'oubliez pas votre carte d'assurance maladie.
+      - Très bien, je l'apporte.
+    prompt: Qu'est-ce qu'il doit apporter ?
+    options:
+    - Sa carte d'assurance maladie
+    - Son stylo
+    - Son parapluie
+    - Ses lunettes de soleil
+    answer: 0
+    explanation: Le document dit d'apporter la carte d'assurance maladie.

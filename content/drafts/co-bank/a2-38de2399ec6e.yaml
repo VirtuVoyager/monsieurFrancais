@@ -1,0 +1,170 @@
+request: co-bank
+skill: CO
+cefr: A2
+themes:
+- famille et société
+- alimentation
+format: document
+model: gpt-5.4-mini
+key: 38de2399ec6e9213b28ab28c6ae96d0e1616c23a3f8188598aea3f83308d0d4b
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-formulaire-famille
+    cefr: A2
+    origin: generated
+    focus: lieu de dépôt
+    audio_text: |-
+      - Bonjour, je viens pour la carte Famille.
+      - Très bien. Je vous donne le formulaire. Vous devez le déposer au guichet numéro deux, à côté de la caisse.
+      - D'accord. Je peux le faire maintenant ?
+      - Oui, le bureau est ouvert jusqu'à midi.
+    prompt: Où doit-elle déposer le formulaire ?
+    options:
+    - Au guichet numéro deux
+    - Au guichet numéro un
+    - À la caisse
+    - Au bureau du premier étage
+    answer: 0
+    explanation: Le deuxième interlocuteur dit clairement qu’il faut déposer le formulaire au guichet
+      numéro deux. Les autres lieux ne sont pas mentionnés ou ne correspondent pas.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-tante-a-l-ecole
+    cefr: A2
+    origin: generated
+    focus: personne qui vient chercher
+    audio_text: Bonjour, c'est Marc. Je ne pourrai pas venir chercher Inès après l'école. Sa tante Claire
+      passera à quinze heures quarante-cinq. Si jamais elle est en retard, attendez-la dans le hall. Merci
+      de votre aide.
+    prompt: Qui viendra chercher Inès ?
+    options:
+    - Son père
+    - Sa voisine
+    - Sa grand-mère
+    - Sa tante
+    answer: 3
+    explanation: Le message précise que c’est la tante Claire qui passera chercher Inès. Les autres personnes
+      sont des distracteurs plausibles, mais elles ne sont pas citées.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-reunion-des-parents
+    cefr: A2
+    origin: generated
+    focus: action demandée
+    audio_text: Bonsoir, ici l'école des Tilleuls. Nous rappelons aux parents des élèves de CE2 que la
+      réunion de demain est avancée à dix-sept heures trente. Merci d'envoyer un message pour confirmer
+      votre présence. Les enfants seront accueillis dans la salle de jeux.
+    prompt: Que doivent faire les parents ?
+    options:
+    - Venir avec leurs enfants
+    - Confirmer par message
+    - Apporter un goûter
+    - Appeler la mairie
+    answer: 1
+    explanation: L’annonce demande aux parents d’envoyer un message pour confirmer leur présence. Les
+      autres propositions ne sont pas demandées dans le document.
+- status: fixed
+  issues:
+  - The key does not match what the woman actually proposes.
+  - The explanation is inaccurate.
+  item:
+    slug: co-a2-club-des-seniors
+    cefr: A2
+    origin: generated
+    focus: activité proposée
+    audio_text: |-
+      - Bonjour madame, je cherche une activité pour ma mère, elle est seule le jeudi après-midi.
+      - Dans ce cas, je vous conseille un atelier de lecture pour les seniors. Il y a aussi un café partagé.
+      - Très bien. Et il faut s'inscrire ?
+      - Oui, au secrétariat avant vendredi.
+    prompt: Quelle activité est proposée ?
+    options:
+    - Un travail à domicile
+    - Un rendez-vous médical
+    - Un atelier de lecture
+    - Un cours d'anglais
+    answer: 2
+    explanation: La dame propose un atelier de lecture pour les seniors. Les autres options ne figurent
+      pas dans l'échange.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-menu-de-cantine
+    cefr: A2
+    origin: generated
+    focus: plat servi
+    audio_text: Attention, aujourd'hui à la cantine, il n'y aura pas de poisson. Le cuisinier prépare
+      du riz, des légumes vapeur et une compote. Les élèves qui ont un repas sans porc n'ont rien à changer.
+    prompt: Qu'est-ce qu'on sert à la cantine ?
+    options:
+    - Du poulet rôti
+    - Des pâtes au fromage
+    - Une soupe de poisson
+    - Du riz et des légumes
+    answer: 3
+    explanation: L’annonce dit que le repas comprend du riz et des légumes vapeur. Le poisson est justement
+      absent, et les autres plats ne sont pas annoncés.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-buffet-du-samedi
+    cefr: A2
+    origin: generated
+    focus: nombre de personnes
+    audio_text: |-
+      - Bonjour, nous préparons un buffet pour samedi.
+      - Pour combien de personnes ?
+      - Pour huit adultes et deux enfants.
+      - Très bien. Nous pouvons vous proposer des sandwichs au jambon, des salades et un gâteau salé.
+      - Parfait, je viens le chercher à onze heures.
+    prompt: Combien de personnes sont prévues ?
+    options:
+    - Six
+    - Huit
+    - Dix
+    - Douze
+    answer: 2
+    explanation: Huit adultes et deux enfants font dix personnes. Les autres nombres sont trop petits
+      ou trop grands.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-menu-vegetarien
+    cefr: A2
+    origin: generated
+    focus: délai pour signaler
+    audio_text: Bonjour, ici le café L'Atelier. Votre table pour demain soir est bien réservée pour cinq
+      personnes. Si vous voulez un menu végétarien, merci de nous prévenir avant midi. Nous avons aussi
+      une chaise haute pour votre enfant.
+    prompt: Que faut-il faire pour le menu végétarien ?
+    options:
+    - Venir avant midi
+    - Prévenir avant midi
+    - Payer à l'avance
+    - Réserver une autre table
+    answer: 1
+    explanation: Le message demande de prévenir le café avant midi si l’on veut un menu végétarien. Les
+      autres réponses ne correspondent pas à la consigne.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-epicerie-du-pont
+    cefr: A2
+    origin: generated
+    focus: endroit où passer
+    audio_text: Attention, dans l'épicerie du Pont, le rayon des produits frais ferme dans quinze minutes.
+      Les clients qui souhaitent du fromage ou du yaourt doivent passer à la caisse principale avant de
+      sortir. Merci de garder vos sacs prêts.
+    prompt: Où les clients doivent-ils passer ?
+    options:
+    - À l'entrée nord
+    - Au rayon des fruits
+    - À la caisse principale
+    - Au comptoir du pain
+    answer: 2
+    explanation: L’annonce indique que les clients doivent passer à la caisse principale. Les autres lieux
+      sont plausibles dans un magasin, mais ils ne sont pas demandés ici.

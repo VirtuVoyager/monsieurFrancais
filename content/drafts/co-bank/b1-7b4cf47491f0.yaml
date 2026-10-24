@@ -1,0 +1,187 @@
+request: co-bank
+skill: CO
+cefr: B1
+themes:
+- vie associative
+- services publics
+format: document
+model: gpt-5.4-mini
+key: 7b4cf47491f0232f3bc579ed9f045feb77c431a47b44a71cc30d9feee5840b33
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-forum-associatif
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: |-
+      - J'ai relu le programme du forum de samedi. Il nous manque encore trois bénévoles pour l'accueil.
+      - Je peux venir le matin, mais pas l'après-midi.
+      - Ce serait déjà très utile. Et si tu appelles les adhérents du quartier, on aura peut-être assez de monde.
+      - Oui, je peux faire ça. On veut surtout éviter d'annuler l'atelier d'inscription.
+      - Exactement. S'il y a assez de personnes à l'entrée, tout le reste suivra sans problème.
+    prompt: Quel est le but principal de cet échange ?
+    options:
+    - Reporter le forum
+    - Préparer un atelier
+    - Trouver des bénévoles
+    - Annuler l'inscription
+    answer: 2
+    explanation: La conversation porte surtout sur le manque de bénévoles et sur les moyens d’en trouver
+      pour samedi. Les autres propositions évoquent des éléments présents dans l’échange, mais elles ne
+      correspondent pas à l’objectif principal.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-guichet-municipal
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: À partir de lundi, le service des cartes d'identité de la mairie de Saint-Orme recevra
+      le public uniquement sur rendez-vous, sauf le jeudi après-midi, réservé aux demandes urgentes. Ce
+      changement doit réduire l'attente et éviter les files dès l'ouverture. Les habitants peuvent prendre
+      rendez-vous sur le site de la ville ou à l'accueil général. Les horaires du guichet des passeports,
+      eux, ne changent pas.
+    prompt: Que faut-il retenir de cette annonce ?
+    options:
+    - Les cartes d'identité sont supprimées
+    - Le guichet ferme toute la semaine
+    - Les passeports sont prioritaires
+    - Le service change d'organisation
+    answer: 3
+    explanation: 'L’annonce explique un nouveau fonctionnement du service : désormais, les demandes de
+      cartes d’identité se font surtout sur rendez-vous. Les autres réponses déforment le message ou ajoutent
+      des informations qui ne sont pas dites.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-atelier-de-reparation
+    cefr: B1
+    origin: generated
+    focus: opinion exprimée
+    audio_text: |-
+      - Tu as vu, l'association du quartier ouvre un atelier pour réparer des petits appareils ?
+      - Oui, et je trouve ça vraiment intelligent. Beaucoup de gens jettent des objets qui pourraient encore servir.
+      - C'est vrai, mais il faut des bénévoles pour encadrer.
+      - Justement, si on s'y met à plusieurs, ça peut devenir un rendez-vous très utile pour tout le monde.
+      - Je vois. En plus, ça évite d'acheter du neuf trop vite.
+    prompt: Quelle opinion le monsieur exprime-t-il ?
+    options:
+    - Il le juge trop compliqué
+    - Il préfère tout jeter
+    - Il trouve le projet utile
+    - Il veut le financer seul
+    answer: 2
+    explanation: Le monsieur dit clairement que l’atelier est « intelligent » et « très utile ». Les autres
+      réponses contredisent son avis ou ajoutent une idée absente du dialogue.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-aide-au-guichet
+    cefr: B1
+    origin: generated
+    focus: opinion exprimée
+    audio_text: J'ai demandé de l'aide au centre communal pour remplir mon dossier. Au début, j'étais
+      un peu méfiante, parce que je pensais que ce serait compliqué. En fait, la conseillère a pris le
+      temps d'expliquer chaque étape, et j'ai obtenu un rendez-vous rapidement. Le seul problème, c'est
+      qu'il y avait beaucoup de monde, mais on m'a orientée vers le bon service. Franchement, je me suis
+      sentie écoutée.
+    prompt: Comment la locutrice juge-t-elle ce service ?
+    options:
+    - Très coûteux
+    - Inutile
+    - Plutôt efficace
+    - Mal organisé
+    answer: 2
+    explanation: Elle souligne qu’on lui a bien expliqué la démarche, qu’elle a obtenu un rendez-vous
+      rapidement et qu’elle s’est sentie écoutée. Le service est donc jugé positivement, malgré l’attente.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-livres-a-domicile
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: |-
+      - Le centre social cherche des personnes pour porter des livres aux habitants qui ne peuvent pas se déplacer.
+      - Ah, donc ce n'est pas une animation pour les enfants ?
+      - Non, l'idée est de faire circuler les ouvrages entre la médiathèque et les personnes âgées.
+      - D'accord. C'est discret, mais ça peut vraiment aider ceux qui restent chez eux.
+      - Oui, et il faut seulement quelques heures par semaine.
+    prompt: De quoi parlent-ils surtout ?
+    options:
+    - D'une fête pour les lecteurs
+    - D'un service de livraison de livres
+    - D'un cours d'écriture
+    - D'une fermeture de médiathèque
+    answer: 1
+    explanation: Ils parlent d’un dispositif qui permet d’apporter des livres à des personnes qui ne peuvent
+      pas se déplacer. Les autres propositions ne correspondent pas au contenu de l’échange.
+- status: rejected
+  issues:
+  - document has 46 words; expected 60 to 130
+  item:
+    slug: co-b1-piscine-municipale
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: La piscine municipale d'Argelon sera fermée demain matin pour vérifier le système de sécurité.
+      Elle rouvrira à quatorze heures, et l'accueil restera assuré par téléphone pendant la fermeture.
+      Les cours de natation du mercredi sont déplacés au gymnase voisin. Nous remercions les usagers de
+      leur compréhension.
+    prompt: Que dit cette annonce ?
+    options:
+    - La piscine ouvre plus tard
+    - Les cours sont supprimés
+    - Le gymnase ferme aussi
+    - Le téléphone ne répond plus
+    answer: 0
+    explanation: 'L’annonce dit que la piscine sera fermée le matin puis rouvrira à quatorze heures :
+      elle ouvre donc plus tard. Les autres réponses contredisent le texte ou ajoutent une information
+      absente.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-engagement-benevole
+    cefr: B1
+    origin: generated
+    focus: intention du locuteur
+    audio_text: Je fais partie du réseau Main tendue depuis six mois. Au départ, je voulais seulement
+      donner un peu de temps le week-end. Finalement, j'y ai découvert une équipe très accueillante et
+      des missions simples, comme préparer les colis ou téléphoner aux nouveaux arrivants. Je ne pense
+      pas qu'il faille être disponible tout le temps ; quelques heures suffisent pour être utile. C'est
+      pour ça que je recommande cette association autour de moi.
+    prompt: Pourquoi le locuteur parle-t-il de cette expérience ?
+    options:
+    - Pour critiquer l'organisation
+    - Pour encourager à s'engager
+    - Pour annoncer son départ
+    - Pour demander de l'argent
+    answer: 1
+    explanation: 'Il conclut qu’on peut être utile avec peu de temps et dit recommander l’association
+      autour de lui : son but est donc d’encourager à s’engager. Les autres options ne sont pas appuyées
+      par le témoignage.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-accueil-des-usagers
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: |-
+      - Le service population reçoit de plus en plus d'appels pour les actes de naissance.
+      - Oui, et les gens se déplacent souvent pour rien.
+      - Alors la mairie va installer un affichage plus clair et un formulaire en ligne.
+      - Bonne nouvelle. Si on simplifie le parcours, les usagers gagneront du temps.
+      - C'est exactement l'objectif : moins d'attente et des démarches plus simples.
+    prompt: Quel est le sujet principal de leur échange ?
+    options:
+    - Améliorer l'accueil des usagers
+    - Recruter des agents
+    - Rénover la mairie
+    - Changer les actes d'état civil
+    answer: 0
+    explanation: Ils discutent des moyens de rendre les démarches plus simples et de mieux orienter les
+      usagers. Les autres choix reprennent des éléments administratifs possibles, mais ce n’est pas le
+      sujet principal.
