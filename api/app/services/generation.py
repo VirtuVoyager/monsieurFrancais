@@ -69,6 +69,9 @@ def generate(
             report.cached += 1
             continue
         outcomes = _run_batch(session, user_id, writer, batch, tasks=tasks, text=text, taken=taken)
+        # A batch rewritten under a new prompt or model replaces its old draft.
+        for old in _drafts(drafts_dir).get(batch.identity, []):
+            old.unlink()
         _write_draft(path, batch, outcomes, request=request.stem, model=writer.model, key=key)
         session.commit()
         report.written.append(str(path.relative_to(content_dir)))
@@ -78,24 +81,23 @@ def generate(
     return report
 
 
-def promote(request: Path, writer: ItemWriter | None = None) -> int:
+def promote(request: Path) -> int:
     """Rebuilds the request's item bank from its drafts; edit the drafts, never the bank.
 
-    Only drafts of the request's current batches count: a draft left over from an older brief
-    or prompt is superseded, not promoted alongside its replacement.
+    Only drafts of batches the request still asks for count, in the request's order; a batch
+    that was dropped or reworded leaves its old draft out.
     """
-    writer = writer or get_item_writer()
     content_dir = get_settings().content_dir
     target = content_dir / "items" / f"{request.stem}.yaml"
     if target.exists() and yaml.safe_load(target.read_text()).get("generated_from") != request.stem:
         raise ValueError(f"{target.name} was written by hand; choose another request name")
-    by_key = {
-        draft["key"]: draft
-        for p in (content_dir / "drafts" / request.stem).glob("*.yaml")
-        if (draft := yaml.safe_load(p.read_text()))
-    }
-    current = [key for _, _, key in _batches(request, writer, _tasks())]
-    drafts = [by_key[key] for key in current if key in by_key]
+    found = _drafts(content_dir / "drafts" / request.stem)
+    batches = parse_request(yaml.safe_load(request.read_text()))
+    drafts = [
+        yaml.safe_load(path.read_text())
+        for batch in batches
+        for path in found.get(batch.identity, [])[:1]
+    ]
     if not drafts:
         raise ValueError(f"No drafts for {request.stem}; run `make generate` first")
     items = [e["item"] for d in drafts for e in d["items"] if e["status"] in ACCEPTED]
@@ -194,6 +196,15 @@ def _write_draft(
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(_dump(draft))
+
+
+def _drafts(drafts_dir: Path) -> dict[tuple[str, str, tuple[str, ...], str], list[Path]]:
+    found: dict[tuple[str, str, tuple[str, ...], str], list[Path]] = {}
+    for path in sorted(drafts_dir.glob("*.yaml")):
+        draft = yaml.safe_load(path.read_text())
+        identity = (draft["skill"], draft["cefr"], tuple(draft["themes"]), draft["format"])
+        found.setdefault(identity, []).append(path)
+    return found
 
 
 def _bank_slugs(content_dir: Path) -> set[str]:

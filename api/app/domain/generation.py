@@ -16,6 +16,12 @@ REPLY_PROMPT = (
     "Choisissez la réponse qui correspond à la question."
 )
 LETTERS = "ABCD"
+# Options are shuffled after writing, so "la deuxième réponse" would point at the wrong one.
+POSITIONAL = re.compile(
+    r"\b(?:première|deuxième|troisième|quatrième|dernière)\s+(?:réponse|option|proposition)"
+    r"|\b(?:réponse|option|proposition)\s+[ABCD]\b",
+    re.IGNORECASE,
+)
 DIALOGUE = (
     'A dialogue is written one turn per line, each line starting with "- ", between a woman and a '
     "man: the woman speaks first, then they alternate, and each line agrees with its speaker's "
@@ -30,6 +36,11 @@ class Batch:
     count: int
     themes: tuple[str, ...]
     format: Format = "document"
+
+    @property
+    def identity(self) -> tuple[str, str, tuple[str, ...], str]:
+        """What the batch asks for, independent of how it was written."""
+        return (self.skill, self.cefr, self.themes, self.format)
 
     def key(self, brief: str, instructions: str, model: str) -> str:
         """What the batch was asked for: the same request is never paid for twice."""
@@ -144,6 +155,8 @@ def check(draft: Draft, words: tuple[int, int], options: int) -> list[str]:
     # A little slack: the generator counts words loosely, and the exam's lengths are not exact.
     if not low * 0.8 <= count <= high * 1.2:
         problems.append(f"document has {count} words; expected {low} to {high}")
+    if POSITIONAL.search(draft.explanation):
+        problems.append("the explanation names an option by its position")
     return problems
 
 
