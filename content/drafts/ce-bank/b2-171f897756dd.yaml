@@ -1,0 +1,259 @@
+request: ce-bank
+skill: CE
+cefr: B2
+themes:
+- culture et loisirs
+- transports
+format: document
+model: gpt-5.4-mini
+key: 171f897756dda97b9de68ad0c2d26a75a870a36b2c055f3a0b3d7c263d31b659
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-pass-musees
+    cefr: B2
+    origin: generated
+    focus: avis sur le pass
+    passage: 'La ville de Montrevie a lancé au début de l’année un pass culturel annuel à quinze euros,
+      valable dans quatre musées et deux petites salles de spectacle. Les premiers chiffres semblent encourageants
+      : en six mois, la fréquentation a augmenté de 14 %, et les achats de pass ont surtout concerné des
+      personnes de moins de trente-cinq ans. Pourtant, le bilan n’est pas aussi simple. D’après les responsables
+      des lieux, beaucoup de nouveaux visiteurs sont venus une seule fois, souvent par curiosité, puis
+      ne sont pas revenus. Le journaliste souligne aussi que les horaires restent peu adaptés à ceux qui
+      travaillent tard, et que les lignes de bus vers le quartier des musées cessent tôt le soir. Autrement
+      dit, le prix bas enlève un frein, mais il ne suffit pas à créer une habitude. Pour l’auteur, il
+      faudrait accompagner ce pass de visites commentées, d’horaires élargis et d’une meilleure desserte,
+      sinon l’effet restera limité.'
+    prompt: Quelle est la position de l’auteur sur le nouveau pass ?
+    options:
+    - Il devrait viser surtout les touristes.
+    - Il faut le supprimer dès maintenant.
+    - Il est utile, mais il ne suffit pas.
+    - Il sert surtout à financer les travaux.
+    answer: 2
+    explanation: 'Le texte dit clairement que le pass « enlève un frein, mais ne suffit pas à créer une
+      habitude » et qu’il faudrait d’autres mesures. Les autres propositions ne correspondent pas : il
+      n’est pas réservé aux touristes, il n’est pas présenté comme inutile, et rien n’indique qu’il finance
+      des travaux.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-festival-muet
+    cefr: B2
+    origin: generated
+    focus: accès au festival
+    passage: Le festival des Écrans silencieux, consacré au cinéma muet accompagné de musiciens, a rassemblé
+      cette année plus de cinq mille six cents spectateurs, soit une hausse de 18 % par rapport à l’an
+      dernier. Les organisateurs attribuent une partie de cette progression au premier week-end gratuit,
+      qui a attiré davantage de familles et de visiteurs venus des quartiers périphériques. L’étude menée
+      à la sortie des séances montre d’ailleurs que près d’un tiers de ces nouveaux venus n’était jamais
+      entré dans une salle du festival. En revanche, les entrées payantes du jeudi soir ont moins bien
+      marché, malgré une programmation très ambitieuse. Le chroniqueur observe que l’opération n’est pas
+      rentable à court terme, mais qu’elle change la composition du public et donne une autre image de
+      l’événement. Selon lui, supprimer la gratuité reviendrait à faire du festival une manifestation
+      plus fermée, plus conforme aux habitudes des amateurs avertis, mais moins ouverte à ceux qui hésitent
+      à franchir la porte.
+    prompt: Pourquoi l’auteur défend-il le premier week-end gratuit ?
+    options:
+    - Pour équilibrer le budget.
+    - Pour fidéliser les cinéphiles.
+    - Pour réduire la durée du festival.
+    - Pour élargir le public.
+    answer: 3
+    explanation: 'Le texte insiste sur le fait que la gratuité attire des familles, des habitants des
+      périphéries et des personnes qui n’étaient jamais venues : l’objectif est donc d’ouvrir le festival
+      à d’autres publics. Les autres réponses contredisent le document : l’auteur dit même que l’opération
+      n’est pas rentable, et il ne parle ni de fidélisation ni de réduction de la durée.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-bibliotheque-tardive
+    cefr: B2
+    origin: generated
+    focus: vocation de la bibliothèque
+    passage: 'À Saint-Véran, la médiathèque a décidé d’ouvrir deux soirs par semaine jusqu’à vingt-deux
+      heures, avec des lectures publiques, des ateliers de jeux et une petite scène pour des concerts
+      acoustiques. La municipalité se félicite des résultats : la fréquentation a progressé de 30 % le
+      soir, et les inscriptions de jeunes adultes ont nettement augmenté. Mais l’article rappelle aussi
+      une autre réalité : les salles de consultation, elles, sont moins calmes qu’avant, et plusieurs
+      habitués disent avoir du mal à travailler dans le bruit. L’auteur reconnaît l’intérêt d’une bibliothèque
+      plus vivante, capable d’attirer ceux qui n’y venaient jamais. Il juge pourtant que l’établissement
+      risque de perdre ce qui faisait sa force si l’animation prend toute la place. À ses yeux, une médiathèque
+      n’a pas à choisir entre culture et silence, mais elle doit conserver un équilibre net, sous peine
+      de transformer un lieu de lecture en simple espace de loisirs.'
+    prompt: Que redoute l’auteur ?
+    options:
+    - La hausse des tarifs.
+    - La fermeture du bâtiment.
+    - Le manque de livres.
+    - La perte du silence.
+    answer: 3
+    explanation: 'L’auteur explique que le bruit gêne les habitués et que la médiathèque pourrait perdre
+      « ce qui faisait sa force » si l’animation domine : il redoute donc la disparition du calme. Les
+      autres propositions ne sont pas évoquées dans le texte.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-theatre-et-bus
+    cefr: B2
+    origin: generated
+    focus: obstacle principal
+    passage: 'Selon une enquête publiée par le quotidien Le Regard, 62 % des moins de trente ans estiment
+      que les places de théâtre sont trop chères. Le chiffre a beaucoup circulé, mais l’article invite
+      à le lire avec prudence. Dans la même étude, 48 % des billets soldés de dernière minute ont été
+      achetés par des personnes de plus de quarante-cinq ans, ce qui montre que le prix bas ne suffit
+      pas à changer les habitudes. Surtout, un autre résultat ressort : parmi les personnes qui renoncent
+      à sortir le soir, près d’un tiers citent le retour à la maison comme principal frein, devant le
+      tarif du billet. Le journaliste en déduit que l’offre culturelle ne se joue pas seulement au guichet.
+      Si le dernier tram passe trop tôt, si les correspondances sont rares ou si le trajet devient compliqué
+      après minuit, une réduction de quelques euros perd une grande partie de son effet. Pour lui, les
+      théâtres qui veulent élargir leur public doivent travailler avec les transports autant qu’avec la
+      billetterie.'
+    prompt: Quelle conclusion l’auteur tire-t-il des données ?
+    options:
+    - Les spectacles sont trop longs.
+    - Les jeunes préfèrent le cinéma.
+    - Le prix n’est pas l’obstacle principal.
+    - Le théâtre doit être gratuit pour tous.
+    answer: 2
+    explanation: 'Le texte compare le prix et le retour à la maison, puis dit que le trajet pèse davantage
+      que le billet : l’obstacle principal n’est donc pas le prix. Les autres options ne sont ni affirmées
+      ni suggérées.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-tram-du-soir
+    cefr: B2
+    origin: generated
+    focus: condition de réussite
+    passage: 'La métropole de Valcenne a prolongé la circulation du tramway jusqu’à une heure du matin,
+      du jeudi au samedi, afin de faciliter les sorties culturelles et les trajets de fin de soirée. Après
+      trois mois, la fréquentation a augmenté de 22 % sur les lignes concernées, et les services de sécurité
+      constatent moins d’incidents aux abords des gares. Le coût de l’opération s’est révélé inférieur
+      aux prévisions, car la ville a réorganisé les équipes sans ouvrir de nouvelles infrastructures.
+      L’auteur ne conteste donc pas le principe du dispositif ; au contraire, il le juge plutôt intelligent
+      et socialement utile. Mais il estime que l’extension horaire n’a de sens que si les rames circulent
+      assez souvent. Quand l’attente dépasse vingt minutes, écrit-il, les voyageurs finissent par reprendre
+      leur voiture ou par renoncer à sortir. Son argument est clair : mieux vaut un service bien cadencé
+      sur quelques nuits que des horaires théoriques, difficiles à utiliser dans la pratique.'
+    prompt: À quelle condition l’auteur approuve-t-il la mesure ?
+    options:
+    - Qu’elle soit moins chère.
+    - Qu’elle circule assez souvent.
+    - Qu’elle s’arrête plus tôt.
+    - Qu’elle passe seulement l’été.
+    answer: 1
+    explanation: L’auteur dit explicitement que la mesure n’a de sens que si les rames circulent assez
+      souvent, sinon les voyageurs renoncent. Les autres propositions ne correspondent pas au texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-train-combine
+    cefr: B2
+    origin: generated
+    focus: rôle de l’information
+    passage: 'L’autorité régionale a lancé un billet combiné pour encourager les trajets en train hors
+      des heures de pointe. Le principe est simple : le tarif baisse fortement entre dix heures et seize
+      heures, puis les voyageurs peuvent poursuivre leur déplacement en bus local sans payer davantage.
+      Les premiers résultats montrent une hausse de 12 % sur les créneaux visés, mais la progression varie
+      beaucoup selon les gares. Là où les panneaux sont clairs et les correspondances bien expliquées,
+      le nouveau billet séduit ; là où les voyageurs doivent chercher les informations sur plusieurs sites,
+      l’effet reste faible. L’auteur rappelle que les économies promises ne suffisent pas toujours à modifier
+      un comportement très installé. Ce qui fait la différence, écrit-il, n’est pas seulement le prix,
+      mais la lisibilité du service : horaires compréhensibles, réservations simples, correspondances
+      visibles. En somme, le billet combiné a du potentiel, mais il n’agit vraiment que si l’usager comprend
+      immédiatement comment l’utiliser.'
+    prompt: Que montre surtout l’article ?
+    options:
+    - Le prix suffit à lui seul.
+    - Les trains sont trop nombreux.
+    - Les gares doivent fermer la nuit.
+    - L’information est décisive.
+    answer: 3
+    explanation: 'Le texte insiste sur la clarté des panneaux, la simplicité de réservation et la visibilité
+      des correspondances : c’est donc l’information qui fait la différence. Les autres réponses ne sont
+      pas soutenues par les données de l’article.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-parkings-relais
+    cefr: B2
+    origin: generated
+    focus: avis sur le projet
+    passage: La ville de Noyar a décidé de supprimer plusieurs places de stationnement gratuites en centre-ville
+      pour financer deux parkings relais reliés au métro toutes les huit minutes. Le projet divise les
+      commerçants, qui craignent une baisse de passage, mais les urbanistes cités dans l’article rappellent
+      que les automobilistes perdent en moyenne quinze minutes à chercher une place dans les rues commerçantes.
+      L’auteur ne se contente pas d’opposer les deux camps. Il admet que le plan peut déstabiliser les
+      habitudes, surtout au début, mais il estime qu’il pourrait rendre le centre plus agréable si les
+      conditions pratiques sont réunies. À ses yeux, un parking relais n’a d’intérêt que s’il est moins
+      coûteux que le stationnement en centre et si le métro reste assez fréquent pour éviter l’attente.
+      Sans cela, les conducteurs continueront à entrer en ville. L’article ne présente donc pas la mesure
+      comme une solution miracle, mais comme une réforme crédible, à condition qu’elle soit pensée pour
+      l’usage réel des voyageurs.
+    prompt: Que pense l’auteur du projet ?
+    options:
+    - Il est surtout symbolique.
+    - Il favorise les embouteillages.
+    - Il ne concerne que les touristes.
+    - Il est prometteur à certaines conditions.
+    answer: 3
+    explanation: 'L’auteur dit que le projet peut être utile et crédible « à condition » que le coût et
+      la fréquence du métro soient adaptés. Les autres options contredisent son propos : il ne le juge
+      ni purement symbolique, ni favorable aux embouteillages, ni limité aux touristes.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-bus-nocturnes
+    cefr: B2
+    origin: generated
+    focus: stratégie de desserte
+    passage: 'À la sortie des concerts, la municipalité de Bréville expérimente des bus nocturnes sur
+      trois lignes desservant les quartiers culturels et la gare centrale. Les enquêtes menées sur place
+      sont parlantes : 71 % des usagers déclarent qu’ils ne seraient pas restés jusqu’à la fin du spectacle
+      sans ce service, et la moitié d’entre eux a moins de trente-cinq ans. En revanche, la fréquentation
+      est nettement plus faible du lundi au mercredi. Partant de ces chiffres, l’auteur juge inutile de
+      prolonger la desserte toutes les nuits par principe. Il défend une approche plus fine : concentrer
+      les moyens sur les soirées où la demande est forte, relier les lieux où l’on sort vraiment, et éviter
+      de disperser le budget sur des trajets presque vides. Selon lui, le débat n’oppose pas la culture
+      et le transport, mais la bonne utilisation de l’argent public et l’efficacité du service. Autrement
+      dit, mieux vaut un réseau ciblé et visible qu’un dispositif uniforme, affiché pour son image mais
+      peu utilisé.'
+    prompt: Quelle politique l’auteur juge-t-il la plus pertinente ?
+    options:
+    - Cibler les nuits de forte demande.
+    - Étendre tous les soirs.
+    - Limiter aux grands axes.
+    - Supprimer les concerts tardifs.
+    answer: 0
+    explanation: 'Le texte recommande de concentrer les moyens sur les soirées où la demande est forte
+      et sur les lieux où l’on sort vraiment : c’est donc une desserte ciblée. Les autres options vont
+      contre cette idée ou n’apparaissent pas dans l’article.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-musee-gratuit
+    cefr: B2
+    origin: generated
+    focus: portée de la gratuité
+    passage: 'Le musée d’art de Rivehaute a rendu gratuite l’entrée de ses collections permanentes chaque
+      premier dimanche du mois. Après un an, le bilan est nuancé. La fréquentation globale a augmenté
+      de 9 %, mais surtout grâce à des visiteurs déjà familiers des musées. Les enquêtes de sortie montrent
+      que les nouveaux venus restent souvent moins longtemps, visitent une seule salle et repartent sans
+      revenir avant plusieurs mois. L’auteur ne nie pas l’intérêt symbolique de la mesure : elle donne
+      au musée une image plus ouverte et réduit l’impression d’exclusion que peuvent ressentir certaines
+      familles. Mais il refuse d’y voir une politique culturelle suffisante. Selon lui, la gratuité attire,
+      certes, mais elle ne garantit ni la compréhension des œuvres ni l’envie de revenir. Il faudrait
+      donc l’associer à des médiateurs, à des parcours plus courts et à une meilleure information dans
+      les quartiers éloignés. Sans cela, la mesure profite surtout à ceux qui venaient déjà.'
+    prompt: Que suggère surtout l’auteur ?
+    options:
+    - La gratuité doit être accompagnée.
+    - Le musée doit fermer certains dimanches.
+    - Les collections sont trop anciennes.
+    - L’entrée devrait être payante pour tous.
+    answer: 0
+    explanation: 'L’auteur dit que la gratuité a un intérêt, mais qu’elle doit être complétée par de la
+      médiation, des parcours adaptés et de l’information : elle doit donc être accompagnée. Les autres
+      propositions ne sont pas défendues dans le texte.'

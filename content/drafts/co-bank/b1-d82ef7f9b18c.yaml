@@ -1,0 +1,187 @@
+request: co-bank
+skill: CO
+cefr: B1
+themes:
+- voyages
+- médias
+format: document
+model: gpt-5.4-mini
+key: d82ef7f9b18cd7ee28085ef48bb5b0d4b5f60e4bf1c83bf83816f70d89ae8251
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-retard-du-train
+    cefr: B1
+    origin: generated
+    focus: décision de voyage
+    audio_text: |-
+      - Tu as confirmé le train pour Marseille ?
+      - Oui, mais j’ai reçu un message : le départ de huit heures est avancé à sept heures quarante-cinq.
+      - Ça change tout. On ne pourra pas arriver à temps pour la réunion.
+      - Dans ce cas, j’ai réservé deux billets pour la veille au soir. On dormira près de la gare et on sera tranquilles.
+      - Bonne idée. Je préviens Claire qu’on partira plus tôt.
+    prompt: Quelle est leur décision ?
+    options:
+    - Garder l’horaire initial
+    - Partir la veille
+    - Annuler le déplacement
+    - Prendre l’avion
+    answer: 1
+    explanation: 'Elle dit qu’ils ont réservé deux billets pour la veille au soir et qu’ils dormiront
+      près de la gare. Les autres réponses ne conviennent pas : ils ne gardent pas l’horaire, ils n’annulent
+      pas le déplacement et ils ne parlent pas d’avion.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-nouvelle-liaison-maritime
+    cefr: B1
+    origin: generated
+    focus: but de l'annonce
+    audio_text: Bonjour à toutes et à tous. La compagnie Rivage Bleu lance ce mois-ci une nouvelle liaison
+      vers l’île de Savel. Trois départs par jour seront proposés, avec des tarifs réduits pour les réservations
+      faites avant jeudi. À bord, vous trouverez un espace pour les vélos et une petite cafétéria. Les
+      places sont limitées, surtout le soir. Pensez à réserver dès maintenant sur notre site ou dans les
+      gares partenaires.
+    prompt: Quel est le but principal de cette annonce ?
+    options:
+    - Raconter une traversée
+    - Signaler un retard
+    - Inviter à réserver
+    - Donner la météo
+    answer: 2
+    explanation: L’annonce met surtout l’accent sur la réservation immédiate et sur les places limitées.
+      Elle ne raconte pas un voyage, ne prévient d’aucun retard et ne parle pas de météo.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-information-plus-claire
+    cefr: B1
+    origin: generated
+    focus: opinion sur l'information
+    audio_text: 'Avant, je suivais surtout l’actualité sur les réseaux sociaux. Je croyais gagner du temps,
+      mais je passais mon temps à vérifier les mêmes informations ailleurs. Maintenant, je commence la
+      journée avec la radio, puis je lis un article plus complet le soir. Je ne cherche pas seulement
+      des nouvelles rapides : j’ai besoin de comprendre les enjeux. Finalement, je préfère moins de messages,
+      mais mieux expliqués.'
+    prompt: Quelle est son opinion sur les médias ?
+    options:
+    - Aller vite
+    - Publier plus
+    - Éviter la radio
+    - Expliquer clairement
+    answer: 3
+    explanation: 'La locutrice dit qu’elle veut comprendre les enjeux et préfère des informations « mieux
+      expliquées ». Les autres propositions sont écartées : elle critique justement la rapidité, ne demande
+      pas plus de messages et n’écarte pas la radio.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-train-et-paysage
+    cefr: B1
+    origin: generated
+    focus: idée principale du reportage
+    audio_text: |-
+      - Vous avez parcouru plusieurs pays en train pour votre reportage. Qu’est-ce qui vous a plu ?
+      - Le rythme, surtout. Quand on prend le temps de voyager, on remarque davantage les paysages et les gens. En avion, j’arrive vite, mais je ne vois rien. En train, le trajet devient une partie du voyage, pas seulement une étape.
+      - Vous recommanderiez donc ce mode de transport ?
+      - Oui, à ceux qui veulent découvrir un pays sans se presser.
+    prompt: Quelle est son idée principale ?
+    options:
+    - Le train est plus économique
+    - L’avion est plus agréable
+    - Le trajet fait partie du voyage
+    - Il vaut mieux rester en ville
+    answer: 2
+    explanation: 'Il explique clairement que, pour lui, le trajet compte autant que la destination. Les
+      autres réponses ne correspondent pas : il ne parle ni d’économie, ni d’avion plus agréable, ni de
+      rester en ville.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-nouveau-rendez-vous
+    cefr: B1
+    origin: generated
+    focus: objet de l'émission
+    audio_text: 'À partir de lundi, notre station propose « Escales », un nouveau rendez-vous de dix minutes,
+      chaque matin à sept heures trente. Un voyageur ou une voyageuse y raconte une étape marquante :
+      une nuit dans un train, une traversée en bateau, une route à vélo. L’émission ne donne pas de conseils
+      pratiques ; elle invite simplement à voyager autrement et à écouter ceux qui reviennent avec une
+      histoire à partager. Vous pourrez aussi retrouver chaque épisode en podcast sur notre site.'
+    prompt: Que propose cette émission ?
+    options:
+    - Des récits de voyage
+    - Des conseils de réservation
+    - Des cours de langue
+    - Des reportages sportifs
+    answer: 0
+    explanation: Le texte insiste sur des personnes qui racontent une étape marquante de leur voyage.
+      Il ne s’agit ni de conseils de réservation, ni de cours de langue, ni de sport.
+- status: fixed
+  issues:
+  - The document is under the required 60-word minimum.
+  item:
+    slug: co-b1-bus-de-visite
+    cefr: B1
+    origin: generated
+    focus: choix du transport
+    audio_text: |-
+      - On pourrait louer une voiture pour visiter la côte.
+      - Je ne suis pas sûre. Dans cette région, il est difficile de se garer et on perd du temps.
+      - Alors, on prend le bus touristique ?
+      - Oui, il passe près des principaux sites et on peut descendre à chaque arrêt.
+      - Et on évitera de chercher une place de parking.
+      - Parfait, ce sera plus simple pour nous.
+    prompt: Pourquoi choisissent-ils le bus touristique ?
+    options:
+    - Pour éviter le stationnement
+    - Pour voyager de nuit
+    - Pour aller plus vite que tout
+    - Pour faire un long détour
+    answer: 0
+    explanation: Ils disent qu’en voiture il est difficile de se garer, et ils ajoutent qu’avec le bus
+      ils éviteront de chercher une place de parking. Les autres réponses ne conviennent pas.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-article-fiable
+    cefr: B1
+    origin: generated
+    focus: qualité recherchée
+    audio_text: 'Dans une rédaction, on me demande souvent pourquoi je vérifie autant les faits avant
+      de publier. La réponse est simple : un article peut être brillant, mais s’il contient une erreur,
+      le lecteur perd confiance. Je préfère donc travailler plus lentement et donner une information solide.
+      À mon avis, le rôle d’un média n’est pas seulement de faire réagir ; c’est aussi d’être fiable,
+      même quand le sujet est complexe.'
+    prompt: Quelle qualité défend-il ?
+    options:
+    - La fiabilité
+    - La rapidité
+    - La distraction
+    - La compétition
+    answer: 0
+    explanation: Il dit préférer une information « solide » et précise, car le lecteur doit pouvoir faire
+      confiance au média. La rapidité est au contraire relativisée, et rien n’évoque la distraction ou
+      la compétition.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-voyage-sans-filtre
+    cefr: B1
+    origin: generated
+    focus: objectif du vlog
+    audio_text: |-
+      - Vos vidéos de voyage ont changé. Qu’est-ce qui vous a poussé à modifier votre façon de faire ?
+      - J’avais peur que tout devienne trop parfait. On voit souvent des paysages magnifiques, mais pas les retards, la fatigue ou les imprévus. Moi, je voulais montrer autre chose.
+      - Plus de réalité, en somme ?
+      - Exactement. Je filme moins, je parle davantage, et je laisse une place aux petits accidents du voyage.
+    prompt: Quel est son objectif ?
+    options:
+    - Faire des clips très courts
+    - Vanter une agence
+    - Expliquer la météo
+    - Montrer un voyage authentique
+    answer: 3
+    explanation: Le locuteur veut montrer la réalité du voyage, avec ses imprévus et ses défauts, plutôt
+      qu’une image parfaite. Il ne cherche ni des clips très courts, ni à faire de la publicité, ni à
+      parler de météo.

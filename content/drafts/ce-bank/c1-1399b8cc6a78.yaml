@@ -1,0 +1,197 @@
+request: ce-bank
+skill: CE
+cefr: C1
+themes:
+- alimentation
+- voyages
+format: document
+model: gpt-5.4-mini
+key: 1399b8cc6a78822340f9fa0921f9dd1db6e892446f66ea2edfc12737ea9e4e45
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-saison-et-menus
+    cefr: C1
+    origin: generated
+    focus: point de vue nuancé
+    passage: |-
+      On voudrait parfois faire de la saisonnalité une règle morale. Au restaurant comme à la maison, l’argument revient avec une telle force qu’il finit par donner mauvaise conscience à ceux qui ne s’y conforment pas. Pourtant, la question n’est pas si simple. Oui, choisir des produits de saison a du sens : on limite certains transports inutiles, on retrouve des goûts plus francs, on apprend à cuisiner avec ce que la terre offre à un moment donné. Mais transformer ce principe en test de vertu relève d’une autre logique, plus discutable.
+
+      Car une cuisine vraiment responsable ne se réduit pas à la date inscrite sur l’étal. Elle inclut la manière de produire, de conserver, de distribuer et, surtout, de consommer sans gaspiller. Qu’importe, au fond, la provenance d’une courgette si la moitié du panier finit à la poubelle ? Qu’importe la framboise locale si elle est cultivée sous serre chauffée toute l’année, au nom d’une pureté de façade ? L’auteur de ces lignes n’ignore pas les limites des circuits longs ; il se méfie seulement des récits trop confortables.
+
+      À force d’opposer le « bon » et le « mauvais » choix, on oublie que la cuisine est aussi affaire de contexte : budget, climat, habitudes, santé, accès aux produits. Le vraisemblable n’est pas toujours le plus exemplaire, et l’exemplaire n’est pas toujours le plus réaliste. C’est pourquoi la saison ne devrait pas servir d’ultime verdict, mais de point de départ pour penser plus largement ce que l’on met dans son assiette.
+    prompt: Que défend surtout l’auteur à propos de la saisonnalité ?
+    options:
+    - Qu’elle doit servir de règle absolue.
+    - Qu’elle rend les produits locaux trop chers.
+    - Qu’elle n’a plus aucun intérêt.
+    - Qu’elle est utile, mais insuffisante.
+    answer: 3
+    explanation: 'Le texte reconnaît l’intérêt des produits de saison, mais refuse d’en faire un critère
+      moral unique : il faut aussi penser le gaspillage, la production et le contexte. Les autres propositions
+      sont trop radicales ou décalées par rapport à l’argumentation.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-ferments-a-la-mode
+    cefr: C1
+    origin: generated
+    focus: ton de l’auteur
+    passage: |-
+      Les aliments fermentés ont trouvé leur place sur les tables branchées avec une rapidité remarquable. Kombucha, kéfir, miso, légumes lactofermentés : la liste s’allonge au rythme des promesses. On leur prête volontiers une vertu quasi médicale, comme si quelques cuillerées de chou acide pouvaient réparer à elles seules des années de menus désordonnés. Le phénomène serait amusant s’il n’était pas si révélateur.
+
+      Le mérite de ces aliments est réel, mais il n’a rien de miraculeux. La fermentation n’est pas une invention récente remise au goût du jour par caprice marketing ; c’est une technique ancienne, née de la nécessité de conserver, d’économiser, de diversifier. Ce retour en grâce dit quelque chose de notre époque : nous supportons de moins en moins l’idée qu’un produit ait du temps, qu’il se transforme lentement, qu’il échappe aux performances immédiates.
+
+      Il serait pourtant absurde de rejeter cette mode au seul motif qu’elle en est une. Certaines tendances ouvrent des curiosités sincères, et beaucoup de cuisiniers découvrent par ce biais des saveurs qu’ils n’auraient jamais explorées autrement. Mais la prudence s’impose dès que le discours commercial remplace l’expérience. À force de célébrer les ferments comme un remède universel, on finit par oublier qu’ils sont d’abord des aliments : ils nourrissent, ils accompagnent, ils complexifient un repas. C’est déjà beaucoup. Il n’est pas nécessaire de leur faire promettre davantage.
+    prompt: Comment l’auteur accueille-t-il l’engouement pour les aliments fermentés ?
+    options:
+    - Avec un enthousiasme sans réserve.
+    - Avec intérêt, mais avec réserve.
+    - Avec une hostilité déclarée.
+    - Avec une totale indifférence.
+    answer: 1
+    explanation: 'Le texte reconnaît la valeur et l’intérêt des aliments fermentés, mais critique les
+      promesses excessives et le discours marketing. Les autres réponses ne conviennent pas : l’auteur
+      n’est ni exalté, ni hostile, ni indifférent.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-soupe-du-soir
+    cefr: C1
+    origin: generated
+    focus: ton du récit
+    passage: |-
+      Le soir où j’ai retrouvé la vieille casserole, la cuisine sentait encore le poireau et le laurier. J’ai ouvert le placard sans savoir ce que je cherchais, puis j’ai vu, derrière les assiettes dépareillées, le carnet taché où ma mère avait noté la soupe de ma grand-mère, avec ses indications imprécises : « un peu de ceci », « jusqu’à ce que cela parle ». J’ai souri malgré moi. Cela faisait des mois que nous rangions la maison vide, et chaque objet semblait avoir gardé la voix de celle qui l’avait touché.
+
+      Je n’ai pas lu la recette tout de suite. J’ai d’abord lavé les légumes, lentement, comme si ce geste devait suffire à remettre de l’ordre dans les jours. Dehors, la pluie battait les vitres sans insistance. Dans la casserole, l’eau commençait à frémir et le couteau, posé à côté de l’évier, brillait sous la lampe. Je pensais à ma grand-mère qui goûtait toujours la soupe avec le même sérieux, comme s’il s’agissait d’une affaire publique, puis elle ajoutait une pincée de sel sans jamais dire pourquoi.
+
+      Quand j’ai enfin porté la cuillère à mes lèvres, ce n’est pas le souvenir qui m’a saisi, mais sa précision : la chaleur, d’abord, puis cette amertume discrète que je n’avais jamais remarquée. Il m’a semblé alors que l’on hérite moins d’une recette que d’une manière d’attendre. J’ai laissé la soupe refroidir un peu. Dans la maison silencieuse, cette lenteur me paraissait presque une forme de politesse.
+    prompt: Quel sentiment domine ce passage ?
+    options:
+    - Une joie éclatante.
+    - Une ironie mordante.
+    - Une mélancolie retenue.
+    - Une colère ouverte.
+    answer: 2
+    explanation: Le récit associe le geste culinaire à l’absence, à la mémoire et au silence, avec une
+      émotion contenue plutôt qu’expressément dramatique. Les autres options ne correspondent pas au ton
+      général, ni au vocabulaire choisi.
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-boites-repas
+    cefr: C1
+    origin: generated
+    focus: motif d’adhésion
+    passage: |-
+      On s’étonne parfois du succès des boîtes-repas prêtes à cuisiner. Après tout, elles ne font pas disparaître la préparation : il faut encore éplucher, couper, cuire, assaisonner. Elles ne dispensent ni de vaisselle ni du temps passé derrière les fourneaux. Alors pourquoi séduisent-elles autant des personnes qui savent parfaitement faire leurs courses ?
+
+      La réponse ne tient pas seulement à la paresse, mot commode mais peu juste. Ce que vendent ces formules, ce n’est pas l’absence d’effort, c’est l’allègement d’une charge mentale devenue invisible parce qu’elle est quotidienne. Choisir un menu, calculer les quantités, vérifier ce qu’il reste au réfrigérateur, anticiper le lendemain, éviter le double achat : tout cela représente un travail discret mais réel. Les boîtes réorganisent ce travail au lieu de l’abolir. Elles le déplacent vers une entreprise qui l’assume à la place du client, au moins en partie.
+
+      C’est aussi pourquoi leur public n’est pas seulement composé de débutants en cuisine. On y trouve des parents pressés, des salariés qui rentrent tard, des personnes seules qui ne veulent pas décider chaque soir de la même chose. L’intérêt principal n’est donc pas la promesse d’un plat plus savoureux qu’un autre, mais celle d’un dîner moins encombré par les micro-décisions. Le succès de ces services dit peut-être moins notre incapacité à cuisiner que notre fatigue à choisir. Dans une époque saturée d’options, recevoir une suite d’étapes déjà ordonnées peut ressembler à un luxe.
+    prompt: Selon l’auteur, pourquoi ces boîtes séduisent-elles ?
+    options:
+    - Parce qu’elles coûtent moins cher que le marché.
+    - Parce qu’elles suppriment toute cuisine.
+    - Parce qu’elles garantissent des plats plus raffinés.
+    - Parce qu’elles simplifient surtout la décision.
+    answer: 3
+    explanation: 'Le texte insiste sur la charge mentale : menus, quantités, achats, anticipation. Le
+      succès vient surtout de là, et non du prix, d’une suppression totale de l’effort ou d’une supériorité
+      culinaire.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-escale-choisie
+    cefr: C1
+    origin: generated
+    focus: idée implicite
+    passage: |-
+      Pendant longtemps, l’escale a été vécue comme un contretemps. Elle signifiait l’attente, le changement de quai, la fatigue d’un passage entre deux moyens de transport. On la supportait comme on supporte une salle trop éclairée ou un couloir trop long. Puis certains voyageurs ont commencé à la regarder autrement : non plus comme un vide entre deux destinations, mais comme une parenthèse à habiter.
+
+      L’idée ne consiste pas à transformer chaque arrêt en visite exhaustive ni à accumuler les musées entre deux correspondances. Il s’agit plutôt de reconnaître que le déplacement lui-même a une forme, une respiration, un rythme, et qu’une ville traversée brièvement peut être rencontrée sans être consommée. Une gare, un marché, une promenade de quelques heures suffisent parfois à faire sentir qu’un trajet n’est pas une ligne tendue d’un point à l’autre, mais une suite de seuils.
+
+      Cette manière de voyager séduit ceux qui se méfient des itinéraires surchargés. Elle plaît aussi à ceux qui ont compris qu’un séjour trop rempli laisse peu de prise au réel. À force de vouloir « rentabiliser » chaque minute, on finit par ne plus voir que des listes. Or l’escale oblige à autre chose : accepter que l’on ne maîtrise pas tout, que le temps mort puisse devenir du temps vécu. Le voyageur n’en ressort pas nécessairement plus reposé, mais souvent moins pressé.
+
+      Ce n’est donc pas un plaidoyer pour l’oisiveté, encore moins pour le hasard intégral. C’est une invitation à déplacer le regard : ce qui semblait n’être qu’un intervalle peut devenir, à sa manière, une expérience.
+    prompt: Que cherche à montrer l’auteur ?
+    options:
+    - Qu’il faut éviter les villes de passage.
+    - Qu’un arrêt long gâche toujours le séjour.
+    - Qu’une escale peut faire partie du voyage.
+    - Qu’une correspondance doit rester très courte.
+    answer: 2
+    explanation: 'Le texte requalifie l’escale : au lieu d’un simple vide, elle devient une expérience
+      du voyage. Les autres options contredisent cette idée ou la réduisent à une contrainte purement
+      pratique.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-marcher-sans-carte
+    cefr: C1
+    origin: generated
+    focus: fonction de l’exemple
+    passage: |-
+      Il y a, dans certaines villes, une tentation permanente de se laisser guider par l’application la plus précise, comme si la précision dispensait de regarder. On suit la flèche bleue, on tourne au bon moment, on arrive vite ; puis on se rend compte qu’on n’a rien vu d’autre que l’écran. C’est à partir de ce constat qu’une autre pratique du voyage gagne du terrain : marcher sans carte, ou du moins sans demander à la carte de tout décider.
+
+      Le propos n’est pas de faire l’éloge d’une errance romantique. Personne n’a envie de s’égarer pendant deux heures sous la pluie pour le plaisir de se dire libre. Mais il arrive que le détour ouvre ce que l’itinéraire fermé aurait effacé. Dans un quartier que l’on ne cherchait pas, un atelier de réparation, une cour d’école, un café trop calme au milieu d’une avenue bruyante donnent à la ville une cohérence plus juste que les attractions déjà classées.
+
+      L’auteur raconte ainsi avoir raté une station de métro à Lisbonne, puis découvert, vingt minutes plus loin, une place où des retraités jouaient aux cartes sous des orangers. Ce n’est pas l’accident en lui-même qui compte, mais ce qu’il autorise : un ralentissement, une attention moins utilitaire, une disponibilité aux signes modestes. À cet égard, l’exemple n’a rien d’anecdotique ; il résume la thèse du texte. Se perdre un instant ne revient pas à perdre son temps, mais à cesser de le mesurer uniquement en efficacité.
+    prompt: Quelle est la fonction de l’exemple de Lisbonne ?
+    options:
+    - Prouver que les cartes sont inutiles en ville.
+    - Montrer que l’égarement peut ouvrir une découverte.
+    - Expliquer comment éviter les retards de transport.
+    - Décrire une panne de téléphone pendant le trajet.
+    answer: 1
+    explanation: 'L’anecdote illustre l’idée centrale : un détour imprévu peut produire une rencontre
+      ou une observation que l’itinéraire prévu n’aurait pas permise. Les autres réponses déforment le
+      sens de l’exemple ou le réduisent à un problème technique.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-aeroport-secondaire
+    cefr: C1
+    origin: generated
+    focus: conclusion implicite
+    passage: |-
+      Les compagnies à bas coût vantent souvent leurs aéroports secondaires comme une preuve de rationalité : moins de frais, moins de congestion, une organisation plus souple. L’argument paraît solide tant qu’on ne regarde que le prix affiché. Mais le voyageur ne paie pas seulement un billet ; il paie aussi le trajet jusqu’au terminal, le temps perdu dans les navettes, les correspondances moins fréquentes et, parfois, une nuit d’hôtel imposée par des horaires peu commodes.
+
+      Le texte ne cherche pas à diaboliser ces plateformes périphériques. Après tout, elles rendent des services réels et permettent à beaucoup de partir plus souvent. Il rappelle simplement qu’un tarif n’est pas une vérité, mais une manière de présenter la dépense. Là où l’on croit gagner, on déplace souvent la charge ailleurs : vers le temps, vers l’organisation, vers la fatigue. Le problème n’est donc pas l’existence de ces offres, mais l’illusion qu’elles entretiennent si l’on se limite à la première ligne du devis.
+
+      C’est dans cette perspective que la dernière partie du texte prend tout son sens. L’auteur y compare le billet « bon marché » à un emballage élégant : utile pour séduire, insuffisant pour juger. Le vrai calcul commence lorsqu’on additionne les gestes invisibles du voyage. À ce moment-là, le bas prix cesse d’être un argument décisif et devient une donnée parmi d’autres. Autrement dit, l’économie promise n’est pas fausse ; elle est incomplète. Le lecteur est invité à revoir sa définition du coût, non à renoncer au vol.
+    prompt: Dans ce texte, l’auteur cherche surtout à...
+    options:
+    - vanter les vols les moins chers.
+    - démontrer que les navettes sont inutiles.
+    - redéfinir le vrai coût d’un billet.
+    - montrer que tous les aéroports sont identiques.
+    answer: 2
+    explanation: La conclusion insiste sur le fait qu’il faut additionner le prix affiché, le temps, les
+      transferts et la fatigue pour évaluer la dépense réelle. Les autres propositions sont soit trop
+      générales, soit contraires au texte.
+- status: fixed
+  issues:
+  - 'The document contains a French typo: "se étaient" should be "s''étaient".'
+  item:
+    slug: ce-c1-ferry-de-nuit
+    cefr: C1
+    origin: generated
+    focus: impression dominante
+    passage: |-
+      La mer était noire, mais non menaçante ; elle semblait plutôt absorber les bruits du bateau, comme si le ferry avançait dans une matière épaisse et silencieuse. J’étais monté à bord tard, avec ce mélange de hâte et de résignation que donnent les départs sans cérémonie. Autour de moi, les passagers avaient déposé leurs sacs, cherché leur coin, puis s’étaient tus. Sur le pont supérieur, quelques lumières jaunes tremblaient dans le vent.
+
+      Je suis sorti un instant. Il n’y avait presque personne. Une porte battait quelque part, un enfant pleurait très loin, puis plus rien. Le navire continuait sa route, et cette continuité avait quelque chose d’apaisant. On ne voyait ni côte ni phare, seulement une obscurité traversée par le sillage, cette ligne pâle qui se défaisait aussitôt derrière nous. J’ai pensé que voyager ainsi, c’était accepter de ne plus savoir très bien où l’on se trouvait : ni tout à fait parti, ni encore arrivé.
+
+      Dans la salle commune, une femme lisait sans lever la tête ; un homme dormait, la nuque tordue contre la vitre. Je me suis assis près du hublot. Le verre vibrait légèrement, et cette vibration me rappelait que nous étions ensemble, sans nous connaître, emportés par le même mouvement. Rien dans cette traversée ne demandait l’admiration. Pourtant, une paix singulière s’en dégageait, comme si l’absence de paysage laissait enfin de la place à ce qu’on emporte avec soi : la fatigue, les pensées inachevées, l’attente encore sans nom de la rive suivante.
+    prompt: Quelle est l’impression dominante dans ce passage ?
+    options:
+    - Une peur intense de la mer.
+    - Une fascination pour le luxe du bateau.
+    - Une impatience de quitter le navire.
+    - Une paix mêlée de suspension.
+    answer: 3
+    explanation: Le narrateur insiste sur le calme, le silence et l’état d’« entre-deux » du voyage, qui
+      produit une paix singulière plutôt qu’une peur ou une exaltation. Les autres options ne correspondent
+      pas au climat du texte.

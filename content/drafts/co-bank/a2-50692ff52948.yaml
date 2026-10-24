@@ -1,0 +1,172 @@
+request: co-bank
+skill: CO
+cefr: A2
+themes:
+- immigration et intégration
+- culture et loisirs
+format: document
+model: gpt-5.4-mini
+key: 50692ff529484edc5b6131959a114fcf075dc90b54dacda21f3a4f4a3fb3ec34
+items:
+- status: fixed
+  issues:
+  - The question is ambiguous because the document requires two documents.
+  - The correct answer should target the other document, not the passport.
+  item:
+    slug: co-a2-atelier-d-accueil
+    cefr: A2
+    origin: generated
+    focus: document à apporter
+    audio_text: |-
+      - Bonjour, je voudrais m'inscrire à l'atelier pour nouveaux arrivants.
+      - Très bien. Pour terminer le dossier, il faut votre passeport et une preuve d'adresse.
+      - Je peux revenir cet après-midi ?
+      - Non, revenez demain à neuf heures avec les documents.
+    prompt: Quel autre document doit-elle apporter avec son passeport ?
+    options:
+    - Une photo
+    - Un billet de bus
+    - Sa carte de membre
+    - Une preuve d'adresse
+    answer: 3
+    explanation: Le monsieur demande le passeport et une preuve d'adresse. Le document demandé en plus
+      du passeport est la preuve d'adresse.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-rendez-vous-deplace
+    cefr: A2
+    origin: generated
+    focus: action à faire
+    audio_text: Bonjour, c'est le centre Accueil Plus. Votre rendez-vous pour l'entretien de bienvenue
+      est avancé à jeudi à quinze heures. Si vous ne pouvez pas venir, téléphonez avant midi demain. N'oubliez
+      pas de remplir le formulaire reçu par courriel.
+    prompt: Que doit faire la personne si elle ne peut pas venir ?
+    options:
+    - Venir jeudi à quinze heures
+    - Envoyer une photo
+    - Remplir un nouveau dossier
+    - Téléphoner avant demain midi
+    answer: 3
+    explanation: Le message dit clairement de téléphoner avant midi demain en cas d'empêchement. Les autres
+      propositions sont soit des éléments du message, soit inventées.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-visite-guidee
+    cefr: A2
+    origin: generated
+    focus: consigne au public
+    audio_text: Attention, à partir de dix-sept heures, la salle des expositions ferme pour préparation.
+      Les visiteurs qui ont acheté un billet pour la visite guidée de dix-sept heures trente doivent se
+      présenter à l'entrée du pavillon bleu dès maintenant. Merci de garder vos billets à la main.
+    prompt: Que doivent faire les visiteurs de dix-sept heures trente ?
+    options:
+    - Quitter le musée
+    - Attendre au café
+    - Acheter un autre billet
+    - Se présenter au pavillon bleu
+    answer: 3
+    explanation: L'annonce demande aux visiteurs de se présenter à l'entrée du pavillon bleu. Les autres
+      choix ne correspondent pas à la consigne donnée.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-places-de-concert
+    cefr: A2
+    origin: generated
+    focus: horaire disponible
+    audio_text: |-
+      - Bonjour, je cherche deux places pour le concert de samedi.
+      - Il en reste, mais seulement pour la séance de vingt heures.
+      - D'accord, comment je paie ?
+      - Vous pouvez régler ici, puis récupérer vos billets vendredi après-midi.
+    prompt: À quelle séance la femme peut-elle aller ?
+    options:
+    - Celle de dix-huit heures
+    - Celle de samedi matin
+    - Celle de dimanche soir
+    - Celle de vingt heures
+    answer: 3
+    explanation: Le vendeur précise qu'il reste des places seulement pour la séance de vingt heures. Les
+      autres horaires ne sont pas disponibles.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-cercle-de-conversation
+    cefr: A2
+    origin: generated
+    focus: horaire possible
+    audio_text: |-
+      - Bonjour, je voudrais m'inscrire au cercle de conversation pour nouveaux arrivants.
+      - Le groupe de lundi est complet, mais il reste une place mercredi à dix-neuf heures.
+      - Très bien, je prends celle-là.
+      - Parfait, présentez-vous à l'accueil avec votre nom.
+    prompt: Quand la femme peut-elle venir ?
+    options:
+    - Lundi à seize heures
+    - Jeudi à neuf heures
+    - Samedi à midi
+    - Mercredi à dix-neuf heures
+    answer: 3
+    explanation: Le monsieur indique qu'il reste une place mercredi à dix-neuf heures. Les autres propositions
+      ne sont pas disponibles.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-entree-du-film
+    cefr: A2
+    origin: generated
+    focus: consigne au public
+    audio_text: Mesdames et messieurs, la projection du film La rivière claire va commencer. Merci d'entrer
+      par la porte trois et de montrer votre billet à l'agent. Les retardataires devront attendre la pause
+      pour prendre place. Nous vous souhaitons une bonne séance.
+    prompt: Que doivent faire les spectateurs ?
+    options:
+    - Allumer leur téléphone
+    - Attendre dehors
+    - Acheter du pop-corn
+    - Montrer leur billet
+    answer: 3
+    explanation: L'annonce demande aux spectateurs de montrer leur billet à l'agent. Les autres réponses
+      ne sont pas demandées.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-visite-en-francais
+    cefr: A2
+    origin: generated
+    focus: action à faire
+    audio_text: |-
+      - Bonjour, je viens pour la visite en français facile.
+      - Très bien. Le groupe part à quatorze heures de l'accueil principal.
+      - Faut-il réserver ?
+      - Non, mais soyez là dix minutes avant.
+    prompt: Que doit faire la femme ?
+    options:
+    - Réserver par téléphone
+    - Venir le matin
+    - Prendre un ticket rouge
+    - Arriver dix minutes avant
+    answer: 3
+    explanation: Le monsieur dit qu'il faut arriver dix minutes avant le départ. Les autres options ne
+      sont pas indiquées dans le dialogue.
+- status: ok
+  issues: []
+  item:
+    slug: co-a2-atelier-des-cultures
+    cefr: A2
+    origin: generated
+    focus: document à prendre
+    audio_text: Bienvenue à la journée des cultures. Pour participer à l'atelier de cuisine, prenez un
+      ticket gratuit au kiosque orange. Les personnes inscrites pour la danse doivent entrer par la porte
+      latérale. Les ateliers commencent à onze heures et tout le matériel est fourni.
+    prompt: Que doivent prendre les participants à l'atelier de cuisine ?
+    options:
+    - Un livre
+    - Une carte bancaire
+    - Un formulaire
+    - Un ticket gratuit
+    answer: 3
+    explanation: L'annonce précise qu'il faut prendre un ticket gratuit au kiosque orange. Les autres
+      objets ne sont pas demandés.

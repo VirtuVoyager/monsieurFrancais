@@ -1,0 +1,186 @@
+request: co-bank
+skill: CO
+cefr: A1
+themes:
+- logement
+- travail
+format: reply
+model: gpt-5.4-mini
+key: d616ce897018bbaf928eb457bc9af798d813b7957e7ad0c2485d43f4c86adae9
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-chambre-libre
+    cefr: A1
+    origin: generated
+    focus: disponibilité d’une chambre
+    audio_text: |-
+      Pardon, vous avez une chambre libre pour ce soir ?
+      A. Oui, elle est disponible.
+      B. Non, je travaille demain.
+      C. Je prends le bus à huit heures.
+      D. C'est un très bon restaurant.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 0
+    explanation: Le document demande si une chambre est libre pour ce soir ; seule la réponse « Oui, elle
+      est disponible. » correspond. Les autres parlent du travail, du transport ou d’un restaurant.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-remise-des-cles
+    cefr: A1
+    origin: generated
+    focus: heure de remise des clés
+    audio_text: |-
+      À quelle heure puis-je récupérer les clés ?
+      A. Dans la cuisine.
+      B. Je cherche un travail.
+      C. Non, il est fermé.
+      D. À dix-huit heures.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 3
+    explanation: Le document demande une heure pour récupérer les clés ; « À dix-huit heures. » répond
+      directement. Les autres réponses parlent d’un lieu, d’un travail ou d’une fermeture.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-montant-du-loyer
+    cefr: A1
+    origin: generated
+    focus: montant du loyer
+    audio_text: |-
+      Combien coûte le loyer ?
+      A. Au premier étage.
+      B. Avec ma valise.
+      C. Six cents euros.
+      D. Je commence lundi.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 2
+    explanation: Le document demande le prix du loyer ; « Six cents euros. » est la seule réponse qui
+      donne un montant. Les autres indiquent un étage, un objet ou un moment de début.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-logement-meuble
+    cefr: A1
+    origin: generated
+    focus: logement meublé
+    audio_text: |-
+      Est-ce que l'appartement est meublé ?
+      A. Oui, il y a des meubles.
+      B. C'est près du métro.
+      C. Je travaille ici.
+      D. Non, il est fermé.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 0
+    explanation: Le document pose une question sur le fait que l’appartement soit meublé ; seule la réponse
+      « Oui, il y a des meubles. » convient. Les autres parlent d’un lieu, du travail ou d’une fermeture.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-heure-de-debut
+    cefr: A1
+    origin: generated
+    focus: heure de début
+    audio_text: |-
+      À quelle heure commencez-vous demain ?
+      A. À neuf heures.
+      B. Dans une semaine.
+      C. Avec ma sœur.
+      D. Le bureau est grand.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 0
+    explanation: Le document demande l’heure de début ; « À neuf heures. » répond à la question. Les autres
+      parlent d’un délai, d’une personne ou de la taille d’un bureau.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-bureau-au-troisieme
+    cefr: A1
+    origin: generated
+    focus: localisation du bureau
+    audio_text: |-
+      Où est votre bureau ?
+      A. Oui, je suis prêt.
+      B. Je prends des vacances.
+      C. Le train est en retard.
+      D. Au troisième étage.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 3
+    explanation: Le document demande où se trouve le bureau ; « Au troisième étage. » donne bien un lieu.
+      Les autres réponses parlent d’une disponibilité, de vacances ou d’un train.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-responsable-du-service
+    cefr: A1
+    origin: generated
+    focus: identité du responsable
+    audio_text: |-
+      Qui est votre responsable ?
+      A. Le lundi matin.
+      B. Dans la voiture.
+      C. Monsieur Delaunay.
+      D. J'aime ce travail.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 2
+    explanation: Le document demande le nom du responsable ; « Monsieur Delaunay. » est la seule réponse
+      avec une personne. Les autres indiquent un moment, un lieu ou une opinion.
+- status: ok
+  issues: []
+  item:
+    slug: co-a1-pause-dejeuner
+    cefr: A1
+    origin: generated
+    focus: pause déjeuner
+    audio_text: |-
+      Avez-vous une pause déjeuner ?
+      A. Non, je n'habite pas ici.
+      B. Oui, à midi.
+      C. C'est mon manteau.
+      D. Nous partons samedi.
+    prompt: Écoutez la question et les quatre réponses. Choisissez la réponse qui correspond à la question.
+    options:
+    - Réponse A
+    - Réponse B
+    - Réponse C
+    - Réponse D
+    answer: 1
+    explanation: Le document demande si la personne a une pause déjeuner ; « Oui, à midi. » correspond.
+      Les autres parlent d’habitation, d’un vêtement ou d’un départ.

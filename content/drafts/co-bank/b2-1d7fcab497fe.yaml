@@ -1,0 +1,199 @@
+request: co-bank
+skill: CO
+cefr: B2
+themes:
+- vie associative
+- services publics
+format: document
+model: gpt-5.4-mini
+key: 1d7fcab497fe9d947aa2044d85b2d37196e3dc7ae403ef6b998d38ba99c8eeb0
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-borne-itinerante
+    cefr: B2
+    origin: generated
+    focus: Attitude nuancée
+    audio_text: 'Depuis deux mois, la commune fait circuler une borne itinérante dans les villages éloignés.
+      On y imprime un justificatif, on y vérifie une demande de logement ou on y lit avec un agent un
+      courrier administratif. Pour le responsable du projet, le succès est réel, parce que des habitants
+      qui renonçaient à se déplacer osent enfin demander de l’aide. Mais il refuse d’en faire une solution
+      miracle. Certains dossiers exigent un entretien en mairie, d’autres un délai plus long que la tournée
+      hebdomadaire. Autrement dit, ce service ne remplace pas le guichet traditionnel : il réduit surtout
+      la distance entre l’administration et les usagers.'
+    prompt: Quel est le point de vue du responsable sur ce service ?
+    options:
+    - Il veut le remplacer par la mairie.
+    - Il le trouve trop coûteux pour être conservé.
+    - Il le juge utile mais insuffisant.
+    - Il estime qu’il suffit à tous les besoins.
+    answer: 2
+    explanation: Le texte dit clairement que le service a du succès, mais qu’il ne remplace pas le guichet
+      traditionnel. Les autres propositions contredisent cette nuance ou exagèrent son efficacité.
+- status: fixed
+  issues:
+  - The document is 88 words, so it is below the required 100-word minimum.
+  item:
+    slug: co-b2-rencontres-d-ecriture
+    cefr: B2
+    origin: generated
+    focus: Raison du changement
+    audio_text: |-
+      - On a finalement changé l’horaire de vos rencontres d’écriture. Pourquoi ?
+      - Nous avons commencé le soir, mais les participants repartaient souvent trop tard. Maintenant, nous nous retrouvons l’après-midi : plusieurs retraités viennent plus facilement, et ceux qui ont des horaires décalés peuvent se libérer une fois par semaine. En plus, la bibliothèque occupe déjà moins la salle à ce moment-là, donc nous ne gênons pas les autres activités. Le mercredi soir, la salle est souvent prise par le club de lecture, et il y a moins de bruit l’après-midi.
+      - Ce n’est donc pas une question de contenu.
+      - Non, le programme reste le même. C’est surtout une question de disponibilité et d’organisation.
+    prompt: Pourquoi l’horaire a-t-il été déplacé ?
+    options:
+    - Parce que l’après-midi convient mieux aux participants et à la salle.
+    - Parce que le thème a changé.
+    - Parce que les bénévoles partaient en vacances.
+    - Parce que la participation était payante.
+    answer: 0
+    explanation: 'La réponse est donnée dans la dernière partie : l’après-midi est plus pratique pour
+      les participants et la salle est disponible. Les autres options ne correspondent pas au dialogue.'
+- status: fixed
+  issues:
+  - The document is 99 words, so it is below the required 100-word minimum.
+  item:
+    slug: co-b2-mediation-de-quartier
+    cefr: B2
+    origin: generated
+    focus: Rôle du service
+    audio_text: 'Le service de médiation de quartier reçoit des habitants bien avant que la colère ne
+      devienne un dossier. Les médiateurs n’ont pas pour mission de décider qui a tort ou raison. Ils
+      écoutent, reformulent, et aident chacun à dire les choses sans agresser l’autre. Quand cela suffit,
+      ils rédigent un accord simple que les deux parties signent. Quand cela ne suffit pas, ils orientent
+      vers l’aide appropriée. Ils peuvent aussi proposer un premier rendez-vous commun quand les échanges
+      deviennent tendus. La responsable insiste sur ce point : leur travail n’est ni celui de la police
+      ni celui d’un juge. Il sert surtout à éviter que des tensions ordinaires se transforment en conflit
+      durable.'
+    prompt: À quoi sert principalement ce service ?
+    options:
+    - À sanctionner les voisins.
+    - À éviter que les tensions se transforment en conflit.
+    - À gérer les dossiers du tribunal.
+    - À défendre systématiquement un habitant.
+    answer: 1
+    explanation: La fin du document précise que le service sert surtout à empêcher l’escalade des tensions.
+      Les autres réponses décrivent un rôle de sanction, de justice ou de parti pris, que le texte exclut.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-repas-solidaires
+    cefr: B2
+    origin: generated
+    focus: Valeur du lien
+    audio_text: |-
+      - Votre association a remplacé les distributions de paniers par des ateliers de cuisine. Pourquoi ce choix ?
+      - Parce qu’un colis aide sur le moment, mais il laisse parfois les gens passifs. Dans les ateliers, chacun prépare, discute, goûte, emporte une part et, surtout, se sent utile. Nous travaillons avec des produits donnés par la banque alimentaire, mais l’idée n’est pas seulement de nourrir. C’est aussi de recréer des habitudes, d’échanger des recettes et de faire en sorte que personne ne vienne ici comme un simple bénéficiaire.
+      - Donc vous cherchez autre chose qu’un service pratique.
+      - Exactement. Nous voulons que l’aide soit vécue comme une relation, pas comme une file d’attente.
+    prompt: Quelle idée défend le responsable ?
+    options:
+    - L’aide doit rester anonyme.
+    - L’aide doit aussi créer du lien.
+    - L’aide doit se concentrer sur les colis.
+    - L’aide doit être réservée aux urgences.
+    answer: 1
+    explanation: Le responsable explique que l’objectif n’est pas seulement de nourrir, mais de recréer
+      des habitudes et des échanges. Les autres propositions vont contre cette idée ou la réduisent à
+      une simple distribution.
+- status: fixed
+  issues:
+  - The document is 99 words, so it is below the required 100-word minimum.
+  item:
+    slug: co-b2-atelier-mobile
+    cefr: B2
+    origin: generated
+    focus: Avantage du dispositif
+    audio_text: Dans plusieurs quartiers, la ville a installé un atelier mobile où l’on peut faire réparer
+      un grille-pain, une lampe ou un aspirateur. L’élue chargée du projet précise qu’il ne s’agit pas
+      de concurrencer les professionnels, mais d’éviter que des objets soient jetés trop vite. Des bénévoles
+      et quelques techniciens accueillent les habitants, montrent les gestes simples et expliquent aussi
+      quand la réparation n’est pas raisonnable. Ce qui plaît le plus, dit-elle, c’est que les visiteurs
+      ne repartent pas seulement avec un appareil en état de marche. Ils comprennent mieux comment l’entretenir
+      et se sentent moins dépendants du remplacement immédiat. L’atelier se déplace de quartier en quartier.
+    prompt: Quel avantage du dispositif est surtout souligné ?
+    options:
+    - Les objets sont remplacés immédiatement.
+    - Les habitants apprennent à réparer eux-mêmes.
+    - Le service fonctionne sans bénévoles.
+    - Les réparations sont toujours gratuites.
+    answer: 1
+    explanation: 'Le texte insiste sur l’apprentissage des gestes simples et sur l’autonomie des habitants.
+      Les autres options déforment le projet : on ne remplace pas les objets, le service utilise des bénévoles
+      et la gratuité n’est jamais affirmée.'
+- status: fixed
+  issues:
+  - The document is 92 words, so it is below the required 100-word minimum.
+  item:
+    slug: co-b2-navette-medicale
+    cefr: B2
+    origin: generated
+    focus: Adaptation des horaires
+    audio_text: |-
+      - Vous avez modifié la navette vers l’hôpital.
+      - Oui. Nous avons supprimé le premier départ très tôt le matin, mais ajouté deux passages plus tard. Les passagers nous disaient surtout qu’ils avaient du mal à arriver avant l’ouverture des consultations, puis à attendre debout dans le hall. Nous avons donc préféré ajuster le service au moment où les rendez-vous commencent vraiment. Le premier départ était presque vide, tandis que le bus de 8 h était souvent bondé.
+      - Donc l’objectif n’était pas de réduire l’offre.
+      - Non, au contraire : il s’agissait de la rendre plus utile pour ceux qui ont des examens ou des visites médicales.
+    prompt: Pourquoi les horaires ont-ils été modifiés ?
+    options:
+    - Pour supprimer la réservation.
+    - Pour éviter les trajets trop longs.
+    - Pour mieux correspondre aux consultations.
+    - Pour augmenter le nombre de véhicules.
+    answer: 2
+    explanation: Le locuteur dit explicitement que les passages ont été déplacés pour coïncider avec le
+      début réel des consultations. Les autres propositions ne sont pas mentionnées et ne rendent pas
+      compte de cette adaptation.
+- status: fixed
+  issues:
+  - The document is 97 words, so it is below the required 100-word minimum.
+  item:
+    slug: co-b2-permanence-numerique
+    cefr: B2
+    origin: generated
+    focus: Autonomie des usagers
+    audio_text: 'Dans cette permanence numérique installée à la maison de quartier, les bénévoles ne font
+      pas les démarches à la place des habitants. Ils montrent comment créer un compte, scanner une pièce
+      justificative, retrouver un mot de passe ou envoyer un formulaire. Beaucoup de personnes arrivent
+      avec une peur très simple : se tromper et devoir tout recommencer. La coordinatrice estime que le
+      plus important n’est pas de fermer un dossier pendant la séance, mais de faire en sorte que chacun
+      puisse recommencer seul la fois suivante. Si besoin, ils laissent aussi une note simple pour refaire
+      la démarche chez soi. C’est pourquoi l’équipe prend le temps d’expliquer, quitte à aller moins vite.'
+    prompt: Quel est l’objectif principal de cette permanence ?
+    options:
+    - Faire les démarches à la place des usagers.
+    - Rendre les usagers plus autonomes.
+    - Réserver l’aide aux spécialistes.
+    - Déplacer tous les services en ligne.
+    answer: 1
+    explanation: Le texte insiste sur l’apprentissage et sur la capacité à recommencer seul ensuite. Les
+      autres réponses contredisent cette logique en proposant de faire les démarches à la place des personnes
+      ou de limiter l’aide.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-permanence-juridique
+    cefr: B2
+    origin: generated
+    focus: Prévention des blocages
+    audio_text: Chaque semaine, une association tient une permanence juridique dans le centre social.
+      Les visiteurs n’y viennent pas seulement quand un litige est déjà engagé. Beaucoup arrivent avec
+      un courrier incompris, une échéance qui approche ou une question avant de signer un document. Les
+      bénévoles n’interviennent pas à la place d’un avocat et ne tranchent pas les conflits. Ils aident
+      surtout à lire les pièces, à repérer le point sensible et à préparer les bonnes questions. La responsable
+      rappelle que ce travail discret évite souvent des erreurs coûteuses. En clair, mieux vaut passer
+      les voir avant que la situation ne se bloque.
+    prompt: Pourquoi cette permanence est-elle utile ?
+    options:
+    - Elle permet d’agir avant que la situation ne se bloque.
+    - Elle règle les procès à la place des avocats.
+    - Elle s’adresse uniquement aux salariés.
+    - Elle remplace les formulaires administratifs.
+    answer: 0
+    explanation: 'La dernière phrase donne la réponse : l’intérêt est d’intervenir avant le blocage. Les
+      autres propositions inventent un rôle que le document exclut ou restreignent injustement le public
+      visé.'

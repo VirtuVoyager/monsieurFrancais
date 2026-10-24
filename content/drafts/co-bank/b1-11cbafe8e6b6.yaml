@@ -1,0 +1,187 @@
+request: co-bank
+skill: CO
+cefr: B1
+themes:
+- logement
+- travail
+format: document
+model: gpt-5.4-mini
+key: 11cbafe8e6b6e388c715456c6d51957d6419dd9c6a9b59e1195fbf691087e359
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-horaires-decales
+    cefr: B1
+    origin: generated
+    focus: intention
+    audio_text: |-
+      - Tu as remarqué comme on se concentre mal depuis que l’équipe marketing a rejoint l’étage ?
+      - Oui, surtout l’après-midi. Entre les appels et les réunions improvisées, j’ai du mal à finir les dossiers.
+      - Justement, j’ai pensé demander à Nadia si on pouvait tester des horaires légèrement décalés pendant deux semaines.
+      - Tu veux dire arriver plus tôt, ou plus tard ?
+      - Plus tôt pour moi, par exemple. L’idée n’est pas de bouleverser tout le service, seulement de voir si ça réduit le bruit aux heures de pointe.
+      - Franchement, ça mérite d’être essayé.
+    prompt: Que proposent-ils de faire ?
+    options:
+    - Quitter le bâtiment
+    - Changer leurs horaires
+    - Supprimer les réunions
+    - Passer en télétravail
+    answer: 1
+    explanation: Ils parlent clairement de tester des horaires légèrement décalés pendant deux semaines.
+      Quitter le bâtiment, supprimer les réunions ou passer en télétravail ne sont jamais proposés.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-appartement-bien-place
+    cefr: B1
+    origin: generated
+    focus: opinion
+    audio_text: |-
+      - J’ai visité un deux-pièces magnifique ce matin, mais il est loin du métro.
+      - C’est toujours le même dilemme. Tu peux avoir un balcon immense, mais si tu passes une heure dans les transports, tu te fatigues vite.
+      - C’est vrai, pourtant le loyer n’était pas si élevé.
+      - Moi, à ta place, je chercherais un logement un peu plus petit, mais bien placé. On finit par profiter davantage du quartier et on sort plus facilement.
+      - Tu as sans doute raison. Je vais revoir mes critères.
+    prompt: Quelle opinion la personne exprime-t-elle ?
+    options:
+    - Choisir le moins cher possible
+    - Privilégier un logement bien placé
+    - Prendre forcément plus grand
+    - Chercher un balcon avant tout
+    answer: 1
+    explanation: La personne dit explicitement qu’elle chercherait un logement plus petit mais bien placé,
+      donc l’emplacement compte davantage. Le prix, la grande taille et le balcon sont mentionnés, mais
+      ce ne sont pas ses priorités.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-aide-au-logement
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: Vous avez des questions sur votre bail, vos charges ou une augmentation de loyer ? La
+      Maison du Logement de Valmont ouvre un point d’accueil sans rendez-vous chaque mercredi de quatorze
+      heures à dix-sept heures. Des conseillers y expliquent les démarches et peuvent vous aider à préparer
+      un dossier. Pour éviter l’attente, il est aussi possible de réserver un créneau par téléphone au
+      numéro indiqué sur notre site. Ce service est gratuit et s’adresse aux locataires comme aux propriétaires.
+    prompt: Quel est le sujet principal de ce message ?
+    options:
+    - Avertir d'une hausse de loyer
+    - Inviter à visiter un immeuble
+    - Proposer une assurance
+    - Présenter un service d'aide
+    answer: 3
+    explanation: Le message présente un point d’accueil gratuit pour obtenir des conseils sur le logement.
+      Il ne s’agit ni d’une hausse de loyer, ni d’une visite d’immeuble, ni d’une assurance.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-espace-de-coworking
+    cefr: B1
+    origin: generated
+    focus: opinion
+    audio_text: Quand j’ai commencé chez Norel, j’étais souvent distrait dans le grand plateau du siège.
+      Les conversations, les téléphones, tout me coupait dans mon travail. Mon responsable m’a proposé
+      d’essayer un petit espace de coworking près de chez moi, deux jours par semaine. J’étais sceptique,
+      mais j’y ai gagné en calme et en concentration. Je perds un peu le contact spontané avec l’équipe,
+      bien sûr, mais pour les tâches qui demandent du silence, c’est vraiment efficace.
+    prompt: Quelle opinion la personne exprime-t-elle ?
+    options:
+    - Il faut rester au bureau principal
+    - Le travail en espace partagé est pratique
+    - Il préfère travailler seul tout le temps
+    - C'est trop loin pour être pratique
+    answer: 1
+    explanation: La personne conclut que cet espace est efficace pour travailler au calme, malgré une
+      moindre spontanéité avec l’équipe. Les autres propositions contredisent son expérience ou ajoutent
+      une idée absente du témoignage.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-travaux-de-l-immeuble
+    cefr: B1
+    origin: generated
+    focus: intention
+    audio_text: |-
+      - Vous êtes propriétaire d’un petit immeuble ancien. Pourquoi les travaux prennent-ils plus de temps que prévu ?
+      - Parce qu’en ouvrant les murs, on a découvert des dégâts sur les canalisations. Je sais que les locataires s’impatientent, mais je préfère réparer correctement plutôt que de masquer le problème.
+      - Vous avez prévenu les habitants ?
+      - Oui, bien sûr. Nous avons déjà sécurisé l’entrée et envoyé un courrier à chacun. Si tout se passe bien, les appartements du deuxième étage seront terminés avant la fin du mois.
+      - Dans ce cas, il faut surtout rester patient.
+    prompt: Quel est le but de cet échange ?
+    options:
+    - Mettre les appartements en vente
+    - Demander une augmentation du loyer
+    - Plaindre les locataires
+    - Expliquer le retard des travaux
+    answer: 3
+    explanation: Le propriétaire explique pourquoi le chantier prend du retard et précise les mesures
+      prises pour les habitants. Il ne parle ni de vente, ni de hausse de loyer, ni de reproches aux locataires.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-formation-logiciel
+    cefr: B1
+    origin: generated
+    focus: intention
+    audio_text: |-
+      - Tu as vu le message pour le nouveau logiciel de facturation ?
+      - Oui, et j’avoue que je ne suis pas très à l’aise avec la version actuelle.
+      - Moi non plus. Au lieu de nous débrouiller chacun dans notre coin, je crois qu’il faudrait demander une formation rapide.
+      - Bonne idée. Même une séance d’une heure nous éviterait pas mal d’erreurs.
+      - Je vais écrire à la responsable pour voir si elle peut en organiser une cette semaine.
+    prompt: Que souhaitent-ils ?
+    options:
+    - Prévoir une courte formation
+    - Acheter un autre logiciel
+    - Organiser une réunion générale
+    - Allonger les délais
+    answer: 0
+    explanation: 'Ils veulent demander une formation rapide pour mieux utiliser le logiciel. Les autres
+      réponses ne correspondent pas à leur demande : ils ne cherchent ni un autre programme, ni une réunion
+      générale, ni plus de temps.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-petit-appartement
+    cefr: B1
+    origin: generated
+    focus: opinion
+    audio_text: Au début, j’avais peur de quitter mon grand appartement, parce que j’y étais habituée.
+      Puis j’ai réalisé qu’entre l’entretien, le chauffage et les pièces presque jamais utilisées, je
+      dépensais beaucoup pour rien. En déménageant dans plus petit, j’ai perdu quelques mètres carrés,
+      mais j’ai gagné en tranquillité. Je range plus vite, je chauffe moins, et je profite davantage de
+      mon quartier. Finalement, je ne regrette pas du tout.
+    prompt: Quelle opinion la personne exprime-t-elle ?
+    options:
+    - Vivre plus petit peut avoir des avantages
+    - Il faut toujours garder un grand logement
+    - Le chauffage n'a aucune importance
+    - Un quartier animé fatigue beaucoup
+    answer: 0
+    explanation: La personne dit clairement qu’un logement plus petit lui a apporté des avantages concrets.
+      Elle ne défend pas un grand logement, ne minimise pas le chauffage et ne critique pas le quartier
+      animé.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-salon-de-l-emploi
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: Avez-vous envie de changer de poste ou de trouver un premier emploi ? Le salon Travail
+      & Horizons vous accueille vendredi prochain de neuf heures à seize heures dans la halle de Saint-Roch.
+      Des entreprises locales y présenteront leurs offres, et des conseillers aideront les visiteurs à
+      préparer un entretien ou à revoir leur CV. L’entrée est gratuite, mais l’inscription en ligne est
+      recommandée pour recevoir le plan du site et les créneaux des ateliers.
+    prompt: Quel est le but de cette annonce ?
+    options:
+    - Annoncer des travaux de bureau
+    - Proposer une aide au logement
+    - Chercher des colocataires
+    - Inviter à un salon de l'emploi
+    answer: 3
+    explanation: L’annonce invite le public à venir à un salon consacré à l’emploi, avec des entreprises
+      et des conseillers. Les autres options parlent de logement ou de travaux, qui ne sont pas le sujet.

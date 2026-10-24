@@ -1,0 +1,203 @@
+request: ce-bank
+skill: CE
+cefr: B1
+themes:
+- alimentation
+- voyages
+format: document
+model: gpt-5.4-mini
+key: 3a5365302635287bd94cb2394a56496a07847ab8935c86640c51937ef81e25dd
+items:
+- status: fixed
+  issues:
+  - The document is under the 100-word minimum required by the brief.
+  item:
+    slug: ce-b1-cantine-renovee
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: 'La direction de l’entreprise Valmonta a décidé de revoir la pause déjeuner. À partir de
+      lundi, la cantine proposera deux formules simples : un plat chaud préparé sur place et un assortiment
+      froid à emporter. Les employés pourront réserver leur repas jusqu’à dix heures sur l’intranet, ce
+      qui permettra d’éviter les files d’attente. L’objectif est aussi de limiter le gaspillage grâce
+      à des quantités mieux adaptées. Une enquête menée en juin a montré que beaucoup de salariés voulaient
+      manger plus vite sans renoncer à des produits frais. Une note interne précisera les modalités de
+      réservation et les horaires de retrait dès lundi.'
+    prompt: Quel est l’objectif principal du texte ?
+    options:
+    - annoncer une nouvelle organisation du déjeuner
+    - décrire un concours de cuisine
+    - expliquer une hausse des prix
+    - inviter les salariés à dîner dehors
+    answer: 0
+    explanation: 'Le texte présente surtout les changements prévus pour la cantine et leur but. Les autres
+      propositions ne correspondent pas : il n’y a ni concours, ni hausse des prix, ni invitation à sortir
+      déjeuner.'
+- status: fixed
+  issues:
+  - The document is under the 100-word minimum required by the brief.
+  item:
+    slug: ce-b1-panier-du-dimanche
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      Bonjour Julien,
+
+      J’ai pensé à toi en recevant, depuis trois semaines, le panier de légumes de la ferme Lenoir. Au début, j’étais sceptique, mais les produits sont très frais et je ne perds plus de temps à faire les courses après le travail. Le mercredi, je trouve la recette dans le courrier électronique du producteur, et cela m’aide à varier les repas. Même Paul a recommencé à manger des soupes ! Si tu cherches une solution simple pour mieux cuisiner sans y passer la soirée, je te conseille d’essayer au moins un mois. Le panier arrive le vendredi, ce qui me laisse le week-end pour cuisiner.
+
+      À bientôt,
+      Camille
+    prompt: Pourquoi Camille écrit-elle à Julien ?
+    options:
+    - pour lui proposer une solution pratique pour les repas
+    - pour lui raconter un voyage à la campagne
+    - pour lui demander de préparer un grand dîner
+    - pour lui annoncer un changement de travail
+    answer: 0
+    explanation: 'Camille explique son expérience avec le panier de légumes et conseille à Julien d’essayer
+      cette formule. Les autres réponses ne sont pas le but de la lettre : elle ne parle ni d’un voyage,
+      ni d’un dîner, ni d’un travail.'
+- status: fixed
+  issues:
+  - The document is under the 100-word minimum required by the brief.
+  item:
+    slug: ce-b1-dejeuner-de-bureau
+    cefr: B1
+    origin: generated
+    focus: détail important
+    passage: |-
+      Service de restauration
+
+      À partir du lundi trois avril, la commande des repas devra être faite avant onze heures, et non plus avant midi. Ce changement nous permettra de préparer le nombre exact de portions et de réduire les restes. La salle du rez-de-chaussée restera ouverte, mais seuls les plats réservés à l’avance y seront servis. Les personnes qui souhaitent un repas végétarien devront le préciser au moment de la commande. Merci de respecter ces nouvelles consignes afin de faciliter le travail de l’équipe. Un affichage sera installé à l’entrée pour rappeler ces changements chaque matin, dès lundi, aux salariés.
+    prompt: Qu’est-ce qui change dès lundi ?
+    options:
+    - la salle du rez-de-chaussée sera fermée
+    - les repas seront désormais gratuits
+    - les plats chauds disparaissent du menu
+    - les commandes doivent être faites avant onze heures
+    answer: 3
+    explanation: Le texte dit clairement que la commande devra être passée avant onze heures. La salle
+      reste ouverte, les repas ne deviennent pas gratuits et les plats chauds ne sont pas supprimés.
+- status: fixed
+  issues:
+  - The document is under the 100-word minimum required by the brief.
+  item:
+    slug: ce-b1-restes-au-restaurant
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: 'Dans plusieurs rues du centre-ville, des restaurants testent depuis un mois un même principe
+      : proposer automatiquement une petite part d’entrée et permettre au client de demander davantage
+      s’il le souhaite. Selon les gérants, cette méthode plaît car elle évite de jeter des assiettes presque
+      pleines. Elle est aussi appréciée par les personnes qui n’ont pas très faim à midi. L’association
+      Mangeons juste, à l’origine du projet, espère convaincre d’autres établissements de suivre cet exemple
+      avant l’été. Plusieurs restaurateurs disent déjà que leurs clients prennent moins de nourriture
+      qu’avant, sans que le plaisir du repas soit remis en cause, en général.'
+    prompt: De quoi parle surtout l’article ?
+    options:
+    - de la création d’un nouveau menu touristique
+    - de la fermeture des restaurants du centre
+    - de la promotion des repas plus chers
+    - de la réduction du gaspillage dans les restaurants
+    answer: 3
+    explanation: 'L’article met en avant une solution pour jeter moins de nourriture. Les autres choix
+      ne correspondent pas : il n’est question ni de fermeture, ni de tourisme, ni de hausse des prix.'
+- status: fixed
+  issues:
+  - The document is under the 100-word minimum required by the brief.
+  item:
+    slug: ce-b1-voyages-hors-saison
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: Partir en voyage hors vacances scolaires n’a rien d’ennuyeux, affirme l’auteur de cet article.
+      Au contraire, on y gagne souvent des prix plus bas, des rues moins bondées et un contact plus facile
+      avec les habitants. Dans certaines villes, les musées restent ouverts, les cafés sont plus calmes
+      et les visites guidées prennent davantage de temps. L’auteur reconnaît que tous les services ne
+      fonctionnent pas toujours au même rythme, mais il estime que cette souplesse est largement compensée
+      par le confort du séjour. Il conseille donc de regarder le calendrier avant de réserver. L’auteur
+      s’adresse surtout aux voyageurs qui hésitent encore.
+    prompt: Quelle idée défend l’auteur ?
+    options:
+    - choisir l’avion pour gagner du temps
+    - voyager hors saison
+    - séjourner uniquement en ville
+    - réserver à la dernière minute
+    answer: 1
+    explanation: 'L’auteur défend clairement les départs en dehors des périodes de pointe. Les autres
+      réponses ne reprennent pas son point de vue : il ne parle ni d’avion, ni d’un séjour limité à la
+      ville, ni d’une réservation tardive.'
+- status: fixed
+  issues:
+  - The document is under the 100-word minimum required by the brief.
+  - Option 0 should mention both reasons given in the document.
+  item:
+    slug: ce-b1-train-de-nuit
+    cefr: B1
+    origin: generated
+    focus: détail important
+    passage: |-
+      Salut Nora,
+
+      Je t’écris depuis le train de nuit qui nous mène à Porto-Elia. Finalement, nous n’avons pas pris la voiture comme prévu, car la route de montagne est encore en travaux et le parking près du port coûte trop cher. Le train nous a semblé plus simple : on monte le soir, on dort un peu et on arrive demain matin sans avoir à chercher un hôtel pour une seule nuit. En plus, les billets achetés tôt étaient moins chers que l’essence et les péages. Je t’en dirai plus quand nous serons installés. Nous voyageons enfin sans stress et sans fatigue inutile.
+
+      Bises,
+      Mina
+    prompt: Pourquoi Mina a-t-elle renoncé à la voiture ?
+    options:
+    - le port était fermé
+    - ils ont raté leur train
+    - la route de montagne était en travaux et le parking coûtait trop cher
+    - ils cherchaient un hôtel de luxe
+    answer: 2
+    explanation: Mina précise que la route de montagne est encore en travaux et que le parking près du
+      port coûte trop cher. Les autres options ne donnent pas la raison mentionnée dans la lettre.
+- status: fixed
+  issues:
+  - The document is under the 100-word minimum required by the brief.
+  item:
+    slug: ce-b1-carte-des-visiteurs
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: La ville de Saint-Cerf vient de lancer une carte destinée aux visiteurs qui restent deux
+      ou trois jours. En l’achetant une seule fois, on peut utiliser le tram, le bateau-bus et les vélos
+      en libre-service sans payer à chaque trajet. La carte donne aussi une réduction dans cinq musées
+      et dans certains cafés du vieux port. La municipalité espère ainsi encourager les touristes à laisser
+      leur voiture à l’extérieur du centre. Le dispositif sera testé jusqu’en septembre, puis évalué par
+      les habitants et les professionnels. Des informations seront aussi affichées sur le site de la ville.
+    prompt: À quoi sert principalement cette carte ?
+    options:
+    - à offrir des visites guidées gratuites
+    - à remplacer tous les hôtels du centre
+    - à faciliter les déplacements des visiteurs
+    - à réserver des places au musée
+    answer: 2
+    explanation: Le texte explique que la carte permet surtout de se déplacer facilement dans la ville.
+      Les réductions dans les musées existent, mais ce n’est pas son but principal ; les autres propositions
+      ne sont pas indiquées.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-week-end-sans-voiture
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: 'Passer un week-end sans voiture est plus simple qu’on ne le pense, écrit une journaliste
+      spécialisée dans les voyages. Dans son article, elle raconte une formule proposée dans une vallée
+      : arrivée en train, transfert en navette électrique, randonnée à pied et nuit chez des hôtes locaux.
+      Selon elle, ce type de séjour permet de découvrir un territoire plus lentement et de mieux soutenir
+      les petites entreprises de la région. Elle insiste sur le fait qu’il ne s’agit pas de renoncer au
+      confort, mais de changer ses habitudes pour quelques jours. Pour elle, ce sont souvent les trajets
+      les plus courts qui laissent les meilleurs souvenirs.'
+    prompt: Quel est le but de l’article ?
+    options:
+    - présenter une station balnéaire de luxe
+    - comparer plusieurs compagnies ferroviaires
+    - annoncer des travaux dans une vallée
+    - montrer qu’un séjour écologique peut être agréable
+    answer: 3
+    explanation: L’article cherche à convaincre que voyager sans voiture peut rester plaisant et confortable.
+      Il ne s’agit ni d’une présentation de luxe, ni d’une comparaison de compagnies, ni d’une annonce
+      de travaux.
