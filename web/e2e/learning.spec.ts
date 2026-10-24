@@ -106,12 +106,14 @@ test("a timed writing drill is graded on /20 with fixes", async ({ page }) => {
 test("the placement test sets both receptive skill bars", async ({ page }) => {
   await page.goto("/placement");
   await page.getByRole("button", { name: "Begin" }).click();
-  for (let i = 0; i < 16; i++) {
+  // The run draws two items per bank level, so its length follows the bank.
+  const submit = page.getByRole("button", { name: "Submit" });
+  for (;;) {
     await page.getByRole("radio").first().click();
-    const next = page.getByRole("button", { name: "Next question" });
-    if (await next.isVisible()) await next.click();
+    if (await submit.isVisible()) break;
+    await page.getByRole("button", { name: "Next question" }).click();
   }
-  await page.getByRole("button", { name: "Submit" }).click();
+  await submit.click();
 
   await expect(page.getByText("You start at")).toBeVisible();
   await expect(page.getByText(/\/699 · /).first()).toBeVisible();
