@@ -28,9 +28,9 @@ items:
     - Réponse C
     - Réponse D
     answer: 3
-    explanation: Le document demande une aide pour allumer la tablette ; la première réponse donne une
-      consigne adaptée. Les autres parlent d’un sac, d’un cours ou du tableau, donc elles ne répondent
-      pas.
+    explanation: Le document demande une aide pour allumer la tablette ; la réponse « Oui, appuie sur
+      le bouton du haut. » donne une consigne adaptée. Les autres parlent d’un sac, d’un cours ou du tableau,
+      donc elles ne répondent pas.
 - status: ok
   issues: []
   item:
@@ -51,9 +51,9 @@ items:
     - Réponse C
     - Réponse D
     answer: 1
-    explanation: La question porte sur un mot de passe oublié ; seule la deuxième réponse propose de le
-      réinitialiser. Les autres parlent d’une note, d’un horaire ou d’un lieu, donc elles ne conviennent
-      pas.
+    explanation: La question porte sur un mot de passe oublié ; seule la réponse « Oui, je vais le réinitialiser.
+      » propose de le réinitialiser. Les autres parlent d’une note, d’un horaire ou d’un lieu, donc elles
+      ne conviennent pas.
 - status: fixed
   issues:
   - 'The correct option uses an unnatural preposition: "sur la prise" should be "dans la prise" or "à
@@ -76,9 +76,9 @@ items:
     - Réponse C
     - Réponse D
     answer: 2
-    explanation: Le document demande où brancher l’ordinateur portable ; la deuxième réponse indique un
-      endroit précis avec une prise. Les autres proposent un lieu sans rapport, un moment, ou une information
-      d’achat.
+    explanation: Le document demande où brancher l’ordinateur portable ; la réponse « Dans la prise près
+      du bureau. » indique un endroit précis avec une prise. Les autres proposent un lieu sans rapport,
+      un moment, ou une information d’achat.
 - status: ok
   issues: []
   item:
@@ -99,9 +99,9 @@ items:
     - Réponse C
     - Réponse D
     answer: 1
-    explanation: La question demande d’envoyer un document par courriel ; la troisième réponse accepte
-      et précise le moment. Les autres parlent d’un train, d’une réservation ou d’une fermeture, donc
-      elles ne répondent pas.
+    explanation: La question demande d’envoyer un document par courriel ; la réponse « Oui, je te l'envoie
+      tout à l'heure. » accepte et précise le moment. Les autres parlent d’un train, d’une réservation
+      ou d’une fermeture, donc elles ne répondent pas.
 - status: ok
   issues: []
   item:
@@ -122,8 +122,8 @@ items:
     - Réponse C
     - Réponse D
     answer: 3
-    explanation: Le document demande la page de départ du manuel ; la troisième réponse donne un numéro
-      de page. Les autres renvoient à un moment, à une date ou à un nombre d’élèves.
+    explanation: Le document demande la page de départ du manuel ; la réponse « À la page douze. » donne
+      un numéro de page. Les autres renvoient à un moment, à une date ou à un nombre d’élèves.
 - status: ok
   issues: []
   item:
@@ -144,8 +144,8 @@ items:
     - Réponse C
     - Réponse D
     answer: 3
-    explanation: La question porte sur le moment du contrôle ; la deuxième réponse donne clairement une
-      date et une heure. Les autres parlent d’une personne, d’une matière ou d’un lieu.
+    explanation: La question porte sur le moment du contrôle ; la réponse « Demain matin. » donne clairement
+      une date et une heure. Les autres parlent d’une personne, d’une matière ou d’un lieu.
 - status: ok
   issues: []
   item:
@@ -166,9 +166,9 @@ items:
     - Réponse C
     - Réponse D
     answer: 2
-    explanation: Le document demande si le devoir en ligne a été fait ; la quatrième réponse confirme
-      et précise l’envoi. Les autres parlent d’un jour, d’une porte ou de la météo, donc elles ne conviennent
-      pas.
+    explanation: Le document demande si le devoir en ligne a été fait ; la réponse « Oui, je l'ai envoyé
+      hier. » confirme et précise l’envoi. Les autres parlent d’un jour, d’une porte ou de la météo, donc
+      elles ne conviennent pas.
 - status: ok
   issues: []
   item:
@@ -189,5 +189,5 @@ items:
     - Réponse C
     - Réponse D
     answer: 0
-    explanation: La question demande le numéro de la salle de rendez-vous ; la quatrième réponse donne
-      une salle précise. Les autres indiquent un moment, un groupe de personnes ou une raison.
+    explanation: La question demande le numéro de la salle de rendez-vous ; la réponse « En salle quatre.
+      » donne une salle précise. Les autres indiquent un moment, un groupe de personnes ou une raison.

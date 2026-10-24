@@ -44,16 +44,16 @@ items:
       - C’est vrai, pourtant le loyer n’était pas si élevé.
       - Moi, à ta place, je chercherais un logement un peu plus petit, mais bien placé. On finit par profiter davantage du quartier et on sort plus facilement.
       - Tu as sans doute raison. Je vais revoir mes critères.
-    prompt: Quelle opinion la personne exprime-t-elle ?
+    prompt: Quel conseil l'homme donne-t-il ?
     options:
     - Choisir le moins cher possible
     - Privilégier un logement bien placé
     - Prendre forcément plus grand
     - Chercher un balcon avant tout
     answer: 1
-    explanation: La personne dit explicitement qu’elle chercherait un logement plus petit mais bien placé,
-      donc l’emplacement compte davantage. Le prix, la grande taille et le balcon sont mentionnés, mais
-      ce ne sont pas ses priorités.
+    explanation: 'L’homme dit qu’à sa place, il chercherait un logement plus petit mais bien placé : l’emplacement
+      compte davantage. Le prix, la grande taille et le balcon sont mentionnés, mais ce ne sont pas ses
+      priorités.'
 - status: ok
   issues: []
   item:
@@ -149,7 +149,7 @@ items:
     cefr: B1
     origin: generated
     focus: opinion
-    audio_text: Au début, j’avais peur de quitter mon grand appartement, parce que j’y étais habituée.
+    audio_text: Au début, j’avais peur de quitter mon grand appartement, parce que j’y étais habitué.
       Puis j’ai réalisé qu’entre l’entretien, le chauffage et les pièces presque jamais utilisées, je
       dépensais beaucoup pour rien. En déménageant dans plus petit, j’ai perdu quelques mètres carrés,
       mais j’ai gagné en tranquillité. Je range plus vite, je chauffe moins, et je profite davantage de

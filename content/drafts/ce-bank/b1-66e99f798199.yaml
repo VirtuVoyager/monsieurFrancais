@@ -25,7 +25,7 @@ items:
     - Pour demander à Karim de déménager
     - Pour annoncer un voyage à l’étranger
     - Pour remercier Karim d’un cadeau
-    - Pour parler de ses nouvelles habitudes et dépenser moins
+    - Pour raconter ses nouvelles habitudes d'achat
     answer: 3
     explanation: Mina explique qu’elle commandait trop souvent des repas et qu’elle a décidé de mieux
       gérer ses achats pour réduire ses dépenses. Les autres propositions ne correspondent pas à son objectif.
@@ -45,7 +45,7 @@ items:
     prompt: Quel est le sujet principal de cet article ?
     options:
     - Une vente de livres neufs
-    - Une aide pour les familles
+    - Une brocante payante
     - Un espace pour réparer des objets
     - Une initiative d’échange d’objets
     answer: 3
@@ -83,7 +83,7 @@ items:
     focus: proposition de l'auteur
     passage: |-
       Chère Élodie,
-      Merci pour ton message. Ici, tout le monde parle encore des sorties de l’école, et plusieurs parents se retrouvent dans la même situation : les journées finissent trop tôt, mais le travail ne se termine pas plus vite. Avec deux autres familles, nous avons eu une idée simple. Chaque semaine, l’un de nous garde les enfants une heure après les cours, pendant que les autres viennent les chercher un peu plus tard. Cela dépanne tout le monde, sans payer de service extérieur. Si tu es d’accord, on pourrait t’ajouter au groupe.
+      Merci pour ton message. Ici, tout le monde parle encore des sorties de l’école, et plusieurs parents se retrouvent dans la même situation : les journées finissent trop tôt, mais le travail ne se termine pas plus vite. Avec deux autres familles, nous avons eu une idée simple. Chaque semaine, l’un de nous garde les enfants une heure après les cours, pendant que les autres viennent les chercher un peu plus tard. Cela dépanne tout le monde, sans payer de service extérieur. Si tu es d’accord, on pourra t’ajouter au groupe.
       Bises,
       Julien
     prompt: Que propose l’auteur ?

@@ -49,14 +49,14 @@ items:
       - Oui. Quand une famille nouvellement arrivée vient préparer un repas avec des voisins, quand un adolescent joue au football avec des jeunes du quartier, il apprend des codes qu’aucun livret n’explique. On ne demande pas aux gens de « s’intégrer » comme on coche une case. On leur donne l’occasion de participer.
       - Donc, pour vous, la priorité n’est pas d’organiser plus de réunions institutionnelles ?
       - Elles sont utiles, bien sûr. Mais sans lieux où l’on se rencontre réellement, l’intégration reste un mot abstrait. Ce qui change la donne, c’est la pratique partagée.
-    prompt: Que veut montrer la femme ?
+    prompt: Que veut montrer l'homme ?
     options:
     - Que la mairie doit contrôler les arrivées
     - Que les associations sont devenues inutiles
     - Que l’intégration passe par des activités vécues ensemble
     - Que les réunions officielles suffisent à créer du lien
     answer: 2
-    explanation: Elle explique que les ateliers, le sport et les repas partagés donnent des codes et créent
+    explanation: Il explique que les ateliers, le sport et les repas partagés donnent des codes et créent
       une participation réelle. Les autres réponses reprennent des idées contredites par le dialogue.
 - status: ok
   issues: []
@@ -104,7 +104,7 @@ items:
     - Pour réserver le festival à un public spécialisé
     - Pour mettre en avant une seule esthétique
     answer: 0
-    explanation: La responsable explique que le festival veut éviter d’enfermer les artistes dans leur
+    explanation: Le responsable explique que le festival veut éviter d’enfermer les artistes dans leur
       origine et créer un travail commun. Les autres réponses contredisent directement ce qui est dit.
 - status: ok
   issues: []
@@ -126,7 +126,7 @@ items:
     options:
     - Enseigner un métier en quelques semaines
     - Orienter les nouveaux arrivants vers les bons services
-    - Délivrer des titres de séjour
+    - Délivrer des titres de séjour aux nouveaux arrivants
     - Organiser des fêtes locales
     answer: 1
     explanation: Le texte insiste sur la « première orientation » et le fait de diriger chacun vers le
@@ -196,13 +196,13 @@ items:
       appui pour les accomplir. Aller au cinéma avec des voisins, suivre un atelier de photographie, participer
       à une chorale : ce sont parfois ces expériences qui donnent confiance pour oser ensuite téléphoner,
       demander, s’inscrire, parler. Le loisir, loin d’être un supplément, peut devenir une étape de l’intégration.'
-    prompt: Comment l’intervenant organise-t-il son argumentation ?
+    prompt: Comment l’intervenante organise-t-elle son argumentation ?
     options:
-    - Il part d’un besoin concret puis élargit à une idée générale
-    - Il raconte une anecdote sans conclure
-    - Il oppose deux partis politiques
-    - Il accumule surtout des données chiffrées
+    - Elle part d’un besoin concret puis élargit à une idée générale
+    - Elle raconte une anecdote personnelle sans en tirer de conclusion
+    - Elle oppose deux partis politiques
+    - Elle accumule surtout des données chiffrées sur l'immigration
     answer: 0
-    explanation: L’intervenant commence par les besoins très concrets du nouvel arrivant, puis élargit
+    explanation: L’intervenante commence par les besoins très concrets du nouvel arrivant, puis élargit
       à une thèse sur le rôle des activités culturelles. Les autres options ne correspondent pas à la
       progression du discours.

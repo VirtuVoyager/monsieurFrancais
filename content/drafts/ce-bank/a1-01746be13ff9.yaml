@@ -127,9 +127,9 @@ items:
     prompt: Où se trouve l'exposition ?
     options:
     - Centre culturel Lune Bleue
-    - Musée des arts
+    - Musée des arts modernes
     - Parc municipal
-    - Salle des fêtes
+    - Salle des fêtes du port
     answer: 0
     explanation: Le lieu indiqué est « le centre culturel Lune Bleue ». Les autres lieux ne sont pas ceux
       de l'exposition.

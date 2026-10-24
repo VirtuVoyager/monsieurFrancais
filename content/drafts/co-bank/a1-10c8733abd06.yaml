@@ -35,7 +35,7 @@ items:
     origin: generated
     focus: heure du rendez-vous
     audio_text: |-
-      - Bonjour Madame Lenoir. Votre rendez-vous chez le médecin est à neuf heures et quart.
+      - Bonjour Monsieur Lenoir. Votre rendez-vous chez le médecin est à neuf heures et quart.
       - Merci, à demain.
     prompt: À quelle heure est le rendez-vous ?
     options:

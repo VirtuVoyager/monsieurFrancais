@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
 from app.models import Item
+from app.services import drills
 
 
 def _answer_all(session: Session, run: dict[str, Any], right: bool) -> list[dict[str, Any]]:
@@ -22,8 +23,9 @@ def test_placement_covers_both_sections_across_all_levels(
 
     items = [seeded.get_one(Item, e["id"]) for e in run["items"]]
     skills = [i.skill for i in items]
-    assert skills == ["CO"] * 8 + ["CE"] * 8
-    assert {i.cefr for i in items} == {"A1", "A2", "B1", "B2"}
+    levels = {skill: {i.cefr for i in drills.bank(seeded, skill)} for skill in ("CO", "CE")}
+    assert skills == ["CO"] * 2 * len(levels["CO"]) + ["CE"] * 2 * len(levels["CE"])
+    assert {i.cefr for i in items} == levels["CO"] | levels["CE"]
 
 
 def test_strong_placement_places_lower_modules(client: TestClient, seeded: Session) -> None:

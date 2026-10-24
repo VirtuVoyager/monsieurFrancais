@@ -101,8 +101,8 @@ items:
     options:
     - Son avis d’imposition et un justificatif de domicile
     - Sa carte bancaire et son code
-    - Une lettre de recommandation
-    - Un contrat de travail seulement
+    - Une lettre de recommandation de l'employeur
+    - Un contrat de travail et une fiche de paie
     answer: 0
     explanation: Le courriel demande précisément un avis d’imposition et un justificatif de domicile.
       Les autres propositions ne correspondent pas aux pièces demandées.

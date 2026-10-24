@@ -16,21 +16,21 @@ items:
     origin: generated
     focus: proposition de solution
     audio_text: |-
-      - Tu as l'air épuisée, Élodie.
+      - Tu as l'air épuisé, Marc.
       - Oui, j'ai mal à la tête depuis ce matin. Je pense que la climatisation est trop forte ici.
       - On pourrait ouvrir la fenêtre un moment.
       - Oui, et je vais demander à tout le monde de faire une vraie pause à midi. On travaille sans sortir depuis trop longtemps.
       - Tu as raison. Ça nous ferait du bien à tous.
-    prompt: Quelle est l'intention de la femme ?
+    prompt: Quelle est l'intention de l'homme ?
     options:
     - Se plaindre de l'ambiance
     - Reporter le travail
     - Parler d'un traitement
     - Trouver une solution
     answer: 3
-    explanation: 'La femme ne fait pas que constater le problème : elle propose d’ouvrir la fenêtre, de
-      faire une vraie pause et de demander un changement. Les autres réponses ne correspondent pas, car
-      elle ne repousse pas le travail et ne parle pas d’un médicament.'
+    explanation: 'L''homme ne fait pas que constater le problème : il accepte d''ouvrir la fenêtre et
+      propose une vraie pause pour toute l''équipe. Les autres réponses ne correspondent pas, car il ne
+      repousse pas le travail et ne parle pas d''un médicament.'
 - status: ok
   issues: []
   item:
@@ -46,7 +46,7 @@ items:
     prompt: Quel est le message principal ?
     options:
     - Le vaccin est indispensable pour tout le monde
-    - La grippe ne concerne que les fragiles
+    - La grippe ne concerne que les personnes fragiles
     - Le vaccin est une mesure utile
     - Il faut éviter les contacts à tout prix
     answer: 2
@@ -173,7 +173,6 @@ items:
       - Oui. Avant, je prenais ma voiture pour tout, même pour des trajets très courts. Depuis quelques mois, je combine le bus et le vélo.
       - Et vous en êtes content ?
       - Franchement oui. J'arrive plus facilement au centre, je dépense moins et je garde la voiture seulement quand c'est vraiment nécessaire.
-      - Finalement, je ne pensais pas changer aussi vite.
     prompt: Quelle est l'idée principale ?
     options:
     - Il utilise moins sa voiture

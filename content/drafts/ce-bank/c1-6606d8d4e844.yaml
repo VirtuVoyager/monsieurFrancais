@@ -144,8 +144,8 @@ items:
     prompt: Dans cet article, que signifie surtout « professionnaliser » ?
     options:
     - Rendre l’association plus dépendante des procédures.
-    - Améliorer le confort des bénévoles.
-    - Préparer un passage en entreprise.
+    - Améliorer les conditions d'accueil des bénévoles.
+    - Transformer l'association en entreprise commerciale.
     - Réserver les postes aux diplômés.
     answer: 0
     explanation: 'Le texte montre que le terme masque souvent une normalisation administrative et un transfert

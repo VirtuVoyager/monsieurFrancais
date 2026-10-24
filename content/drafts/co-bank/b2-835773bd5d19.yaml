@@ -83,9 +83,9 @@ items:
     - Elle est utile seulement pour les enfants.
     - Elle devrait supprimer les livres difficiles.
     answer: 0
-    explanation: Elle présente la bibliothèque comme un lieu où l’on ose entrer et poser une question,
-      donc comme une porte d’entrée. Elle précise aussi qu’elle ne remplace ni l’école ni les associations,
-      ce qui exclut les autres options.
+    explanation: Il présente la bibliothèque comme un lieu où l’on ose entrer et poser une question, donc
+      comme une porte d’entrée. Il précise aussi qu’elle ne remplace ni l’école ni les associations, ce
+      qui exclut les autres options.
 - status: ok
   issues: []
   item:
@@ -156,9 +156,9 @@ items:
     - Elle convient seulement aux spécialistes.
     - Elle doit éviter les enfants.
     answer: 1
-    explanation: 'Elle dit que les activités servent à « entrer dans les œuvres » et que son travail est
-      de donner des repères et des clés. Les autres options déforment son propos : elle ne réserve pas
-      le musée aux spécialistes et ne veut pas exclure les enfants.'
+    explanation: 'Il dit que les activités servent à « entrer dans les œuvres » et que son travail est
+      de donner des repères et des clés. Les autres options déforment son propos : il ne réserve pas le
+      musée aux spécialistes et ne veut pas exclure les enfants.'
 - status: ok
   issues: []
   item:

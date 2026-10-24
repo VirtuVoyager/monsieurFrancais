@@ -24,7 +24,7 @@ items:
       des personnes qui n'osaient pas entrer au cinéma. Le premier cycle sera consacré aux films d'aventure.
     prompt: Quel est l'objectif principal du Ciné-Agora ?
     options:
-    - Vendre plus de popcorn
+    - Vendre plus de pop-corn
     - Diffuser uniquement des nouveautés
     - Fermer le dimanche
     - Attirer un public plus varié
@@ -93,11 +93,11 @@ items:
       est fixé à une heure quarante au départ de la place des Halles ; après cette heure, il n'y aura
       plus de passage jusqu'au lendemain. Les usagers sont invités à préparer leur titre de transport
       à l'avance afin de monter plus rapidement.
-    prompt: Jusqu'à quelle heure part le dernier bus de la ligne N1 ?
+    prompt: À quelle heure part le dernier bus de la ligne N1 ?
     options:
     - Une heure quarante
-    - Deux heures
-    - Onze heures
+    - Deux heures du matin
+    - Onze heures du soir
     - Vingt heures
     answer: 0
     explanation: 'Le document donne clairement l’horaire du dernier départ : une heure quarante. Deux
@@ -163,9 +163,9 @@ items:
       les personnes qui vivent en périphérie et n''ont pas de bus après 22 heures.'
     prompt: De quoi parle cet article ?
     options:
-    - D'une hausse du prix des places
+    - D'une hausse du prix des places de théâtre
     - De la fermeture des musées
-    - D'un nouveau parking couvert
+    - D'un nouveau parking couvert près des salles
     - D'une plateforme de covoiturage pour les sorties
     answer: 3
     explanation: 'L’article présente une plateforme qui permet de partager sa voiture pour aller à des

@@ -20,7 +20,6 @@ items:
       - Parce qu’aujourd’hui, le bus est pris dans le même bouchon que tout le monde. Tant que les véhicules de livraison et les voitures particulières occupent toute la chaussée, le bus ne peut pas respecter son passage toutes les dix minutes.
       - Mais les commerçants disent qu’ils vont perdre des clients.
       - Je les entends, bien sûr. C’est pourquoi nous demandons des créneaux de livraison le matin et un accès maintenu pour les riverains qui ont des difficultés à se déplacer. Ce projet n’a pas pour but d’interdire la voiture ; il cherche surtout à rendre le transport collectif enfin prévisible.
-      - Donc, pour vous, le vrai bénéfice concerne…
     prompt: Quel est l’argument principal du monsieur ?
     options:
     - Rendre les bus plus réguliers
@@ -46,7 +45,7 @@ items:
       finir au rebut. Bien sûr, il faut accepter qu’il ne soit pas neuf et qu’il présente parfois une
       batterie moins performante. Mais si l’on cherche un achat raisonnable, c’est souvent un meilleur
       compromis que le tout neuf acheté sur un coup de tête.
-    prompt: Pourquoi le journaliste trouve-t-il cet achat intéressant ?
+    prompt: Pourquoi la journaliste trouve-t-elle cet achat intéressant ?
     options:
     - Il est toujours plus performant
     - Il permet de payer moins et d’éviter le gaspillage
@@ -94,14 +93,14 @@ items:
       aussi que certains rabais ne concernent que des articles très précis, rarement ceux qu’on met d’habitude
       dans son caddie. Autrement dit, la bonne question n’est pas de savoir si la carte est utile en soi,
       mais si elle correspond vraiment à vos habitudes de consommation.
-    prompt: Quelle est l’idée principale du journaliste ?
+    prompt: Quelle est l’idée principale de la journaliste ?
     options:
     - La carte fait économiser sur tous les produits
     - La carte est utile si les achats sont déjà prévus
     - La carte oblige à acheter en grande quantité
     - La carte doit être interdite en magasin
     answer: 1
-    explanation: 'Le journaliste dit clairement que la carte est efficace surtout pour des clients qui
+    explanation: 'La journaliste dit clairement que la carte est efficace surtout pour des clients qui
       achètent déjà les mêmes produits. Les autres propositions ne sont pas défendues : la carte ne fait
       pas économiser sur tout, n’oblige pas à acheter en grande quantité et n’est pas présentée comme
       à interdire.'
@@ -121,8 +120,8 @@ items:
     options:
     - Une voiture électrique
     - Des horaires et un accord commun
-    - Un détour important
-    - Une assurance spéciale
+    - Un long détour pour chaque passager
+    - Une assurance spéciale pour le conducteur
     answer: 1
     explanation: 'Le monsieur insiste sur la nécessité d’un horaire fixe, d’un point de rendez-vous clair
       et d’une organisation commune. Les autres réponses ne sont pas mentionnées comme indispensables

@@ -79,8 +79,8 @@ items:
     prompt: Que doivent faire les employés pour les documents de travail ?
     options:
     - Les envoyer par courrier
-    - Les traduire avant lundi
-    - Les supprimer après lecture
+    - Les traduire en anglais avant lundi
+    - Les supprimer juste après la lecture
     - Imprimer seulement si c’est indispensable
     answer: 3
     explanation: 'Le message demande de limiter l’impression et d’utiliser d’abord la version numérique.
@@ -175,7 +175,7 @@ items:
       Cette organisation doit améliorer la sécurité des données et faciliter le travail à distance.
 
       Le service informatique
-    prompt: Que doivent faire les équipes en premier ?
+    prompt: Que doivent faire les équipes avant vendredi ?
     options:
     - Commander du matériel
     - Transférer leurs dossiers

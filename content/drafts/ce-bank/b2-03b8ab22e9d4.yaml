@@ -63,10 +63,10 @@ items:
       Les centres d’accueil pour nouveaux arrivants proposent de plus en plus de cours de français. Pourtant, les inscriptions n’augmentent pas autant qu’espéré. Dans un article consacré à ce paradoxe, la journaliste Nour Benali cite plusieurs responsables associatifs : beaucoup de personnes travaillent tôt le matin, cumulent des emplois précaires ou s’occupent d’enfants sans solution de garde. Les horaires fixes de journée excluent donc précisément ceux qui auraient le plus besoin d’apprendre rapidement la langue. Le texte montre aussi que les ateliers les plus suivis sont les plus souples : cours du soir, séances le samedi, modules en ligne pour réviser les bases, et présence d’un espace pour les enfants pendant la classe. L’autrice ne présente pas ces aménagements comme des détails pratiques, mais comme une condition d’égalité. À ses yeux, on ne peut pas demander à un nouvel arrivant de participer à la vie sociale si les dispositifs sont pensés pour des personnes déjà disponibles. Elle plaide pour des horaires variés, une information plus simple et un accueil qui tienne compte des contraintes familiales.
     prompt: Selon le texte, qu’est-ce qui manque le plus souvent aux cours ?
     options:
-    - Des exercices plus difficiles
+    - Des exercices plus difficiles et plus longs
     - Des diplômes supplémentaires
-    - Des cours réservés aux cadres
-    - Des horaires adaptés et une garde des enfants
+    - Des cours réservés aux cadres diplômés
+    - Des horaires souples et une garde d'enfants
     answer: 3
     explanation: Le texte insiste sur des horaires fixes qui excluent les personnes occupées et sur la
       nécessité d’un espace pour les enfants. Les autres propositions ne correspondent ni au problème

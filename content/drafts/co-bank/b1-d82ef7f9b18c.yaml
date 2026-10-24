@@ -17,7 +17,7 @@ items:
     focus: décision de voyage
     audio_text: |-
       - Tu as confirmé le train pour Marseille ?
-      - Oui, mais j’ai reçu un message : le départ de huit heures est avancé à sept heures quarante-cinq.
+      - Oui, mais j’ai reçu un message : le départ de huit heures est retardé à dix heures trente.
       - Ça change tout. On ne pourra pas arriver à temps pour la réunion.
       - Dans ce cas, j’ai réservé deux billets pour la veille au soir. On dormira près de la gare et on sera tranquilles.
       - Bonne idée. Je préviens Claire qu’on partira plus tôt.
@@ -28,8 +28,8 @@ items:
     - Annuler le déplacement
     - Prendre l’avion
     answer: 1
-    explanation: 'Elle dit qu’ils ont réservé deux billets pour la veille au soir et qu’ils dormiront
-      près de la gare. Les autres réponses ne conviennent pas : ils ne gardent pas l’horaire, ils n’annulent
+    explanation: 'Il dit qu’ils ont réservé deux billets pour la veille au soir et qu’ils dormiront près
+      de la gare. Les autres réponses ne conviennent pas : ils ne gardent pas l’horaire, ils n’annulent
       pas le déplacement et ils ne parlent pas d’avion.'
 - status: ok
   issues: []
@@ -64,12 +64,12 @@ items:
       journée avec la radio, puis je lis un article plus complet le soir. Je ne cherche pas seulement
       des nouvelles rapides : j’ai besoin de comprendre les enjeux. Finalement, je préfère moins de messages,
       mais mieux expliqués.'
-    prompt: Quelle est son opinion sur les médias ?
+    prompt: Qu'attend-elle surtout des médias ?
     options:
-    - Aller vite
-    - Publier plus
-    - Éviter la radio
-    - Expliquer clairement
+    - Des informations très rapides
+    - Davantage de publications
+    - Moins de radio
+    - Des explications claires
     answer: 3
     explanation: 'La locutrice dit qu’elle veut comprendre les enjeux et préfère des informations « mieux
       expliquées ». Les autres propositions sont écartées : elle critique justement la rapidité, ne demande
@@ -127,7 +127,7 @@ items:
     focus: choix du transport
     audio_text: |-
       - On pourrait louer une voiture pour visiter la côte.
-      - Je ne suis pas sûre. Dans cette région, il est difficile de se garer et on perd du temps.
+      - Je ne suis pas sûr. Dans cette région, il est difficile de se garer et on perd du temps.
       - Alors, on prend le bus touristique ?
       - Oui, il passe près des principaux sites et on peut descendre à chaque arrêt.
       - Et on évitera de chercher une place de parking.
@@ -153,16 +153,16 @@ items:
       le lecteur perd confiance. Je préfère donc travailler plus lentement et donner une information solide.
       À mon avis, le rôle d’un média n’est pas seulement de faire réagir ; c’est aussi d’être fiable,
       même quand le sujet est complexe.'
-    prompt: Quelle qualité défend-il ?
+    prompt: Quelle qualité défend-elle ?
     options:
     - La fiabilité
     - La rapidité
     - La distraction
     - La compétition
     answer: 0
-    explanation: Il dit préférer une information « solide » et précise, car le lecteur doit pouvoir faire
-      confiance au média. La rapidité est au contraire relativisée, et rien n’évoque la distraction ou
-      la compétition.
+    explanation: Elle dit préférer une information « solide » et précise, car le lecteur doit pouvoir
+      faire confiance au média. La rapidité est au contraire relativisée, et rien n’évoque la distraction
+      ou la compétition.
 - status: ok
   issues: []
   item:

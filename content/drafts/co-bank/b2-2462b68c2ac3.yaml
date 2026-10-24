@@ -22,16 +22,16 @@ items:
       moment où l''on se parle sans être interrompus. Il faut donc cesser d''opposer les familles « exemplaires
       » aux autres. Le lien se construit aussi dans des formes plus souples, plus ordinaires, et parfois
       moins visibles.'
-    prompt: Quelle est l'idée principale de la locutrice ?
+    prompt: Quelle est l'idée principale du locuteur ?
     options:
-    - Il faut dîner ensemble tous les soirs.
+    - Il faut dîner ensemble tous les soirs, sans exception.
     - Le dîner familial n'a plus aucune valeur.
-    - Seuls les dimanches comptent vraiment.
+    - Seuls les repas du dimanche comptent vraiment pour la famille.
     - Le repas partagé reste utile, mais sans modèle unique.
     answer: 3
-    explanation: La locutrice dit que le repas partagé est un « espace possible » et qu'il n'existe pas
-      de fréquence idéale, donc elle défend une pratique utile mais flexible. Les autres réponses sont
-      trop absolues ou réduisent son propos à un seul jour.
+    explanation: Le locuteur dit que le repas partagé est un « espace possible » et qu'il n'existe pas
+      de fréquence idéale, donc il défend une pratique utile mais flexible. Les autres réponses sont trop
+      absolues ou réduisent son propos à un seul jour.
 - status: fixed
   issues:
   - The document is too short for the brief.
@@ -113,14 +113,14 @@ items:
       - De moins en moins. J'ai l'impression qu'on me demande surtout de faire confiance à des logos, alors que je préfère comprendre ce que j'achète.
       - Donc vous ne faites plus attention à la qualité ?
       - Au contraire. Je lis la liste des ingrédients, je compare, et je me méfie quand l'étiquette promet trop. Un produit peut être très correct sans être couvert de sigles rassurants. Ce qui m'intéresse, c'est la composition réelle, pas le discours autour de l'emballage. Je préfère acheter moins, mais mieux, et garder un regard critique sur les promesses trop belles. Un logo rassurant ne remplace pas une vraie lecture.
-    prompt: Quelle est l'attitude de la femme envers les labels ?
+    prompt: Quelle est l'attitude de l'homme envers les labels ?
     options:
-    - Elle les trouve indispensables.
-    - Elle les collectionne par principe.
-    - Elle ne lit jamais les ingrédients.
-    - Elle s'en méfie un peu.
+    - Il les trouve indispensables.
+    - Il les collectionne par principe.
+    - Il ne lit jamais les ingrédients.
+    - Il s'en méfie un peu.
     answer: 3
-    explanation: La femme dit qu'elle se méfie des logos et qu'elle préfère vérifier la composition réelle.
+    explanation: L'homme dit qu'il se méfie des logos et qu'elle préfère vérifier la composition réelle.
       Les autres propositions contredisent directement ses paroles ou caricaturent sa position.
 - status: fixed
   issues:
@@ -185,13 +185,13 @@ items:
       Autrement dit, la hausse des prix oblige à être plus attentif, plus organisé, parfois plus inventif,
       sans pour autant transformer chaque repas en sacrifice. Cela demande un peu d'organisation, mais
       pas un renoncement. Au contraire, on garde une alimentation correcte tout en s'adaptant.
-    prompt: Quelle est l'attitude du locuteur face à cette situation ?
+    prompt: Quelle est l'attitude de la locutrice face à cette situation ?
     options:
-    - Il la juge dramatique et sans issue.
-    - Il regrette le temps des produits industriels.
-    - Il la présente comme une adaptation possible.
-    - Il pense que rien ne doit changer.
+    - Elle la juge dramatique et sans issue.
+    - Elle regrette le temps des produits industriels.
+    - Elle la présente comme une adaptation possible.
+    - Elle pense que rien ne doit changer.
     answer: 2
-    explanation: Le locuteur insiste sur l'« adaptation » et sur l'inventivité des familles face aux prix.
-      Les autres réponses ajoutent soit du pessimisme, soit de la nostalgie, soit un refus du changement
+    explanation: La locutrice insiste sur l'« adaptation » et sur l'inventivité des familles face aux
+      prix. Les autres réponses ajoutent soit du pessimisme, soit de la nostalgie, soit un refus du changement
       qui ne figurent pas dans le document.

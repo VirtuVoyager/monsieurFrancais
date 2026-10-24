@@ -101,7 +101,7 @@ items:
     passage: |-
       Association Mémoire et Image
       Madame,
-      Votre adhésion pour l’année prochaine arrive à son terme. Pour continuer à recevoir notre revue et à participer aux sorties de l’association, nous vous remercions de régler la cotisation de trente euros avant le 30 avril. Vous pouvez payer en ligne ou à l’accueil, du lundi au vendredi, de neuf heures à seize heures.
+      Votre adhésion arrive bientôt à son terme. Pour continuer, l’année prochaine, à recevoir notre revue et à participer aux sorties de l’association, nous vous remercions de régler la cotisation de trente euros avant le 30 avril. Vous pouvez payer en ligne ou à l’accueil, du lundi au vendredi, de neuf heures à seize heures.
       Cordialement,
       Le service des adhésions.
     prompt: Que doit faire la destinataire ?
@@ -146,9 +146,9 @@ items:
       gare. Aucune expérience n’est nécessaire.
     prompt: Que fera la personne recherchée ?
     options:
-    - Vendre des journaux
+    - Vendre des journaux à la gare
     - Corriger des devoirs
-    - Organiser un festival
+    - Organiser un festival de lecture
     - Lire des articles à voix haute
     answer: 3
     explanation: Le texte dit que la personne aidera à enregistrer de courts articles en les lisant à

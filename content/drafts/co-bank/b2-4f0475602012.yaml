@@ -122,14 +122,14 @@ items:
       - Non. Le direct garde son intérêt pour l’information et les grandes émissions. Mais le numérique nous permet de retrouver ceux qui n’étaient jamais devant l’antenne à l’heure prévue.
       - C’est une stratégie offensive, alors ?
       - Je dirais plutôt une continuité. Nous ne tournons pas la page ; nous l’ouvrons autrement.
-    prompt: Que pense la directrice de la station ?
+    prompt: Que pense le directeur de la station ?
     options:
     - le numérique complète la radio
     - le direct doit disparaître
     - les podcasts sont accessoires
     - l’application remplace tout
     answer: 0
-    explanation: Elle dit clairement que le numérique et le direct coexistent, le premier permettant d’atteindre
+    explanation: Il dit clairement que le numérique et le direct coexistent, le premier permettant d’atteindre
       d’autres auditeurs. Les autres options contredisent cette idée de complémentarité.
 - status: ok
   issues: []

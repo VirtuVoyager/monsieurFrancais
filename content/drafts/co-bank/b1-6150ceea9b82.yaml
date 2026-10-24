@@ -30,8 +30,8 @@ items:
     - d'une réunion avec la direction
     answer: 1
     explanation: Ils discutent d'un espace commun pour centraliser leurs fichiers et gagner du temps.
-      La panne, le changement de poste et la réunion sont seulement mentionnés, mais ce n'est pas le sujet
-      principal.
+      La réunion de demain est seulement mentionnée, et il n'est question ni de panne ni de changement
+      de poste.
 - status: ok
   issues: []
   item:
@@ -106,14 +106,13 @@ items:
       - Tu l'as montré à la boutique de réparation ?
       - Oui, et le technicien m'a dit que la batterie pouvait être changée pour bien moins cher qu'un appareil neuf.
       - Alors, tu devrais le faire réparer. En plus, ce serait plus raisonnable pour l'environnement.
-      - Tu as raison. Et pour mes cours, il me le faut encore une bonne année.
-      - Dans ce cas, je vais le déposer demain matin.
+      - Tu as raison. Il me le faut encore une bonne année pour mes cours : je vais le déposer demain matin.
     prompt: Quelle décision prennent-ils ?
     options:
-    - en acheter un neuf
+    - en acheter un neuf rapidement
     - faire changer la batterie
     - le prêter à un ami
-    - attendre les soldes
+    - attendre les soldes d'été
     answer: 1
     explanation: Ils décident de le déposer pour remplacer la batterie, donc de le faire réparer. L'achat
       d'un neuf, le prêt et l'attente des soldes ne correspondent pas à ce qu'ils se disent.
@@ -131,10 +130,10 @@ items:
       Donc, oui, je le défends, à condition de ne pas croire qu'il suffit à rendre une séance intéressante.
     prompt: Quel est son point de vue ?
     options:
-    - elle le juge inutile
-    - elle préfère le tableau noir
-    - elle l'apprécie avec réserve
-    - elle l'utilise seulement pour les devoirs
+    - il le juge inutile
+    - il préfère le tableau noir
+    - il l'apprécie avec réserve
+    - il l'utilise seulement pour les devoirs
     answer: 2
     explanation: 'La personne en parle positivement, tout en ajoutant qu''il faut bien préparer le cours
       : c''est donc un avis favorable mais nuancé. Les autres réponses ne correspondent pas à ce qu''elle
@@ -154,8 +153,8 @@ items:
     prompt: Quel est le but principal de cette soirée ?
     options:
     - informer les familles et les guider
-    - remettre les bulletins
-    - choisir les délégués
+    - remettre les bulletins du trimestre
+    - choisir les délégués de classe
     - annoncer les vacances
     answer: 0
     explanation: La fin du document précise que la soirée sert à répondre aux questions des familles et

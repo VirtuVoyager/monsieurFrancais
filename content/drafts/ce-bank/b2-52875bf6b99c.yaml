@@ -46,8 +46,6 @@ items:
       À entendre certains discours, l’intelligence artificielle serait soit une menace absolue pour le climat, soit une invention totalement anodine. La réalité est plus nuancée. Une étude publiée cette semaine rappelle qu’une simple requête textuelle consomme relativement peu, mais que l’usage massif de modèles complexes, notamment pour l’image et la vidéo, finit par peser sur les centres de données. Dans le même temps, les auteurs soulignent que ces outils permettent aussi de réduire certaines dépenses : une entreprise de logistique a par exemple diminué de 40 % le temps passé à rédiger des comptes rendus internes grâce à un modèle local, moins gourmand qu’un service distant.
 
       Le vrai enjeu n’est donc pas de sacraliser l’IA ni de la condamner en bloc, mais de distinguer les usages. Faut-il générer dix versions d’un même slogan ou réserver les calculs lourds à des tâches réellement utiles ? Faut-il exiger des fournisseurs qu’ils publient leur consommation électrique et la part d’énergies renouvelables utilisée ? C’est à ces questions qu’il faut répondre si l’on veut éviter que la technologie ne progresse en silence, tandis que sa facture écologique est supportée par tous.
-
-      En somme, l’auteur plaide pour une utilisation plus sélective et plus transparente des outils d’IA.
     prompt: Quel est le message principal du texte ?
     options:
     - Il faut bannir l’IA au nom de l’écologie.
@@ -99,10 +97,10 @@ items:
       L’auteur se montre donc favorable, mais refuse l’enthousiasme facile. Pour lui, ces projets ont de la valeur lorsqu’ils s’intègrent à une planification urbaine cohérente ; ils deviennent moins convaincants dès qu’on les présente comme une réponse universelle à la transition énergétique. La récupération de chaleur n’est pas un slogan : c’est un outil parmi d’autres, utile dans certains cas précis.
     prompt: Que suggère implicitement l’auteur ?
     options:
-    - Elle suffit à elle seule pour chauffer une ville.
-    - Elle fonctionne surtout quand les serveurs s’arrêtent.
+    - Cette solution suffit à elle seule pour chauffer une ville.
+    - Cette solution fonctionne surtout quand les serveurs s’arrêtent.
     - Cette solution est prometteuse, mais elle reste limitée.
-    - Elle ne réduit jamais les émissions.
+    - Cette solution ne réduit jamais les émissions.
     answer: 2
     explanation: Le texte souligne des avantages réels, mais aussi des contraintes de distance, de coût
       et d’activité. Les autres réponses contredisent directement ces éléments.
@@ -123,10 +121,10 @@ items:
       L’auteur ne rejette pas l’idée, mais il en pointe clairement l’effet social. À ses yeux, un tarif variable peut être pertinent s’il reste lisible et s’accompagne de protections pour les usagers les plus contraints. Sans cela, il risque de transformer une innovation présentée comme écologique en outil de tri entre ceux qui peuvent adapter leur vie et ceux qui ne le peuvent pas.
     prompt: Quelle idée implicite se dégage du texte ?
     options:
-    - Ils simplifient la vie de tous les ménages.
-    - Ils ne concernent que les grandes entreprises.
+    - Ces tarifs simplifient la vie de tous les ménages.
+    - Ces tarifs ne concernent que les grandes entreprises.
     - Ces tarifs peuvent creuser les inégalités.
-    - Ils font baisser la facture sans effort.
+    - Ces tarifs font baisser la facture sans effort.
     answer: 2
     explanation: Le texte explique que les foyers flexibles gagnent, tandis que d’autres peuvent payer
       plus. Cela implique un risque d’inégalités, contrairement aux autres propositions.

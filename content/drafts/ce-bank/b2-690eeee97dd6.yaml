@@ -161,10 +161,10 @@ items:
       L’auteur voit dans ce modèle une réponse utile à une partie du problème, mais pas une solution isolée. Le succès dépend, dit-il, d’un point précis : ces centres doivent être coordonnés avec les hôpitaux, les pharmacies et les services sociaux du territoire. Sans cette articulation, ils risquent de devenir de simples salles de consultation supplémentaires, sans continuité de suivi. Avec elle, en revanche, ils peuvent jouer un rôle de filtre, orienter les patients vers le bon niveau de prise en charge et réduire les inégalités entre centre-ville et périphérie. Ce n’est donc pas le principe du centre de santé qui est discuté, mais son intégration dans un ensemble cohérent.
     prompt: À quelle condition, selon l'auteur, ce modèle peut-il vraiment fonctionner ?
     options:
-    - Qu'il remplace les urgences.
+    - Qu'il remplace les urgences de l'hôpital.
     - Qu'il soit coordonné avec d'autres services.
     - Qu'il soit réservé aux retraités.
-    - Qu'il ferme le soir.
+    - Qu'il ferme le soir et le week-end.
     answer: 1
     explanation: Le texte dit explicitement que le succès dépend de la coordination avec les hôpitaux,
       les pharmacies et les services sociaux. Les autres options ne sont pas défendues par l’auteur.

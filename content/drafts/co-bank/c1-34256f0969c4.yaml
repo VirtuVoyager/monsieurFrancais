@@ -80,9 +80,9 @@ items:
     prompt: À quel problème répond cette initiative ?
     options:
     - Au manque de loisirs
-    - À l’absence d’évaluations
+    - À l’absence d’évaluations régulières
     - Aux inégalités devant le travail scolaire
-    - À la surcharge des programmes
+    - À la surcharge des programmes scolaires
     answer: 2
     explanation: Le texte insiste sur les conditions de travail très inégales à la maison et sur l’aide
       apportée après la classe. Les autres options ne correspondent pas au problème décrit.
@@ -107,7 +107,7 @@ items:
     - Il laisse peu de place à l’oral
     - Il supprime le travail en classe
     answer: 1
-    explanation: L’oratrice dit que l’épreuve unique mesure surtout la mémoire immédiate et l’endurance
+    explanation: L’orateur dit que l’épreuve unique mesure surtout la mémoire immédiate et l’endurance
       nerveuse, pas la compréhension. Les autres réponses ne sont jamais évoquées.
 - status: ok
   issues: []

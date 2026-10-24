@@ -69,9 +69,9 @@ items:
     prompt: Que veut montrer le journaliste ?
     options:
     - Les travaux sont coûteux au départ, mais rentables à terme
-    - Les charges baissent toujours immédiatement
+    - Les charges baissent toujours immédiatement après les travaux
     - Il faut éviter toute rénovation
-    - La vente dépend surtout du quartier
+    - La vente d'un appartement dépend surtout du quartier
     answer: 0
     explanation: Le document insiste sur le fait que reporter les travaux « finit par coûter plus cher
       » et que la rénovation améliore les factures et la valeur du bien. Les autres options ne reprennent
@@ -179,5 +179,5 @@ items:
     - Recruter des intérimaires
     - Prolonger les horaires
     answer: 0
-    explanation: La locutrice dit clairement qu’il faut « réorganiser le service » pour que la semaine
+    explanation: Le locuteur dit clairement qu’il faut « réorganiser le service » pour que la semaine
       de quatre jours fonctionne. Les autres options vont à l’encontre de son explication.

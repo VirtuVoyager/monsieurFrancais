@@ -128,9 +128,9 @@ items:
     prompt: Que propose le centre ?
     options:
     - Un atelier pour préparer sa candidature
-    - Un atelier de cuisine
+    - Un atelier de cuisine du monde
     - Un examen médical
-    - Un stage payé
+    - Un stage payé en entreprise
     answer: 0
     explanation: Le texte présente un atelier gratuit pour aider à rédiger un CV, une lettre de motivation
       et préparer un entretien. Les autres choix ne correspondent pas à ce service.

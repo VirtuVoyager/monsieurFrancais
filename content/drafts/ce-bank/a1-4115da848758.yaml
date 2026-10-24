@@ -159,8 +159,8 @@ items:
     options:
     - chèque
     - carte bancaire
-    - bon cadeau
-    - virement
+    - bon d'achat cadeau
+    - virement bancaire
     answer: 1
     explanation: Le texte dit qu’on peut payer « avec une carte bancaire ». Le chèque est au contraire
       refusé, et les autres moyens ne sont pas cités.

@@ -83,19 +83,19 @@ items:
     origin: generated
     focus: opinion exprimée
     audio_text: J'ai demandé de l'aide au centre communal pour remplir mon dossier. Au début, j'étais
-      un peu méfiante, parce que je pensais que ce serait compliqué. En fait, la conseillère a pris le
+      un peu méfiant, parce que je pensais que ce serait compliqué. En fait, la conseillère a pris le
       temps d'expliquer chaque étape, et j'ai obtenu un rendez-vous rapidement. Le seul problème, c'est
-      qu'il y avait beaucoup de monde, mais on m'a orientée vers le bon service. Franchement, je me suis
-      sentie écoutée.
-    prompt: Comment la locutrice juge-t-elle ce service ?
+      qu'il y avait beaucoup de monde, mais on m'a orienté vers le bon service. Franchement, je me suis
+      senti écouté.
+    prompt: Comment le locuteur juge-t-il ce service ?
     options:
     - Très coûteux
     - Inutile
     - Plutôt efficace
     - Mal organisé
     answer: 2
-    explanation: Elle souligne qu’on lui a bien expliqué la démarche, qu’elle a obtenu un rendez-vous
-      rapidement et qu’elle s’est sentie écoutée. Le service est donc jugé positivement, malgré l’attente.
+    explanation: Il souligne qu’on lui a bien expliqué la démarche, qu’il a obtenu un rendez-vous rapidement
+      et qu’il s’est senti écouté. Le service est donc jugé positivement, malgré l’attente.
 - status: ok
   issues: []
   item:
@@ -152,14 +152,14 @@ items:
       des missions simples, comme préparer les colis ou téléphoner aux nouveaux arrivants. Je ne pense
       pas qu'il faille être disponible tout le temps ; quelques heures suffisent pour être utile. C'est
       pour ça que je recommande cette association autour de moi.
-    prompt: Pourquoi le locuteur parle-t-il de cette expérience ?
+    prompt: Pourquoi la locutrice parle-t-elle de cette expérience ?
     options:
     - Pour critiquer l'organisation
     - Pour encourager à s'engager
     - Pour annoncer son départ
     - Pour demander de l'argent
     answer: 1
-    explanation: 'Il conclut qu’on peut être utile avec peu de temps et dit recommander l’association
+    explanation: 'Elle conclut qu’on peut être utile avec peu de temps et dit recommander l’association
       autour de lui : son but est donc d’encourager à s’engager. Les autres options ne sont pas appuyées
       par le témoignage.'
 - status: ok

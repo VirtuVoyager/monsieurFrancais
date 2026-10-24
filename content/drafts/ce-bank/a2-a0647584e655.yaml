@@ -145,8 +145,8 @@ items:
     options:
     - son passeport
     - un sac réutilisable
-    - une couverture
-    - de la monnaie
+    - une couverture de pique-nique
+    - de la monnaie en espèces
     answer: 1
     explanation: Le courriel demande d’apporter un sac réutilisable. Le passeport, la couverture et la
       monnaie ne sont pas demandés.

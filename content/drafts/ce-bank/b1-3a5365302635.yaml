@@ -26,8 +26,8 @@ items:
     prompt: Quel est l’objectif principal du texte ?
     options:
     - annoncer une nouvelle organisation du déjeuner
-    - décrire un concours de cuisine
-    - expliquer une hausse des prix
+    - décrire un concours de cuisine entre salariés
+    - expliquer une hausse des prix de la cantine
     - inviter les salariés à dîner dehors
     answer: 0
     explanation: 'Le texte présente surtout les changements prévus pour la cantine et leur but. Les autres
@@ -44,7 +44,7 @@ items:
     passage: |-
       Bonjour Julien,
 
-      J’ai pensé à toi en recevant, depuis trois semaines, le panier de légumes de la ferme Lenoir. Au début, j’étais sceptique, mais les produits sont très frais et je ne perds plus de temps à faire les courses après le travail. Le mercredi, je trouve la recette dans le courrier électronique du producteur, et cela m’aide à varier les repas. Même Paul a recommencé à manger des soupes ! Si tu cherches une solution simple pour mieux cuisiner sans y passer la soirée, je te conseille d’essayer au moins un mois. Le panier arrive le vendredi, ce qui me laisse le week-end pour cuisiner.
+      Depuis trois semaines, je reçois le panier de légumes de la ferme Lenoir, et j’ai pensé à toi. Au début, j’étais sceptique, mais les produits sont très frais et je ne perds plus de temps à faire les courses après le travail. Le mercredi, je trouve la recette dans le courrier électronique du producteur, et cela m’aide à varier les repas. Même Paul a recommencé à manger des soupes ! Si tu cherches une solution simple pour mieux cuisiner sans y passer la soirée, je te conseille d’essayer au moins un mois. Le panier arrive le vendredi, ce qui me laisse le week-end pour cuisiner.
 
       À bientôt,
       Camille
@@ -69,12 +69,12 @@ items:
     passage: |-
       Service de restauration
 
-      À partir du lundi trois avril, la commande des repas devra être faite avant onze heures, et non plus avant midi. Ce changement nous permettra de préparer le nombre exact de portions et de réduire les restes. La salle du rez-de-chaussée restera ouverte, mais seuls les plats réservés à l’avance y seront servis. Les personnes qui souhaitent un repas végétarien devront le préciser au moment de la commande. Merci de respecter ces nouvelles consignes afin de faciliter le travail de l’équipe. Un affichage sera installé à l’entrée pour rappeler ces changements chaque matin, dès lundi, aux salariés.
+      À partir du lundi trois avril, la commande des repas devra être faite avant onze heures, et non plus avant midi. Ce changement nous permettra de préparer le nombre exact de portions et de réduire les restes. La salle du rez-de-chaussée restera ouverte, mais seuls les plats réservés à l’avance y seront servis. Les personnes qui souhaitent un repas végétarien devront le préciser au moment de la commande. Merci de respecter ces nouvelles consignes afin de faciliter le travail de l’équipe. Dès lundi, un affichage à l’entrée rappellera ces changements aux salariés.
     prompt: Qu’est-ce qui change dès lundi ?
     options:
     - la salle du rez-de-chaussée sera fermée
-    - les repas seront désormais gratuits
-    - les plats chauds disparaissent du menu
+    - les repas seront désormais gratuits pour tous
+    - les plats chauds disparaissent du menu du midi
     - les commandes doivent être faites avant onze heures
     answer: 3
     explanation: Le texte dit clairement que la commande devra être passée avant onze heures. La salle
@@ -93,7 +93,7 @@ items:
       pleines. Elle est aussi appréciée par les personnes qui n’ont pas très faim à midi. L’association
       Mangeons juste, à l’origine du projet, espère convaincre d’autres établissements de suivre cet exemple
       avant l’été. Plusieurs restaurateurs disent déjà que leurs clients prennent moins de nourriture
-      qu’avant, sans que le plaisir du repas soit remis en cause, en général.'
+      qu’avant, sans que le plaisir du repas soit remis en cause.'
     prompt: De quoi parle surtout l’article ?
     options:
     - de la création d’un nouveau menu touristique
@@ -146,10 +146,10 @@ items:
       Mina
     prompt: Pourquoi Mina a-t-elle renoncé à la voiture ?
     options:
-    - le port était fermé
-    - ils ont raté leur train
-    - la route de montagne était en travaux et le parking coûtait trop cher
-    - ils cherchaient un hôtel de luxe
+    - le port était fermé pour la saison
+    - ils avaient raté leur avion la veille
+    - des travaux sur la route et un parking trop cher
+    - ils voulaient dormir dans un hôtel de luxe
     answer: 2
     explanation: Mina précise que la route de montagne est encore en travaux et que le parking près du
       port coûte trop cher. Les autres options ne donnent pas la raison mentionnée dans la lettre.

@@ -46,7 +46,7 @@ items:
       - Non, le programme reste le même. C’est surtout une question de disponibilité et d’organisation.
     prompt: Pourquoi l’horaire a-t-il été déplacé ?
     options:
-    - Parce que l’après-midi convient mieux aux participants et à la salle.
+    - Parce que l’après-midi convient mieux à tous.
     - Parce que le thème a changé.
     - Parce que les bénévoles partaient en vacances.
     - Parce que la participation était payante.
@@ -71,9 +71,9 @@ items:
       durable.'
     prompt: À quoi sert principalement ce service ?
     options:
-    - À sanctionner les voisins.
+    - À sanctionner les voisins qui font du bruit.
     - À éviter que les tensions se transforment en conflit.
-    - À gérer les dossiers du tribunal.
+    - À gérer les dossiers envoyés au tribunal.
     - À défendre systématiquement un habitant.
     answer: 1
     explanation: La fin du document précise que le service sert surtout à empêcher l’escalade des tensions.
@@ -135,7 +135,7 @@ items:
     focus: Adaptation des horaires
     audio_text: |-
       - Vous avez modifié la navette vers l’hôpital.
-      - Oui. Nous avons supprimé le premier départ très tôt le matin, mais ajouté deux passages plus tard. Les passagers nous disaient surtout qu’ils avaient du mal à arriver avant l’ouverture des consultations, puis à attendre debout dans le hall. Nous avons donc préféré ajuster le service au moment où les rendez-vous commencent vraiment. Le premier départ était presque vide, tandis que le bus de 8 h était souvent bondé.
+      - Oui. Nous avons supprimé le premier départ très tôt le matin, mais ajouté deux passages plus tard. Les passagers nous disaient surtout qu’ils avaient du mal à arriver avant l’ouverture des consultations, puis à attendre debout dans le hall. Nous avons donc préféré ajuster le service au moment où les rendez-vous commencent vraiment. Le premier départ était presque vide, tandis que le bus de huit heures était souvent bondé.
       - Donc l’objectif n’était pas de réduire l’offre.
       - Non, au contraire : il s’agissait de la rendre plus utile pour ceux qui ont des examens ou des visites médicales.
     prompt: Pourquoi les horaires ont-ils été modifiés ?

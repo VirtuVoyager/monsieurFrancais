@@ -33,7 +33,7 @@ items:
     - Évaluer les managers
     - Remplacer les professionnels
     answer: 0
-    explanation: 'Le locuteur dit clairement qu’il veut « ouvrir la conversation avant que la situation
+    explanation: 'La locutrice dit clairement qu’elle veut « ouvrir la conversation avant que la situation
       ne se dégrade » et faire repérer les signes de détresse plus tôt. Les autres propositions sont écartées
       dans le texte : il ne s’agit ni d’offrir des soins gratuits, ni d’évaluer les managers, ni de remplacer
       les professionnels.'
@@ -188,9 +188,9 @@ items:
     prompt: Comment le chroniqueur organise-t-il son argumentation ?
     options:
     - Il compare deux services hospitaliers
-    - Il raconte l’histoire d’un patient
+    - Il raconte en détail l’histoire d’un patient malade
     - Il part d’un réflexe courant pour le remettre en cause
-    - Il présente un nouveau médicament
+    - Il présente un nouveau médicament contre la grippe
     answer: 2
     explanation: Le chroniqueur commence par évoquer une demande très répandue, puis il montre pourquoi
       ce réflexe est discutable et dans quels cas il faut le corriger. Les autres propositions ne conviennent

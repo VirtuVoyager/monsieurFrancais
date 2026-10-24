@@ -20,7 +20,7 @@ items:
       Cela fait maintenant deux mois que je suis arrivée à Montreville. J’ai enfin trouvé mon rythme : le matin, je travaille au café, et le soir, je vais au centre communautaire pour suivre des cours de français. Au début, j’hésitais à m’inscrire, car j’avais peur de ne pas avoir assez de temps. Mais les cours m’aident beaucoup, surtout pour parler avec les parents à l’école de Nour. J’ai aussi rencontré d’autres personnes qui, comme moi, découvrent la ville. Nous nous retrouvons parfois après le cours pour échanger des adresses utiles. Si tu viens me voir cet été, je t’emmènerai sûrement à la fête du quartier : cette année, je me sens enfin un peu chez moi.
       Je t’embrasse,
       Samira
-    prompt: Quel est l’idée principale de cette lettre ?
+    prompt: Quelle est l’idée principale de cette lettre ?
     options:
     - L’auteure propose un emploi.
     - L’auteure invite son amie à une fête.

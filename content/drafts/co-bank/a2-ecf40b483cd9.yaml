@@ -58,7 +58,7 @@ items:
     cefr: A2
     origin: generated
     focus: action à faire
-    audio_text: Bonjour, ici la société Colis+ . Votre paquet est arrivé. Vous pouvez le récupérer demain
+    audio_text: Bonjour, ici la société Colis+. Votre paquet est arrivé. Vous pouvez le récupérer demain
       entre neuf heures et midi au bureau de la rue des Tilleuls. N'oubliez pas votre pièce d'identité.
     prompt: Que doit faire la personne ?
     options:
@@ -121,14 +121,14 @@ items:
       - Parfait. Je peux passer aujourd'hui ?
       - Oui, mais seulement avant dix-huit heures. Après, le magasin ferme.
       - Très bien, je viens cet après-midi.
-    prompt: Jusqu'à quelle heure peut-elle venir ?
+    prompt: Jusqu'à quelle heure le client peut-il venir ?
     options:
     - Avant dix-huit heures
     - À dix-neuf heures
     - Demain matin
     - Après le dîner
     answer: 0
-    explanation: Le vendeur dit qu'elle peut venir seulement avant dix-huit heures. Les autres propositions
+    explanation: La vendeuse dit qu'il peut venir seulement avant dix-huit heures. Les autres propositions
       sont incompatibles avec l'heure de fermeture indiquée.
 - status: fixed
   issues:
@@ -174,5 +174,5 @@ items:
     - Un abonnement
     - Son billet de train
     answer: 0
-    explanation: L'employée demande un permis de conduire et une carte de crédit ; la bonne réponse est
+    explanation: L'employé demande un permis de conduire et une carte de crédit ; la bonne réponse est
       donc le permis. Le passeport, l'abonnement et le billet de train ne sont pas mentionnés.
