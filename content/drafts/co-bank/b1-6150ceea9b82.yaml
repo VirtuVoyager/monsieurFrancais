@@ -1,0 +1,184 @@
+request: co-bank
+skill: CO
+cefr: B1
+themes:
+- technologie
+- éducation
+format: document
+model: gpt-5.4-mini
+key: 6150ceea9b82950871e80bb88c63085a308d88906f6199784a905d67c2ba389c
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-dossiers-partages
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    audio_text: |-
+      - Tu as vu le message de Nora ? Elle propose qu'on utilise un espace partagé pour les dossiers du projet.
+      - Oui, j'ai lu ça. Au lieu d'envoyer dix versions du même fichier par courriel, on mettrait tout au même endroit.
+      - Exactement. Et chacun pourrait commenter directement les documents.
+      - Je trouve l'idée bonne, surtout pour éviter les erreurs de dernière minute.
+      - On en parle à la réunion de demain ?
+      - Oui, parce que ce n'est pas un gros changement, mais ça peut nous faire gagner du temps.
+    prompt: De quoi les collègues parlent-ils surtout ?
+    options:
+    - d'une panne d'ordinateur
+    - de mieux organiser leurs dossiers
+    - d'un changement de poste
+    - d'une réunion avec la direction
+    answer: 1
+    explanation: Ils discutent d'un espace commun pour centraliser leurs fichiers et gagner du temps.
+      La réunion de demain est seulement mentionnée, et il n'est question ni de panne ni de changement
+      de poste.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-tablettes-en-classe
+    cefr: B1
+    origin: generated
+    focus: opinion exprimée
+    audio_text: |-
+      - On pense souvent que les tablettes remplacent les manuels, mais ce n'est pas mon avis. En classe, elles servent surtout à chercher vite une information, à écouter un extrait ou à travailler à deux.
+      - Vous les utilisez donc beaucoup ?
+      - Oui, mais comme un outil parmi d'autres. Les élèves restent plus actifs, et le papier garde sa place. Si l'on prépare bien les activités, les tablettes peuvent vraiment enrichir le cours.
+    prompt: Quel est le point de vue de l’enseignante ?
+    options:
+    - elles doivent être interdites
+    - elles suffisent pour apprendre seules
+    - elles complètent l'enseignement
+    - elles sont surtout distrayantes
+    answer: 2
+    explanation: Elle dit clairement qu'elles sont utiles, mais comme un outil parmi d'autres et en complément
+      du papier. Les autres propositions contredisent son avis ou le déforment.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-atelier-numerique
+    cefr: B1
+    origin: generated
+    focus: but de l'annonce
+    audio_text: Bonjour à toutes et à tous. Le centre numérique de Valmont organise samedi matin une séance
+      d'initiation pour apprendre à créer une adresse électronique, envoyer des documents et sécuriser
+      ses mots de passe. Les personnes qui débutent sont les bienvenues, et des ordinateurs seront disponibles
+      sur place. L'inscription se fait à l'accueil ou par téléphone avant vendredi soir. Si vous voulez
+      mieux utiliser les services en ligne du quotidien, cette séance est pour vous.
+    prompt: Quel est le but de cette annonce ?
+    options:
+    - présenter un nouveau site
+    - proposer une séance d'initiation
+    - annoncer une fermeture
+    - vendre des ordinateurs
+    answer: 1
+    explanation: L'annonce invite le public à participer à une séance d'initiation au numérique. Elle
+      ne présente pas un site, n'annonce pas une fermeture et ne cherche pas à vendre du matériel.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-cours-a-distance
+    cefr: B1
+    origin: generated
+    focus: avantage du cours en ligne
+    audio_text: Quand j'ai commencé le cours à distance, j'avais peur d'être seul devant mon écran. Finalement,
+      ce qui m'aide le plus, c'est que je peux revoir les vidéos autant de fois que nécessaire et avancer
+      à mon rythme. Sur le forum, on pose des questions et l'enseignante répond vite. Bien sûr, il faut
+      être organisé, mais pour moi, c'est plus pratique que de courir chaque soir au centre de formation.
+    prompt: Pourquoi cet étudiant apprécie-t-il surtout ce cours ?
+    options:
+    - il avance à son propre rythme
+    - il n'a pas d'évaluations
+    - il apprend sans effort
+    - il n'a pas besoin de prof
+    answer: 0
+    explanation: Il explique que la possibilité de revoir les vidéos et d'avancer à son rythme est ce
+      qu'il apprécie le plus. Les autres réponses vont à l'encontre de son témoignage, puisqu'il parle
+      au contraire d'organisation, de questions et de réponse de l'enseignante.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-batterie-du-portable
+    cefr: B1
+    origin: generated
+    focus: décision prise
+    audio_text: |-
+      - Mon ordinateur portable ne tient plus la charge. J'hésite à en acheter un autre.
+      - Tu l'as montré à la boutique de réparation ?
+      - Oui, et le technicien m'a dit que la batterie pouvait être changée pour bien moins cher qu'un appareil neuf.
+      - Alors, tu devrais le faire réparer. En plus, ce serait plus raisonnable pour l'environnement.
+      - Tu as raison. Il me le faut encore une bonne année pour mes cours : je vais le déposer demain matin.
+    prompt: Quelle décision prennent-ils ?
+    options:
+    - en acheter un neuf rapidement
+    - faire changer la batterie
+    - le prêter à un ami
+    - attendre les soldes d'été
+    answer: 1
+    explanation: Ils décident de le déposer pour remplacer la batterie, donc de le faire réparer. L'achat
+      d'un neuf, le prêt et l'attente des soldes ne correspondent pas à ce qu'ils se disent.
+- status: fixed
+  issues:
+  - The explanation uses an unsupported feminine pronoun.
+  item:
+    slug: co-b1-tableau-interactif
+    cefr: B1
+    origin: generated
+    focus: point de vue sur l'outil
+    audio_text: Le tableau interactif ne fait pas tout à notre place, mais il change vraiment la façon
+      d'enseigner. Je gagne du temps pour montrer une carte, un schéma ou une vidéo, et les élèves participent
+      plus facilement. En revanche, il faut préparer le cours différemment, sinon l'outil reste très banal.
+      Donc, oui, je le défends, à condition de ne pas croire qu'il suffit à rendre une séance intéressante.
+    prompt: Quel est son point de vue ?
+    options:
+    - il le juge inutile
+    - il préfère le tableau noir
+    - il l'apprécie avec réserve
+    - il l'utilise seulement pour les devoirs
+    answer: 2
+    explanation: 'La personne en parle positivement, tout en ajoutant qu''il faut bien préparer le cours
+      : c''est donc un avis favorable mais nuancé. Les autres réponses ne correspondent pas à ce qu''elle
+      dit.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-soiree-au-lycee
+    cefr: B1
+    origin: generated
+    focus: but de la soirée
+    audio_text: Bonsoir. Le lycée Armand-Lenoir invite les parents et les élèves de seconde à une rencontre
+      mardi prochain, de dix-huit heures à vingt heures, dans l'amphithéâtre. Les enseignants y présenteront
+      la nouvelle plateforme de suivi des devoirs, et un spécialiste expliquera comment protéger ses données
+      et éviter les faux messages. L'entrée est libre. Cette soirée est surtout destinée à répondre aux
+      questions des familles qui découvrent ces outils.
+    prompt: Quel est le but principal de cette soirée ?
+    options:
+    - informer les familles et les guider
+    - remettre les bulletins du trimestre
+    - choisir les délégués de classe
+    - annoncer les vacances
+    answer: 0
+    explanation: La fin du document précise que la soirée sert à répondre aux questions des familles et
+      à les aider à découvrir ces outils. Les autres propositions ne sont pas annoncées.
+- status: fixed
+  issues:
+  - The explanation uses an unsupported masculine pronoun.
+  item:
+    slug: co-b1-application-d-etude
+    cefr: B1
+    origin: generated
+    focus: avis sur l'application
+    audio_text: J'ai repris des études le soir, après le travail, et j'avais besoin d'un outil simple.
+      L'application que j'utilise maintenant me permet de faire de courtes révisions dans le métro, puis
+      de retrouver mes erreurs plus tard. J'aime aussi les rappels automatiques, parce qu'ils m'évitent
+      d'oublier mes séances. Ce n'est pas magique, mais pour quelqu'un qui manque de temps, c'est un vrai
+      soutien.
+    prompt: Quelle est son opinion sur l'application ?
+    options:
+    - elle est trop compliquée
+    - elle l'aide beaucoup
+    - elle remplace les cours
+    - elle coûte trop cher
+    answer: 1
+    explanation: 'La personne dit qu''elle peut réviser partout, retrouver ses erreurs et s''organiser
+      grâce à l''application : elle l''aide donc beaucoup. Rien dans le témoignage ne parle d''un prix
+      élevé, d''une complexité excessive ou d''un remplacement des cours.'

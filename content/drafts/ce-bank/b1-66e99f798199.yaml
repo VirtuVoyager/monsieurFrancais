@@ -1,0 +1,185 @@
+request: ce-bank
+skill: CE
+cefr: B1
+themes:
+- consommation
+- famille et société
+format: document
+model: gpt-5.4-mini
+key: 66e99f79819919caf98738436c487b87d00691a88187d32dc9c9cf4109633e60
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-budget-familial
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      Bonjour Karim,
+      Depuis que j’ai changé de quartier, je me suis rendu compte que je commandais trop souvent des repas tout prêts. À la fin du mois, la facture est énorme, et en plus je mange souvent n’importe quoi. J’ai donc décidé de faire les courses le samedi et de préparer plusieurs plats pour la semaine. J’ai même commencé à noter mes dépenses chaque soir, et cela m’aide déjà beaucoup. Si tu veux, viens dîner dimanche : je te montrerai mes recettes simples et mon petit tableau de budget. Tu verras, on peut se faire plaisir sans dépenser autant.
+      À bientôt,
+      Mina
+    prompt: Pourquoi Mina écrit-elle cette lettre ?
+    options:
+    - Pour demander à Karim de déménager
+    - Pour annoncer un voyage à l’étranger
+    - Pour remercier Karim d’un cadeau
+    - Pour raconter ses nouvelles habitudes d'achat
+    answer: 3
+    explanation: Mina explique qu’elle commandait trop souvent des repas et qu’elle a décidé de mieux
+      gérer ses achats pour réduire ses dépenses. Les autres propositions ne correspondent pas à son objectif.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-coin-d-echange
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: 'Dans le quartier des Ateliers, la bibliothèque municipale a ouvert un coin d’échange. Les
+      habitants peuvent y déposer des livres, des jeux, des vêtements d’enfant ou des petits appareils
+      encore utiles. Chacun prend ce dont il a besoin, sans payer. L’équipe de la bibliothèque explique
+      que l’objectif n’est pas seulement d’éviter le gaspillage : le lieu permet aussi aux voisins de
+      se rencontrer et de discuter. Le samedi matin, des bénévoles aident à trier les objets et à vérifier
+      qu’ils sont en bon état. En trois semaines, le projet a déjà attiré de nombreuses familles.'
+    prompt: Quel est le sujet principal de cet article ?
+    options:
+    - Une vente de livres neufs
+    - Une brocante payante
+    - Un espace pour réparer des objets
+    - Une initiative d’échange d’objets
+    answer: 3
+    explanation: L’article présente surtout un lieu où les habitants déposent et prennent des objets gratuitement.
+      Ce n’est ni une vente ni un atelier de réparation, mais bien un système d’échange.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-ticket-numerique
+    cefr: B1
+    origin: generated
+    focus: raison du changement
+    passage: La chaîne de magasins Remora a annoncé un changement dans ses caisses. Désormais, le ticket
+      de caisse ne sera plus imprimé automatiquement. Les clients recevront leur preuve d’achat par courriel
+      ou pourront la demander sur papier s’ils le souhaitent. Dans certains magasins, il sera aussi possible
+      de consulter ses achats sur une application, ce qui évitera de chercher un reçu perdu au fond d’un
+      sac. Selon l’entreprise, cette mesure doit réduire la consommation de papier et accélérer le passage
+      en caisse. Les vendeurs auront aussi moins de tickets à trier en fin de journée. Remora précise
+      que les réductions et les conditions de garantie resteront identiques.
+    prompt: Pourquoi l’entreprise change-t-elle son système ?
+    options:
+    - Pour limiter le papier
+    - Pour vendre moins cher
+    - Pour supprimer les cartes de fidélité
+    - Pour obliger les clients à s’inscrire
+    answer: 0
+    explanation: Le texte dit clairement que le nouveau système sert à réduire la consommation de papier
+      et à simplifier le passage en caisse. Les autres réponses ne sont pas indiquées dans le document.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-garde-partagee
+    cefr: B1
+    origin: generated
+    focus: proposition de l'auteur
+    passage: |-
+      Chère Élodie,
+      Merci pour ton message. Ici, tout le monde parle encore des sorties de l’école, et plusieurs parents se retrouvent dans la même situation : les journées finissent trop tôt, mais le travail ne se termine pas plus vite. Avec deux autres familles, nous avons eu une idée simple. Chaque semaine, l’un de nous garde les enfants une heure après les cours, pendant que les autres viennent les chercher un peu plus tard. Cela dépanne tout le monde, sans payer de service extérieur. Si tu es d’accord, on pourra t’ajouter au groupe.
+      Bises,
+      Julien
+    prompt: Que propose l’auteur ?
+    options:
+    - Louer une salle pour les enfants
+    - Organiser une garde partagée
+    - Acheter une poussette commune
+    - Faire payer les parents
+    answer: 1
+    explanation: Julien explique que plusieurs familles garderaient les enfants à tour de rôle après l’école.
+      Les autres options ne reprennent pas cette idée d’organisation collective.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-cafe-de-reparation-2
+    cefr: B1
+    origin: generated
+    focus: opinion du journaliste
+    passage: 'À Saint-Laurent, un café pas comme les autres attire chaque mois des habitants de tout âge.
+      On y apporte une lampe cassée, un grille-pain qui ne chauffe plus ou une veste décousue, et des
+      bénévoles aident à les réparer. Les visiteurs ne repartent pas seulement avec un objet sauvé : ils
+      apprennent aussi à faire de petites réparations eux-mêmes. Le journaliste qui a suivi une séance
+      estime que cette formule a beaucoup d’avenir. Pour lui, elle permet de dépenser moins, de jeter
+      moins et de recréer une forme d’entraide dans le quartier.'
+    prompt: Quelle est l’opinion du journaliste ?
+    options:
+    - Il trouve cela trop compliqué
+    - Il le considère comme un loisir
+    - Il le juge très utile
+    - Il préfère acheter neuf
+    answer: 2
+    explanation: Le journaliste dit que cette formule a « beaucoup d’avenir » et qu’elle permet de dépenser
+      moins et de jeter moins. Les autres réponses contredisent clairement ce jugement positif.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-visites-a-maman
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      Bonjour maman,
+      Nous avons parlé avec Paul et Inès de tes rendez-vous chez le médecin et de tes courses. Nous avons compris que tu faisais beaucoup d’allers-retours toute seule, et ce n’est pas raisonnable. Alors on voudrait s’organiser autrement : un soir sur deux, l’un de nous passerait te voir, ferait quelques achats et t’aiderait pour les papiers. Ainsi, tu ne serais pas obligée de tout porter. Dis-nous simplement si ce rythme te convient, et nous commencerons dès lundi.
+      Affectueusement,
+      Thomas
+    prompt: Que souhaite faire l’auteur ?
+    options:
+    - Partir en vacances avec elle
+    - Vendre la maison familiale
+    - Répartir les visites chez leur mère
+    - Annuler les rendez-vous
+    answer: 2
+    explanation: Thomas veut organiser des visites régulières pour aider sa mère et partager les tâches.
+      Les autres propositions ne correspondent pas au projet décrit.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-achat-d-occasion
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: 'Dans plusieurs villes, les boutiques de seconde main ne désemplissent pas. Vêtements, meubles
+      et vaisselle y trouvent rapidement preneur, surtout auprès des familles qui surveillent leurs dépenses.
+      Loin d’être un choix par défaut, l’occasion devient pour beaucoup une façon réfléchie de consommer.
+      On y cherche des prix plus bas, mais aussi des objets déjà fabriqués, parfois plus solides que certains
+      produits neufs. Les associations locales soulignent un autre avantage : prolonger la durée de vie
+      des objets réduit les déchets. Les achats d’occasion s’installent donc dans les habitudes.'
+    prompt: Quelle est l’idée principale de cet article ?
+    options:
+    - Créer un magasin de luxe
+    - Interdire les soldes
+    - Remplacer les objets par des applis
+    - Acheter d’occasion pour économiser
+    answer: 3
+    explanation: L’article montre que l’achat d’occasion séduit surtout pour faire des économies et prolonger
+      la vie des objets. Les autres réponses ne résument pas le texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-courses-en-vrac
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: 'Depuis un an, la boutique Vrac & Co note un changement chez ses clients. Beaucoup viennent
+      avec leurs propres bocaux et remplissent seulement la quantité nécessaire de pâtes, de riz ou de
+      lessive. Selon la gérante, les familles n’achètent plus « au cas où » : elles comparent davantage
+      les prix et évitent les emballages inutiles. Ce n’est pas seulement une question d’écologie. Avec
+      l’augmentation du coût de la vie, chacun cherche aussi à mieux gérer son budget. La boutique organise
+      donc des conseils pratiques pour apprendre à acheter juste ce qu’il faut.'
+    prompt: Que montre cet article ?
+    options:
+    - Les clients préfèrent les grandes surfaces
+    - Les emballages sont gratuits dans cette boutique
+    - La boutique ferme le samedi
+    - Les ménages adaptent leurs achats à la hausse des prix
+    answer: 3
+    explanation: Le texte explique que les clients achètent en plus petites quantités pour mieux contrôler
+      leurs dépenses face à la hausse du coût de la vie. Les autres options ne correspondent pas à cette
+      évolution.

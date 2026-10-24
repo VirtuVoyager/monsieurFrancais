@@ -44,7 +44,7 @@ class FakeItemWriter:
                 prompt=f"Question {n} ?",
                 options=("Réponse A", "Réponse B", "Réponse C", "Réponse D"),
                 answer=0,
-                explanation="La réponse A est dans le document.",
+                explanation="Le document donne la réponse.",
             )
             for n in range(1, count + 1)
         ]

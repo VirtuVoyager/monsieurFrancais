@@ -1,0 +1,167 @@
+request: ce-bank
+skill: CE
+cefr: A2
+themes:
+- services publics
+- logement
+format: document
+model: gpt-5.4-mini
+key: 71614a20b5543a9515246867cfa7e7e9549e1e895d16fbd8d467e300bbfd447f
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-coupure-deau
+    cefr: A2
+    origin: generated
+    focus: action à faire
+    passage: |-
+      Madame, Monsieur,
+      En raison de travaux sur le réseau, l’eau sera coupée dans votre immeuble le mardi 12 avril, de huit heures à midi. Nous vous demandons de fermer tous les robinets avant de partir et de ne pas utiliser les appareils ménagers pendant ce créneau. Des bouteilles d’eau seront disponibles à l’accueil de la mairie de quartier à partir de sept heures trente.
+    prompt: Que doivent faire les habitants ?
+    options:
+    - Téléphoner à la mairie
+    - Fermer les robinets
+    - Quitter l’immeuble
+    - Payer les travaux
+    answer: 1
+    explanation: Le texte demande clairement de « fermer tous les robinets ». Téléphoner, quitter l’immeuble
+      ou payer les travaux ne sont pas demandés.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-encombrants-gratuits
+    cefr: A2
+    origin: generated
+    focus: ce qu’on propose
+    passage: Vous avez un vieux canapé, une table ou un matelas ? La ville organise une collecte gratuite
+      des encombrants le samedi 20 mai. Pour en profiter, il suffit de signaler vos objets au service
+      propreté avant le mercredi 17 mai, par téléphone ou sur le site de la mairie. Les objets doivent
+      être déposés devant l’immeuble la veille au soir.
+    prompt: Qu’est-ce que la ville propose ?
+    options:
+    - L’enlèvement gratuit des gros objets
+    - La vente de meubles d’occasion
+    - Le prêt d’une camionnette
+    - La réparation des canapés
+    answer: 0
+    explanation: La ville annonce une collecte gratuite des encombrants. Les autres réponses parlent de
+      vente, de prêt ou de réparation, ce qui n’est pas indiqué.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-studio-a-louer
+    cefr: A2
+    origin: generated
+    focus: information précise
+    passage: 'À louer, studio meublé de vingt-huit mètres carrés, au deuxième étage d’une résidence calme.
+      Il comprend une pièce principale, une cuisine équipée et un balcon. Le tram est à trois minutes
+      à pied. Loyer : six cent vingt euros par mois, charges comprises. Disponible à partir du premier
+      juin. Pas d’animaux.'
+    prompt: Quel est l’avantage de ce studio ?
+    options:
+    - Il a un balcon
+    - Il est au rez-de-chaussée
+    - Il possède un jardin
+    - Il accepte les animaux
+    answer: 0
+    explanation: L’annonce précise qu’il y a un balcon. Le studio n’est pas au rez-de-chaussée, n’a pas
+      de jardin et n’accepte pas les animaux.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-travaux-parking
+    cefr: A2
+    origin: generated
+    focus: ce que doit faire le destinataire
+    passage: |-
+      Bonjour Madame Lefèvre,
+      Des travaux auront lieu dans la cour de l’immeuble jeudi et vendredi. Pour permettre l’accès aux ouvriers, merci de retirer votre voiture du parking avant jeudi matin. Le local à vélos restera ouvert, mais la buanderie sera fermée vendredi. Je vous remercie de votre compréhension.
+      Pierre Vannier, gardien
+    prompt: Que doit faire la destinataire ?
+    options:
+    - Fermer le local à vélos
+    - Utiliser la buanderie
+    - Retirer sa voiture
+    - Prévenir les ouvriers
+    answer: 2
+    explanation: Le gardien demande de retirer la voiture du parking. Le local à vélos reste ouvert, la
+      buanderie sera fermée, et il ne demande pas de prévenir les ouvriers.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-dossier-logement
+    cefr: A2
+    origin: generated
+    focus: pièces à fournir
+    passage: |-
+      Bonjour,
+      Votre demande de logement social est en cours d’étude. Pour compléter votre dossier, merci d’envoyer avant le 30 juin une copie de votre dernier avis d’imposition et un justificatif de domicile récent. Vous pouvez déposer ces documents à l’accueil ou les envoyer par courriel. Sans ces pièces, votre demande ne pourra pas être traitée.
+    prompt: Que doit envoyer le destinataire ?
+    options:
+    - Son avis d’imposition et un justificatif de domicile
+    - Sa carte bancaire et son code
+    - Une lettre de recommandation de l'employeur
+    - Un contrat de travail et une fiche de paie
+    answer: 0
+    explanation: Le courriel demande précisément un avis d’imposition et un justificatif de domicile.
+      Les autres propositions ne correspondent pas aux pièces demandées.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-carte-de-bus
+    cefr: A2
+    origin: generated
+    focus: information précise
+    passage: La carte mobilité de la ville permet de voyager en bus à tarif réduit. Elle est réservée
+      aux personnes de plus de soixante-cinq ans et aux étudiants. Pour l’obtenir, il faut présenter une
+      photo d’identité et un justificatif de domicile au bureau des transports, du lundi au vendredi.
+      La carte est valable un an.
+    prompt: Que faut-il présenter pour obtenir la carte ?
+    options:
+    - Un passeport et un billet
+    - Un certificat médical seulement
+    - Une photo et un justificatif
+    - Un formulaire signé par le voisin
+    answer: 2
+    explanation: Le prospectus indique qu’il faut une photo d’identité et un justificatif de domicile.
+      Les autres documents ne sont pas mentionnés.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-chambre-chez-lhabitant
+    cefr: A2
+    origin: generated
+    focus: information précise
+    passage: 'Je loue une chambre lumineuse dans ma maison, pour une personne seule, à partir de septembre.
+      La chambre est meublée et la salle de bains est partagée avec moi. Le quartier est calme et proche
+      de la gare. Je cherche quelqu’un de sérieux, non fumeur. Loyer : quatre cent cinquante euros, électricité
+      comprise. Écrivez-moi pour plus d’informations.'
+    prompt: Qu’est-ce qui est inclus dans le loyer ?
+    options:
+    - Le ménage
+    - L’électricité
+    - Le petit-déjeuner
+    - Le stationnement
+    answer: 1
+    explanation: L’annonce précise que l’électricité est comprise dans le loyer. Le ménage, le petit-déjeuner
+      et le stationnement ne sont pas inclus.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-boites-aux-lettres
+    cefr: A2
+    origin: generated
+    focus: ce qu’on doit faire
+    passage: |-
+      Bonjour,
+      En raison du remplacement des boîtes aux lettres, l’accès au hall sera perturbé lundi matin. Nous vous demandons de ne pas bloquer l’entrée et de récupérer votre courrier après quatorze heures. Les nouveaux noms doivent être indiqués sur chaque boîte avant vendredi. Merci de contacter le syndic si vous avez des questions.
+    prompt: Que doivent faire les habitants avant vendredi ?
+    options:
+    - Indiquer leur nom
+    - Changer de boîte
+    - Aller au bureau de poste
+    - Fermer le hall
+    answer: 0
+    explanation: Le message demande d’indiquer les nouveaux noms sur chaque boîte avant vendredi. Il ne
+      s’agit pas de changer de boîte, d’aller à la poste ou de fermer le hall.

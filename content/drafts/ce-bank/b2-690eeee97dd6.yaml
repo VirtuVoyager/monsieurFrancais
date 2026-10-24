@@ -1,0 +1,215 @@
+request: ce-bank
+skill: CE
+cefr: B2
+themes:
+- services publics
+- logement
+format: document
+model: gpt-5.4-mini
+key: 690eeee97dd6761ef155b66726c1b136cb72dd93d6b448c3c14b4ab7d97ec052
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-guichets-mobiles
+    cefr: B2
+    origin: generated
+    focus: avis de l'auteur
+    passage: |-
+      Des guichets mobiles pour ne pas laisser les villages à l’écart
+
+      Dans la communauté de Valmont, l’administration a décidé de faire circuler deux véhicules équipés pour les démarches courantes : demandes d’état civil, renouvellement de titres, aide aux formulaires en ligne. Selon la mairie, près d’un habitant sur cinq renonce encore à certaines formalités parce qu’il habite trop loin du centre ou qu’il ne maîtrise pas les outils numériques. Depuis trois mois, les équipes se rendent deux fois par semaine dans les bourgs les plus isolés, et la fréquentation est réelle : les rendez-vous sont presque tous pris avant midi.
+
+      L’initiative mérite d’être saluée. Elle rappelle que l’accès au service public ne devrait pas dépendre du code postal. Pour autant, le dispositif ne doit pas servir d’alibi. Un véhicule n’a pas vocation à remplacer des antennes fixes partout où la demande est durable. Les habitants ont aussi besoin de continuité, d’agents identifiés et de réponses complètes, pas d’un passage rapide entre deux tournées. Le vrai succès de cette politique se mesurera donc moins au nombre de kilomètres parcourus qu’à la capacité de la collectivité à maintenir une présence stable, même modeste, dans les zones les plus éloignées.
+    prompt: Quel est l'avis de l'auteur sur ces guichets mobiles ?
+    options:
+    - Ils remplacent utilement les bureaux fermés.
+    - Ils coûtent plus cher que prévu.
+    - Ils concernent surtout les démarches touristiques.
+    - Ils sont utiles, mais pas suffisants.
+    answer: 3
+    explanation: L’auteur dit que l’initiative « mérite d’être saluée », mais précise qu’elle ne doit
+      pas servir d’« alibi » et qu’elle ne remplace pas une présence stable. Les autres propositions ne
+      correspondent ni au jugement ni au contenu du texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-loyers-encadres
+    cefr: B2
+    origin: generated
+    focus: position de l'auteur
+    passage: |-
+      L’encadrement des loyers, un remède imparfait mais réel
+
+      À Riveclaire, où le marché locatif est resté très tendu pendant des années, la municipalité publie des chiffres qui ont relancé le débat. Depuis la mise en place de l’encadrement des loyers, le loyer moyen des nouveaux baux a augmenté de 2,8 % en un an, contre 6,1 % l’année précédente. Dans les quartiers les plus recherchés, la hausse a nettement ralenti, et les services de contrôle ont relevé davantage de contrats conformes qu’au début du dispositif. En revanche, le nombre de logements proposés à la location a baissé de 11 % dans les secteurs où l’offre était déjà faible.
+
+      Faut-il en conclure que la mesure échoue ? Ce serait aller trop vite. L’encadrement ne crée pas de logements, mais il limite les excès et redonne un peu d’air à des ménages qui consacraient une part trop importante de leurs revenus au loyer. Le vrai tort serait de lui demander de résoudre seul une crise qui vient aussi du manque de construction, de la spéculation et du gel de certains terrains. Pris isolément, le dispositif reste insuffisant ; intégré à une politique plus large, il demeure pourtant l’un des rares outils capables de freiner une flambée immédiate.
+    prompt: Quelle est la position de l'auteur sur l'encadrement des loyers ?
+    options:
+    - Il est utile, mais ne suffit pas seul.
+    - Il faut l'abandonner rapidement.
+    - Il est efficace dans tous les cas.
+    - Il profite surtout aux propriétaires.
+    answer: 0
+    explanation: Le texte affirme que la mesure « limite les excès » et qu’elle reste « l’un des rares
+      outils » utiles, mais qu’elle est « insuffisante » seule. Les autres réponses contredisent clairement
+      cette appréciation nuancée.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-demarches-en-ligne
+    cefr: B2
+    origin: generated
+    focus: sens implicite
+    passage: |-
+      Quand la dématérialisation oublie une partie du public
+
+      La préfecture de Montserin s’est félicitée cette semaine du succès de son nouveau portail unique. En théorie, tout y est plus simple : prise de rendez-vous, dépôt de pièces, suivi du dossier et notification des décisions. Les délais de traitement ont bien diminué pour certaines demandes courantes, et l’administration y voit la preuve qu’un service plus numérique est forcément plus efficace. Pourtant, les associations d’usagers décrivent une autre réalité. D’après leur enquête, près d’un tiers des personnes de plus de soixante-cinq ans n’ont jamais réussi à finaliser seules une procédure en ligne. Même chez les actifs, le taux d’abandon reste élevé dès que le dossier devient un peu complexe.
+
+      Le problème n’est donc pas la modernisation en elle-même, mais l’idée qu’un écran suffit à remplacer l’accompagnement humain. En transformant les démarches en parcours entièrement numériques, on transfère sur le citoyen une partie du travail de l’État, sans toujours lui donner les moyens de le faire. Le portail peut être pratique pour certains, mais il devient vite un filtre social pour d’autres. Tant que l’on n’aura pas maintenu des guichets accessibles et du personnel disponible, la promesse de simplicité restera inégale.
+    prompt: Selon le texte, quel est le principal problème de la dématérialisation ?
+    options:
+    - Elle remplace totalement le papier.
+    - Elle réduit les impôts locaux.
+    - Elle laisse certains usagers sans solution.
+    - Elle complique seulement les dossiers urgents.
+    answer: 2
+    explanation: L’article insiste sur les personnes qui n’arrivent pas à terminer une procédure en ligne
+      et sur la nécessité de garder des guichets accessibles. Les autres propositions ne correspondent
+      pas au sens du texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-chambre-partagee
+    cefr: B2
+    origin: generated
+    focus: portée de la solution
+    passage: |-
+      Une chambre chez l’autre, et un peu plus qu’un toit
+
+      Dans plusieurs villes universitaires, la cohabitation intergénérationnelle séduit de plus en plus. Le principe est simple : une personne âgée disposant d’une chambre libre accueille un étudiant en échange d’un loyer modeste, parfois complété par une présence rassurante le soir ou par de petits services du quotidien. Selon l’association Aurore-Logis, plus de deux mille quatre cents binômes ont été constitués en deux ans, avec un taux de maintien élevé au-delà du premier semestre. Les étudiants y trouvent un logement moins cher, les seniors rompent une solitude parfois pesante, et les communes y voient une manière d’optimiser un parc immobilier déjà existant.
+
+      L’engouement est compréhensible. Pour autant, il faut éviter de présenter ce modèle comme la réponse miracle à la crise du logement. D’une part, il repose sur une vraie compatibilité de modes de vie, ce qui limite naturellement le nombre de candidatures. D’autre part, il concerne surtout des chambres disponibles, donc des situations particulières, et non des familles qui cherchent un appartement entier. En réalité, cette formule fonctionne parce qu’elle articule une aide concrète et un bénéfice réciproque. C’est une solution intelligente, mais ciblée, qui complète utilement d’autres dispositifs sans les remplacer.
+    prompt: Que montre surtout l'article sur la cohabitation intergénérationnelle ?
+    options:
+    - Elle règle le manque de logements.
+    - Elle profite surtout aux jeunes diplômés.
+    - Elle concerne uniquement les grandes villes.
+    - Elle apporte une aide réelle mais limitée.
+    answer: 3
+    explanation: Le texte parle d’une formule « intelligente, mais ciblée » qui « complète utilement d’autres
+      dispositifs sans les remplacer ». Cela correspond à l’idée d’une aide réelle mais limitée, et non
+      à une solution totale.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-bureau-de-poste
+    cefr: B2
+    origin: generated
+    focus: conséquence d'une réforme
+    passage: |-
+      Quand fermer le dernier comptoir coûte plus cher
+
+      Dans la vallée de Brévin, plusieurs communes ont perdu leur bureau de poste au profit d’un point relais installé dans une supérette. L’argument avancé par l’opérateur est connu : horaires élargis, dépenses réduites et meilleur rendement. Sur le papier, le calcul paraît rationnel. Dans les faits, les habitants ont surtout vu s’allonger le trajet pour retirer un colis recommandé, faire un envoi important ou obtenir un conseil plus technique. D’après le dernier baromètre local, les réclamations portent moins sur la qualité du service que sur sa disparition progressive à proximité du domicile.
+
+      Cette évolution illustre un travers bien français : confondre gestion et service rendu. Quand l’unique critère devient la baisse des coûts, on finit souvent par déplacer la charge vers les usagers, qui perdent du temps, du carburant et parfois même l’envie d’utiliser le service public. Les décideurs parlent alors d’adaptation, mais ce mot masque mal une logique de retrait. Le point relais peut dépanner, certes, mais il ne suffit pas à garantir l’égalité d’accès. Pour un service de proximité, la question n’est pas seulement de savoir s’il fonctionne, mais s’il reste réellement à portée de ceux qui en ont besoin.
+    prompt: Selon l'auteur, que risque une réforme fondée surtout sur les économies ?
+    options:
+    - D'améliorer la qualité du service.
+    - De créer plus d'emplois locaux.
+    - De renforcer l'égalité d'accès.
+    - De déplacer la charge vers les usagers.
+    answer: 3
+    explanation: Le texte explique que, quand le critère principal est la baisse des coûts, la charge
+      est déplacée vers les usagers qui doivent faire plus de trajet et perdre du temps. Les autres options
+      vont à l’encontre du propos.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-locaux-transformes
+    cefr: B2
+    origin: generated
+    focus: information essentielle
+    passage: |-
+      Transformer des bureaux en logements : une piste séduisante, mais encadrée
+
+      Avec la montée du télétravail, la capitale régionale de Saint-Aven a vu se vider une partie de ses immeubles de bureaux. La ville annonce qu’elle souhaite convertir une partie de cette surface inoccupée en appartements, afin d’accélérer l’offre de logements sans artificialiser de nouveaux terrains. Les chiffres donnent le vertige : près d’un million huit cent mille mètres carrés seraient aujourd’hui vacants dans l’agglomération. Sur le plan politique, l’idée plaît, car elle donne le sentiment d’une réponse rapide à la crise.
+
+      Mais les professionnels du bâtiment rappellent que la réalité est moins simple. Beaucoup d’immeubles sont trop profonds, mal ventilés ou mal situés pour accueillir des habitations conformes. D’autres nécessitent des travaux lourds, notamment pour les issues de secours, l’isolation ou la lumière naturelle. Au final, seule une fraction des locaux pourra vraiment être transformée à coût raisonnable. C’est pourquoi les experts interrogés se montrent prudents : oui, il faut avancer sur cette piste, mais non, elle ne suffira pas à elle seule. Elle peut soulager certaines zones centrales et recycler un patrimoine vide ; elle ne remplacera jamais une politique de construction plus large et plus régulière.
+    prompt: Pourquoi cette solution ne suffit-elle pas, selon le texte ?
+    options:
+    - Les immeubles sont tous protégés.
+    - La plupart des locaux sont déjà occupés.
+    - Les communes n'y voient aucun intérêt.
+    - La transformation est techniquement limitée.
+    answer: 3
+    explanation: Le texte précise que beaucoup d’immeubles sont trop profonds, mal ventilés ou exigent
+      des travaux lourds, ce qui limite fortement les transformations possibles. Les autres réponses ne
+      sont pas appuyées par le document.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-centre-de-sante
+    cefr: B2
+    origin: generated
+    focus: condition de réussite
+    passage: |-
+      Des consultations de proximité pour désengorger les urgences
+
+      Dans l’agglomération de Lormes, la création de centres de santé municipaux fait débat. Ces structures proposent des consultations sans dépassement d’honoraires, avec des infirmiers et des médecins salariés par la collectivité. Selon les premiers chiffres publiés, le temps d’attente aux urgences du secteur a baissé de 18 % depuis l’ouverture du premier centre, notamment parce que des problèmes bénins sont désormais pris en charge plus tôt. Pour les habitants qui n’avaient plus de généraliste disponible, l’effet est immédiat : moins de renoncements aux soins et moins de trajets vers l’hôpital.
+
+      L’auteur voit dans ce modèle une réponse utile à une partie du problème, mais pas une solution isolée. Le succès dépend, dit-il, d’un point précis : ces centres doivent être coordonnés avec les hôpitaux, les pharmacies et les services sociaux du territoire. Sans cette articulation, ils risquent de devenir de simples salles de consultation supplémentaires, sans continuité de suivi. Avec elle, en revanche, ils peuvent jouer un rôle de filtre, orienter les patients vers le bon niveau de prise en charge et réduire les inégalités entre centre-ville et périphérie. Ce n’est donc pas le principe du centre de santé qui est discuté, mais son intégration dans un ensemble cohérent.
+    prompt: À quelle condition, selon l'auteur, ce modèle peut-il vraiment fonctionner ?
+    options:
+    - Qu'il remplace les urgences de l'hôpital.
+    - Qu'il soit coordonné avec d'autres services.
+    - Qu'il soit réservé aux retraités.
+    - Qu'il ferme le soir et le week-end.
+    answer: 1
+    explanation: Le texte dit explicitement que le succès dépend de la coordination avec les hôpitaux,
+      les pharmacies et les services sociaux. Les autres options ne sont pas défendues par l’auteur.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-petits-logements
+    cefr: B2
+    origin: generated
+    focus: sens implicite
+    passage: |-
+      Les micro-logements, réponse utile ou simple affichage ?
+
+      La ville de Montciel inaugure cette semaine une résidence de micro-logements destinée aux jeunes actifs et aux personnes en mobilité professionnelle. Les appartements font entre dix-huit et vingt-quatre mètres carrés, mais ils sont meublés, proches des transports et moins chers que la moyenne du marché local. La municipalité affirme que ce type d’offre permet de libérer rapidement des logements plus grands et de mieux utiliser les parcelles disponibles en centre-ville. Les premiers retours sont favorables, en particulier chez les salariés qui n’ont besoin d’un pied-à-terre que pour quelques mois.
+
+      Le projet a le mérite d’exister, mais il serait excessif d’y voir une réponse globale à la crise du logement. D’abord, la surface réduite et la durée de séjour annoncée montrent bien qu’il s’agit d’un hébergement de transition. Ensuite, ce modèle ne convient ni aux familles, ni aux personnes qui cherchent à s’installer durablement. Enfin, l’abondance d’annonces très compactes peut donner l’illusion d’une politique ambitieuse alors qu’elle ne fait souvent que déplacer le problème. En pratique, les micro-logements rendent service à un public précis, sans résoudre la pénurie de fond ni l’écart entre les revenus et les loyers.
+    prompt: Selon le texte, que faut-il penser des micro-logements ?
+    options:
+    - Ils constituent une solution durable pour tous.
+    - Ils ne servent qu'à embellir les annonces.
+    - Ils dépannent un public limité.
+    - Ils sont trop grands pour les célibataires.
+    answer: 2
+    explanation: L’auteur parle d’un « hébergement de transition » qui « rend service à un public précis
+      » sans résoudre la pénurie de fond. Cela correspond à l’idée qu’ils dépannent un public limité.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-revenus-locatifs
+    cefr: B2
+    origin: generated
+    focus: opinion implicite
+    passage: |-
+      Taxer les logements vacants : un geste symbolique ou un levier réel ?
+
+      À Varenne-sur-Lac, le conseil municipal a voté un renforcement de la taxe sur les logements laissés vides plus de huit mois par an. Les élus espèrent remettre sur le marché plusieurs centaines d’appartements inoccupés, alors que les listes d’attente pour un logement social s’allongent et que les loyers privés continuent de grimper. Les associations de locataires saluent l’annonce, rappelant qu’un bien vide dans un contexte de pénurie n’est pas seulement une anomalie économique, mais aussi un choix politique.
+
+      Le chroniqueur qui commente la décision se montre favorable à l’intention, tout en refusant de la surestimer. À ses yeux, la taxe peut pousser certains propriétaires à louer ou à vendre, surtout lorsque le logement nécessite peu de travaux. Mais elle ne fera pas réapparaître, à elle seule, les biens très dégradés, les successions bloquées ou les immeubles détenus par des investisseurs qui préfèrent attendre une remontée des prix. Le texte insiste donc sur un point : l’outil fiscal est utile parce qu’il envoie un signal clair, mais il ne remplace ni l’accompagnement des propriétaires ni une action plus large sur l’offre de logements. Autrement dit, c’est un instrument parmi d’autres, pas la solution finale.
+    prompt: Quel jugement implicite le chroniqueur porte-t-il sur cette taxe ?
+    options:
+    - Elle peut aider, sans tout résoudre.
+    - Elle est inutile dans tous les cas.
+    - Elle favorise surtout la spéculation.
+    - Elle doit remplacer la construction.
+    answer: 0
+    explanation: Le texte présente la taxe comme un levier possible, capable de pousser certains propriétaires
+      à louer ou à vendre, mais précise qu’elle ne règle pas tout. Les autres options déforment nettement
+      cette position.

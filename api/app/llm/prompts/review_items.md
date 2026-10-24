@@ -15,7 +15,10 @@ Check each item against all of these:
 5. **Level**: the vocabulary, grammar, length and question match the CEFR level in the brief.
 6. **Brief**: the document type, the length, the options and the item-writing rules are
    respected.
-7. **Explanation**: it is accurate.
+7. **Explanation**: it is accurate and quotes options instead of naming their position.
+8. **Speakers**: in a dialogue (one turn per line, starting with "- "), the woman says the
+   first line and they alternate; every pronoun, name and agreement in the document, question,
+   options and explanation matches who actually speaks.
 
 For each item, return one verdict with its `index`:
 - `pass`: every check succeeds. `issues` is empty and `corrected` is null.

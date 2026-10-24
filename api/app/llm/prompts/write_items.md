@@ -8,14 +8,16 @@ For each item:
 - `document`: the complete text of the document. For CO it is exactly what is heard, written as
   natural spoken French: no stage directions, no speaker names, numbers as words where they are
   spoken, and a dialogue laid out as the brief says. For CE it is the text as printed: a notice,
-  an email, an article, with its usual layout reduced to plain text. In the "reply" format it is
-  only the question that is heard.
+  an email, an article, with its usual layout reduced to plain text, and numbers, prices, dates
+  and times in figures as they would be printed (« 18 h 30 », « 12 € »). In the "reply" format
+  it is only the question that is heard.
 - `focus`: what the question tests, in a few French words, chosen from the brief.
 - `question`: one question in French, as it would appear on the exam paper.
 - `options`: exactly four short options in French (in the "reply" format, the four replies).
 - `answer`: the 0-based index of the correct option.
 - `explanation`: one or two French sentences saying where the document gives the answer and why
-  each distractor is wrong.
+  each distractor is wrong. Quote an option's words; never call it « la deuxième réponse » or
+  « la réponse B », because the options are shuffled afterwards.
 
 Make the items worth studying:
 - Write the French an educated native speaker would use in that situation: correct grammar,
@@ -30,4 +32,10 @@ Make the items worth studying:
 - Write distractors a learner at this level might really choose: a detail from the document that
   does not answer the question, a near-miss on a number or a time, a plausible misreading. They
   must be clearly wrong to someone who understood.
+- In a dialogue, keep track of who is speaking: a question about « la femme » or « il » must
+  match the voice that says the line. A monologue may be read by a man or a woman, so avoid
+  first-person forms that show the speaker's gender (« je suis fatigué ») and call the speaker
+  « la personne » in the question and options.
+- Make the key no longer and no more detailed than the distractors, so length gives nothing
+  away; and vary which kind of option is correct, not always the nuanced « utile, mais… ».
 - Use invented names, companies and places; never real people or brands.

@@ -1,0 +1,179 @@
+request: ce-bank
+skill: CE
+cefr: B2
+themes:
+- éducation
+- immigration et intégration
+format: document
+model: gpt-5.4-mini
+key: 03b8ab22e9d46f6e44d8595a47df1dc2e264ed49f43988f4e09ca975c648ba6e
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-telephones-a-l-ecole
+    cefr: B2
+    origin: generated
+    focus: portée de l'interdiction
+    passage: |-
+      Téléphones à l’école : une règle utile, mais pas suffisante
+
+      Dans plusieurs collèges, l’interdiction des téléphones en classe a ravivé un vieux débat. Une enquête menée auprès de vingt établissements montre une baisse des interruptions et des retards de dix minutes, mais aussi des tensions au moment de la confiscation. Dans sa chronique, Mathieu Lenoir reconnaît que les élèves sont plus disponibles quand l’écran disparaît. Cependant, il juge naïf de croire qu’une règle suffit à elle seule. Selon lui, si les enseignants ne proposent pas d’activités claires et si les familles ne comprennent pas le sens de la mesure, le téléphone revient aussitôt sous une autre forme : montre connectée, appareil caché ou simple distraction mentale. L’auteur rappelle en outre que certains usages restent utiles, par exemple pour les élèves allophones ou pour des projets encadrés. Il ne défend donc ni le laxisme ni la confiscation systématique, mais une politique lisible, avec des exceptions précises et une vraie formation à l’attention. Pour lui, l’école doit apprendre aux jeunes à choisir le bon moment d’utiliser le numérique, pas seulement à le ranger dans un tiroir.
+    prompt: Quelle est la position de l’auteur ?
+    options:
+    - Interdire les téléphones sans exception
+    - Associer la règle à un cadre pédagogique clair
+    - Laisser chaque élève libre d’en faire usage
+    - Remplacer les manuels par des écrans
+    answer: 1
+    explanation: Le texte dit clairement que la règle seule ne suffit pas et qu’il faut des activités,
+      des exceptions précises et une formation à l’attention. Les autres propositions contredisent ce
+      refus de l’interdiction absolue ou ajoutent une idée absente du texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-soutien-scolaire-cible
+    cefr: B2
+    origin: generated
+    focus: effet du programme
+    passage: |-
+      Un soutien qui fonctionne mieux avec les familles
+
+      Une étude de la fondation Noria a suivi pendant un an huit cents collégiens inscrits à un programme d’appui scolaire gratuit. Dans les établissements où le suivi était régulier, les résultats en français ont progressé en moyenne de six points, et le décrochage a reculé de neuf pour cent. Mais le rapport nuance les chiffres : les élèves les plus fragiles ont davantage bénéficié du dispositif lorsqu’un adulte de la famille assistait au premier entretien et recevait un bilan mensuel. Sans ce relais, plusieurs adolescents manquaient les séances après quelques semaines. L’auteur du compte rendu en tire une conclusion simple : les cours supplémentaires ne produisent pas les mêmes effets selon le cadre dans lequel ils s’inscrivent. Il ne suffit pas d’offrir des heures de soutien ; il faut aussi expliquer le fonctionnement du programme, fixer des horaires compatibles avec la vie des familles et maintenir un contact avec elles. À ses yeux, le succès du dispositif tient moins au nombre d’heures qu’à la manière de le raccorder à la vie quotidienne.
+    prompt: D’après le texte, de quoi dépend surtout l’efficacité du programme ?
+    options:
+    - Du nombre d’heures de soutien
+    - De l’implication des familles
+    - Du niveau des manuels
+    - De la sélection des élèves
+    answer: 1
+    explanation: Le rapport précise que les meilleurs effets apparaissent quand un adulte de la famille
+      participe au suivi et reçoit des bilans réguliers. Les autres choix sont évoqués de façon générale
+      ou ne sont pas présentés comme décisifs.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-cours-pour-nouveaux
+    cefr: B2
+    origin: generated
+    focus: conditions d'accès
+    passage: |-
+      Des cours de français pensés pour de vrais emplois du temps
+
+      Les centres d’accueil pour nouveaux arrivants proposent de plus en plus de cours de français. Pourtant, les inscriptions n’augmentent pas autant qu’espéré. Dans un article consacré à ce paradoxe, la journaliste Nour Benali cite plusieurs responsables associatifs : beaucoup de personnes travaillent tôt le matin, cumulent des emplois précaires ou s’occupent d’enfants sans solution de garde. Les horaires fixes de journée excluent donc précisément ceux qui auraient le plus besoin d’apprendre rapidement la langue. Le texte montre aussi que les ateliers les plus suivis sont les plus souples : cours du soir, séances le samedi, modules en ligne pour réviser les bases, et présence d’un espace pour les enfants pendant la classe. L’autrice ne présente pas ces aménagements comme des détails pratiques, mais comme une condition d’égalité. À ses yeux, on ne peut pas demander à un nouvel arrivant de participer à la vie sociale si les dispositifs sont pensés pour des personnes déjà disponibles. Elle plaide pour des horaires variés, une information plus simple et un accueil qui tienne compte des contraintes familiales.
+    prompt: Selon le texte, qu’est-ce qui manque le plus souvent aux cours ?
+    options:
+    - Des exercices plus difficiles et plus longs
+    - Des diplômes supplémentaires
+    - Des cours réservés aux cadres diplômés
+    - Des horaires souples et une garde d'enfants
+    answer: 3
+    explanation: Le texte insiste sur des horaires fixes qui excluent les personnes occupées et sur la
+      nécessité d’un espace pour les enfants. Les autres propositions ne correspondent ni au problème
+      décrit ni à la solution défendue.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-diplomes-reconnus
+    cefr: B2
+    origin: generated
+    focus: jugement sur la procédure
+    passage: |-
+      Reconnaître un diplôme, ou laisser perdre des compétences ?
+
+      Chaque année, des milliers de personnes formées à l’étranger acceptent des emplois en dessous de leurs compétences faute de reconnaissance rapide de leur diplôme. Un dossier publié dans Le Courrier civique compare trois provinces : dans la plus réactive, l’évaluation dure en moyenne quatre mois ; dans la plus lente, plus d’un an. Or les employeurs interrogés disent rechercher des infirmiers, des ingénieurs et des techniciens, tandis que des candidats expérimentés attendent une réponse administrative. L’auteur du dossier n’ignore pas les exigences de sécurité ou de qualité, mais il estime que le système actuel confond prudence et méfiance. Selon lui, demander des cours supplémentaires à presque tout le monde, sans distinguer les parcours, revient à gaspiller des compétences déjà acquises. Le texte souligne aussi un effet paradoxal : plus la procédure est longue, plus les candidats finissent par quitter la profession ou le pays. La conclusion est nette : une intégration réussie passe aussi par une reconnaissance plus rapide et plus lisible des qualifications.
+    prompt: Quelle est l’opinion de l’auteur sur la procédure actuelle ?
+    options:
+    - Elle protège bien la qualité
+    - Elle est trop lente et rigide
+    - Elle encourage les reconversions
+    - Elle coûte moins cher aux candidats
+    answer: 1
+    explanation: 'Le dossier parle d’attentes d’un an, de méfiance et de compétences gaspillées : l’auteur
+      juge donc la procédure trop lente et trop rigide. Les autres réponses vont contre le sens général
+      du texte ou ajoutent une idée non présente.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-petit-dejeuner-scolaire
+    cefr: B2
+    origin: generated
+    focus: limites de la mesure
+    passage: |-
+      Le petit-déjeuner à l’école, un progrès réel mais limité
+
+      Dans plusieurs écoles primaires, un petit-déjeuner gratuit a été mis en place pour les enfants qui arrivent sans avoir mangé. Les chiffres publiés par la ville de Merlune semblent encourageants : après six mois, les absences du lundi ont baissé de huit pour cent et les enseignants disent observer moins d’irritabilité en début de matinée. Pourtant, l’éditorialiste Clara Dumesnil refuse d’y voir une solution miracle. Elle rappelle que la faim du matin n’est que l’un des symptômes de la pauvreté et que l’effet du programme reste limité lorsqu’il n’est pas accompagné d’un suivi social ou d’un travail avec les parents. À ses yeux, l’école peut corriger une partie des inégalités, mais elle ne doit pas être chargée de les réparer seule. Elle se félicite donc de l’initiative, tout en regrettant que les pouvoirs publics présentent parfois ce type de mesure comme une réponse suffisante. Le petit-déjeuner aide, écrit-elle, mais il ne remplace ni un logement stable, ni des revenus décents, ni du temps pour préparer la journée des enfants.
+    prompt: Que laisse entendre l’autrice ?
+    options:
+    - Le petit-déjeuner suffit à résoudre la pauvreté
+    - L’école devrait supprimer toutes les aides
+    - Une aide ciblée ne remplace pas une politique plus large
+    - Les parents refusent l’initiative
+    answer: 2
+    explanation: L’autrice reconnaît l’utilité du programme mais insiste sur ses limites et sur la nécessité
+      d’autres politiques sociales. Les autres options déforment son propos ou lui prêtent une critique
+      qu’elle ne formule pas.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-parrainage-local
+    cefr: B2
+    origin: generated
+    focus: intégration réciproque
+    passage: |-
+      Quand l’accueil change aussi les habitants
+
+      Dans la ville de Valmont, un programme de parrainage met en relation des nouveaux arrivants et des habitants déjà installés. Pendant six mois, chaque duo se rencontre au moins deux fois par mois : démarches administratives, découverte du quartier, pratique du français autour d’un café, puis participation à des activités locales. Le bilan chiffré est positif : 72 % des participants disent avoir osé entrer plus facilement dans une association, et 58 % avoir élargi leur réseau professionnel. Mais l’article insiste sur un point moins visible. Si certains binômes fonctionnent bien, c’est parce que les deux personnes y trouvent quelque chose : les nouveaux venus un appui concret, les habitants une meilleure connaissance de leur ville et, souvent, une remise en question de leurs préjugés. L’auteur refuse donc l’idée d’une intégration à sens unique. Il suggère que l’accueil ne consiste pas seulement à aider les autres à s’adapter, mais aussi à modifier les habitudes locales pour rendre la rencontre possible.
+    prompt: Quelle idée le texte défend-il ?
+    options:
+    - Les nouveaux venus doivent s’adapter seuls
+    - Les associations sont inutiles
+    - Le français suffit pour réussir
+    - L’intégration concerne les deux côtés
+    answer: 3
+    explanation: Le texte dit explicitement que l’intégration n’est pas à sens unique et que les habitants
+      changent aussi grâce au programme. Les autres réponses contredisent cette idée centrale ou réduisent
+      le problème à la seule langue.
+- status: rejected
+  issues:
+  - The document is too short for the brief; it does not reach the required 180 words.
+  item:
+    slug: ce-b2-sans-devoirs
+    cefr: B2
+    origin: generated
+    focus: réforme incomplète
+    passage: |-
+      Réduire les devoirs, mais pas la charge scolaire
+
+      Depuis la rentrée, un collège expérimente des week-ends sans devoirs écrits. L’équipe éducative voulait réduire les écarts entre les élèves qui bénéficient d’aide à la maison et ceux qui travaillent seuls. D’après les premiers résultats, les élèves disent moins de stress, et les familles apprécient des soirées plus calmes. Toutefois, les évaluations montrent aussi que les progrès en mathématiques stagnent légèrement chez les classes qui n’ont pas reçu davantage de temps d’entraînement en salle. Dans sa chronique, Hélène Sorel ne rejette pas la réforme, mais elle en souligne les limites : retirer les devoirs n’est pas suffisant si l’on ne réorganise pas les apprentissages en classe. Elle estime même que le vrai défi n’est pas de supprimer le travail à la maison, mais d’offrir à l’école des moments de révision, d’explication et de consolidation pour tous. Autrement dit, l’intention est juste, mais la solution demande un cadre plus ambitieux.
+    prompt: Quel est le jugement de l’autrice ?
+    options:
+    - La réforme devrait être étendue à tous les jours
+    - Elle est utile mais incomplète
+    - Elle pénalise surtout les enseignants
+    - Elle améliore déjà toutes les notes
+    answer: 1
+    explanation: L’autrice reconnaît les effets positifs, mais elle souligne aussi la stagnation en mathématiques
+      et le besoin d’un cadre plus ambitieux. Les autres propositions sont soit trop extrêmes, soit contraires
+      aux données du texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-formation-hybride
+    cefr: B2
+    origin: generated
+    focus: format mixte
+    passage: |-
+      Pour apprendre, le meilleur n’est pas toujours le tout numérique
+
+      Les cours d’alphabétisation destinés aux adultes immigrés sont souvent pensés comme des dispositifs purement numériques ou, au contraire, uniquement en présentiel. Or une enquête menée dans quatre centres de formation montre qu’aucune de ces formules ne suffit à elle seule. Les séances en ligne attirent davantage de participants parce qu’elles évitent les transports et permettent de revoir les leçons, mais les abandons restent fréquents quand les apprenants se sentent isolés. À l’inverse, les ateliers en salle créent une dynamique de groupe et donnent davantage confiance pour parler, mais ils excluent parfois ceux qui travaillent en horaires décalés. La conclusion de l’article est claire : le modèle le plus solide combine des modules courts à distance, un rendez-vous hebdomadaire en face à face et un accompagnement individuel. L’auteure insiste sur le fait que l’intégration ne passe pas seulement par l’accès à une plateforme, mais par un équilibre entre souplesse et présence humaine. Les centres qui ont mis en place cette formule ont vu le taux d’assiduité progresser de près de quinze points.
+    prompt: Quelle formule semble la plus efficace ?
+    options:
+    - Uniquement à distance
+    - Uniquement en présentiel
+    - Des cours individuels sans groupe
+    - Un mélange de distance et de présence
+    answer: 3
+    explanation: L’article conclut explicitement que la formule la plus solide combine modules à distance,
+      rendez-vous en face à face et accompagnement individuel. Les autres options reprennent des dispositifs
+      évoqués, mais précisément présentés comme insuffisants seuls.

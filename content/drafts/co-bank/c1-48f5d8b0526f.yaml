@@ -1,0 +1,208 @@
+request: co-bank
+skill: CO
+cefr: C1
+themes:
+- immigration et intégration
+- culture et loisirs
+format: document
+model: gpt-5.4-mini
+key: 48f5d8b0526f54f9ccdde3d7faff8a2b6aeb94f2d53a20dcc88d0e997cae9b8a
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-programme-passerelles
+    cefr: C1
+    origin: generated
+    focus: objectif du programme
+    audio_text: 'Dans notre ville, beaucoup de personnes arrivent avec un diplôme, une expérience, parfois
+      des enfants, mais sans réseau. Le problème, ce n’est pas seulement la langue ou le logement ; c’est
+      le passage entre le statut de nouvel arrivant et une vraie place dans la cité. C’est pour cela que
+      nous lançons le programme Passerelles. Chaque participant est accompagné par un binôme de bénévoles
+      : on fait d’abord les démarches utiles, puis on découvre les services du quartier, la médiathèque,
+      le centre sportif, les associations. L’idée n’est pas d’imposer un modèle unique ni de remplacer
+      les dispositifs existants. Nous voulons créer des points d’appui concrets, afin que chacun puisse
+      choisir, comprendre, oser parler, et surtout rencontrer des habitants qui ne soient pas seulement
+      des fonctionnaires ou des professeurs. Quand on se sent attendu quelque part, on apprend plus vite
+      et on reste davantage. C’est cela, pour nous, l’intégration : pas une injonction, mais une relation.'
+    prompt: Quel est l’objectif principal du programme présenté ?
+    options:
+    - Créer des points d’appui pour faciliter l’intégration
+    - Multiplier les cours intensifs de français
+    - Recruter des bénévoles pour l’été
+    - Financer des activités de loisirs pour les étudiants
+    answer: 0
+    explanation: Le texte dit clairement que le programme vise à créer des « points d’appui concrets »
+      pour que les nouveaux arrivants trouvent leur place. Les autres propositions ne correspondent qu’à
+      des éléments secondaires ou absents du document.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-rencontres-de-quartier
+    cefr: C1
+    origin: generated
+    focus: implicite sur l’intégration
+    audio_text: |-
+      - Vous insistez beaucoup sur ces ateliers de cuisine et ces sorties au parc. On pourrait croire que ce n’est qu’un supplément sympathique.
+      - Justement, si l’on réduit l’accueil à un dossier bien rempli et à quelques consignes, on passe à côté de l’essentiel.
+      - Vous pensez aux contacts informels ?
+      - Oui. Quand une famille nouvellement arrivée vient préparer un repas avec des voisins, quand un adolescent joue au football avec des jeunes du quartier, il apprend des codes qu’aucun livret n’explique. On ne demande pas aux gens de « s’intégrer » comme on coche une case. On leur donne l’occasion de participer.
+      - Donc, pour vous, la priorité n’est pas d’organiser plus de réunions institutionnelles ?
+      - Elles sont utiles, bien sûr. Mais sans lieux où l’on se rencontre réellement, l’intégration reste un mot abstrait. Ce qui change la donne, c’est la pratique partagée.
+    prompt: Que veut montrer l'homme ?
+    options:
+    - Que la mairie doit contrôler les arrivées
+    - Que les associations sont devenues inutiles
+    - Que l’intégration passe par des activités vécues ensemble
+    - Que les réunions officielles suffisent à créer du lien
+    answer: 2
+    explanation: Il explique que les ateliers, le sport et les repas partagés donnent des codes et créent
+      une participation réelle. Les autres réponses reprennent des idées contredites par le dialogue.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-culture-hospitaliere
+    cefr: C1
+    origin: generated
+    focus: idée principale
+    audio_text: 'On dit souvent que les gens ne vont plus au théâtre, au musée, aux concerts de musique
+      classique. On organise alors des opérations de séduction : un tarif symbolique, une photo sur les
+      réseaux, quelques fauteuils plus confortables. C’est utile, sans doute, mais insuffisant. Le vrai
+      obstacle n’est pas toujours le prix ; c’est le sentiment de ne pas avoir le bon code, le bon regard,
+      la bonne façon de se tenir. Autrement dit, l’institution culturelle reste parfois conçue pour ceux
+      qui savent déjà en pousser la porte. Il ne s’agit pas de simplifier les œuvres ni de les rendre
+      inoffensives. Il s’agit de penser l’accueil, l’accompagnement, la parole, le droit de ne pas tout
+      comprendre d’emblée. Une salle qui explique, qui donne envie de revenir, qui accepte les hésitations,
+      gagne un public plus large sans renoncer à son exigence.'
+    prompt: Quelle est l’idée principale de la chronique ?
+    options:
+    - Multiplier les horaires de soirée
+    - Supprimer les expositions permanentes
+    - Rendre la culture plus accueillante sans l’appauvrir
+    - Réserver les lieux culturels aux connaisseurs
+    answer: 2
+    explanation: La chronique défend une culture plus accessible, mais sans renoncer à l’exigence artistique.
+      Les autres options isolent un détail ou vont à l’encontre du propos.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-scene-partagee
+    cefr: C1
+    origin: generated
+    focus: objectif de la programmation
+    audio_text: |-
+      - Pourquoi avoir invité des troupes très différentes au même événement ? On aurait pu faire un cycle consacré uniquement aux artistes venus d’ailleurs.
+      - C’est précisément ce que nous voulions éviter.
+      - Vous craignez l’effet vitrine ?
+      - Oui. Quand on isole les créateurs selon leur origine, on croit les valoriser, mais on les enferme souvent dans une étiquette. Notre festival réunit des compagnies locales, des artistes récemment installés et des formations plus anciennes, parce que la rencontre artistique vaut mieux qu’un discours sur la diversité.
+      - D’où les ateliers dans les écoles et les répétitions ouvertes ?
+      - Exactement. Le but n’est pas de montrer une différence une fois par an, mais de créer des habitudes de travail communes. Le public vient pour un spectacle, et il repart avec une perception plus large de ce que peut être une scène partagée.
+    prompt: Pourquoi cette programmation a-t-elle été pensée ?
+    options:
+    - Pour refuser un tri par origine et favoriser la rencontre
+    - Pour remplacer les spectacles par des ateliers scolaires
+    - Pour réserver le festival à un public spécialisé
+    - Pour mettre en avant une seule esthétique
+    answer: 0
+    explanation: Le responsable explique que le festival veut éviter d’enfermer les artistes dans leur
+      origine et créer un travail commun. Les autres réponses contredisent directement ce qui est dit.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-premier-accueil
+    cefr: C1
+    origin: generated
+    focus: rôle du centre
+    audio_text: 'Notre centre n’a pas vocation à se substituer aux services sociaux ni aux associations
+      spécialisées. Nous avons plutôt conçu un lieu de première orientation. Une personne arrive, elle
+      ne sait pas toujours à qui parler, ni dans quel ordre faire ses démarches. Ici, elle rencontre un
+      agent qui écoute sa situation, identifie l’urgence, puis la dirige vers le bon interlocuteur : école,
+      santé, emploi, logement, apprentissage du français. Nous proposons aussi des permanences collectives,
+      parce qu’on comprend mieux une ville quand on la parcourt avec d’autres. Plusieurs visiteurs nous
+      disent qu’ils se sentaient perdus dans les formulaires ; après deux ou trois rendez-vous, ils savent
+      où aller et peuvent faire des choix plus sereinement. Ce service est donc moins un guichet qu’un
+      point de départ.'
+    prompt: À quoi sert surtout ce centre ?
+    options:
+    - Enseigner un métier en quelques semaines
+    - Orienter les nouveaux arrivants vers les bons services
+    - Délivrer des titres de séjour aux nouveaux arrivants
+    - Organiser des fêtes locales
+    answer: 1
+    explanation: Le texte insiste sur la « première orientation » et le fait de diriger chacun vers le
+      bon interlocuteur. Les autres options ne sont pas l’objectif principal mentionné.
+- status: rejected
+  issues:
+  - document has 115 words; expected 150 to 250
+  item:
+    slug: co-c1-club-inclusif
+    cefr: C1
+    origin: generated
+    focus: condition d’intégration
+    audio_text: |-
+      - Vous dites que le club accueille tout le monde, mais certains nouveaux inscrits ne reviennent pas.
+      - Parce qu’inscrire une personne ne suffit pas à l’intégrer.
+      - Vous pensez aux vestiaires, aux habitudes du groupe ?
+      - À tout cela. Si les plus anciens se connaissent déjà, rient entre eux et laissent les autres à la marge, la bonne volonté ne dure pas. Il faut des règles simples : des binômes qui changent, des entraînements mixtes, et surtout un encadrement qui surveille les petites exclusions.
+      - Donc, l’objectif n’est pas seulement sportif.
+      - Non. Le sport peut aider, à condition d’organiser la rencontre. Sinon, on reproduit les frontières du dehors à l’intérieur du club.
+    prompt: Que reconnaissent les deux interlocuteurs ?
+    options:
+    - Qu’une activité commune doit être encadrée pour inclure vraiment
+    - Qu’il faut séparer les groupes selon la langue
+    - Qu’un club doit réduire les entraînements
+    - Que le sport suffit toujours à créer du lien
+    answer: 0
+    explanation: Ils s’accordent sur le fait qu’il faut des règles et un encadrement pour que la rencontre
+      produise de l’inclusion. Les autres propositions s’éloignent de ce constat ou le contredisent.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-loisirs-citoyens
+    cefr: C1
+    origin: generated
+    focus: attitude du chroniqueur
+    audio_text: 'On présente souvent les loisirs comme un luxe, une récompense après les choses sérieuses.
+      Cette façon de voir est trompeuse. Dans un quartier où les habitants se croisent peu, une bibliothèque
+      de rue, un atelier de danse, une projection en plein air ou un cercle de jeu ne sont pas des fioritures
+      ; ce sont des lieux où l’on apprend à coexister sans se ressembler. Le plaisir partagé n’est pas
+      l’ennemi de la citoyenneté, il en est parfois la condition. Bien sûr, il ne faut pas idéaliser un
+      concert de quartier comme s’il allait résoudre les inégalités. Mais on aurait tort de croire que
+      la culture de proximité est un simple divertissement. Elle tisse des habitudes de présence, de respect,
+      d’écoute. En ce sens, la vraie question n’est pas : « Faut-il de la culture pour s’amuser ? » C’est
+      plutôt : « Comment une ville choisit-elle de vivre ensemble ? »'
+    prompt: Quel est le point de vue du chroniqueur ?
+    options:
+    - Les loisirs doivent rester réservés à l’élite
+    - La culture de quartier est une dépense inutile
+    - Les loisirs peuvent favoriser le lien collectif
+    - Le loisir relève surtout d’une obligation administrative
+    answer: 2
+    explanation: Le chroniqueur défend l’idée que les loisirs et la culture de proximité contribuent au
+      vivre-ensemble. Les autres propositions déforment complètement son jugement.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-loisir-dintegration
+    cefr: C1
+    origin: generated
+    focus: structure du raisonnement
+    audio_text: 'Quand une personne s’installe dans un pays nouveau, on lui demande d’abord de comprendre
+      les règles, de trouver un logement, de travailler, d’apprendre la langue. Tout cela est essentiel.
+      Mais si l’on s’arrête là, on oublie qu’un individu ne vit pas seulement de procédures. Il a aussi
+      besoin de récits, de repos, de moments gratuits, de lieux où l’on partage quelque chose sans devoir
+      tout expliquer. C’est pour cela que nous défendons l’accès aux activités culturelles dès les premiers
+      mois d’installation. Non pas comme une récompense une fois les démarches terminées, mais comme un
+      appui pour les accomplir. Aller au cinéma avec des voisins, suivre un atelier de photographie, participer
+      à une chorale : ce sont parfois ces expériences qui donnent confiance pour oser ensuite téléphoner,
+      demander, s’inscrire, parler. Le loisir, loin d’être un supplément, peut devenir une étape de l’intégration.'
+    prompt: Comment l’intervenante organise-t-elle son argumentation ?
+    options:
+    - Elle part d’un besoin concret puis élargit à une idée générale
+    - Elle raconte une anecdote personnelle sans en tirer de conclusion
+    - Elle oppose deux partis politiques
+    - Elle accumule surtout des données chiffrées sur l'immigration
+    answer: 0
+    explanation: L’intervenante commence par les besoins très concrets du nouvel arrivant, puis élargit
+      à une thèse sur le rôle des activités culturelles. Les autres options ne correspondent pas à la
+      progression du discours.

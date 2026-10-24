@@ -1,0 +1,202 @@
+request: ce-bank
+skill: CE
+cefr: B2
+themes:
+- environnement
+- technologie
+format: document
+model: gpt-5.4-mini
+key: 52875bf6b99c6193735f1fe036641dda1b529dbabae8862aa712ff509b496f54
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-arrosage-intelligent
+    cefr: B2
+    origin: generated
+    focus: position de l’auteur
+    passage: |-
+      Arrosage intelligent : la promesse, et ses limites
+
+      Depuis le printemps, la ville de Valmont teste dans trois parcs un système d’arrosage piloté par des capteurs d’humidité. Quand la terre est suffisamment sèche, les tuyaux s’activent ; sinon, l’eau est coupée automatiquement. Selon la municipalité, la consommation a baissé de 28 % en quatre mois, et les équipes techniques ont réduit de 15 % leurs tournées. À première vue, l’opération semble donc gagnante.
+
+      Il serait toutefois naïf d’y voir une solution miracle. Les capteurs ne détectent ni les fuites dans les canalisations, ni l’effet d’une vague de chaleur prolongée sur certaines espèces fragiles. Surtout, les jardiniers doivent encore interpréter les données et ajuster les réglages : sans suivi humain, le système se trompe autant qu’il économise. La ville a d’ailleurs dû remplacer plusieurs sondes mal installées par des modèles plus précis.
+
+      L’intérêt de cette technologie n’est pas de supprimer le métier de terrain, mais de lui éviter des tâches répétitives et de mieux cibler les interventions. Autrement dit, l’arrosage « intelligent » devient réellement pertinent lorsqu’il s’inscrit dans une stratégie globale de gestion de l’eau, et non lorsqu’on l’utilise comme un gadget destiné à afficher une modernité de façade.
+    prompt: Quelle est la position de l’auteur sur ce système ?
+    options:
+    - Il remplace avantageusement les jardiniers.
+    - Il coûte trop cher pour être testé.
+    - Il ne sert qu’en période de chaleur.
+    - Il est utile, mais doit rester encadré.
+    answer: 3
+    explanation: L’auteur dit que le système réduit la consommation, mais qu’il ne fonctionne bien qu’avec
+      un suivi humain et une stratégie globale. Les autres propositions vont trop loin ou contredisent
+      le texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-ia-et-energie
+    cefr: B2
+    origin: generated
+    focus: idée principale
+    passage: |-
+      IA et énergie : sortir du faux débat
+
+      À entendre certains discours, l’intelligence artificielle serait soit une menace absolue pour le climat, soit une invention totalement anodine. La réalité est plus nuancée. Une étude publiée cette semaine rappelle qu’une simple requête textuelle consomme relativement peu, mais que l’usage massif de modèles complexes, notamment pour l’image et la vidéo, finit par peser sur les centres de données. Dans le même temps, les auteurs soulignent que ces outils permettent aussi de réduire certaines dépenses : une entreprise de logistique a par exemple diminué de 40 % le temps passé à rédiger des comptes rendus internes grâce à un modèle local, moins gourmand qu’un service distant.
+
+      Le vrai enjeu n’est donc pas de sacraliser l’IA ni de la condamner en bloc, mais de distinguer les usages. Faut-il générer dix versions d’un même slogan ou réserver les calculs lourds à des tâches réellement utiles ? Faut-il exiger des fournisseurs qu’ils publient leur consommation électrique et la part d’énergies renouvelables utilisée ? C’est à ces questions qu’il faut répondre si l’on veut éviter que la technologie ne progresse en silence, tandis que sa facture écologique est supportée par tous.
+    prompt: Quel est le message principal du texte ?
+    options:
+    - Il faut bannir l’IA au nom de l’écologie.
+    - L’IA n’a aucun impact énergétique.
+    - Il faut mesurer et limiter certains usages de l’IA.
+    - Les modèles locaux sont toujours moins performants.
+    answer: 2
+    explanation: Le texte défend une utilisation sélective, avec des données de consommation publiées.
+      Il ne prône ni l’interdiction, ni l’innocuité totale de l’IA, ni une supériorité systématique des
+      modèles locaux.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-prime-a-reparer
+    cefr: B2
+    origin: generated
+    focus: ce qu’on apprend dans le texte
+    passage: |-
+      Réparer, enfin rentable ?
+
+      Un an après l’élargissement de la prime à la réparation, le ministère de la Transition écologique publie un premier bilan encourageant. Sur la période, le nombre d’appareils pris en charge par des ateliers labellisés a augmenté de 9 % à 17 % selon les catégories, tandis que 3 200 tonnes de déchets ont été évitées. Les téléviseurs et les machines à laver figurent parmi les objets les plus souvent réparés, car la réduction de prix y est désormais significative.
+
+      Mais l’étude met aussi en lumière une fracture territoriale. Dans les grandes agglomérations, les consommateurs trouvent facilement un réparateur en moins de dix kilomètres. À l’inverse, dans certaines zones rurales, il faut parcourir plus de trente kilomètres, voire renoncer faute de professionnel agréé. Résultat : la prime est bien utilisée là où l’offre existe déjà, beaucoup moins ailleurs.
+
+      Pour l’auteur du rapport, l’aide publique a donc prouvé son efficacité, mais elle ne suffit pas à elle seule. Sans réseau d’ateliers, sans pièces détachées disponibles et sans information claire au moment de l’achat, le réflexe de réparation reste fragile. La mesure fonctionne, conclut-il, à condition d’être accompagnée d’une politique plus large en faveur de la durée de vie des équipements.
+    prompt: Qu’apprend-on surtout dans ce texte ?
+    options:
+    - Les téléviseurs sont devenus les objets les plus jetés.
+    - La prime marche, mais seulement si l’offre de réparation suit.
+    - Les zones rurales reçoivent davantage d’aide que les villes.
+    - La réparation a remplacé l’achat de neuf partout.
+    answer: 1
+    explanation: Le bilan est positif, mais le texte insiste sur la nécessité d’un réseau de réparateurs
+      et de pièces détachées. Les autres options déforment les données ou inversent la situation décrite.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-chaleur-des-serveurs
+    cefr: B2
+    origin: generated
+    focus: conséquence implicite
+    passage: |-
+      Quand les serveurs chauffent des logements
+
+      Dans le quartier des Rives, un centre de données alimente désormais le réseau de chaleur municipal. La chaleur produite par ses serveurs, auparavant dissipée dans l’air, est récupérée puis envoyée vers deux ensembles d’immeubles et une école. Selon la société exploitante, ce dispositif couvre près de 12 % des besoins de chauffage du secteur pendant l’hiver et permet d’éviter l’émission de plusieurs centaines de tonnes de CO2 par an.
+
+      L’idée séduit, car elle donne une seconde vie à une énergie perdue. Toutefois, les ingénieurs interrogés dans l’article rappellent que la solution n’a rien d’automatique. Elle exige une proximité géographique entre le centre de données et les bâtiments à chauffer, un investissement élevé dans les conduites, ainsi qu’une activité informatique relativement stable. Quand les serveurs tournent moins, la chaleur récupérable baisse aussi.
+
+      L’auteur se montre donc favorable, mais refuse l’enthousiasme facile. Pour lui, ces projets ont de la valeur lorsqu’ils s’intègrent à une planification urbaine cohérente ; ils deviennent moins convaincants dès qu’on les présente comme une réponse universelle à la transition énergétique. La récupération de chaleur n’est pas un slogan : c’est un outil parmi d’autres, utile dans certains cas précis.
+    prompt: Que suggère implicitement l’auteur ?
+    options:
+    - Cette solution suffit à elle seule pour chauffer une ville.
+    - Cette solution fonctionne surtout quand les serveurs s’arrêtent.
+    - Cette solution est prometteuse, mais elle reste limitée.
+    - Cette solution ne réduit jamais les émissions.
+    answer: 2
+    explanation: Le texte souligne des avantages réels, mais aussi des contraintes de distance, de coût
+      et d’activité. Les autres réponses contredisent directement ces éléments.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-tarifs-electriques
+    cefr: B2
+    origin: generated
+    focus: sens implicite
+    passage: |-
+      Tarifs électriques : qui gagne, qui perd ?
+
+      Depuis l’an dernier, plusieurs fournisseurs proposent des tarifs dynamiques : l’électricité coûte moins cher à certaines heures, plus cher à d’autres. L’objectif affiché est simple : déplacer une partie de la consommation vers les moments où le réseau est moins sollicité. D’après les premiers relevés, les foyers qui peuvent programmer leurs usages – lave-linge, recharge d’un vélo électrique, chauffe-eau – réalisent des économies de 8 à 12 % sur leur facture.
+
+      Le problème apparaît dès qu’on regarde la situation de plus près. Les ménages qui travaillent tôt le matin, les familles nombreuses ou les logements chauffés à l’électricité disposent de marges de manœuvre bien plus réduites. Pour eux, la facture peut même augmenter, car on ne choisit pas toujours l’heure à laquelle on rentre, on cuisine ou on se chauffe. Le mécanisme récompense donc la flexibilité plus qu’il ne récompense la sobriété.
+
+      L’auteur ne rejette pas l’idée, mais il en pointe clairement l’effet social. À ses yeux, un tarif variable peut être pertinent s’il reste lisible et s’accompagne de protections pour les usagers les plus contraints. Sans cela, il risque de transformer une innovation présentée comme écologique en outil de tri entre ceux qui peuvent adapter leur vie et ceux qui ne le peuvent pas.
+    prompt: Quelle idée implicite se dégage du texte ?
+    options:
+    - Ces tarifs simplifient la vie de tous les ménages.
+    - Ces tarifs ne concernent que les grandes entreprises.
+    - Ces tarifs peuvent creuser les inégalités.
+    - Ces tarifs font baisser la facture sans effort.
+    answer: 2
+    explanation: Le texte explique que les foyers flexibles gagnent, tandis que d’autres peuvent payer
+      plus. Cela implique un risque d’inégalités, contrairement aux autres propositions.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-materiel-reconditionne
+    cefr: B2
+    origin: generated
+    focus: opinion de l’auteur
+    passage: |-
+      Le reconditionné, un choix secondaire ?
+
+      Chaque année, des millions de téléphones, d’ordinateurs portables et de tablettes quittent les rayons alors qu’ils fonctionnent encore très bien. Or, selon une enquête publiée dans un magazine spécialisé, la remise en état d’un appareil émet en moyenne six fois moins de gaz à effet de serre que la fabrication d’un modèle neuf. Mieux encore, 1,8 million d’équipements ont été reconditionnés l’an dernier dans le pays, un chiffre en hausse de 22 %.
+
+      Le bilan écologique est donc net. Pourtant, les obstacles persistent : certains consommateurs doutent de la garantie, d’autres redoutent une batterie usée ou l’absence de pièces de rechange. L’article rappelle aussi que les administrations, les écoles et les entreprises ont un rôle décisif, car leurs achats en volume peuvent faire basculer le marché.
+
+      Pour l’auteur, le reconditionné ne doit plus être perçu comme une solution de seconde zone réservée aux budgets serrés. Il devrait devenir un réflexe normal chaque fois que l’usage prévu ne justifie pas l’achat d’un appareil flambant neuf. Dans cette perspective, la vraie modernité n’est pas de remplacer plus vite, mais de faire durer davantage ce que l’on possède déjà.
+    prompt: Comment l’auteur voit-il le matériel reconditionné ?
+    options:
+    - Comme une solution normale à privilégier.
+    - Comme une option trop risquée pour être fiable.
+    - Comme un marché utile seulement aux administrations.
+    - Comme un choix réservé aux appareils défectueux.
+    answer: 0
+    explanation: L’auteur dit explicitement que le reconditionné devrait devenir un réflexe normal, pas
+      un pis-aller. Les autres options restreignent ou déforment sa position.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-livraisons-a-velo
+    cefr: B2
+    origin: generated
+    focus: idée principale
+    passage: |-
+      Livrer la ville autrement
+
+      Dans le centre de Lormont, plusieurs commerces ont adopté la livraison à vélo cargo pour les petits colis. L’étude menée sur six mois montre que chaque vélo remplace en moyenne six utilitaires sur les trajets de moins de trois kilomètres, avec à la clé moins de bruit, moins d’embouteillages et des livraisons souvent plus rapides aux heures de pointe. Pour les rues étroites, où le stationnement est difficile, l’intérêt est évident.
+
+      Cependant, l’auteur refuse de présenter cette pratique comme une solution miracle. Les vélos cargo ne conviennent ni aux marchandises lourdes, ni aux longues distances, ni aux quartiers mal desservis par des pistes cyclables. Plusieurs commerçants interrogés soulignent aussi qu’il faut des points de chargement bien placés pour éviter de perdre du temps entre deux tournées.
+
+      Le texte défend donc une approche pragmatique : la ville n’a pas besoin d’opposer vélo et camion, mais de réserver chaque mode de transport aux situations où il est le plus pertinent. En clair, le vélo cargo n’est pas l’avenir unique de la logistique urbaine ; il en est une composante efficace, à condition que l’aménagement urbain suive.
+    prompt: Quelle est l’idée principale du texte ?
+    options:
+    - Le vélo cargo est utile dans certains trajets urbains.
+    - Le camion reste le seul moyen efficace en ville.
+    - La livraison à vélo est toujours plus rapide.
+    - Les commerces doivent abandonner leurs livraisons.
+    answer: 0
+    explanation: Le texte montre des avantages concrets, mais aussi des limites claires, et conclut à
+      une utilisation ciblée. Les autres options sont trop absolues ou contraires au texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-fuites-deau
+    cefr: B2
+    origin: generated
+    focus: ce qu’on apprend dans le texte
+    passage: |-
+      Des capteurs contre les fuites
+
+      Dans plusieurs immeubles anciens de la ville de Bréval, des capteurs connectés ont été installés sur les compteurs d’eau. Leur rôle : alerter le syndic lorsqu’une consommation inhabituelle laisse penser qu’une fuite s’est déclarée. Après huit mois d’expérimentation, le bilan est intéressant : les pertes d’eau ont diminué de 35 %, et trois dégâts importants ont été détectés avant d’endommager les appartements voisins.
+
+      Mais le système ne fait pas l’unanimité. Certains habitants jugent les messages trop fréquents, notamment lorsque des pics de consommation sont provoqués par des fêtes de famille ou des travaux. D’autres s’inquiètent de la manière dont les données sont conservées : qui y a accès, combien de temps, et dans quel but ? Les gestionnaires répondent que les relevés sont anonymisés, mais reconnaissent que la confiance dépendra de règles plus claires.
+
+      L’article n’affirme donc pas que la technologie suffit à elle seule. Au contraire, il montre qu’un outil efficace peut devenir contesté s’il n’est pas accompagné d’un cadre transparent et d’une maintenance régulière. Le résultat est positif, mais seulement si l’on accepte que la technique, à elle seule, ne remplace ni la vigilance humaine ni des règles de gestion précises.
+    prompt: Qu’apporte surtout le texte ?
+    options:
+    - La technologie est utile, mais elle doit être encadrée.
+    - Les capteurs suppriment tous les problèmes d’eau.
+    - Les habitants refusent toute nouveauté technique.
+    - Les fuites n’existent que dans les grands immeubles.
+    answer: 0
+    explanation: Le bilan est positif, mais le texte insiste sur la nécessité de règles transparentes
+      et d’un suivi humain. Les autres propositions ne correspondent pas au contenu.

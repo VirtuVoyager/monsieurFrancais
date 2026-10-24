@@ -1,0 +1,197 @@
+request: co-bank
+skill: CO
+cefr: B2
+themes:
+- famille et société
+- alimentation
+format: document
+model: gpt-5.4-mini
+key: 2462b68c2ac3060892d599eaae7564bac8c74111cb9b970deda1a03ab5887f6d
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-diner-familial
+    cefr: B2
+    origin: generated
+    focus: point de vue
+    audio_text: 'On aimerait croire qu''un dîner en famille règle tout : les tensions, la fatigue, les
+      écrans. En réalité, le repas partagé n''est pas un rituel sacré ; c''est un espace possible parmi
+      d''autres. Dans certaines maisons, on se voit chaque soir ; dans d''autres, le dimanche suffit,
+      et cela peut aussi nourrir les liens. Ce qui compte, ce n''est pas la fréquence idéale, mais le
+      moment où l''on se parle sans être interrompus. Il faut donc cesser d''opposer les familles « exemplaires
+      » aux autres. Le lien se construit aussi dans des formes plus souples, plus ordinaires, et parfois
+      moins visibles.'
+    prompt: Quelle est l'idée principale du locuteur ?
+    options:
+    - Il faut dîner ensemble tous les soirs, sans exception.
+    - Le dîner familial n'a plus aucune valeur.
+    - Seuls les repas du dimanche comptent vraiment pour la famille.
+    - Le repas partagé reste utile, mais sans modèle unique.
+    answer: 3
+    explanation: Le locuteur dit que le repas partagé est un « espace possible » et qu'il n'existe pas
+      de fréquence idéale, donc il défend une pratique utile mais flexible. Les autres réponses sont trop
+      absolues ou réduisent son propos à un seul jour.
+- status: fixed
+  issues:
+  - The document is too short for the brief.
+  item:
+    slug: co-b2-menu-vegetarien
+    cefr: B2
+    origin: generated
+    focus: intention du projet
+    audio_text: |-
+      - Vous avez introduit un menu végétarien une fois par semaine dans les cantines du réseau. Pourquoi avoir choisi cette formule ?
+      - Parce que nous voulions avancer sans brusquer les habitudes. Si l'on impose trop vite, on suscite du rejet ; si l'on propose un plat pensé pour être bon, les gens acceptent plus volontiers.
+      - Certains disent pourtant que c'est une mesure surtout symbolique.
+      - Je préfère parler d'essai concret. Nous observons les retours, nous ajustons les recettes, et nous regardons aussi le gaspillage. Notre objectif n'est pas de donner des leçons, mais de faire évoluer les pratiques de façon durable. Nous préférons vérifier ce qui fonctionne sur le terrain plutôt que lancer une réforme spectaculaire.
+    prompt: Quel est l'objectif de cette mesure, selon le locuteur ?
+    options:
+    - Imposer une nouvelle règle à tout le monde.
+    - Tester un changement progressif et accepté.
+    - Réduire uniquement le coût des repas.
+    - Satisfaire d'abord des militants.
+    answer: 1
+    explanation: Le locuteur insiste sur une démarche d'« essai concret », progressive et adaptable. Il
+      refuse l'idée d'une imposition, d'une simple économie ou d'une opération militante.
+- status: fixed
+  issues:
+  - The document is too short for the brief.
+  item:
+    slug: co-b2-garde-des-enfants
+    cefr: B2
+    origin: generated
+    focus: rôle des grands-parents
+    audio_text: |-
+      - Chez nous, les grands-parents gardent les enfants deux après-midi par semaine. C'est une chance, non ?
+      - Bien sûr, et beaucoup de familles tiennent grâce à cela. Mais il ne faut pas transformer cette aide en norme invisible.
+      - Vous pensez aux parents qui n'ont personne près d'eux ?
+      - Oui, et aussi à ceux qui culpabilisent parce qu'ils ne peuvent pas compter sur la famille. L'aide des aînés est précieuse quand elle existe, mais elle ne devrait pas masquer le besoin de solutions plus larges pour la garde et les horaires de travail. Il faut penser aussi aux crèches, aux horaires flexibles et aux aides de proximité. On ne peut pas construire une politique familiale sur la seule disponibilité des grands-parents.
+    prompt: Que sous-entend le locuteur ?
+    options:
+    - L'aide familiale est utile, mais elle ne remplace pas tout.
+    - Les grands-parents doivent garder les enfants chaque semaine.
+    - Les parents devraient refuser l'aide des aînés.
+    - Les horaires de travail ne posent aucun problème.
+    answer: 0
+    explanation: Le locuteur reconnaît la valeur de l'aide des grands-parents, tout en disant qu'elle
+      ne doit pas masquer le besoin d'autres solutions. Les autres réponses déforment son propos ou l'exagèrent.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-cuisine-partagee
+    cefr: B2
+    origin: generated
+    focus: objectif du centre
+    audio_text: 'Dans ce centre de quartier, on vient cuisiner ensemble une soupe, un plat complet ou
+      un dessert simple. Certains participants repartent avec un repas, d''autres le laissent à des voisins
+      âgés ou à des familles isolées. L''animatrice, elle, insiste sur un point : le succès du lieu ne
+      se mesure pas seulement aux portions distribuées. Depuis l''ouverture, des personnes qui ne se parlaient
+      jamais échangent des recettes, des astuces et parfois des nouvelles du quartier. Une retraitée raconte
+      qu''elle n''osait plus inviter personne chez elle ; aujourd''hui, elle a repris l''habitude de recevoir.
+      Ici, manger sert aussi à recréer des liens.'
+    prompt: Quel est le but principal de ce centre, d'après le reportage ?
+    options:
+    - Distribuer des repas gratuits.
+    - Apprendre la grande cuisine.
+    - Créer du lien entre les habitants.
+    - Vendre des plats faits maison.
+    answer: 2
+    explanation: Le reportage explique que le lieu ne sert pas seulement à donner à manger, mais à faire
+      se rencontrer les habitants et à rompre l'isolement. Les autres options ne correspondent qu'à une
+      partie secondaire ou sont fausses.
+- status: fixed
+  issues:
+  - The document is too short for the brief.
+  item:
+    slug: co-b2-etiquettes-alimentaires
+    cefr: B2
+    origin: generated
+    focus: attitude envers les labels
+    audio_text: |-
+      - Vous regardez encore tous ces labels sur les emballages ?
+      - De moins en moins. J'ai l'impression qu'on me demande surtout de faire confiance à des logos, alors que je préfère comprendre ce que j'achète.
+      - Donc vous ne faites plus attention à la qualité ?
+      - Au contraire. Je lis la liste des ingrédients, je compare, et je me méfie quand l'étiquette promet trop. Un produit peut être très correct sans être couvert de sigles rassurants. Ce qui m'intéresse, c'est la composition réelle, pas le discours autour de l'emballage. Je préfère acheter moins, mais mieux, et garder un regard critique sur les promesses trop belles. Un logo rassurant ne remplace pas une vraie lecture.
+    prompt: Quelle est l'attitude de l'homme envers les labels ?
+    options:
+    - Il les trouve indispensables.
+    - Il les collectionne par principe.
+    - Il ne lit jamais les ingrédients.
+    - Il s'en méfie un peu.
+    answer: 3
+    explanation: L'homme dit qu'il se méfie des logos et qu'elle préfère vérifier la composition réelle.
+      Les autres propositions contredisent directement ses paroles ou caricaturent sa position.
+- status: fixed
+  issues:
+  - The document is too short for the brief.
+  item:
+    slug: co-b2-courses-en-famille
+    cefr: B2
+    origin: generated
+    focus: partage des tâches
+    audio_text: 'On dit souvent que les familles mangent moins bien parce qu''elles manquent de temps.
+      C''est partiellement vrai, mais ce n''est pas toute l''histoire. Dans beaucoup de foyers, une seule
+      personne pense au menu, fait les courses, vérifie ce qu''il reste, puis improvise le soir. À ce
+      stade, le problème n''est plus seulement l''emploi du temps : c''est la répartition des tâches.
+      Quand tout repose sur la même personne, elle choisit naturellement les solutions les plus rapides,
+      pas forcément les plus équilibrées. Parler d''alimentation, c''est donc aussi parler de partage
+      et d''organisation collective. Sinon, on parle d''équilibre alimentaire sans regarder qui porte
+      réellement la charge. C''est là que les habitudes se jouent.'
+    prompt: Selon le locuteur, quel est le vrai problème ?
+    options:
+    - Le manque de magasins près du domicile.
+    - L'absence de recettes simples.
+    - Le prix des produits surgelés.
+    - La répartition inégale des tâches.
+    answer: 3
+    explanation: Le locuteur dit clairement que le problème dépasse le manque de temps et tient surtout
+      au fait qu'une seule personne assume tout. Les autres options ne sont pas le centre de son argument.
+- status: fixed
+  issues:
+  - The document is too short for the brief.
+  item:
+    slug: co-b2-repas-a-preparer
+    cefr: B2
+    origin: generated
+    focus: raison de l'abonnement
+    audio_text: |-
+      - Vous utilisez ce service de paniers avec les ingrédients déjà dosés. Qu'est-ce qui vous a convaincus ?
+      - D'abord, la facilité. En semaine, on rentre tard, on n'a pas l'énergie de chercher une idée ni de refaire des courses.
+      - Pourtant, vous aimez cuisiner, non ?
+      - Oui, quand on a du temps. Là, il s'agit surtout de garder un repas maison sans y passer la soirée. Ce n'est pas une affaire de prestige culinaire ; c'est une manière d'éviter les improvisations de dernière minute et de manger correctement malgré les horaires. On sait à l'avance ce qu'on va cuisiner, ce qui enlève beaucoup de stress.
+    prompt: Pourquoi ont-ils choisi ce service ?
+    options:
+    - Pour cuisiner des plats raffinés.
+    - Pour suivre un régime strict.
+    - Pour gagner du temps le soir.
+    - Pour faire baisser leurs factures.
+    answer: 2
+    explanation: 'Ils disent que le service leur évite de chercher une idée, de faire des courses et d''y
+      passer la soirée : la raison principale est donc le gain de temps. Les autres réponses ne sont pas
+      mentionnées ou sont secondaires.'
+- status: fixed
+  issues:
+  - The document is too short for the brief.
+  item:
+    slug: co-b2-budget-alimentaire
+    cefr: B2
+    origin: generated
+    focus: réaction aux prix
+    audio_text: Quand le budget alimentaire se resserre, beaucoup de foyers ne renoncent pas à bien manger
+      ; ils changent de stratégie. On prépare davantage à la maison, on planifie les repas, on achète
+      moins de produits prêts à consommer. Ce n'est pas un retour en arrière, plutôt une forme d'adaptation.
+      Les familles qui y parviennent ne sont pas celles qui se privent le plus, mais celles qui anticipent.
+      Autrement dit, la hausse des prix oblige à être plus attentif, plus organisé, parfois plus inventif,
+      sans pour autant transformer chaque repas en sacrifice. Cela demande un peu d'organisation, mais
+      pas un renoncement. Au contraire, on garde une alimentation correcte tout en s'adaptant.
+    prompt: Quelle est l'attitude de la locutrice face à cette situation ?
+    options:
+    - Elle la juge dramatique et sans issue.
+    - Elle regrette le temps des produits industriels.
+    - Elle la présente comme une adaptation possible.
+    - Elle pense que rien ne doit changer.
+    answer: 2
+    explanation: La locutrice insiste sur l'« adaptation » et sur l'inventivité des familles face aux
+      prix. Les autres réponses ajoutent soit du pessimisme, soit de la nostalgie, soit un refus du changement
+      qui ne figurent pas dans le document.

@@ -1,0 +1,204 @@
+request: co-bank
+skill: CO
+cefr: B2
+themes:
+- voyages
+- médias
+format: document
+model: gpt-5.4-mini
+key: 4f04756020129be7f33ed4c2f0c3da6f4ccab41c7be815c8767905ca72d4f01e
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-billets-a-bas-prix
+    cefr: B2
+    origin: generated
+    focus: prise de position nuancée
+    audio_text: 'Quand on compare les vols, on ne peut plus se contenter d’un prix d’appel. Les compagnies
+      à bas coût ont rendu l’avion accessible à beaucoup de gens, c’est vrai, et ce n’est pas négligeable.
+      Mais elles supposent un passager très organisé, qui n’a pas besoin de changer d’horaires et qui
+      voyage léger. Dès qu’on ajoute un bagage, un siège choisi à l’avance ou une correspondance manquée,
+      l’affaire est moins avantageuse. Je ne dis pas qu’il faut les éviter ; simplement, il faut les considérer
+      pour ce qu’elles sont : une solution pratique pour certains séjours, pas une bonne réponse à tous
+      les déplacements. En réalité, le vrai gain dépend moins de la compagnie que de notre façon de voyager.'
+    prompt: Selon le locuteur, les compagnies à bas coût sont surtout…
+    options:
+    - idéales pour tous les trajets
+    - intéressantes seulement avec bagage
+    - utiles pour des voyages simples
+    - réservées aux longs voyages
+    answer: 2
+    explanation: Le locuteur dit qu’elles sont « une solution pratique pour certains séjours », mais pas
+      pour tous les déplacements. Les autres propositions contredisent cette nuance ou ajoutent une condition
+      absente du document.
+- status: fixed
+  issues:
+  - The explanation contains ungrammatical French ('la sérieux').
+  item:
+    slug: co-b2-rubrique-de-corrections
+    cefr: B2
+    origin: generated
+    focus: intention du locuteur
+    audio_text: |-
+      - Vous lancez une rubrique de corrections très visible. N’est-ce pas risqué pour votre journal ?
+      - Au contraire. Quand une erreur circule, la cacher abîme davantage la confiance que la reconnaître.
+      - Vous avez pourtant peur que les lecteurs retiennent surtout la faute ?
+      - S’ils voient qu’on explique l’origine du problème et qu’on publie la version juste, ils comprennent que la rédaction travaille sérieusement.
+      - Donc ce n’est pas un aveu de faiblesse ?
+      - Non, c’est une manière de montrer nos méthodes. Nous voulons que le lecteur puisse vérifier, pas seulement nous croire sur parole.
+      - Et si cela prend du temps ?
+      - Mieux vaut une correction claire qu’un correctif discret au fond d’une page.
+    prompt: Quelle est l’intention principale du rédacteur en chef ?
+    options:
+    - promouvoir un nouveau format
+    - éviter les critiques
+    - justifier la rapidité
+    - rassurer sur la fiabilité
+    answer: 3
+    explanation: Il explique que publier des corrections sert à montrer le sérieux de la rédaction et
+      à renforcer la confiance du lecteur. Les autres réponses ne correspondent pas à son objectif, qui
+      n’est ni commercial ni fondé sur la vitesse.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-vieux-quartier
+    cefr: B2
+    origin: generated
+    focus: attitude du locuteur
+    audio_text: |-
+      - La commune impose désormais une réservation pour accéder au vieux quartier. N’est-ce pas décourageant pour les touristes ?
+      - Nous voulons surtout éviter les foules qui empêchent les habitants de vivre. Le quartier reste ouvert, mais à un rythme raisonnable.
+      - Vous avez eu des critiques ?
+      - Bien sûr, certains commerçants craignaient une baisse de fréquentation. Pourtant, depuis quelques mois, les visiteurs restent plus longtemps et circulent mieux.
+      - Vous ne cherchez donc pas à fermer le site ?
+      - Pas du tout. Nous cherchons un équilibre : accueillir les voyageurs, sans transformer le centre en décor saturé.
+    prompt: Quelle est l’attitude du responsable ?
+    options:
+    - augmenter les tarifs
+    - interdire les visites
+    - satisfaire les commerçants
+    - favoriser un tourisme limité
+    answer: 3
+    explanation: Le responsable insiste sur « un équilibre » et sur la nécessité d’éviter les foules,
+      donc il défend un tourisme encadré. Les autres options ne reflètent pas cette recherche de modération.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-comptes-de-voyage
+    cefr: B2
+    origin: generated
+    focus: information implicite
+    audio_text: 'Sur les réseaux, certains comptes de voyage donnent l’impression qu’un lieu se résume
+      à trois adresses et à un coucher de soleil. Le problème n’est pas qu’ils parlent de leurs séjours
+      ; c’est qu’ils effacent tout ce qui gêne : la météo, les files d’attente, les trajets compliqués,
+      le budget réel. À force, on vend une expérience lisse, presque irréelle. Je ne demande pas des récits
+      pessimistes, mais un minimum d’honnêteté. Quand un influenceur précise qu’il a été invité, qu’il
+      a voyagé hors saison ou que certaines images ont été mises en scène, le public peut enfin se faire
+      une idée juste. Sinon, on entretient une frustration inutile.'
+    prompt: Selon le locuteur, le principal défaut de ces comptes est…
+    options:
+    - parler trop des trajets
+    - manquer d’images
+    - encourager le voyage hors saison
+    - embellir la réalité
+    answer: 3
+    explanation: Il reproche aux influenceurs de présenter une expérience « lisse, presque irréelle »,
+      donc d’embellir la réalité. Les autres propositions reprennent des éléments cités dans le document,
+      mais ce n’est pas ce qui lui est reproché.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-radio-numerique
+    cefr: B2
+    origin: generated
+    focus: attitude du locuteur
+    audio_text: |-
+      - Votre station va abandonner la diffusion traditionnelle ?
+      - Pas du tout. Nous changeons surtout de point d’entrée.
+      - Pourtant, vous investissez beaucoup dans les podcasts et l’application mobile.
+      - Parce que l’auditeur écoute désormais en marchant, en voiture, le soir. Il ne veut pas choisir entre la radio et le numérique.
+      - Donc vous pensez que le direct va disparaître ?
+      - Non. Le direct garde son intérêt pour l’information et les grandes émissions. Mais le numérique nous permet de retrouver ceux qui n’étaient jamais devant l’antenne à l’heure prévue.
+      - C’est une stratégie offensive, alors ?
+      - Je dirais plutôt une continuité. Nous ne tournons pas la page ; nous l’ouvrons autrement.
+    prompt: Que pense le directeur de la station ?
+    options:
+    - le numérique complète la radio
+    - le direct doit disparaître
+    - les podcasts sont accessoires
+    - l’application remplace tout
+    answer: 0
+    explanation: Il dit clairement que le numérique et le direct coexistent, le premier permettant d’atteindre
+      d’autres auditeurs. Les autres options contredisent cette idée de complémentarité.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-camping-cars-en-ville
+    cefr: B2
+    origin: generated
+    focus: raison implicite
+    audio_text: 'Dans cette commune de montagne, l’arrivée massive de camping-cars a changé le quotidien.
+      Les parkings débordaient, les rues étaient encombrées, et les habitants ne trouvaient plus place
+      près des commerces. La mairie a donc créé une aire de stationnement en périphérie et interdit le
+      centre aux véhicules les plus volumineux. La décision a fait grincer des dents, mais elle a aussi
+      apaisé les tensions. Les touristes marchent davantage, découvrent les ruelles à pied, et les habitants
+      retrouvent un peu de calme. Le maire le dit sans détour : il ne s’agit pas de punir les visiteurs,
+      mais de faire en sorte que chacun puisse profiter du lieu sans le saturer.'
+    prompt: Pourquoi la mairie a-t-elle pris cette décision ?
+    options:
+    - attirer plus de cars
+    - fermer le centre
+    - augmenter les parkings
+    - préserver la vie locale
+    answer: 3
+    explanation: Le texte précise que la mesure vise à éviter la saturation et à redonner du calme aux
+      habitants. Les autres réponses ne correspondent pas à cette motivation, même si un stationnement
+      en périphérie est créé.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-images-choquantes
+    cefr: B2
+    origin: generated
+    focus: nuance argumentative
+    audio_text: |-
+      - Vous jugez parfois les chaînes trop prudentes quand elles coupent certaines images. Pourquoi ?
+      - Parce qu’il ne suffit pas d’annoncer un événement ; il faut en mesurer la portée. Si l’on montre une scène brutale sans explication, on choque sans éclairer.
+      - Mais cacher les images, n’est-ce pas minimiser la réalité ?
+      - Non, à condition de raconter clairement ce qui s’est passé, de vérifier les faits et de replacer l’image dans son contexte.
+      - Donc vous êtes pour ou contre la diffusion de ces séquences ?
+      - Pour, mais pas n’importe comment. Le rôle d’un média n’est pas de retenir l’attention à tout prix ; c’est d’aider le public à comprendre.
+    prompt: Quelle est la position du second intervenant ?
+    options:
+    - diffuser sans précaution
+    - tout cacher
+    - diffuser avec contexte
+    - privilégier le choc
+    answer: 2
+    explanation: Il accepte la diffusion, mais seulement avec explication, vérification et contexte. Les
+      autres propositions vont contre cette position nuancée.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-voyager-hors-saison
+    cefr: B2
+    origin: generated
+    focus: information implicite
+    audio_text: Je conseille souvent de partir hors saison, non pas pour faire des économies à tout prix,
+      même si elles existent, mais parce qu’on voit alors le lieu autrement. Les sites ne sont pas envahis,
+      les employés des petits cafés ont le temps d’échanger, et les habitants supportent mieux la présence
+      des voyageurs. On découvre moins une carte postale qu’un vrai quotidien. Bien sûr, il faut accepter
+      un ciel parfois moins parfait ou des horaires plus réduits. Mais si l’on cherche à comprendre une
+      destination, la tranquillité vaut souvent mieux que la foule. Au fond, voyager hors saison, c’est
+      accepter quelques limites pour gagner en qualité de rencontre.
+    prompt: Pourquoi le guide recommande-t-il cette période ?
+    options:
+    - la météo est meilleure
+    - les rencontres sont meilleures
+    - le prix est plus bas
+    - les horaires sont plus longs
+    answer: 1
+    explanation: Il explique que l’intérêt principal est la qualité des échanges avec les habitants et
+      la découverte d’un quotidien plus authentique. Les autres propositions sont évoquées comme secondaires
+      ou contraires au document.

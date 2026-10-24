@@ -1,0 +1,189 @@
+request: ce-bank
+skill: CE
+cefr: B1
+themes:
+- éducation
+- immigration et intégration
+format: document
+model: gpt-5.4-mini
+key: 6c95b32f0129c70a4663dc4953e500c3f1475ccd854ca1e815f72b2765e289c0
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-cours-du-soir
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: |-
+      Chère Lina,
+      Cela fait maintenant deux mois que je suis arrivée à Montreville. J’ai enfin trouvé mon rythme : le matin, je travaille au café, et le soir, je vais au centre communautaire pour suivre des cours de français. Au début, j’hésitais à m’inscrire, car j’avais peur de ne pas avoir assez de temps. Mais les cours m’aident beaucoup, surtout pour parler avec les parents à l’école de Nour. J’ai aussi rencontré d’autres personnes qui, comme moi, découvrent la ville. Nous nous retrouvons parfois après le cours pour échanger des adresses utiles. Si tu viens me voir cet été, je t’emmènerai sûrement à la fête du quartier : cette année, je me sens enfin un peu chez moi.
+      Je t’embrasse,
+      Samira
+    prompt: Quelle est l’idée principale de cette lettre ?
+    options:
+    - L’auteure propose un emploi.
+    - L’auteure invite son amie à une fête.
+    - L’auteure raconte son adaptation progressive.
+    - L’auteure se plaint des cours.
+    answer: 2
+    explanation: Samira parle surtout de ses cours, de ses rencontres et du fait qu’elle commence à se
+      sentir à l’aise dans la ville. Les autres propositions ne correspondent qu’à un détail ou ne sont
+      pas l’objet principal de la lettre.
+- status: fixed
+  issues:
+  - The explanation contains a pronoun agreement error.
+  item:
+    slug: ce-b1-parrainage-scolaire
+    cefr: B1
+    origin: generated
+    focus: objectif du programme
+    passage: Dans plusieurs collèges de la région, un programme de parrainage aide les élèves récemment
+      arrivés à s’intégrer plus vite. Chaque nouvel élève est accompagné par un camarade volontaire qui
+      lui montre l’établissement, explique le fonctionnement des cours et l’aide à comprendre les consignes
+      importantes. Les adultes du collège ont constaté que, grâce à ce soutien, les jeunes posent davantage
+      de questions et participent plus facilement en classe. Le programme ne remplace pas l’apprentissage
+      du français, mais il le complète. Selon la direction, il réduit surtout le sentiment d’isolement
+      des familles qui ne connaissent pas encore le système scolaire. L’an dernier, une cinquantaine d’élèves
+      y ont participé, et plusieurs autres établissements souhaitent le mettre en place à la rentrée.
+    prompt: Pourquoi ce programme a-t-il été créé ?
+    options:
+    - Pour remplacer les cours de français.
+    - Pour organiser des sorties scolaires.
+    - Pour sélectionner les meilleurs élèves.
+    - Pour aider les nouveaux élèves à s’intégrer.
+    answer: 3
+    explanation: Le texte explique que le parrainage sert à accompagner les élèves arrivés récemment et
+      à réduire leur isolement. Les autres réponses reprennent des éléments du texte, mais elles ne correspondent
+      pas à l’objectif du programme.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-reunion-daccueil
+    cefr: B1
+    origin: generated
+    focus: démarche demandée
+    passage: |-
+      Madame, Monsieur,
+      L’école des Tilleuls organise, le mardi 12 septembre à dix-huit heures, une réunion d’accueil destinée aux familles nouvellement installées dans le quartier. Nous y présenterons l’organisation de l’année scolaire, les services de soutien en français et la manière de contacter les enseignants. Un interprète sera présent pour les familles qui en ont besoin. Vous pourrez aussi poser des questions sur la cantine, les activités après les cours et les démarches administratives. Afin de préparer au mieux cette rencontre, nous vous demandons de confirmer votre présence avant le vendredi 8 septembre auprès du secrétariat. Si vous connaissez d’autres parents concernés, n’hésitez pas à leur transmettre ce message.
+      Cordialement,
+      La direction
+    prompt: Que doivent faire les parents ?
+    options:
+    - Confirmer leur présence.
+    - Apporter un justificatif médical.
+    - Payer la cantine.
+    - Arriver avec un interprète.
+    answer: 0
+    explanation: La direction demande clairement de confirmer sa présence avant le vendredi 8 septembre.
+      L’interprète est prévu par l’école, et les autres propositions ne sont pas demandées.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-premiere-semaine
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      Chère Élodie,
+      Je voulais te donner des nouvelles de Malik, qui a commencé sa première année au lycée cette semaine. Il était très nerveux lundi, parce qu’il ne connaissait personne et craignait de ne pas comprendre assez vite les professeurs. Heureusement, la conseillère d’éducation lui a proposé de suivre un atelier de soutien deux fois par semaine, après les cours. Il y retrouve d’autres élèves qui ont, eux aussi, changé de pays récemment. Hier soir, il m’a raconté qu’il avait déjà discuté avec un voisin de classe et qu’il s’était inscrit au club de théâtre. Je crois qu’il prendra vite ses marques. De mon côté, je suis soulagée de voir qu’il commence à se sentir à l’aise.
+      Amitiés,
+      Nadia
+    prompt: Quel est le but de cette lettre ?
+    options:
+    - Rassurer sur l’intégration de Malik.
+    - Demander un changement d’établissement.
+    - Expliquer un retard administratif.
+    - Annoncer l’ouverture d’un atelier de théâtre.
+    answer: 0
+    explanation: Nadia écrit surtout pour donner des nouvelles et dire que Malik commence à s’adapter.
+      Le club de théâtre et l’atelier de soutien sont mentionnés, mais ce ne sont pas le but principal
+      de la lettre.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-accueil-des-nouveaux
+    cefr: B1
+    origin: generated
+    focus: organisation de l’accueil
+    passage: |-
+      Note interne
+      À partir du mois prochain, l’entreprise Horizon Plus accueillera plusieurs employés arrivés de l’étranger. Pour faciliter leur arrivée, le service des ressources humaines organisera, chaque lundi de la première semaine, une séance d’information d’une heure et demie. On y présentera les règles de sécurité, les outils de travail et les habitudes de l’équipe. Les nouveaux arrivants recevront aussi un petit guide en français simplifié, avec les numéros utiles et les horaires des différents services. Les collègues qui souhaitent devenir personnes-ressources peuvent s’inscrire avant le 15 mai. Leur rôle sera d’accompagner un salarié pendant ses premières semaines et de répondre à ses questions pratiques.
+    prompt: À quoi sert cette note ?
+    options:
+    - À former tous les salariés à la sécurité.
+    - À recruter des traducteurs.
+    - À préparer l’arrivée de nouveaux employés.
+    - À annuler les séances du lundi.
+    answer: 2
+    explanation: La note annonce des mesures pour l’arrivée de salariés venus de l’étranger et leur intégration
+      dans l’entreprise. Les autres réponses ne reprennent qu’un détail ou contredisent le texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-mediatheque-ouverte
+    cefr: B1
+    origin: generated
+    focus: idée principale
+    passage: 'Dans le quartier Saint-Cyr, la médiathèque a ouvert un nouvel espace destiné aux familles.
+      L’après-midi, les enfants peuvent y faire leurs devoirs avec l’aide de bénévoles, tandis qu’une
+      salle voisine accueille un café en français pour les parents. L’idée n’est pas seulement d’apprendre
+      à lire ou à écrire, mais aussi de créer un lieu où les habitants se rencontrent sans crainte de
+      mal parler. Les participants sont nombreux : des parents venus récemment s’installer dans la ville,
+      mais aussi des retraités du quartier qui souhaitent pratiquer le français et transmettre leurs connaissances.
+      D’après la responsable, ce projet a déjà amélioré la fréquentation de la médiathèque et permis à
+      plusieurs familles de mieux connaître les services municipaux.'
+    prompt: Quel est le principal objectif de ce projet ?
+    options:
+    - Remplacer les cours de l’école.
+    - Faire venir des touristes au quartier.
+    - Créer un lieu d’entraide pour les familles.
+    - Fermer la médiathèque le soir.
+    answer: 2
+    explanation: Le texte insiste sur l’entraide, les devoirs, le café en français et les rencontres entre
+      habitants. Les autres propositions ne correspondent ni à l’objectif ni aux effets décrits.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-scolarite-de-sara
+    cefr: B1
+    origin: generated
+    focus: intention de l'auteur
+    passage: |-
+      Chère tante Myriam,
+      Tu m’as demandé comment se passe la scolarité de Sara ici. Honnêtement, je craignais beaucoup son arrivée au collège, parce qu’elle avait quitté son pays en plein milieu de l’année. Finalement, l’établissement a été très attentif : on lui a proposé des cours d’appui en français, et un enseignant l’aide à remplir ses cahiers de liaison. Le plus étonnant, c’est qu’elle rentre maintenant en disant qu’elle a deux amies et qu’elle comprend mieux les consignes de maths que moi. Nous devons encore régler quelques papiers pour son inscription au service de transport scolaire, mais pour le reste, tout avance bien. Je voulais surtout te dire que nous avons été bien accueillies et que Sara reprend confiance chaque jour.
+      Amitiés,
+      Nadia
+    prompt: Pourquoi cette lettre est-elle écrite ?
+    options:
+    - Pour demander une inscription urgente.
+    - Pour rassurer la tante sur la situation de Sara.
+    - Pour raconter un déménagement.
+    - Pour critiquer le collège.
+    answer: 1
+    explanation: Nadia écrit pour donner des nouvelles positives et rassurer sa tante sur l’adaptation
+      de Sara. Les autres réponses ne correspondent pas à l’intention générale de la lettre.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b1-tutorat-universitaire
+    cefr: B1
+    origin: generated
+    focus: fréquence des rencontres
+    passage: 'À l’université des Rives, un nouveau dispositif permet aux étudiants internationaux d’être
+      accompagnés pendant leur premier semestre. Chaque étudiant inscrit reçoit le nom d’un tuteur bénévole,
+      choisi parmi des étudiants de deuxième ou troisième année. Le tuteur ne fait pas les devoirs à sa
+      place : il explique comment utiliser la bibliothèque, où demander une aide financière et à qui s’adresser
+      en cas de difficulté administrative. Les rencontres ont lieu en petit groupe, une fois par mois,
+      dans une salle ouverte à tous. Selon le service des études, ce suivi aide surtout les étudiants
+      à éviter les erreurs fréquentes lors de leurs démarches et à participer plus vite à la vie du campus.
+      Le programme restera gratuit jusqu’en décembre, puis il sera évalué.'
+    prompt: À quelle fréquence les étudiants se rencontrent-ils ?
+    options:
+    - Une fois par mois.
+    - Deux fois par semaine.
+    - Chaque matin.
+    - Seulement en décembre.
+    answer: 0
+    explanation: Le texte précise que les rencontres ont lieu « une fois par mois ». Les autres fréquences
+      ne sont pas mentionnées ou contredisent directement le document.

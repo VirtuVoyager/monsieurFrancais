@@ -51,6 +51,10 @@ def test_checks_catch_what_a_reviewer_should_never_have_to() -> None:
     assert check(replace(DRAFT, document="mot " * 60), WORDS, 4) == [
         "document has 60 words; expected 15 to 35"
     ]
+    for pointing in ("La deuxième réponse est juste.", "La réponse B parle d'un train."):
+        assert check(replace(DRAFT, explanation=pointing), WORDS, 4) == [
+            "the explanation names an option by its position"
+        ]
 
 
 def test_the_key_lands_on_a_position_set_by_the_slug_and_stays_correct() -> None:
@@ -200,6 +204,14 @@ def test_rejected_items_stay_in_the_draft_and_hand_written_banks_are_protected(
 
     assert report.counts["rejected"] == 2
     assert generation.promote(request) == 3
+
+    # Rewriting the batches under a new prompt replaces their drafts instead of adding to them.
+    class Reworded(FakeItemWriter):
+        fingerprint = "reworded"
+
+    generation.generate(session, get_or_create_learner(session).id, request, Reworded())
+    assert len(list((content / "drafts" / "co-test").glob("*.yaml"))) == 2
+    assert generation.promote(request) == 5
     hand_written = content / "generation" / "co.yaml"
     hand_written.write_text(request.read_text())
     with pytest.raises(ValueError, match="by hand"):

@@ -1,0 +1,176 @@
+request: ce-bank
+skill: CE
+cefr: A2
+themes:
+- médias
+- vie associative
+format: document
+model: gpt-5.4-mini
+key: 90f259676bde9f9e28566a4f1bf531bbc18f7d6f69f6216a7a917e2e0f0cc2c0
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-atelier-podcast
+    cefr: A2
+    origin: generated
+    focus: ce qu'il faut faire
+    passage: |-
+      Bonjour,
+      L’association Ondes de quartier organise un atelier pour apprendre à préparer un podcast court. Au programme : choisir un sujet, enregistrer sa voix et couper les passages inutiles. La séance aura lieu le jeudi 14 mars à dix-huit heures, dans la salle B de la médiathèque Lenoir. Si vous souhaitez participer, merci d’envoyer un message avant lundi à l’adresse suivante : atelier@ondes.org.
+      Cordialement,
+      Le secrétariat.
+    prompt: Que doit faire la personne pour participer ?
+    options:
+    - Venir avec un micro
+    - Payer l’atelier
+    - Arriver à dix-huit heures
+    - Envoyer un message avant lundi
+    answer: 3
+    explanation: Le document précise qu’il faut « envoyer un message avant lundi » pour participer. Les
+      autres propositions parlent d’éléments mentionnés dans le texte, mais ils ne sont pas demandés pour
+      l’inscription.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-portes-ouvertes-radio
+    cefr: A2
+    origin: generated
+    focus: ce qui est proposé
+    passage: L’Association Radio Cité vous invite à ses portes ouvertes samedi de quatorze heures à dix-sept
+      heures. Vous pourrez visiter les studios, rencontrer les animateurs et assister à une courte émission
+      en direct. Une collation sera offerte à tous les visiteurs. L’entrée est libre, sans inscription.
+      Rendez-vous au trente-deux, rue des Forges, près de la place Victor.
+    prompt: Que propose cette journée ?
+    options:
+    - Visiter les studios
+    - Suivre un cours de montage
+    - Acheter un abonnement
+    - Participer à un concours
+    answer: 0
+    explanation: Le prospectus indique clairement que les visiteurs pourront « visiter les studios ».
+      Les autres réponses ne correspondent pas aux activités annoncées dans le document.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-distribution-bulletin
+    cefr: A2
+    origin: generated
+    focus: tâche du bénévole
+    passage: Association Voix du Parc cherche un bénévole pour distribuer son bulletin mensuel dans le
+      quartier Nord. Il faut passer une fois par mois dans une vingtaine de boîtes aux lettres, le samedi
+      matin. Le matériel est fourni par l’association. Une petite indemnité de transport est prévue. Si
+      vous êtes disponible, téléphonez au 04 72 18 09 55.
+    prompt: Que devra faire le bénévole ?
+    options:
+    - Écrire les articles
+    - Animer une émission
+    - Tenir la caisse
+    - Déposer les bulletins
+    answer: 3
+    explanation: L’annonce précise que le bénévole devra distribuer le bulletin dans les boîtes aux lettres.
+      Les autres options concernent d’autres tâches qui ne sont pas demandées ici.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-club-cinema
+    cefr: A2
+    origin: generated
+    focus: ce qu'on propose
+    passage: |-
+      Salut Léa,
+      Je me suis inscrite au club cinéma du quartier et j’y vais vendredi soir. On regarde un film français puis on en parle ensemble autour d’un jus de fruit. L’entrée est gratuite, mais il faut réserver sa place avant jeudi. Si tu veux venir avec moi, passe me voir après le travail ; je te donnerai le formulaire.
+      À bientôt,
+      Nora.
+    prompt: Que propose Nora ?
+    options:
+    - Acheter un billet
+    - Regarder un film chez elle
+    - Prendre un cours de français
+    - Aller au club cinéma vendredi
+    answer: 3
+    explanation: Nora invite Léa à aller avec elle au club cinéma vendredi soir. Les autres réponses ne
+      correspondent pas à sa proposition.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-cotisation-annuelle
+    cefr: A2
+    origin: generated
+    focus: ce que doit faire le destinataire
+    passage: |-
+      Association Mémoire et Image
+      Madame,
+      Votre adhésion arrive bientôt à son terme. Pour continuer, l’année prochaine, à recevoir notre revue et à participer aux sorties de l’association, nous vous remercions de régler la cotisation de trente euros avant le 30 avril. Vous pouvez payer en ligne ou à l’accueil, du lundi au vendredi, de neuf heures à seize heures.
+      Cordialement,
+      Le service des adhésions.
+    prompt: Que doit faire la destinataire ?
+    options:
+    - Envoyer une photo
+    - Réserver une sortie
+    - Téléphoner au journal
+    - Régler la cotisation
+    answer: 3
+    explanation: La lettre demande de « régler la cotisation de trente euros ». Les autres propositions
+      ne sont pas demandées dans le document.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-atelier-journal
+    cefr: A2
+    origin: generated
+    focus: ce qui est proposé
+    passage: Ce samedi, la Maison des associations organise un atelier gratuit pour écrire un petit journal
+      de quartier. Les participants apprendront à choisir un titre, à corriger un texte et à mettre une
+      photo en page. L’atelier dure deux heures et commence à quinze heures. Il est ouvert à toute personne
+      de plus de seize ans. Pour s’inscrire, il suffit de laisser son nom à l’accueil.
+    prompt: Qu’est-ce qui est proposé ?
+    options:
+    - Une visite guidée
+    - Un repas partagé
+    - Un atelier de journal
+    - Une projection de film
+    answer: 2
+    explanation: Le document annonce un atelier pour écrire un journal de quartier. Les autres options
+      ne sont pas mentionnées.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-lecture-d-articles
+    cefr: A2
+    origin: generated
+    focus: tâche du bénévole
+    passage: L’association Les Mots en direct recherche une personne qui aime lire à voix haute. Elle
+      aidera une fois par semaine à enregistrer de courts articles pour des personnes qui ne peuvent pas
+      bien lire. Le travail se fait le mercredi après-midi, dans le local de l’association, près de la
+      gare. Aucune expérience n’est nécessaire.
+    prompt: Que fera la personne recherchée ?
+    options:
+    - Vendre des journaux à la gare
+    - Corriger des devoirs
+    - Organiser un festival de lecture
+    - Lire des articles à voix haute
+    answer: 3
+    explanation: Le texte dit que la personne aidera à enregistrer de courts articles en les lisant à
+      voix haute. Les autres activités ne correspondent pas à l’annonce.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-aide-au-festival
+    cefr: A2
+    origin: generated
+    focus: ce qu'il doit faire
+    passage: |-
+      Bonjour Mathieu,
+      Dans mon association de quartier, nous préparons un petit festival de vidéos le mois prochain. J’ai pensé à toi parce que nous avons besoin de deux personnes à l’accueil. Elles devront remettre les programmes et indiquer les salles aux visiteurs. Si tu peux nous aider le samedi 9, viens à la réunion de préparation mardi à dix-neuf heures.
+      Amicalement,
+      Camille.
+    prompt: Que doit faire Mathieu s’il accepte ?
+    options:
+    - Aller à la réunion mardi
+    - Acheter un projecteur
+    - Préparer une vidéo
+    - Envoyer un article
+    answer: 0
+    explanation: Camille demande à Mathieu de venir à la réunion de préparation mardi. Les autres réponses
+      sont des activités liées au festival, mais elles ne sont pas demandées à Mathieu ici.

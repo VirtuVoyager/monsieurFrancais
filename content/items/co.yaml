@@ -10,6 +10,7 @@ items:
   - 10 h 15
   - 10 h 50
   - 9 h 15
+  - 11 h 15
   answer: 0
 - slug: co-a1-boulangerie
   cefr: A1
@@ -19,6 +20,7 @@ items:
   - Deux croissants
   - Deux baguettes et un croissant
   - Une baguette et deux croissants
+  - Deux baguettes
   answer: 1
 - slug: co-a1-rendez-vous
   cefr: A1
@@ -28,6 +30,7 @@ items:
   - Au restaurant
   - À la gare
   - Devant le cinéma
+  - Devant le café
   answer: 2
 - slug: co-a2-meteo
   cefr: A2
@@ -38,6 +41,7 @@ items:
   - Il fera beau.
   - Il pleuvra toute la journée.
   - Il neigera.
+  - Il y aura des averses.
   answer: 0
 - slug: co-a2-message
   cefr: A2
@@ -48,6 +52,7 @@ items:
   - Pour annuler le rendez-vous.
   - Pour changer le jour du rendez-vous.
   - Pour donner des résultats d'analyse.
+  - Pour proposer un autre médecin.
   answer: 1
 - slug: co-a2-magasin
   cefr: A2
@@ -58,6 +63,7 @@ items:
   - Revenir demain matin.
   - Attendre une promotion.
   - Aller payer leurs achats.
+  - Aller au rayon des promotions.
   answer: 2
 - slug: co-b1-teletravail
   cefr: B1
@@ -69,6 +75,7 @@ items:
   - Elle a du mal à séparer travail et vie privée.
   - Elle perd du temps dans les transports.
   - Son salaire a baissé.
+  - Elle travaille deux heures de plus par jour.
   answer: 0
 - slug: co-b1-benevolat
   cefr: B1
@@ -79,6 +86,7 @@ items:
   - Travailler tous les week-ends.
   - Être disponible au moins deux samedis par mois.
   - Avoir de l'expérience en cuisine.
+  - Habiter près de l'association.
   answer: 1
 - slug: co-b1-logement
   cefr: B1
@@ -89,6 +97,7 @@ items:
   - Si le métro ferme.
   - Si le loyer baisse.
   - Si les travaux promis ne sont pas faits.
+  - Si le propriétaire augmente encore le loyer.
   answer: 2
 - slug: co-b2-ecrans
   cefr: B2
@@ -100,6 +109,7 @@ items:
   - Le type de contenu et l'heure de consultation.
   - Le prix des appareils.
   - Le temps total passé devant les écrans.
+  - L'âge des utilisateurs.
   answer: 0
 - slug: co-b2-mobilite
   cefr: B2
@@ -111,6 +121,7 @@ items:
   - Les vélos coûtent trop cher.
   - Les cyclistes ne se sentent pas en sécurité aux carrefours.
   - Il n'y a pas assez de pistes cyclables.
+  - Les pistes cyclables sont trop loin du centre.
   answer: 1
 - slug: co-b2-alimentation
   cefr: B2
@@ -121,4 +132,5 @@ items:
   - Les consommateurs achètent surtout local.
   - Les produits locaux sont moins chers.
   - Le prix l'emporte sur les intentions déclarées.
+  - Les ventes de produits locaux ont doublé.
   answer: 2
