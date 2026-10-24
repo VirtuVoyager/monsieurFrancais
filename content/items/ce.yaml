@@ -10,6 +10,7 @@ items:
   - Le dimanche et le lundi
   - Le samedi
   - Le mardi
+  - Le vendredi
   answer: 0
 - slug: ce-a1-invitation
   cefr: A1
@@ -20,6 +21,7 @@ items:
   - Une sortie au cinéma
   - Une fête d'anniversaire
   - Un repas au restaurant
+  - Un pique-nique au parc
   answer: 1
 - slug: ce-a1-panneau
   cefr: A1
@@ -29,6 +31,7 @@ items:
   - Enlever ses lunettes
   - Payer l'entrée
   - Prendre une douche
+  - Mettre des chaussures
   answer: 2
 - slug: ce-a2-annonce
   cefr: A2
@@ -39,6 +42,7 @@ items:
   - Un casque
   - Une réparation
   - Un antivol
+  - Un panier
   answer: 0
 - slug: ce-a2-courriel
   cefr: A2
@@ -49,6 +53,7 @@ items:
   - L'adresse est incorrecte.
   - Il y a une grève.
   - Le produit n'est plus disponible.
+  - Le livreur était malade.
   answer: 1
 - slug: ce-a2-regle
   cefr: A2
@@ -59,6 +64,7 @@ items:
   - Les sortir le mardi.
   - Les laisser devant la porte.
   - Les apporter à la déchetterie.
+  - Les mettre dans la poubelle jaune.
   answer: 2
 - slug: ce-b1-cours
   cefr: B1
@@ -70,6 +76,7 @@ items:
   - Pour constituer des groupes de même niveau.
   - Pour fixer le prix du cours.
   - Pour obtenir un diplôme.
+  - Pour choisir les horaires du cours.
   answer: 0
 - slug: ce-b1-entreprise
   cefr: B1
@@ -80,6 +87,7 @@ items:
   - Recruter de nouveaux employés.
   - Réduire l'impact environnemental.
   - Augmenter les salaires.
+  - Améliorer la sécurité des employés.
   answer: 1
 - slug: ce-b1-lettre
   cefr: B1
@@ -91,6 +99,7 @@ items:
   - Un dédommagement financier.
   - L'arrêt définitif du chantier.
   - Le respect des horaires autorisés.
+  - Le déplacement du chantier.
   answer: 2
 - slug: ce-b2-sommeil
   cefr: B2
@@ -102,6 +111,7 @@ items:
   - Si elle ne dépasse pas vingt minutes.
   - Si elle dure plus d'une heure.
   - Si elle a lieu le soir.
+  - Si elle a lieu juste après le repas.
   answer: 0
 - slug: ce-b2-emploi
   cefr: B2
@@ -113,6 +123,7 @@ items:
   - Il faut ralentir l'automatisation.
   - Il faut surtout former les salariés à de nouveaux métiers.
   - L'automatisation ne change rien à l'emploi.
+  - Il faut interdire les tâches répétitives.
   answer: 1
 - slug: ce-b2-tourisme
   cefr: B2
@@ -124,4 +135,5 @@ items:
   - Ils demandent sa suppression.
   - Ils y restent opposés.
   - Ils en voient les effets positifs.
+  - Ils attendent encore de voir les résultats.
   answer: 2
