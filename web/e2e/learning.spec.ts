@@ -195,7 +195,10 @@ test("class notes are extracted, approved and land in the Library and Review", a
 test("hovering a French word shows its English meaning, but not in a timed drill", async ({
   page,
 }) => {
+  // A hover before the glossary arrives shows nothing, and one hover is one pointer move.
+  const glossary = page.waitForResponse((r) => r.url().includes("/glossary") && r.ok());
   await page.goto("/lessons/a1-01-se-presenter/grammaire");
+  await glossary;
   // Cells are wider than their word; point at the text itself, past the cell padding.
   await page
     .getByRole("cell", { name: "suis", exact: true })
