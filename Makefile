@@ -1,4 +1,4 @@
-.PHONY: up down deploy deploy-data setup-github obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio note-audio glossary mcp test lint typecheck check gen-api e2e
+.PHONY: up down deploy deploy-data setup-github obs logs dev-api dev-web migrate seed reset-db grade-pending embed audio note-audio glossary generate promote mcp test lint typecheck check gen-api e2e
 
 up:            ## Build and start db, api and web in Docker (OrbStack)
 	docker compose up -d --build
@@ -48,6 +48,12 @@ note-audio:    ## Generate audio for approved class-note words and phrases (also
 
 glossary: migrate seed  ## Build hover glossaries for changed modules (set MF_GLOSSARY_PROVIDER=azure for real ones)
 	cd api && uv run python -m app.jobs.build_glossaries
+
+generate: migrate  ## Draft exam items for a request: make generate REQUEST=content/generation/co-bank.yaml (MF_CONTENT_PROVIDER=azure for real ones)
+	cd api && uv run python -m app.jobs.generate_content generate ../$(REQUEST)
+
+promote:       ## Copy a request's accepted drafts into its item bank, then seed: make promote REQUEST=...
+	cd api && uv run python -m app.jobs.generate_content promote ../$(REQUEST) && uv run python -m app.jobs.seed
 
 mcp:           ## Run the read-only MCP server on stdio (for Claude Desktop and other clients)
 	cd api && uv run python -m app.mcp_server

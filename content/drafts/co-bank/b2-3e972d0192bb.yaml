@@ -1,0 +1,183 @@
+request: co-bank
+skill: CO
+cefr: B2
+themes:
+- logement
+- travail
+format: document
+model: gpt-5.4-mini
+key: 3e972d0192bbba392d36574fd1df07b2a1c4576806942d2c3b3f6d9689a5c299
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-colocation-intergenerationnelle
+    cefr: B2
+    origin: generated
+    focus: attitude nuancée
+    audio_text: 'Dans plusieurs villes, la colocation intergénérationnelle séduit des étudiants et des
+      retraités. Le principe est simple : un senior propose une chambre à prix modéré, et en échange,
+      le jeune rend de petits services ou partage des moments de vie. Sur le papier, l’idée paraît idéale,
+      mais elle ne convient pas à tout le monde. Il faut accepter des rythmes différents, parler franchement
+      des règles et ne pas attendre une relation familiale. Les associations qui accompagnent ces binômes
+      insistent d’ailleurs sur ce point : quand l’entente est réelle, chacun y gagne, mais sans médiation
+      au départ, les malentendus sont fréquents. Pour moi, ce type de logement mérite d’être encouragé,
+      à condition de rester lucide sur ses limites.'
+    prompt: Quel est le point de vue de la locutrice ?
+    options:
+    - Favorable, mais prudente
+    - Entièrement enthousiaste
+    - Très critique
+    - Sans opinion
+    answer: 0
+    explanation: 'Elle dit clairement qu’il faut l’encourager, « à condition de rester lucide sur ses
+      limites ». Les autres réponses contredisent cette nuance : elle n’est ni sans avis, ni opposée,
+      ni totalement enthousiaste.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-cv-anonymes
+    cefr: B2
+    origin: generated
+    focus: utilité limitée
+    audio_text: |-
+      - Bonjour, votre entreprise a commencé à anonymiser les CV. Est-ce que cela change vraiment la donne ?
+      - Oui, mais pas autant qu’on le croit. Cela évite certains réflexes de tri au premier regard, c’est vrai. En revanche, si l’entretien est mené sans méthode, les biais reviennent très vite. De plus, certaines expériences montrent que les compétences seules ne suffisent pas à décider d’un recrutement solide : il faut aussi vérifier la façon de travailler en équipe, la motivation, la capacité à s’adapter. Nous avons donc gardé l’anonymat pour la présélection, puis revu nos entretiens avec une grille commune. Autrement dit, l’anonymat aide à ouvrir la porte, mais il ne remplace pas le reste.
+    prompt: Que pense-t-il du recrutement anonyme ?
+    options:
+    - C’est une solution complète
+    - C’est utile, mais limité
+    - C’est inutile
+    - C’est réservé aux grandes entreprises
+    answer: 1
+    explanation: Il dit que l’anonymat « aide à ouvrir la porte, mais il ne remplace pas le reste ». Les
+      autres propositions vont trop loin ou contredisent son propos sur la présélection et les entretiens.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-charges-de-copropriete
+    cefr: B2
+    origin: generated
+    focus: argument économique
+    audio_text: 'Dans une copropriété ancienne, on raisonne souvent en années de charges, pas en investissement.
+      Pourtant, quand les fenêtres fuient, que l’isolation est faible et que la chaudière vieillit, reporter
+      les travaux finit par coûter plus cher. Les copropriétaires que nous avons rencontrés ont voté une
+      rénovation globale après plusieurs assemblées difficiles. Résultat : moins de pannes, des factures
+      plus stables et, surtout, des appartements plus faciles à louer ou à revendre. Bien sûr, la dépense
+      initiale reste lourde, et c’est ce qui bloque beaucoup de gens. Mais croire qu’on économise en ne
+      faisant rien est souvent une illusion.'
+    prompt: Que veut montrer le journaliste ?
+    options:
+    - Les travaux sont coûteux au départ, mais rentables à terme
+    - Les charges baissent toujours immédiatement après les travaux
+    - Il faut éviter toute rénovation
+    - La vente d'un appartement dépend surtout du quartier
+    answer: 0
+    explanation: Le document insiste sur le fait que reporter les travaux « finit par coûter plus cher
+      » et que la rénovation améliore les factures et la valeur du bien. Les autres options ne reprennent
+      pas cette logique économique.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-bureau-sans-cloisons
+    cefr: B2
+    origin: generated
+    focus: cause des difficultés
+    audio_text: |-
+      - On entend souvent que les bureaux ouverts améliorent la communication. Vous êtes d’accord ?
+      - Pas si on les installe sans réflexion. Dans notre rédaction, le problème n’était pas l’absence de murs, mais la multiplication des interruptions : appels sur haut-parleur, réunions improvisées, messages urgents à toute heure. Nous avons donc gardé l’espace ouvert, mais ajouté des règles simples : des plages sans réunion, des salles pour téléphoner et des consignes claires pour les cas où il faut se concentrer. Depuis, les équipes se plaignent moins. Ce n’est donc pas le concept qui pose problème, mais l’usage qu’on en fait.
+    prompt: Quelle est, selon lui, la vraie cause des difficultés ?
+    options:
+    - Les locaux trop petits
+    - Le manque de règles communes
+    - Le bruit des ordinateurs
+    - L’idée du bureau ouvert
+    answer: 1
+    explanation: Il précise que le problème vient des interruptions et du manque d’organisation, non du
+      bureau ouvert lui-même. Les autres réponses reprennent des éléments possibles, mais ils ne sont
+      pas présentés comme la cause principale.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-habitat-participatif
+    cefr: B2
+    origin: generated
+    focus: contrainte collective
+    audio_text: 'Quand on parle d’habitat participatif, on imagine parfois une communauté un peu idéaliste.
+      En réalité, les habitants que nous avons rencontrés sont très concrets : ils veulent mutualiser
+      une buanderie, partager un jardin, décider ensemble de certains aménagements. Le projet attire des
+      personnes qui cherchent du lien, mais pas au prix de leur indépendance. Il demande surtout du temps,
+      beaucoup de discussions et une vraie capacité à trancher collectivement. C’est justement ce qui
+      décourage certains candidats : on n’achète pas seulement un logement, on accepte aussi un mode de
+      fonctionnement. Ceux qui restent disent souvent qu’ils y trouvent un équilibre qu’un immeuble classique
+      ne leur offrait pas.'
+    prompt: Que faut-il accepter dans ce type de logement ?
+    options:
+    - Prendre des décisions collectives
+    - Avoir un jardin privé
+    - Ne jamais discuter les règles
+    - Acheter un logement neuf
+    answer: 0
+    explanation: Le document insiste sur le fait qu’il faut « décider ensemble » et accepter un « mode
+      de fonctionnement ». Les distracteurs s’éloignent de cette idée de gestion collective.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-diagnostic-energetique
+    cefr: B2
+    origin: generated
+    focus: conséquence du retard
+    audio_text: |-
+      - Vous dites souvent aux propriétaires d’anticiper. Pourquoi ?
+      - Parce que le marché a changé plus vite que prévu. Un logement mal classé se loue désormais plus difficilement, et les locataires comparent beaucoup mieux qu’avant. Beaucoup de bailleurs pensent encore qu’ils pourront attendre le dernier moment, puis ajuster le prix. En réalité, les acheteurs et les locataires regardent déjà la consommation, le confort d’hiver et le montant des travaux à prévoir. Quand on tarde trop, on perd du temps et parfois de la valeur. Il vaut mieux rénover progressivement que subir la baisse de demande.
+    prompt: Quelle conséquence le locuteur annonce-t-il pour les propriétaires qui tardent ?
+    options:
+    - Ils paieront moins de taxes
+    - Ils auront plus de mal à louer
+    - Ils vendront plus vite
+    - Ils éviteront toute rénovation
+    answer: 1
+    explanation: Il explique qu’un logement mal classé se loue plus difficilement et que le retard fait
+      perdre de la valeur. Les autres propositions ne sont pas dites dans le document.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-formation-en-interne
+    cefr: B2
+    origin: generated
+    focus: formation continue
+    audio_text: Dans notre entreprise, on a longtemps pensé qu’une formation d’accueil suffisait. Or les
+      outils changent, les procédures aussi, et les nouveaux employés n’osent pas toujours poser leurs
+      questions après la première semaine. Nous avons donc remplacé les longues sessions théoriques par
+      des modules courts, réguliers, animés par des collègues qui connaissent le terrain. Ce qui compte,
+      ce n’est pas seulement d’expliquer une fois, mais de suivre les équipes dans la durée. Quand l’accompagnement
+      est concret, les erreurs diminuent et les salariés gagnent vite en autonomie. C’est cette logique
+      que nous avons fini par adopter.
+    prompt: Qu’a compris l’entreprise ?
+    options:
+    - La théorie suffit
+    - Il faut recruter davantage
+    - La formation doit être suivie dans la durée
+    - Le travail doit rester indépendant
+    answer: 2
+    explanation: Le texte dit explicitement qu’il ne faut pas seulement « expliquer une fois », mais «
+      suivre les équipes dans la durée ». Les autres réponses contredisent cette évolution.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-semaine-allegee
+    cefr: B2
+    origin: generated
+    focus: condition de réussite
+    audio_text: |-
+      - Votre équipe a testé la semaine de quatre jours. Est-ce que cela a vraiment amélioré les choses ?
+      - Oui, mais à certaines conditions. Si on garde les mêmes réunions, les mêmes délais et les mêmes habitudes, on ne gagne rien. En revanche, quand on revoit les priorités, qu’on élimine le superflu et qu’on répartit mieux les tâches, les salariés sont plus concentrés et les résultats restent bons. Il ne s’agit donc pas de travailler moins en faisant simplement la même chose sur une période plus courte. Il faut accepter de réorganiser le service, sinon la mesure devient surtout un slogan.
+    prompt: Quelle condition est nécessaire pour que cette formule fonctionne ?
+    options:
+    - Réorganiser le travail
+    - Augmenter les réunions
+    - Recruter des intérimaires
+    - Prolonger les horaires
+    answer: 0
+    explanation: Le locuteur dit clairement qu’il faut « réorganiser le service » pour que la semaine
+      de quatre jours fonctionne. Les autres options vont à l’encontre de son explication.

@@ -1,0 +1,190 @@
+request: ce-bank
+skill: CE
+cefr: B2
+themes:
+- travail
+- santé
+format: document
+model: gpt-5.4-mini
+key: 936fc74433f39285f89a73e259b7da97b5489675d3af27a0300e5e030db54de7
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-semaine-reduite
+    cefr: B2
+    origin: generated
+    focus: réorganisation du travail
+    passage: |-
+      Dans plusieurs PME du secteur administratif, la semaine de quatre jours a été testée pendant six mois. Les responsables espéraient d’abord un gain d’attractivité. Ils ont bien obtenu des candidatures supplémentaires, et le taux d’absentéisme a baissé de 18 %. En revanche, les résultats sont restés très inégaux d’une équipe à l’autre.
+
+      Pourquoi ? Parce que la journée plus courte n’a pas produit les mêmes effets partout. Là où l’on a simplement supprimé un jour de présence sans revoir les priorités, les salariés ont travaillé plus vite, avec davantage de fatigue. Là où les tâches ont été réorganisées, les réunions limitées et les dossiers partagés plus clairement, les équipes ont maintenu la production et même réduit les erreurs.
+
+      La conclusion du rapport est prudente, mais nette : la semaine réduite n’est pas une récompense automatique. Elle fonctionne quand elle oblige l’entreprise à éliminer le superflu et à mieux définir ce qui compte vraiment. Autrement dit, le changement d’horaire n’a d’intérêt que s’il s’accompagne d’un changement de méthode.
+    prompt: Selon l’auteur, la semaine de quatre jours…
+    options:
+    - n’est utile qu’avec une réorganisation
+    - améliore tout de suite la productivité
+    - convient surtout aux grandes entreprises
+    - fait forcément augmenter la fatigue
+    answer: 0
+    explanation: Le dernier paragraphe dit clairement que le changement d’horaire n’a d’intérêt que s’il
+      s’accompagne d’un changement de méthode. Les autres propositions contredisent cette prudence ou
+      ajoutent une idée absente du texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-depistage-mobile
+    cefr: B2
+    origin: generated
+    focus: nécessité du suivi
+    passage: |-
+      Faire venir le dépistage sur le lieu de travail peut sembler anecdotique ; c’est pourtant l’une des rares mesures qui touchent aussi des salariés habituellement éloignés du système de soins. Dans une enquête menée auprès de neuf entreprises, les unités mobiles ont permis d’examiner plus de huit mille personnes. Près d’un tiers d’entre elles n’avaient pas consulté depuis plus de deux ans.
+
+      Les défenseurs du dispositif soulignent un avantage simple : pendant la pause de midi, on se fait prendre la tension, on reçoit un conseil, on repère un risque sans perdre une demi-journée de travail. Mais l’auteure du rapport rappelle un point essentiel : un dépistage qui se contente de distribuer des chiffres ne change rien. Quand les résultats sont transmis sans explication ou que les salariés ne savent pas vers qui se tourner ensuite, l’effet retombe très vite.
+
+      Le texte ne présente donc pas ces campagnes comme une solution miracle. Il les juge utiles, à condition qu’elles soient organisées avec discrétion, qu’elles débouchent sur un vrai suivi médical et qu’elles ne servent pas seulement à afficher de bons chiffres de prévention.
+    prompt: Pour l’auteure, le dépistage en entreprise est…
+    options:
+    - suffisant s’il est fréquent
+    - réservé aux salariés à risque
+    - trop compliqué à mettre en place
+    - utile s’il est bien accompagné
+    answer: 3
+    explanation: Le texte insiste sur le suivi médical et la confidentialité ; il ne présente pas le dépistage
+      comme une solution suffisante en soi. Les autres réponses ignorent cette condition centrale.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-teletravail-hybride
+    cefr: B2
+    origin: generated
+    focus: cadre du télétravail
+    passage: |-
+      Deux jours à distance, trois jours sur place : la formule s’est imposée dans de nombreuses sociétés de services. D’après les données publiées, elle a réduit les démissions de 12 % en un an et amélioré la satisfaction des salariés. Pourtant, les mêmes données montrent aussi une montée des malentendus entre équipes, surtout quand les consignes changent d’un manager à l’autre.
+
+      L’auteur du dossier ne s’en prend pas au télétravail en lui-même. Il observe plutôt que les problèmes apparaissent lorsque l’entreprise l’utilise pour faire des économies sans clarifier ce qu’elle attend. Certains collaborateurs ne savent plus quand être joignables, d’autres assistent à des réunions en visioconférence alors qu’ils sont déjà au bureau, et la frontière entre autonomie et disponibilité permanente devient floue.
+
+      La position défendue est donc nuancée : le travail hybride peut améliorer l’équilibre de vie et la fidélité des salariés, mais seulement si les règles sont simples, stables et partagées. Sans cadre commun, la flexibilité annoncée risque de se transformer en désorganisation discrète.
+    prompt: D’après le texte, le principal risque du télétravail hybride est…
+    options:
+    - la baisse de salaire
+    - l’isolement des clients
+    - le flou des règles
+    - l’absence de matériel
+    answer: 2
+    explanation: Le deuxième paragraphe montre que les difficultés viennent surtout de consignes floues
+      et changeantes. Les autres options ne correspondent pas au diagnostic présenté dans l’article.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-nuit-reorganisee
+    cefr: B2
+    origin: generated
+    focus: organisation des nuits
+    passage: |-
+      Dans un hôpital public, le service des urgences a revu les horaires de nuit après une série d’incidents mineurs. Les équipes ne travaillaient plus selon un roulement fixe : elles passaient désormais d’une garde de nuit à une garde plus courte, puis à une journée de récupération. Au bout de quatre mois, le nombre d’erreurs de transmission a diminué de 15 % et les arrêts maladie ont légèrement reculé.
+
+      Pour l’auteur du compte rendu, ce résultat ne prouve pas qu’il suffirait de « demander un effort supplémentaire » aux soignants. Il montre surtout qu’un horaire inadapté finit par coûter plus cher qu’il ne rapporte. Les nuits successives, les changements trop brusques et le manque de repos fragilisent autant l’attention que la qualité des soins.
+
+      Le texte défend une idée simple : les établissements de santé devraient cesser de considérer le temps de travail comme une variable purement comptable. Adapter les plannings au rythme biologique des équipes n’est pas un luxe ; c’est une manière de protéger à la fois les patients et ceux qui les prennent en charge.
+    prompt: Quel est le message principal du compte rendu ?
+    options:
+    - Il faut réduire les urgences
+    - Il faut adapter les horaires de nuit
+    - Il faut embaucher davantage de cadres
+    - Il faut prolonger les gardes
+    answer: 1
+    explanation: Le dernier paragraphe explique qu’il faut adapter les plannings au rythme biologique.
+      Les autres réponses s’éloignent de cette idée ou contredisent l’argument du texte.
+- status: fixed
+  issues:
+  - The document is too short for the required 180–300 words.
+  item:
+    slug: ce-b2-retour-au-bureau
+    cefr: B2
+    origin: generated
+    focus: conditions du retour
+    passage: |-
+      Le retour massif au bureau a été présenté comme une réponse au manque de cohésion. Pourtant, dans une enquête menée auprès de salariés de trois secteurs, 64 % disent que l’open space les aide à échanger, mais 71 % affirment qu’il nuit à leur concentration. Ce paradoxe a conduit plusieurs entreprises à réaménager leurs locaux : box silencieux, créneaux sans réunion, espaces de discussion séparés. Certaines équipes disent aussi que les échanges informels diminuent quand les postes sont mal répartis, alors que c’est précisément ce lien qu’elles cherchent à renforcer.
+
+      L’auteur de l’article ne défend pas l’idée d’un travail entièrement à distance. Il remarque au contraire que la présence physique reste précieuse pour les décisions rapides, l’accueil des nouveaux et la circulation des informations tacites. En revanche, il juge naïf de croire qu’un bureau rempli suffit à produire une équipe soudée et efficace.
+
+      Son point de vue est clair : pour que le retour au bureau ait un sens, il faut autre chose qu’une obligation de présence. Il faut des lieux qui permettent autant la coordination que le travail concentré, sinon les salariés restent ensemble sans vraiment mieux collaborer.
+    prompt: L’auteur pense que le retour au bureau doit surtout…
+    options:
+    - imposer la présence complète
+    - supprimer l’open space
+    - remplacer le télétravail
+    - mieux organiser les espaces
+    answer: 3
+    explanation: L’auteur dit qu’il faut des lieux qui permettent à la fois coordination et concentration,
+      d’où les box silencieux et les espaces séparés. Les autres options ne reprennent pas cette idée
+      d’aménagement réfléchi.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-pauses-actives
+    cefr: B2
+    origin: generated
+    focus: prévention au bureau
+    passage: |-
+      Dans les entreprises qui ont testé les pauses actives, les salariés devaient s’arrêter cinq minutes toutes les heures pour marcher, s’étirer ou changer de posture. Après trois mois, les douleurs au cou et aux épaules ont baissé chez une partie des participants, et les absences courtes ont légèrement diminué. Les responsables ont vite voulu présenter l’initiative comme une réussite simple et peu coûteuse.
+
+      L’auteur du billet refuse toutefois de s’en tenir à ce constat. Selon lui, les exercices n’ont d’effet durable que s’ils s’inscrivent dans une réflexion plus large sur l’organisation du travail : écrans mal réglés, objectifs irréalistes, réunions trop longues et cadence continue. Si l’on demande aux salariés de respirer entre deux dossiers sans réduire la pression, on soulage les symptômes sans traiter la cause.
+
+      Le texte défend donc une prévention concrète mais exigeante. Bouger davantage est utile, bien sûr, mais la vraie question est de savoir pourquoi tant de corps finissent par se bloquer au bureau. Autrement dit, la santé au travail ne se limite pas à quelques gestes de détente.
+    prompt: Selon l’auteur, les pauses actives…
+    options:
+    - suppriment les douleurs
+    - sont suffisantes à elles seules
+    - obligent à travailler moins
+    - ne règlent pas le problème de fond
+    answer: 3
+    explanation: Le texte affirme que les exercices ont un effet limité si l’organisation du travail reste
+      inchangée. Les autres réponses exagèrent leur efficacité ou ajoutent une conséquence qui n’est pas
+      défendue.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-recrutement-agiste
+    cefr: B2
+    origin: generated
+    focus: diversité des âges
+    passage: |-
+      Une étude sur le recrutement dans les entreprises de services montre qu’à compétence égale, un candidat de plus de cinquante ans reçoit moins souvent une réponse positive qu’un profil plus jeune. Les recruteurs interrogés disent privilégier des personnes « plus souples », « plus faciles à former » ou « plus en phase avec la culture maison ». Or les mêmes entreprises se plaignent ensuite de manquer de stabilité dans les équipes et d’expérience client.
+
+      L’auteur du papier prend clairement position contre cette logique. Il rappelle que les salariés expérimentés changent moins souvent d’emploi, maîtrisent mieux les situations délicates et transmettent plus vite les méthodes aux nouveaux arrivants. Les chiffres cités vont dans le même sens : les équipes mêlant différentes tranches d’âge enregistrent moins d’erreurs et une meilleure satisfaction des usagers.
+
+      Le texte ne prétend pas que l’âge suffit à faire un bon recrutement. Il soutient plutôt qu’écarter les seniors par réflexe relève d’une mauvaise gestion, non d’un choix rationnel. Pour l’auteur, la diversité des âges n’est pas une question d’image, mais un levier de performance et de continuité.
+    prompt: Quelle est la position de l’auteur ?
+    options:
+    - Les seniors coûtent trop cher
+    - Les équipes mixtes sont un atout
+    - L’âge devrait être un critère central
+    - Les jeunes recrutés sont toujours plus efficaces
+    answer: 1
+    explanation: Le dernier paragraphe présente la diversité des âges comme un levier de performance et
+      de continuité. Les autres propositions contredisent l’étude ou réduisent l’âge à un critère unique.
+- status: ok
+  issues: []
+  item:
+    slug: ce-b2-soins-rapides
+    cefr: B2
+    origin: generated
+    focus: continuité des soins
+    passage: |-
+      Les centres de consultations sans rendez-vous séduisent par leur promesse de rapidité. Dans les quartiers étudiés, la fréquentation a augmenté de 22 % en deux ans, en particulier chez des personnes qui renonçaient jusque-là à voir un médecin pour une toux persistante, un renouvellement de traitement ou une petite inquiétude de santé. Sur le papier, le bilan paraît donc positif.
+
+      Mais l’auteur de l’article invite à la prudence. Il note que la rapidité peut fragmenter le suivi : un patient voit un professionnel différent à chaque passage, les examens se répètent et les conseils se contredisent parfois. À force de traiter des épisodes isolés, on perd la vue d’ensemble, surtout chez les malades chroniques ou les personnes âgées. Le gain d’accès ne suffit alors pas à garantir de meilleurs soins.
+
+      La conclusion est équilibrée : aller vite est une bonne chose quand il s’agit de ne pas laisser des symptômes s’aggraver. En revanche, si l’on confond vitesse et qualité, on risque d’obtenir un système plus réactif, mais moins cohérent.
+    prompt: D’après l’article, les consultations rapides…
+    options:
+    - résolvent les maladies chroniques
+    - remplacent le médecin traitant
+    - sont surtout utilisées pour les urgences graves
+    - améliorent l’accès, mais pas toujours le suivi
+    answer: 3
+    explanation: Le troisième paragraphe dit que la rapidité améliore l’accès mais peut fragmenter le
+      suivi. Les autres réponses vont trop loin ou déplacent le propos vers les urgences graves.

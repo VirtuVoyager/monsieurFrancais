@@ -23,6 +23,7 @@ Module        8 per level, ~6–8 h of study each    → Module check at the end
 ```
 
 - **48 modules** in total. A1–B2 (32 modules) are built first; C1–C2 follow once the target level is within reach.
+- A level can carry extra modules where class work shows a gap: A1 has three more (origins and nationalities, describing people, the working week), taken from topics taught in class, so its blocks hold six and five modules.
 - Each **module** has a theme from the recurring exam topics (housing, work, health, environment, technology, education, immigration, culture…). It contains:
   - **Grammar:** 1–2 concepts, following the sequence pronouns → articles/nouns → adjectives → verbs/negation/questions → tenses → conditional/subjunctive at A1–B1, then B2+ structures (concordance des temps, participle agreement, relative pronouns *dont/lequel*, connectors, nominalisation).
   - **Vocabulary:** 40–60 words by theme, gender colour-coded, drilled English → French and spoken aloud.
@@ -77,7 +78,7 @@ These sections are multiple choice, so they can be measured precisely.
   - Word count against the target, and whether the attempt finished within time.
   - For speaking: speech rate, pause ratio and filled pauses (*euh*), taken from word timestamps. Also Azure's **pronunciation accuracy and fluency** scores for fr-FR/fr-CA.
 - **Time is part of the score.** Writing runs on the exam clock with a word counter. Speaking runs on the task's clock, and silences and hesitations are measured.
-- The skill estimate is a **recency-weighted mean** of the counted scores, with uncertainty from their spread. It converts to CEFR/NCLC using the TCF bands (/20: 4–5 A2, 6–9 B1, 10–13 B2, 14–15 C1, 16–20 C2; NCLC 7 = 10–11).
+- The skill estimate is a **recency-weighted mean** of the counted scores, with uncertainty from their spread. It converts to CEFR/NCLC using the TCF bands (/20: 2–5 A2, 6–9 B1, 10–13 B2, 14–17 C1, 18–20 C2, per the Manuel du candidat; NCLC 7 = 10–11).
 - The grader is checked against the golden set in CI (§ 16). A prompt change that shifts the average error by more than 1 point fails the build.
 
 ### 4.4 How the bar looks

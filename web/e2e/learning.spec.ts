@@ -106,12 +106,14 @@ test("a timed writing drill is graded on /20 with fixes", async ({ page }) => {
 test("the placement test sets both receptive skill bars", async ({ page }) => {
   await page.goto("/placement");
   await page.getByRole("button", { name: "Begin" }).click();
-  for (let i = 0; i < 16; i++) {
+  // The run draws two items per bank level, so its length follows the bank.
+  const submit = page.getByRole("button", { name: "Submit" });
+  for (;;) {
     await page.getByRole("radio").first().click();
-    const next = page.getByRole("button", { name: "Next question" });
-    if (await next.isVisible()) await next.click();
+    if (await submit.isVisible()) break;
+    await page.getByRole("button", { name: "Next question" }).click();
   }
-  await page.getByRole("button", { name: "Submit" }).click();
+  await submit.click();
 
   await expect(page.getByText("You start at")).toBeVisible();
   await expect(page.getByText(/\/699 · /).first()).toBeVisible();
@@ -193,7 +195,10 @@ test("class notes are extracted, approved and land in the Library and Review", a
 test("hovering a French word shows its English meaning, but not in a timed drill", async ({
   page,
 }) => {
+  // A hover before the glossary arrives shows nothing, and one hover is one pointer move.
+  const glossary = page.waitForResponse((r) => r.url().includes("/glossary") && r.ok());
   await page.goto("/lessons/a1-01-se-presenter/grammaire");
+  await glossary;
   // Cells are wider than their word; point at the text itself, past the cell padding.
   await page
     .getByRole("cell", { name: "suis", exact: true })

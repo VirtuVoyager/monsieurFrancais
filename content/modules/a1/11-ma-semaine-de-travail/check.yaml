@@ -1,0 +1,16 @@
+items:
+  - {slug: vendeuse, skill: GR, kind: mcq, prompt: "Mon mari est vendeur et moi, je suis ___.", options: [vendeure, vendrice, vendeuse], answer: 2}
+  - {slug: directrice, skill: GR, kind: cloze, prompt: "Mme Roy est la ___ de l'école. (directeur)", accepted: [directrice]}
+  - {slug: ils-doivent, skill: GR, kind: cloze, prompt: "Les employés ___ arriver à huit heures. (devoir)", accepted: [doivent]}
+  - {slug: on-peut, skill: GR, kind: mcq, prompt: "Au bureau, on ___ boire du café.", options: [peut, peuvent, pouvons], answer: 0}
+  - {slug: jamais, skill: GR, kind: mcq, prompt: "Phrase correcte :",
+     options: ["Il jamais ne travaille le soir.", "Il ne travaille jamais le soir.", "Il ne jamais travaille le soir."], answer: 1}
+  - {slug: tous-les-jours, skill: VO, kind: mcq, prompt: "Je prends le métro du lundi au dimanche. Je le prends…",
+     options: [parfois, tous les jours, rarement], answer: 1}
+  - {slug: heure-officielle, skill: VO, kind: mcq, prompt: "Le train part à 19 h 15. On annonce : « Le train part à… »",
+     options: [sept heures et quart, dix-neuf heures quinze, dix-neuf heures et quart], answer: 1}
+  - {slug: le-lundi, skill: GR, kind: mcq, prompt: "___ lundi, je vais à la piscine. (chaque lundi)", options: [Le, Un, Au], answer: 0}
+  - {slug: jamais-adverbe, skill: VO, kind: mcq, prompt: "Le contraire de « toujours », c'est…", options: [souvent, ne… jamais, parfois], answer: 1}
+  - {slug: affiche-horaires, skill: CE, kind: mcq,
+     prompt: "« Bibliothèque : du mardi au samedi de 10 h à 18 h. Nocturne le jeudi jusqu'à 21 h. » Quand peut-on venir le soir ?",
+     options: [Le mardi, Le samedi, Le jeudi], answer: 2}

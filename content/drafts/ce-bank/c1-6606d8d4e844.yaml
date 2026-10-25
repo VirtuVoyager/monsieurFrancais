@@ -1,0 +1,201 @@
+request: ce-bank
+skill: CE
+cefr: C1
+themes:
+- médias
+- vie associative
+format: document
+model: gpt-5.4-mini
+key: 6606d8d4e84487247d4760c15b5c1a4f523c2f58bfaa934ff72539a5d470599d
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-chroniques-de-quartier
+    cefr: C1
+    origin: generated
+    focus: jugement sur la réforme
+    passage: |-
+      Le quotidien L’Observateur urbain a présenté, au printemps, une réforme qu’il décrit comme un « retour au terrain ». Sa page locale, jusque-là alimentée par trois journalistes, a été remplacée par une mosaïque de chroniques confiées à des habitants volontaires, à des commerçants, à des responsables d’associations et à quelques lecteurs réguliers. La rédaction explique vouloir « mieux entendre la ville » et « ouvrir le journal à ceux qu’il décrit ». Le vocabulaire est séduisant, presque généreux.
+
+      Pourtant, à la lecture de la nouvelle formule, on peine à croire qu’il s’agisse d’abord d’un élargissement de la parole. Les sujets restent choisis au centre, les angles validés en interne, et les contributions les plus visibles sont celles qui ne demandent ni enquête longue ni vérification complexe. Autrement dit, l’invitation donnée aux habitants ressemble moins à une prise de pouvoir qu’à une délégation très encadrée. Le journal gagne des contenus à faible coût, tandis que les lecteurs fournissent une matière que la rédaction retravaille ensuite pour lui donner une allure cohérente.
+
+      Le plus révélateur n’est peut-être pas là. C’est dans la façon dont la direction vante une proximité « plus authentique » au moment même où elle réduit les moyens consacrés au reportage. Comme souvent, la promesse d’ouverture accompagne une logique de rationalisation. La ville parle davantage, certes, mais elle parle selon les formes que le journal lui impose. Et cette nuance change tout.
+    prompt: Quel jugement l’auteur porte-t-il sur cette réforme ?
+    options:
+    - Elle renforce enfin la qualité de l’information locale.
+    - Elle élargit la parole tout en transférant le travail.
+    - Elle ne modifie que la vitesse de publication.
+    - Elle répond surtout à une attente de divertissement.
+    answer: 1
+    explanation: 'L’auteur souligne que la réforme donne l’impression d’ouvrir la parole, mais qu’elle
+      sert surtout à récupérer des contenus à faible coût et à encadrer les contributions. Les autres
+      propositions ne correspondent pas à cette critique : il ne parle ni d’un gain de qualité, ni d’un
+      simple changement de rythme, ni d’un objectif ludique.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-reunions-ecourtees
+    cefr: C1
+    origin: generated
+    focus: réserve sur la réforme
+    passage: |-
+      Dans plusieurs associations, la même idée revient avec insistance : moins de réunions, plus d’actions. Le Cercle des Mains Ouvertes, qui coordonne des ateliers d’entraide dans trois quartiers, vient ainsi de supprimer ses assemblées mensuelles au profit de rencontres par projet. Les responsables expliquent que les bénévoles, lassés par les ordres du jour interminables, réclamaient des échanges plus courts, plus concrets, moins cérémoniels. L’argument est entendu ; il a même des allures de bon sens.
+
+      Mais un texte interne diffusé cette semaine nuance fortement ce tableau. L’autrice y rappelle que les réunions ne servent pas seulement à « perdre du temps » : elles permettent aux nouveaux venus de comprendre les règles implicites du groupe, elles donnent de la visibilité aux tensions et elles évitent que les décisions se prennent entre quelques personnes déjà très disponibles. Or, en réduisant les occasions de débat collectif, l’association risque selon elle de confondre rapidité et vitalité. Un groupe qui se réunit moins n’est pas nécessairement un groupe qui agit mieux ; il peut simplement devenir plus silencieux, donc moins lisible, donc plus fragile.
+
+      Le texte ne défend pas une nostalgie de la discussion pour la discussion. Il admet que certaines habitudes pèsent lourd et que le bénévolat ne supporte pas toujours les mêmes formes de mobilisation qu’autrefois. Mais il met en garde contre une solution trop élégante : alléger la structure sans se demander pourquoi les personnes disponibles se raréfient. En ce sens, la réforme corrige le symptôme plus qu’elle ne traite la cause.
+    prompt: Quelle réserve l’autrice exprime-t-elle au sujet de cette réforme ?
+    options:
+    - Elle risque de réduire le débat sans résoudre le problème de fond.
+    - Elle devrait être appliquée à toutes les associations du quartier.
+    - Elle est surtout bloquée par un manque de salles adaptées.
+    - Elle ne concerne en réalité que les membres les plus âgés.
+    answer: 0
+    explanation: 'Le texte dit clairement que la réforme « corrige le symptôme plus qu’elle ne traite
+      la cause » : moins de réunions ne suffit pas à expliquer la baisse d’engagement. Les autres options
+      ne sont pas soutenues par le document : il n’y a ni recommandation générale, ni problème de salles,
+      ni ciblage des aînés.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-voix-synthetiques
+    cefr: C1
+    origin: generated
+    focus: transparence technique
+    passage: |-
+      La semaine dernière, la revue Audio public a publié un dossier sur l’usage de voix synthétiques dans les podcasts d’information. Le constat, d’abord, est difficile à balayer : pour les rédactions modestes, ces outils permettent de traduire rapidement un reportage, de préserver la voix d’un journaliste empêché, ou encore de rendre accessibles des archives que personne n’aurait le temps de reconstituer à la main. Le dossier évite donc le réflexe du procès immédiat.
+
+      Il souligne toutefois que l’efficacité d’une voix clonée n’est pas un argument suffisant. Une voix n’est pas seulement un instrument sonore ; elle porte une présence, une hésitation, une manière d’occuper l’espace qui participe à la confiance accordée par l’auditeur. Dès lors, le problème n’est pas tant de savoir si l’outil est « moderne » ou non, mais ce qu’il devient lorsqu’on cesse de dire qu’il est utilisé. L’article insiste sur un point qui traverse l’ensemble du dossier : la transparence n’est pas un détail administratif, elle fait partie de la relation éditoriale.
+
+      Le ton n’est ni alarmiste ni technophile. L’auteur admet qu’un média a tout intérêt à explorer ces procédés, surtout quand ils permettent de mieux diffuser une information déjà vérifiée. Mais il ajoute aussitôt que le public pardonne rarement d’être impressionné plus longtemps qu’il ne se sent informé. Autrement dit, la prouesse peut servir la diffusion ; elle ne remplace ni la signature, ni le contexte, ni l’aveu des limites.
+    prompt: Que suggère surtout l’auteur à propos des voix synthétiques ?
+    options:
+    - Elles doivent remplacer durablement les journalistes.
+    - Elles convainquent surtout par leur effet spectaculaire.
+    - Leur intérêt dépend de la clarté de leur usage.
+    - Elles ne peuvent servir qu’aux archives anciennes.
+    answer: 2
+    explanation: 'L’article admet l’utilité de ces outils, mais rappelle que le point décisif est de dire
+      clairement quand et comment ils sont employés. Les autres réponses ne conviennent pas : le texte
+      ne prône pas le remplacement des journalistes, ne réduit pas ces voix au spectaculaire, et ne les
+      limite pas aux seules archives.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-don-sous-conditions
+    cefr: C1
+    origin: generated
+    focus: autonomie associative
+    passage: |-
+      L’association Passage, qui accompagne des jeunes sortis du système scolaire, a refusé cette année une proposition de mécénat inhabituellement généreuse. La fondation Aster, en échange d’un soutien sur trois ans, demandait que son nom figure dans l’intitulé du programme et que certaines actions soient « davantage alignées sur les attentes du public visé », formule suffisamment vague pour paraître souple et suffisamment précise pour inquiéter.
+
+      Dans un premier temps, plusieurs membres du conseil ont jugé l’offre difficile à refuser. Les loyers augmentent, les subventions diminuent, et les permanents passent déjà une partie de leur temps à chercher de quoi financer le mois suivant. Pourtant, le texte de réponse adopté par l’association montre que le montant ne faisait pas tout. Il rappelait qu’un partenaire qui choisit l’affichage, puis oriente les contenus, finit souvent par peser sur les priorités, même sans intervenir ouvertement dans les décisions. Ce n’est pas la censure qui menace d’abord ; c’est la dépendance, plus lente, plus polie, parfois plus efficace.
+
+      La présidente de Passage ne ferme pas la porte à tout financement privé. Elle dit même comprendre que les associations aient besoin de ressources nouvelles. Mais elle refuse de confondre soutien et captation symbolique. Selon elle, accepter un label prestigieux en échange d’un ajustement progressif des activités reviendrait à déplacer la ligne sans l’annoncer. L’association préfère avancer plus lentement plutôt que de perdre, à terme, la maîtrise de son projet.
+    prompt: Pourquoi le conseil de Passage refuse-t-il l’offre de la fondation ?
+    options:
+    - Parce que les conditions menaçaient son indépendance.
+    - Parce que la somme proposée était insuffisante.
+    - Parce que le programme ne concernait pas les jeunes.
+    - Parce que le partenariat était juridiquement interdit.
+    answer: 0
+    explanation: 'Le texte insiste sur le risque de dépendance et sur la crainte de voir les priorités
+      de l’association infléchies par le mécénat. Les autres propositions sont exclues par le document
+      : l’offre est décrite comme généreuse, elle concerne bien les jeunes, et aucune interdiction légale
+      n’est évoquée.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-lecture-fragmentee
+    cefr: C1
+    origin: generated
+    focus: fonction des exemples
+    passage: |-
+      On a souvent présenté l’écran comme un instrument de liberté : chacun lit quand il veut, où il veut, selon son humeur et son temps disponible. Ce récit est séduisant, mais il oublie une transformation plus discrète. L’information numérique s’est installée dans les creux de la journée, là où la lecture n’était autrefois qu’une parenthèse. Dans le métro, avant un rendez-vous, entre deux cours, au fond d’une file d’attente, l’usager consulte moins qu’il ne comble.
+
+      L’auteur de ces lignes ne conteste pas le plaisir réel de cette disponibilité. Il note simplement qu’à force de multiplier les fragments, on finit par associer la lecture à des temps résiduels. Le texte long devient suspect parce qu’il demande de rester. L’article argumenté, lui, entre en concurrence avec des alertes, des messages, des brèves qui n’exigent qu’un regard. Le geste n’est plus de choisir un contenu ; il devient celui d’occuper une brèche. Ce déplacement n’a rien de spectaculaire et c’est précisément ce qui le rend puissant.
+
+      D’où les exemples récurrents de la station, de la salle d’attente et du quai. Ils ne servent pas à illustrer des situations pittoresques, mais à montrer comment un outil censé élargir l’accès à l’écrit peut en changer la logique. On ne lit plus seulement pour comprendre ou pour se perdre ; on lit aussi pour ne pas attendre. Et lorsqu’une pratique devient le simple remède à l’intervalle, elle modifie silencieusement ce qu’on attend d’elle.
+    prompt: À quoi servent surtout les exemples du métro, de la file d’attente et du quai ?
+    options:
+    - À prouver que les usagers préfèrent les longs textes.
+    - À illustrer la beauté des transports urbains.
+    - À opposer la ville au monde scolaire.
+    - À montrer que la lecture sert à remplir les temps morts.
+    answer: 3
+    explanation: 'L’auteur explique lui-même que ces exemples montrent comment on lit désormais pour «
+      occuper une brèche » et « ne pas attendre ». Les autres options ne correspondent pas au passage
+      : il n’est pas question d’un goût pour les longs textes, ni d’un éloge des transports, ni d’une
+      opposition ville/école.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-mot-professionnel
+    cefr: C1
+    origin: generated
+    focus: sens de professionnaliser
+    passage: |-
+      Dans le secteur associatif, le verbe « professionnaliser » est devenu si fréquent qu’il semble aller de soi. Il apparaît dans les rapports d’activité, dans les demandes de subvention, dans les discours des fédérations et jusque dans les réunions de bénévoles. À l’entendre, il suffirait d’ajouter quelques procédures, un tableau de suivi, une personne salariée, voire un logiciel partagé, pour faire passer un groupe du bricolage à la maturité.
+
+      Or l’article publié par la revue Vivre ensemble déconstruit cette évidence apparente. Il ne nie pas l’intérêt d’une meilleure organisation ; il rappelle au contraire qu’une association mal gérée peut épuiser ses forces dans des tâches répétitives. Mais il montre que le terme sert souvent à valider un déplacement plus profond : ce qui relevait d’une décision collective passe entre les mains de ceux qui maîtrisent le langage des appels à projets, des indicateurs et des échéances budgétaires. Les bénévoles, eux, sont invités à « se recentrer sur le terrain », formule flatteuse qui peut aussi signifier qu’on les éloigne du pouvoir de discuter l’orientation générale.
+
+      L’auteur ne défend pas un amateurisme romantique. Il admet qu’une association qui grandit a besoin d’outils stables et de compétences reconnues. Son point est ailleurs : lorsque la professionnalisation devient le seul horizon, elle cesse d’être un moyen et devient une norme morale. On ne demande plus si l’action est juste ou utile ; on demande si elle est assez conforme aux usages du secteur. Et c’est là que le mot perd sa neutralité.
+    prompt: Dans cet article, que signifie surtout « professionnaliser » ?
+    options:
+    - Rendre l’association plus dépendante des procédures.
+    - Améliorer les conditions d'accueil des bénévoles.
+    - Transformer l'association en entreprise commerciale.
+    - Réserver les postes aux diplômés.
+    answer: 0
+    explanation: 'Le texte montre que le terme masque souvent une normalisation administrative et un transfert
+      du pouvoir vers ceux qui maîtrisent les codes de gestion. Les autres réponses ne conviennent pas
+      : il n’est pas question de confort, d’entreprise, ni d’une sélection fondée uniquement sur les diplômes.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-journal-minute
+    cefr: C1
+    origin: generated
+    focus: hiérarchie de l'information
+    passage: |-
+      Le nouveau format du site Flash Direct promet de « suivre l’actualité au plus près ». Concrètement, cela signifie une succession continue de brèves, de signalements et de reprises en direct, depuis l’ouverture du matin jusqu’à la dernière édition du soir. Chaque sujet important y apparaît d’abord sous la forme d’une alerte, puis d’un complément, puis d’un rappel, puis d’une mise à jour. Le lecteur est ainsi supposé ne jamais perdre le fil.
+
+      Ce que l’éditorial de lancement présente comme un gain de réactivité est précisément ce que l’analyse critique du dossier met en doute. À force de tout annoncer au même niveau d’urgence, le site finit par réduire l’écart entre l’essentiel et le secondaire. Une grève dans les transports, une conférence de presse, un résultat sportif et une indiscrétion politique s’y succèdent avec une cadence si voisine que l’on ne sait plus très bien ce qui mérite d’être retenu d’abord. Le problème n’est pas l’abondance ; il est l’absence de hiérarchie lisible.
+
+      L’auteur ne plaide pas pour un retour à la lenteur par principe. Il reconnaît que certains lecteurs apprécient ce flux, notamment lorsqu’un événement évolue vite. Mais il observe que le temps réel, lorsqu’il devient l’unique valeur éditoriale, pousse les rédactions à confondre présence et pertinence. Le risque n’est donc pas seulement la fatigue du lecteur ; c’est la perte de forme de l’information elle-même, réduite à un présent continu, sans relief durable.
+    prompt: Quelle est la critique principale formulée dans ce texte ?
+    options:
+    - Le site manque de sujets réellement importants.
+    - Les lecteurs refusent désormais les formats brefs.
+    - La réactivité finit par effacer la hiérarchie des informations.
+    - L’actualité sportive y prend trop de place.
+    answer: 2
+    explanation: 'Le texte reproche au format de mettre tout au même niveau d’urgence et de faire disparaître
+      l’écart entre l’essentiel et le secondaire. Les autres propositions sont trop spécifiques ou contredites
+      : il y a bien des sujets importants, les formats brefs ne sont pas rejetés en soi, et le sport n’est
+      donné qu’à titre d’exemple.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-fusion-discrete
+    cefr: C1
+    origin: generated
+    focus: condition de fusion
+    passage: |-
+      Depuis deux ans, plusieurs petites associations culturelles de la même ville fusionnent ou mutualisent leurs services. Elles partagent désormais un même secrétariat, un même outil de gestion des adhésions et, parfois, un même local. Les élus saluent volontiers ces rapprochements, qui évitent des doublons et donnent une image plus « lisible » du tissu associatif. Le mot d’ordre semble simple : regrouper pour durer.
+
+      Le dossier publié par la lettre sectorielle Horizon civique invite pourtant à la prudence. Il constate que certaines fusions libèrent du temps administratif et sécurisent les finances. Mais il souligne aussi qu’un rapprochement réussi ne se mesure pas seulement à la baisse des coûts. Là où les structures les plus fragiles espèrent gagner en stabilité, elles peuvent perdre la proximité avec leurs adhérents si tout remonte vers un centre unique. Les réunions s’espacent, les priorités s’alignent, et ce qui faisait la singularité d’un projet risque de se diluer dans une identité commune trop lisse.
+
+      L’auteur n’oppose donc pas mécaniquement petite taille et qualité. Il admet qu’il serait illusoire de sanctuariser des formes anciennes au nom d’un attachement sentimental. En revanche, il rappelle qu’une fusion n’a de sens que si elle protège des espaces de décision propres, des moyens d’expression distincts et une capacité réelle à dire non. Sans cela, le regroupement produit peut-être une structure plus solide ; il produit aussi, souvent, un interlocuteur plus éloigné de ceux qu’il prétend représenter.
+    prompt: Quelle condition l’auteur juge-t-il indispensable à une fusion associative ?
+    options:
+    - Augmenter d’abord le nombre d’adhérents.
+    - Supprimer toute mutualisation financière.
+    - Conserver des espaces de décision propres.
+    - Obtenir un soutien exclusif des élus.
+    answer: 2
+    explanation: 'L’article dit explicitement qu’une fusion n’a de sens que si elle protège des espaces
+      de décision distincts et une capacité à dire non. Les autres options ne sont pas demandées par le
+      texte : l’augmentation des adhérents n’est pas présentée comme une condition, la mutualisation n’est
+      pas rejetée en bloc, et le soutien des élus n’est pas central.'

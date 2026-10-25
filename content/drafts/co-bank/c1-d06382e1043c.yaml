@@ -1,0 +1,225 @@
+request: co-bank
+skill: CO
+cefr: C1
+themes:
+- santé
+- environnement
+format: document
+model: gpt-5.4-mini
+key: d06382e1043c156a272bd74f22094a6efcea0cdbb568d34e0b1058c96224a98a
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-campagne-sante-mentale
+    cefr: C1
+    origin: generated
+    focus: objectif d’un organisme
+    audio_text: 'Quand nous avons lancé l’Observatoire Bien-Être au Travail, nous ne voulions pas publier
+      un énième guide qui finit sur une étagère. Notre problème était plus simple et plus grave : dans
+      beaucoup d’entreprises, les signaux de détresse passent pour de la fatigue ordinaire. On attend
+      que la personne s’isole, s’énerve ou s’absente longtemps pour réagir. Or, à ce stade, l’accompagnement
+      devient plus lourd, pour elle comme pour l’équipe. C’est pourquoi notre nouvelle campagne, Parlons
+      tôt, ne s’adresse pas d’abord aux psychologues, mais aux managers, aux représentants du personnel
+      et aux collègues. Nous leur proposons des repères très concrets : une baisse brutale d’attention,
+      un désengagement soudain, des phrases comme je n’y arrive plus. Nous ne promettons pas de diagnostiquer
+      à distance ni de remplacer les professionnels. Nous voulons créer un réflexe simple : oser ouvrir
+      la conversation avant que la situation ne se dégrade. Si la parole circule plus tôt, les personnes
+      concernées acceptent plus facilement de consulter.'
+    prompt: Quel est l’objectif principal de cette campagne ?
+    options:
+    - Aider à repérer plus tôt la détresse
+    - Proposer une psychothérapie gratuite
+    - Évaluer les managers
+    - Remplacer les professionnels
+    answer: 0
+    explanation: 'La locutrice dit clairement qu’elle veut « ouvrir la conversation avant que la situation
+      ne se dégrade » et faire repérer les signes de détresse plus tôt. Les autres propositions sont écartées
+      dans le texte : il ne s’agit ni d’offrir des soins gratuits, ni d’évaluer les managers, ni de remplacer
+      les professionnels.'
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-plan-de-fraicheur
+    cefr: C1
+    origin: generated
+    focus: implicite
+    audio_text: |-
+      - Votre projet de quartier frais a été présenté comme une réponse aux vagues de chaleur. Pourtant, certains habitants disent que planter quelques arbres ne changera pas grand-chose.
+      - Ils ont raison si l’on croit qu’un arbre, à lui seul, règle le problème. Nous, on parle d’un ensemble : ombrage, matériaux plus clairs, cours d’école ouvertes au public et surtout réduction des surfaces qui emmagasinent la chaleur.
+      - Donc vous n’êtes pas opposé aux arbres ?
+      - Bien au contraire. Mais si l’on se contente de verdir une place déjà surchauffée, on se donne bonne conscience. Les canicules exigent de repenser la circulation de l’air, les façades et l’usage des bâtiments.
+      - On vous reproche aussi d’être trop prudent sur l’interdiction des voitures ?
+      - Je dis simplement que, dans ce dossier, la voiture n’est qu’un facteur parmi d’autres. Si l’on veut protéger les plus fragiles, il faut agir sur plusieurs fronts, sinon on déplace le problème au lieu de le résoudre.
+    prompt: Que défend surtout le monsieur ?
+    options:
+    - Une réponse globale
+    - La priorité aux arbres
+    - Le retour des climatiseurs
+    - L’interdiction immédiate des voitures
+    answer: 0
+    explanation: 'Il répète qu’il faut agir sur « un ensemble » et « plusieurs fronts » : bâtiments, ombrage,
+      matériaux, circulation de l’air. Les autres réponses ne conviennent pas, car il ne mise ni sur les
+      seuls arbres, ni sur les climatiseurs, ni sur une interdiction immédiate des voitures.'
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-depistage-cible
+    cefr: C1
+    origin: generated
+    focus: structure de l’argumentation
+    audio_text: 'On entend souvent que les campagnes de dépistage inquiètent inutilement les gens, qu’elles
+      fabriquent des faux positifs et des examens supplémentaires. L’objection n’est pas absurde. Si l’on
+      dépiste sans discernement, on trouve des anomalies qui n’auraient peut-être jamais évolué. Mais
+      c’est justement là que la discussion devient sérieuse : faut-il renoncer pour autant à tout dépistage
+      ? Évidemment non. Il faut distinguer les programmes massifs, peu ciblés, des stratégies fondées
+      sur l’âge, les antécédents et la qualité du suivi. Lorsqu’un test est proposé au bon moment et avec
+      une information claire, il permet de détecter plus tôt des maladies qui, sans cela, seraient prises
+      en charge trop tard. Autrement dit, le vrai enjeu n’est pas de choisir entre alarme et déni ; il
+      est de concevoir des dispositifs précis, lisibles et accompagnés. Ce n’est pas le principe du dépistage
+      qu’il faut condamner, c’est son usage approximatif.'
+    prompt: Comment le chroniqueur construit-il son propos ?
+    options:
+    - Il compare deux hôpitaux
+    - Il part d’une objection pour la nuancer
+    - Il raconte une expérience personnelle
+    - Il présente un nouveau médicament
+    answer: 1
+    explanation: 'Le texte commence par une objection fréquente, puis la discussion est progressivement
+      nuancée par des conditions de dépistage plus précises. Les autres options sont fausses : il n’y
+      a ni comparaison d’établissements, ni récit personnel, ni présentation d’un médicament.'
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-compost-de-quartier
+    cefr: C1
+    origin: generated
+    focus: rôle d’un organisme
+    audio_text: 'Quand on parle de biodéchets, beaucoup de gens imaginent un effort supplémentaire imposé
+      aux habitants. C’est l’inverse que nous avons essayé de faire avec l’association Terre Commune.
+      Notre équipe accompagne les immeubles qui veulent transformer leurs déchets de cuisine en ressource
+      locale. Nous commençons par les volontaires : une résidence pilote, quelques bacs bien placés, des
+      consignes très simples, puis un suivi pendant trois mois. L’idée n’est pas de moraliser, encore
+      moins de contrôler les ménages. Nous aidons les copropriétés à réduire le volume des poubelles,
+      mais aussi à produire un compost utilisable dans les jardins partagés, les pieds d’immeubles ou
+      les écoles du quartier. À terme, nous formons des référents parmi les habitants eux-mêmes, afin
+      que le système tienne sans dépendre de nous. Notre rôle est donc double : rendre le tri praticable
+      et montrer qu’un déchet organique peut redevenir une matière utile.'
+    prompt: Quel est le rôle de l’association Terre Commune ?
+    options:
+    - Ramasser les ordures ménagères
+    - Accompagner le compostage de quartier
+    - Vendre des bacs de cuisine
+    - Organiser des jardins d’enfants
+    answer: 1
+    explanation: 'L’association dit qu’elle accompagne les immeubles, forme des référents et aide à produire
+      du compost local : son rôle est donc d’organiser le compostage de quartier. Elle ne se charge pas
+      de la collecte des déchets, ne vend pas de matériel et n’organise pas des activités pour enfants.'
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-soins-de-proximite
+    cefr: C1
+    origin: generated
+    focus: implicite
+    audio_text: |-
+      - Depuis l’ouverture de la navette médicale, on voit moins de rendez-vous manqués.
+      - Il faut dire que, jusque-là, certains patients devaient choisir entre une demi-journée de travail et une consultation de suivi.
+      - Vous pensez donc que le problème n’était pas seulement financier ?
+      - Non. Quand le centre le plus proche est à une heure de bus, le moindre contrôle devient compliqué. On parle beaucoup de prévention, mais si l’on oblige les gens à parcourir tant de kilomètres, on les pousse à attendre que ça aille vraiment mal.
+      - La navette ne fait pas de miracles.
+      - Non, mais elle rappelle une chose simple : l’accès aux soins n’est pas abstrait ; il dépend aussi des trajets, des horaires et de l’énergie qu’il faut pour consulter.
+    prompt: Que sous-entend le monsieur ?
+    options:
+    - La navette est trop coûteuse
+    - La distance décourage les soins
+    - Les patients préfèrent l’hôpital
+    - La prévention est inutile
+    answer: 1
+    explanation: 'Le monsieur relie les rendez-vous manqués à la distance, au temps de trajet et aux contraintes
+      pratiques, ce qui suggère que l’éloignement décourage les consultations. Les autres réponses ne
+      correspondent pas : il ne critique ni le coût de la navette, ni le goût des patients pour l’hôpital,
+      ni le principe de la prévention.'
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-eau-du-robinet
+    cefr: C1
+    origin: generated
+    focus: objectif d’une campagne
+    audio_text: 'Dans plusieurs villes, on a longtemps laissé le marché des bouteilles décider de notre
+      manière de boire. Or l’eau du robinet n’est ni un slogan ni un gadget écologique ; c’est un service
+      public qui doit être visible et digne de confiance. C’est pourquoi la campagne lancée par Eau Claire
+      ne se limite pas à dire : Buvez local. Elle installe des fontaines dans les lieux de passage, publie
+      les résultats des analyses dans un langage compréhensible et répond aux inquiétudes sur le goût
+      ou la qualité. Le but n’est pas de culpabiliser les personnes qui achètent encore de l’eau en bouteille.
+      Il est plutôt de rappeler qu’une ressource déjà traitée, contrôlée et distribuée partout peut rester
+      le premier réflexe, à condition qu’on la rende accessible et lisible. En réduisant les achats de
+      plastique, on agit certes sur les déchets, mais on redonne aussi de la valeur à un bien commun que
+      beaucoup utilisent sans y penser.'
+    prompt: Quel est l’objectif principal de cette campagne ?
+    options:
+    - Rassurer sur l’eau du robinet
+    - Interdire les bouteilles
+    - Augmenter le prix de l’eau
+    - Remplacer les analyses
+    answer: 0
+    explanation: Le document insiste sur la confiance, l’accessibilité et la lisibilité des contrôles
+      pour faire de l’eau du robinet un réflexe. Il n’est nulle part question d’interdire les bouteilles,
+      de changer le prix de l’eau ou de supprimer les analyses.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-reflexe-antibiotique
+    cefr: C1
+    origin: generated
+    focus: structure de l’argumentation
+    audio_text: 'Chaque hiver, le même réflexe revient : dès qu’une gorge brûle ou qu’un nez coule, certains
+      réclament des antibiotiques comme on demanderait une assurance supplémentaire. C’est précisément
+      contre ce réflexe que je veux revenir. Oui, personne n’aime être malade ; oui, attendre plusieurs
+      jours quand on se sent faible n’a rien d’agréable. Mais transformer un inconfort en traitement systématique
+      est une erreur. Les antibiotiques ne sont pas des calmants, et les utiliser à tort affaiblit leur
+      efficacité pour les situations où ils sont vraiment indispensables. L’enjeu n’est donc pas de prôner
+      la patience par principe, ni de nier la peur des complications. Il est de rappeler qu’une grande
+      partie des infections hivernales sont virales et guérissent sans ce type de médicament. Si je commence
+      par reconnaître l’impatience du patient, c’est pour mieux montrer que le bon choix n’est pas de
+      céder à la demande immédiate, mais d’expliquer quand un traitement est utile et quand il ne l’est
+      pas.'
+    prompt: Comment le chroniqueur organise-t-il son argumentation ?
+    options:
+    - Il compare deux services hospitaliers
+    - Il raconte en détail l’histoire d’un patient malade
+    - Il part d’un réflexe courant pour le remettre en cause
+    - Il présente un nouveau médicament contre la grippe
+    answer: 2
+    explanation: Le chroniqueur commence par évoquer une demande très répandue, puis il montre pourquoi
+      ce réflexe est discutable et dans quels cas il faut le corriger. Les autres propositions ne conviennent
+      pas, car il ne compare pas des services, ne raconte pas une histoire particulière et ne fait pas
+      la promotion d’un médicament.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-corridors-ecologiques
+    cefr: C1
+    origin: generated
+    focus: implicite
+    audio_text: 'Quand on parle de biodiversité urbaine, on me répond souvent : D’accord pour les abeilles,
+      mais est-ce vraiment prioritaire dans une ville déjà saturée ? La question est légitime, sauf qu’elle
+      repose sur une idée trop étroite de la nature en ville. Les abeilles, les oiseaux, les vers de terre
+      ou les plantes spontanées ne sont pas décoratifs. Ils forment un réseau discret qui filtre l’eau,
+      rafraîchit les sols, limite certaines maladies des plantes et signale l’état général d’un quartier.
+      C’est pourquoi les corridors écologiques ne servent pas seulement à sauver quelques espèces emblématiques.
+      Ils relient des espaces fragmentés pour que les fonctions du vivant continuent de circuler. Si nous
+      insistons sur les espèces discrètes, ce n’est pas par romantisme : c’est parce qu’elles rendent
+      visible ce que l’on ne voit pas quand tout fonctionne mal. Une ville qui oublie ces liens devient
+      plus fragile, même si, à première vue, elle paraît mieux aménagée.'
+    prompt: Pourquoi le conférencier insiste-t-il sur les espèces discrètes ?
+    options:
+    - Pour montrer qu’elles révèlent la santé de l’ensemble
+    - Pour défendre un simple décor végétal
+    - Pour prouver que la ville n’a pas besoin de règles
+    - Pour opposer la campagne à la ville
+    answer: 0
+    explanation: 'Le conférencier explique que ces espèces rendent visible l’état général d’un quartier
+      et les fonctions du vivant. Les autres réponses sont erronées : il ne parle pas d’un décor, ne rejette
+      pas les règles et ne construit pas une opposition ville/campagne.'

@@ -1,0 +1,214 @@
+request: co-bank
+skill: CO
+cefr: C1
+themes:
+- technologie
+- éducation
+format: document
+model: gpt-5.4-mini
+key: 34256f0969c49d81c6f3f316c2a69ea15e4ca2aeb14237ee5c1e6a0e10c8abcc
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-centre-numerique
+    cefr: C1
+    origin: generated
+    focus: objectif du dispositif
+    audio_text: 'Dans notre centre, nous recevons chaque jour les mêmes demandes : changer un mot de passe,
+      retrouver un formulaire, comprendre une démarche. Jusqu’ici, ces questions simples encombraient
+      nos agents, qui passaient parfois plus de temps à répéter la même explication qu’à traiter les cas
+      vraiment délicats. Nous avons donc testé un assistant numérique. Il ne prend pas les décisions,
+      il ne ferme aucun dossier et il ne remplace personne. Son rôle est plus modeste, mais essentiel
+      : répondre immédiatement aux demandes évidentes, orienter vers le bon service et signaler quand
+      un dossier exige une vérification humaine. Certains y ont vu une manière de faire des économies.
+      Ce n’est pas notre logique. Si nous l’adoptons, c’est pour que les conseillers puissent écouter
+      plus longtemps les situations compliquées, celles où il faut comprendre un contexte, faire preuve
+      de discernement, parfois même déroger à la règle. Autrement dit, la technologie n’est pas ici une
+      fin en soi ; elle sert à redonner du temps au service public.'
+    prompt: Pourquoi ce dispositif est-il mis en place ?
+    options:
+    - Pour traiter uniquement les urgences
+    - Pour remplacer les conseillers
+    - Pour réserver les conseillers aux cas complexes
+    - Pour collecter plus de données personnelles
+    answer: 2
+    explanation: Le document précise que l’assistant répond aux demandes simples afin de laisser les conseillers
+      aux situations compliquées. Les autres propositions contredisent clairement le texte ou lui prêtent
+      un objectif absent.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-ia-a-luniversite
+    cefr: C1
+    origin: generated
+    focus: condition d’usage
+    audio_text: |-
+      - Je ne suis pas opposée aux outils d’IA, mais je refuse qu’on les présente comme une baguette magique.
+      - Pourtant, vos étudiants les utilisent déjà pour rédiger plus vite.
+      - Justement. Qu’ils les utilisent, oui, mais pas pour masquer ce qu’ils ne comprennent pas. Quand un étudiant s’en sert pour dégager des idées, reformuler un plan ou repérer des incohérences, l’outil peut être utile. En revanche, s’il copie une réponse sans la discuter, il perd l’occasion d’apprendre.
+      - Vous voulez donc encadrer l’usage plutôt que l’interdire ?
+      - Exactement. Je demande simplement qu’ils indiquent ce que la machine a apporté, puis qu’ils expliquent leurs choix avec leurs propres mots. L’intérêt n’est pas d’obtenir un texte impeccable ; il est de rendre visible la réflexion. Si nous acceptons l’IA sans exigence, nous ne savons plus ce qui relève de l’étudiant et ce qui relève de la machine. Or, à l’université, ce qui compte, ce n’est pas seulement le résultat, c’est la capacité à justifier ce résultat.
+    prompt: Quelle condition la professeure juge-t-elle indispensable ?
+    options:
+    - En expliquer l’apport
+    - Interdire l’outil
+    - L’utiliser sans le mentionner
+    - Le réserver aux enseignants
+    answer: 0
+    explanation: Elle dit qu’il faut indiquer ce que la machine a apporté et ensuite justifier ses choix
+      avec ses propres mots. Les autres réponses vont contre sa position, qui n’est ni l’interdiction
+      ni l’usage caché.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-rattrapage-scolaire
+    cefr: C1
+    origin: generated
+    focus: objectif social
+    audio_text: 'Dans plusieurs quartiers, des élèves rentrent chez eux dans des conditions très différentes.
+      Certains disposent d’une chambre calme, d’un ordinateur, parfois d’un parent pour relire une consigne.
+      D’autres travaillent sur la table de la cuisine, au milieu du bruit, ou partagent un seul appareil
+      avec leurs frères et sœurs. Nous avons donc ouvert des clubs d’étude en fin de journée, dans des
+      bibliothèques de quartier. L’idée n’est pas de refaire les cours ni de transformer les bénévoles
+      en professeurs. Il s’agit d’offrir un lieu stable, du matériel et surtout des adultes qui aident
+      à s’organiser : comprendre la consigne, préparer un exposé, apprendre à chercher une source fiable.
+      Ce cadre n’est pas spectaculaire, mais il compense une différence très concrète. Quand on dit qu’un
+      élève doit travailler seul, on oublie souvent que tout le monde n’est pas seul de la même façon.
+      Notre initiative part de ce constat, et c’est pour cela qu’elle vise en priorité les jeunes qui
+      ont le moins de ressources à la maison.'
+    prompt: À quel problème répond cette initiative ?
+    options:
+    - Au manque de loisirs
+    - À l’absence d’évaluations régulières
+    - Aux inégalités devant le travail scolaire
+    - À la surcharge des programmes scolaires
+    answer: 2
+    explanation: Le texte insiste sur les conditions de travail très inégales à la maison et sur l’aide
+      apportée après la classe. Les autres options ne correspondent pas au problème décrit.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-examen-repense
+    cefr: C1
+    origin: generated
+    focus: argument sur l’évaluation
+    audio_text: |-
+      - Vous voulez vraiment supprimer l’examen terminal ?
+      - Le supprimer, non. Lui rendre sa juste place, oui. Aujourd’hui, on lui attribue un pouvoir excessif : en une épreuve de trois heures, on prétend mesurer une année entière de travail. Or un élève peut réussir ce jour-là sans avoir consolidé ses acquis, et un autre échouer sous l’effet du stress alors qu’il maîtrise la matière.
+      - Vous proposez donc de multiplier les notes ?
+      - Pas seulement. Je préfère une évaluation répartie dans le temps : un projet, des retours réguliers, une présentation orale. Ainsi, on observe la progression, la capacité à corriger ses erreurs, à collaborer, à argumenter. Le problème n’est pas de faire travailler davantage les enseignants, c’est d’éviter qu’un unique moment décide de tout.
+      - En somme, vous considérez que l’examen actuel valorise trop la mémoire immédiate ?
+      - Et l’endurance nerveuse plus que la compréhension. C’est précisément ce déséquilibre que nous voulons corriger.
+    prompt: Quel est le reproche adressé à l’examen unique ?
+    options:
+    - Il coûte trop cher
+    - Il privilégie trop la mémoire immédiate
+    - Il laisse peu de place à l’oral
+    - Il supprime le travail en classe
+    answer: 1
+    explanation: L’orateur dit que l’épreuve unique mesure surtout la mémoire immédiate et l’endurance
+      nerveuse, pas la compréhension. Les autres réponses ne sont jamais évoquées.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-algorithme-ouvert
+    cefr: C1
+    origin: generated
+    focus: transparence des critères
+    audio_text: 'On nous répète souvent que les algorithmes ne sont que des outils neutres, et qu’il suffit
+      de les laisser fonctionner pour améliorer nos services. Cette idée est commode, mais elle oublie
+      une chose simple : un outil qui trie, classe ou recommande finit par orienter nos choix, même s’il
+      ne parle jamais. Quand un système décide quels contenus nous verrons en premier, quels dossiers
+      remonteront ou quelles offres seront jugées pertinentes, il produit déjà une forme de pouvoir. C’est
+      pourquoi notre association ne demande pas la disparition de ces systèmes. Nous demandons autre chose
+      : que les critères soient explicables, que des audits indépendants puissent vérifier les effets
+      indésirables et que les usagers sachent au moins pourquoi une proposition leur a été faite. Sans
+      cette exigence de transparence, on confond efficacité technique et légitimité démocratique. Le vrai
+      débat ne porte donc pas sur la technologie en elle-même, mais sur le droit de comprendre ce qui
+      influence nos décisions.'
+    prompt: Que réclame principalement l’intervenant ?
+    options:
+    - La transparence des critères
+    - L’interdiction des plateformes
+    - La suppression des publicités
+    - La gratuité des logiciels
+    answer: 0
+    explanation: 'L’intervenant demande que les critères soient explicables et vérifiables par des audits
+      indépendants : c’est bien une exigence de transparence. Les autres propositions ne correspondent
+      pas à son argument.'
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-ecole-en-ligne
+    cefr: C1
+    origin: generated
+    focus: nécessité d’échanges
+    audio_text: |-
+      - Avec les cours enregistrés, nos étudiants gagnent en souplesse. Ils peuvent revoir une explication, avancer à leur rythme, arriver en classe moins perdus.
+      - Je suis d’accord, à condition de ne pas confondre souplesse et isolement. Si la vidéo remplace tout, on perd les questions imprévues, les hésitations utiles, l’échange qui fait émerger les malentendus.
+      - Vous voulez donc garder des séances en présence ?
+      - Oui, parce que la présence sert à discuter, à confronter les points de vue, à résoudre un problème ensemble. Le support numérique peut préparer, compléter, rappeler. Mais c’est en classe que l’apprentissage devient vivant.
+      - Donc, pour vous, le modèle hybride n’est pas un compromis par défaut ?
+      - Non, c’est un choix pédagogique, à condition que la partie en ligne libère du temps pour l’interaction, au lieu de l’appauvrir. Sinon, on gagne en confort ce qu’on perd en profondeur.
+    prompt: Sur quoi repose leur accord ?
+    options:
+    - La supériorité du tout-en-ligne
+    - L’abandon des contenus
+    - Le retour aux manuels papier
+    - La nécessité de maintenir les échanges
+    answer: 3
+    explanation: Les deux interlocuteurs s’accordent sur l’importance des échanges en présentiel, que
+      le numérique doit soutenir et non remplacer. Les autres options déforment complètement leur position.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-competences-qui-passent
+    cefr: C1
+    origin: generated
+    focus: rôle de la formation
+    audio_text: Notre entreprise a changé plus vite que nos habitudes. En cinq ans, les logiciels ont
+      évolué, les clients ont demandé des réponses plus rapides et plusieurs métiers se sont transformés
+      sans qu’on s’en rende compte. Dans ce contexte, former les salariés n’est pas un luxe ni un avantage
+      accessoire. C’est une manière de préserver une expertise collective. Quand un employé expérimenté
+      part à la retraite, il emporte avec lui des gestes, des réflexes, des astuces qu’aucun mode d’emploi
+      ne remplace. Nous avons donc mis en place un programme où les plus anciens transmettent leurs méthodes,
+      pendant que les plus jeunes apportent leur aisance avec les outils numériques. Le but n’est pas
+      d’obtenir un certificat de plus, ni d’imposer un cursus uniforme. Il s’agit d’accompagner une transition
+      réelle, afin que chacun puisse tenir son poste sans se retrouver dépassé par les changements. En
+      somme, nous investissons dans la formation pour que la transformation des métiers ne se fasse pas
+      contre les personnes, mais avec elles.
+    prompt: Pourquoi l’entreprise investit-elle dans la formation ?
+    options:
+    - Pour augmenter les tâches administratives
+    - Pour remplacer les chefs d’équipe
+    - Pour accompagner l’évolution des métiers
+    - Pour réduire les salaires
+    answer: 2
+    explanation: Le texte dit explicitement que la formation sert à accompagner une transition réelle
+      face à la transformation des métiers. Les autres réponses sont absentes du document et contredisent
+      son intention.
+- status: ok
+  issues: []
+  item:
+    slug: co-c1-tutorat-en-ligne
+    cefr: C1
+    origin: generated
+    focus: suivi des étudiants
+    audio_text: |-
+      - Nos étudiants apprécient les capsules vidéo, mais j’ai peur qu’ils s’illusionnent sur leur autonomie.
+      - Comment ça ?
+      - Une vidéo peut expliquer une notion. Elle ne repère pas la mauvaise méthode d’un élève, ni ne lui apprend à formuler une question. Or, sans ce va-et-vient, on finit par confondre consultation et compréhension.
+      - Vous pensez donc que le problème n’est pas l’outil, mais le suivi ?
+      - Exactement. Le tutorat en ligne est utile s’il sert à préparer un entretien, à orienter vers une ressource, à garder un lien entre deux séances. Mais si l’on remplace tout accompagnement par des contenus en accès libre, les plus autonomes avancent et les autres décrochent en silence.
+      - Vous défendez donc un usage complémentaire.
+      - Oui. Le numérique doit soutenir l’encadrement, pas l’effacer. Sinon, on appelle responsabilité individuelle ce qui est simplement abandon.
+    prompt: Quel risque la femme veut-elle surtout éviter ?
+    options:
+    - Que les étudiants restent seuls
+    - Que les vidéos soient gratuites
+    - Que le campus ferme tôt
+    - Que les professeurs corrigent plus
+    answer: 0
+    explanation: 'Elle dit clairement que, sans accompagnement, les moins autonomes décrochent en silence
+      : elle veut donc éviter qu’ils restent seuls. Les autres propositions ne sont pas le sujet du dialogue.'

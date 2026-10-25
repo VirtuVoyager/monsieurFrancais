@@ -1,0 +1,26 @@
+# The listening bank: about four TCF sections' worth, weighted to the levels around
+# NCLC 7 (B2), with C1 so the ability estimate is not capped. Each batch is written and
+# reviewed once; add a batch (with its own themes) to grow the bank.
+# `reply`: a heard question and four heard replies, the exam's A1-A2 format.
+skill: CO
+batches:
+  - {cefr: A1, count: 8, themes: [logement, travail], format: reply}
+  - {cefr: A1, count: 8, themes: [santé, environnement]}
+  - {cefr: A2, count: 8, themes: [technologie, éducation], format: reply}
+  - {cefr: A2, count: 8, themes: [immigration et intégration, culture et loisirs]}
+  - {cefr: A2, count: 8, themes: [transports, consommation]}
+  - {cefr: A2, count: 8, themes: [famille et société, alimentation]}
+  - {cefr: B1, count: 8, themes: [voyages, médias]}
+  - {cefr: B1, count: 8, themes: [vie associative, services publics]}
+  - {cefr: B1, count: 8, themes: [logement, travail]}
+  - {cefr: B1, count: 8, themes: [santé, environnement]}
+  - {cefr: B1, count: 8, themes: [technologie, éducation]}
+  - {cefr: B2, count: 8, themes: [immigration et intégration, culture et loisirs]}
+  - {cefr: B2, count: 8, themes: [transports, consommation]}
+  - {cefr: B2, count: 8, themes: [famille et société, alimentation]}
+  - {cefr: B2, count: 8, themes: [voyages, médias]}
+  - {cefr: B2, count: 8, themes: [vie associative, services publics]}
+  - {cefr: B2, count: 8, themes: [logement, travail]}
+  - {cefr: C1, count: 8, themes: [santé, environnement]}
+  - {cefr: C1, count: 8, themes: [technologie, éducation]}
+  - {cefr: C1, count: 8, themes: [immigration et intégration, culture et loisirs]}

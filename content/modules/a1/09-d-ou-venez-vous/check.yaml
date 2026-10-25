@@ -1,0 +1,14 @@
+items:
+  - {slug: au-canada, skill: GR, kind: cloze, prompt: "Je voudrais travailler ___ Canada.", accepted: [au]}
+  - {slug: en-chine, skill: GR, kind: mcq, prompt: "Ma sœur habite ___ Chine.", options: [en, au, à, aux], answer: 0}
+  - {slug: aux-philippines, skill: GR, kind: mcq, prompt: "Ils voyagent ___ Philippines.", options: [en, au, aux, à], answer: 2}
+  - {slug: a-dakar, skill: GR, kind: mcq, prompt: "Mon père est né ___ Dakar.", options: [au, en, à, de], answer: 2}
+  - {slug: venir-du-japon, skill: GR, kind: cloze, prompt: "Nous venons ___ Japon.", accepted: [du]}
+  - {slug: ils-viennent, skill: GR, kind: cloze, prompt: "D'où ___ vos parents ? (venir)", accepted: [viennent]}
+  - {slug: canadienne, skill: GR, kind: mcq, prompt: "Ma collègue est ___.", options: [canadien, canadiene, canadienne], answer: 2}
+  - {slug: americaine, skill: GR, kind: mcq, prompt: "Phrase correcte :",
+     options: ["Elle est américainne.", "Elle est américaine.", "Elle est une américaine."], answer: 1}
+  - {slug: pays-masculin, skill: VO, kind: mcq, prompt: "Quel pays est masculin ?", options: [la France, le Mexique, l'Italie], answer: 1}
+  - {slug: forum-origine, skill: CE, kind: mcq,
+     prompt: "« Bonjour, je suis Léa. Je suis belge, mais j'habite en Suisse, à Genève. Je travaille en France. » Où habite Léa ?",
+     options: [En Belgique, En Suisse, En France], answer: 1}

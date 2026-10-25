@@ -1,0 +1,173 @@
+request: ce-bank
+skill: CE
+cefr: A2
+themes:
+- alimentation
+- voyages
+format: document
+model: gpt-5.4-mini
+key: a0647584e655b15d49de3343e549b434ef2da647416ff5d8f42b018f702abdcb
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-panier-hebdo
+    cefr: A2
+    origin: generated
+    focus: ce qu’il doit faire
+    passage: |-
+      Bonjour,
+      Votre panier de fruits est prêt pour la semaine prochaine. Merci de vous connecter à votre espace client avant jeudi midi pour choisir le jour de livraison. Si vous préférez récupérer votre commande, cliquez sur l’option correspondante. En cas de changement d’adresse, écrivez-nous simplement par retour de courriel.
+      Cordialement,
+      L’équipe de Fraîcheur du Val
+    prompt: Que doit faire le client ?
+    options:
+    - payer le panier en espèces
+    - venir le chercher au marché
+    - choisir son jour de livraison
+    - téléphoner pour annuler
+    answer: 2
+    explanation: Le courriel demande de se connecter à l’espace client pour choisir le jour de livraison.
+      Les autres options sont soit possibles dans d’autres cas, soit absentes du message.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-atelier-gourmand
+    cefr: A2
+    origin: generated
+    focus: ce qu’on propose
+    passage: Samedi prochain, la Maison Lévine organise un atelier de cuisine rapide pour préparer des
+      repas à emporter. Le cours dure deux heures et se termine par une dégustation. Chaque participant
+      repart avec une fiche de recettes. Les places sont limitées. Inscription à l’accueil ou par téléphone
+      au 02 48 17 63 90.
+    prompt: Qu’est-ce qui est proposé ?
+    options:
+    - une vente de plats cuisinés
+    - une livraison à domicile
+    - un atelier avec dégustation
+    - un menu à prix réduit
+    answer: 2
+    explanation: Le prospectus annonce clairement un atelier de cuisine qui se termine par une dégustation.
+      Les autres réponses parlent de vente, de livraison ou de réduction, ce qui n’est pas proposé.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-week-end-lac
+    cefr: A2
+    origin: generated
+    focus: ce qu’il doit faire
+    passage: |-
+      Salut Nora,
+      On part au lac de Brise le vendredi soir et on revient dimanche après-midi. J’ai déjà réservé le train et la chambre. Si tu veux venir, réponds-moi avant mercredi, car je dois confirmer le nombre de places. N’oublie pas des chaussures confortables : on fera une petite marche près de l’eau.
+      À bientôt,
+      Mila
+    prompt: Que doit faire Nora ?
+    options:
+    - répondre avant mercredi
+    - acheter le train
+    - préparer un pique-nique
+    - arriver dimanche matin
+    answer: 0
+    explanation: Mila écrit qu’il faut répondre avant mercredi pour confirmer le nombre de places. Les
+      autres options ne correspondent pas à la demande du courrier.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-train-avance
+    cefr: A2
+    origin: generated
+    focus: ce qu’il doit faire
+    passage: |-
+      Madame,
+      En raison de travaux, votre train pour Montclair partira à 8 h 15 au lieu de 8 h 45. Nous vous conseillons d’arriver en gare trente minutes avant le départ pour retirer votre nouvelle carte d’embarquement au guichet. Votre place reste la même. Vous n’avez aucune démarche à faire si vous acceptez cet horaire.
+      Service RailAzur
+    prompt: Que doit faire le voyageur ?
+    options:
+    - prendre un autre train
+    - payer un supplément
+    - arriver trente minutes avant
+    - changer de place
+    answer: 2
+    explanation: Le message conseille d’arriver trente minutes avant le départ pour obtenir la nouvelle
+      carte d’embarquement. Il ne demande ni paiement, ni changement de train, ni changement de place.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-dejeuners-maison
+    cefr: A2
+    origin: generated
+    focus: ce qu’on propose
+    passage: 'Du lundi au vendredi, Lina prépare des déjeuners maison à emporter : salade composée, soupe
+      du jour et dessert simple. Les commandes se font la veille avant dix-huit heures. Retrait possible
+      devant la boulangerie Saint-Roch entre onze heures trente et treize heures. Menu végétarien sur
+      demande.'
+    prompt: Que propose cette annonce ?
+    options:
+    - un cours de pâtisserie
+    - une salle pour dîner
+    - une table au restaurant
+    - des plats à emporter
+    answer: 3
+    explanation: L’annonce présente des déjeuners maison à emporter, avec retrait sur place. Les autres
+      options concernent une activité, un lieu ou un service de restauration qui ne sont pas proposés.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-hotel-des-dunes
+    cefr: A2
+    origin: generated
+    focus: ce qui est compris
+    passage: À deux minutes de la plage, l’Hôtel des Dunes propose des chambres calmes avec wifi gratuit.
+      Le petit déjeuner est compris dans le prix. Les clients peuvent aussi louer un vélo et profiter
+      d’une navette gratuite pour la gare. Réservation possible en ligne ou à la réception.
+    prompt: Quel service est compris dans le prix ?
+    options:
+    - le petit déjeuner
+    - la location d’un vélo
+    - la navette pour la gare
+    - le dîner au restaurant
+    answer: 0
+    explanation: Le texte dit explicitement que le petit déjeuner est compris dans le prix. Les autres
+      services sont mentionnés séparément ou ne figurent pas dans l’offre.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-marche-bio
+    cefr: A2
+    origin: generated
+    focus: ce qu’il doit apporter
+    passage: |-
+      Bonjour,
+      Pour votre commande de vendredi, merci d’apporter un sac réutilisable et votre confirmation imprimée. Les produits seront remis de seize heures à dix-huit heures à l’entrée latérale du marché. Si vous arrivez en retard, nous ne garantissons pas la disponibilité des paniers.
+      Cordialement,
+      Cuisine et Nature
+    prompt: Que doit apporter le client ?
+    options:
+    - son passeport
+    - un sac réutilisable
+    - une couverture de pique-nique
+    - de la monnaie en espèces
+    answer: 1
+    explanation: Le courriel demande d’apporter un sac réutilisable. Le passeport, la couverture et la
+      monnaie ne sont pas demandés.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a2-visite-de-ville
+    cefr: A2
+    origin: generated
+    focus: ce qu’on propose
+    passage: |-
+      Bonjour Éric,
+      Je serai à Saint-Laurent du mardi au jeudi. J’ai vu une visite guidée du vieux centre qui a lieu mercredi matin à dix heures. Les places sont peu nombreuses, alors dis-moi vite si tu veux m’accompagner. Ensuite, nous pourrons déjeuner dans une petite brasserie près du port.
+      Amicalement,
+      Sophie
+    prompt: Qu’est-ce qui est proposé ?
+    options:
+    - un trajet en bateau
+    - une visite guidée
+    - un repas offert
+    - une nuit d’hôtel
+    answer: 1
+    explanation: Sophie propose une visite guidée du vieux centre à dix heures. Le bateau, le repas offert
+      et la nuit d’hôtel ne sont pas proposés dans la lettre.

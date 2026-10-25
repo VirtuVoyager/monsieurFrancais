@@ -1,0 +1,184 @@
+request: co-bank
+skill: CO
+cefr: B1
+themes:
+- santé
+- environnement
+format: document
+model: gpt-5.4-mini
+key: 02abece7f572eb233311874def7a315cacf84999d5316618d70414f83cd4d1f6
+items:
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-climatisation-trop-forte
+    cefr: B1
+    origin: generated
+    focus: proposition de solution
+    audio_text: |-
+      - Tu as l'air épuisé, Marc.
+      - Oui, j'ai mal à la tête depuis ce matin. Je pense que la climatisation est trop forte ici.
+      - On pourrait ouvrir la fenêtre un moment.
+      - Oui, et je vais demander à tout le monde de faire une vraie pause à midi. On travaille sans sortir depuis trop longtemps.
+      - Tu as raison. Ça nous ferait du bien à tous.
+    prompt: Quelle est l'intention de l'homme ?
+    options:
+    - Se plaindre de l'ambiance
+    - Reporter le travail
+    - Parler d'un traitement
+    - Trouver une solution
+    answer: 3
+    explanation: 'L''homme ne fait pas que constater le problème : il accepte d''ouvrir la fenêtre et
+      propose une vraie pause pour toute l''équipe. Les autres réponses ne correspondent pas, car il ne
+      repousse pas le travail et ne parle pas d''un médicament.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-vaccin-contre-grippe
+    cefr: B1
+    origin: generated
+    focus: utilité du vaccin
+    audio_text: 'Cette année, la grippe arrive plus tôt que d''habitude. Le vaccin ne promet pas d''empêcher
+      toute maladie, mais il réduit nettement les risques de formes graves. C''est particulièrement utile
+      pour les personnes fragiles, mais aussi pour ceux qui vivent ou travaillent avec elles. Si vous
+      hésitez encore, renseignez-vous auprès de votre médecin ou de votre pharmacien. Se protéger, ce
+      n''est pas seulement penser à soi : c''est aussi limiter la circulation du virus dans son entourage.'
+    prompt: Quel est le message principal ?
+    options:
+    - Le vaccin est indispensable pour tout le monde
+    - La grippe ne concerne que les personnes fragiles
+    - Le vaccin est une mesure utile
+    - Il faut éviter les contacts à tout prix
+    answer: 2
+    explanation: Le locuteur présente le vaccin comme une protection utile, même s’il ne garantit pas
+      une absence totale de maladie. Les autres propositions sont trop fortes, inexactes ou ne reprennent
+      pas l’idée centrale du message.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-marche-quotidienne
+    cefr: B1
+    origin: generated
+    focus: avis sur l'effort
+    audio_text: Pendant longtemps, je me disais que je n'avais pas le temps de faire du sport. Je rentrais
+      tard, je m'asseyais immédiatement, et je finissais la semaine complètement vidé. Puis une collègue
+      m'a proposé de marcher vingt minutes après le déjeuner. Au début, j'ai trouvé l'idée trop simple
+      pour être efficace. Pourtant, en quelques semaines, j'ai dormi mieux et je me suis senti moins stressé.
+      Je ne prétends pas qu'il faut devenir un athlète, mais je crois qu'il vaut mieux commencer petit
+      et être régulier.
+    prompt: Quelle est l'opinion du locuteur ?
+    options:
+    - Il faut un sport intense
+    - Le repos est la seule solution
+    - La marche fatigue davantage
+    - Il vaut mieux commencer modestement
+    answer: 3
+    explanation: Le locuteur dit clairement qu’il vaut mieux « commencer petit et être régulier ». Les
+      autres réponses sont contraires à son avis ou ne sont pas soutenues par ce qu’il raconte.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-douleurs-de-dos
+    cefr: B1
+    origin: generated
+    focus: conseil du spécialiste
+    audio_text: |-
+      - Dans votre cabinet, que conseillez-vous aux personnes qui ont souvent mal au dos ?
+      - D'abord, de ne pas attendre que la douleur devienne forte. Souvent, quelques gestes simples suffisent : bouger un peu plus, régler la chaise, éviter de porter trop lourd.
+      - Donc il ne faut jamais se reposer ?
+      - Pas forcément. Le repos est parfois utile, mais il ne règle pas tout. Le plus important, c'est de demander conseil tôt, avant que le problème ne s'installe.
+    prompt: Quel est le message du spécialiste ?
+    options:
+    - Il faut consulter rapidement
+    - Il faut rester immobile
+    - Le dos guérit toujours seul
+    - Les chaises sont inutiles
+    answer: 0
+    explanation: Le spécialiste insiste sur l’importance de demander conseil tôt, avant que la situation
+      ne s’aggrave. Les autres réponses sont contredites par le document ou vont trop loin.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-bacs-de-tri
+    cefr: B1
+    origin: generated
+    focus: changement de tri
+    audio_text: À partir de lundi, les sacs verts seront remplacés par des bacs bruns dans tout le quartier.
+      Vous pourrez y déposer les restes de repas, les épluchures et le marc de café. Les emballages en
+      plastique continueront d'aller dans la poubelle jaune. Cette nouvelle organisation doit réduire
+      les déchets envoyés à l'incinérateur et permettre la fabrication de compost pour les jardins municipaux.
+      Un guide pratique sera distribué dans les boîtes aux lettres avant la fin de la semaine.
+    prompt: Que doit-on comprendre ?
+    options:
+    - Les jardins ferment lundi
+    - Le tri des déchets change
+    - Le compost devient payant
+    - Les sacs verts sont interdits partout
+    answer: 1
+    explanation: L’annonce explique qu’un nouveau système de collecte est mis en place avec des bacs bruns
+      et un guide pratique. Les autres réponses ne sont pas annoncées ou déforment l’information.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-papier-au-bureau
+    cefr: B1
+    origin: generated
+    focus: réduction des impressions
+    audio_text: |-
+      - J'ai imprimé tout le rapport pour la réunion.
+      - On pourrait peut-être faire autrement. Si on envoyait d'abord le document par courriel, chacun pourrait le lire avant.
+      - Oui, et pour les annexes, on peut imprimer en recto verso par défaut.
+      - Exactement. On utiliserait moins de papier et on gagnerait du temps.
+      - Et les versions finales, on les garderait seulement en numérique.
+    prompt: Quelle est leur idée ?
+    options:
+    - Imprimer davantage
+    - Réduire les impressions
+    - Changer de logiciel
+    - Préparer une réunion plus longue
+    answer: 1
+    explanation: Les deux collègues cherchent à limiter l’usage du papier et à privilégier le numérique.
+      Les autres options ne correspondent pas à leur proposition.
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-jardin-sur-le-toit
+    cefr: B1
+    origin: generated
+    focus: opinion sur l'initiative
+    audio_text: Au début, quand la ville a installé un petit jardin sur le toit de notre immeuble, je
+      pensais que ce serait surtout décoratif. En fait, les voisins se sont mis à se parler, et on voit
+      même revenir quelques insectes. Bien sûr, cela ne résout pas les problèmes environnementaux à lui
+      seul, mais je trouve que ce type d'initiative change vraiment l'ambiance d'un quartier et donne
+      envie de le respecter davantage.
+    prompt: Quelle est l'opinion du locuteur ?
+    options:
+    - Les jardins urbains ont un vrai intérêt
+    - Les jardins urbains ne servent à rien
+    - Les toits devraient rester vides
+    - Les insectes sont un problème
+    answer: 0
+    explanation: 'Le locuteur juge cette initiative positive : elle améliore l’ambiance du quartier et
+      a un effet concret. Les autres réponses sont contraires à ce qu’il exprime ou ne reprennent qu’un
+      détail.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b1-trajet-sans-voiture
+    cefr: B1
+    origin: generated
+    focus: réduction de la voiture
+    audio_text: |-
+      - Vous avez changé vos habitudes de déplacement ?
+      - Oui. Avant, je prenais ma voiture pour tout, même pour des trajets très courts. Depuis quelques mois, je combine le bus et le vélo.
+      - Et vous en êtes content ?
+      - Franchement oui. J'arrive plus facilement au centre, je dépense moins et je garde la voiture seulement quand c'est vraiment nécessaire.
+    prompt: Quelle est l'idée principale ?
+    options:
+    - Il utilise moins sa voiture
+    - Il a vendu sa voiture
+    - Il préfère vivre en centre-ville
+    - Il fait surtout du vélo de sport
+    answer: 0
+    explanation: Le locuteur explique qu’il a réduit l’usage de sa voiture en la remplaçant souvent par
+      le bus et le vélo. Les autres choix sont des interprétations trop fortes ou hors sujet.

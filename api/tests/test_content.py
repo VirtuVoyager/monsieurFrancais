@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.domain.exercises import normalize
+from app.domain.scales import CEFR_LEVELS
 from app.models import AssessmentRun, Item, Lexeme, Module, Response
 from app.services.content import discover, seed
 from app.services.users import get_or_create_learner
@@ -63,9 +64,12 @@ def test_grammar_lessons_reference_existing_concepts(source: Any) -> None:
 
 
 def test_module_order_runs_through_the_whole_course() -> None:
-    # The order is course-wide (A1 1-8, A2 9-16, …) and unique in the database.
-    orders = [int(source.meta["order"]) for source in SOURCES]
-    assert orders == list(range(1, len(SOURCES) + 1))
+    # The order is course-wide and unique in the database. Folder numbers are creation order
+    # (slugs never change, so learners keep their progress); the path follows `order`.
+    path = sorted(SOURCES, key=lambda s: int(s.meta["order"]))
+    assert [int(s.meta["order"]) for s in path] == list(range(1, len(SOURCES) + 1))
+    stages = [(CEFR_LEVELS.index(s.meta["level"]), int(s.meta["block"])) for s in path]
+    assert stages == sorted(stages)
 
 
 def test_seed_is_idempotent(session: Session) -> None:

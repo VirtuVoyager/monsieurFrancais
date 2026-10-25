@@ -1,0 +1,210 @@
+request: co-bank
+skill: CO
+cefr: B2
+themes:
+- immigration et intégration
+- culture et loisirs
+format: document
+model: gpt-5.4-mini
+key: 835773bd5d19113a55359cbc5f272613e0724c4bec45c15c6fda9aece83ee620
+items:
+- status: fixed
+  issues:
+  - Option 0 is not idiomatic French.
+  item:
+    slug: co-b2-parrainage-local
+    cefr: B2
+    origin: generated
+    focus: limites des cours
+    audio_text: |-
+      - Bonjour, vous coordonnez le programme de parrainage pour les nouveaux arrivants. À quoi sert-il exactement ?
+      - À éviter qu'ils restent seuls après les premières démarches. Un cours de langue aide, bien sûr, mais il ne dit pas comment trouver une garderie, comprendre un bail ou oser demander un renseignement.
+      - Donc vous pensez que les cours ne suffisent pas ?
+      - Ils sont indispensables, mais ils laissent de côté tout ce qui relève des habitudes, des codes, de la confiance.
+      - C'est pour cela que vous mettez les personnes en binôme avec des habitants du quartier ?
+      - Oui. Le but n'est pas de faire à leur place. C'est de leur donner un contact régulier, quelqu'un qui explique, qui accompagne une ou deux fois, puis qui les laisse agir.
+      - Finalement, c'est aussi une manière de créer des liens durables ?
+      - Exactement. Si, après six mois, ils connaissent déjà une association, une école et un voisin, le programme a réussi.
+    prompt: Que pense-t-il des cours de langue ?
+    options:
+    - Qu'ils suffisent pour s'intégrer.
+    - Qu'ils doivent remplacer le parrainage.
+    - Qu'ils sont utiles, mais incomplets.
+    - Qu'ils concernent surtout les enfants.
+    answer: 2
+    explanation: Il dit clairement que les cours sont « indispensables », mais qu’ils ne couvrent pas
+      tout ce qui touche aux codes et à la confiance. Les autres propositions contredisent cette nuance
+      ou déplacent le sujet vers le parrainage ou les enfants.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-langue-au-travail
+    cefr: B2
+    origin: generated
+    focus: rôle de l'entreprise
+    audio_text: 'On demande souvent aux personnes immigrées de suivre des cours du soir, comme si cela
+      réglait tout. En réalité, beaucoup travaillent en horaires décalés, gardent leurs enfants ou enchaînent
+      plusieurs emplois. Dans ces conditions, venir deux soirs par semaine n''est pas toujours possible.
+      Ce qui accélère vraiment l''apprentissage, c''est d''avoir aussi des occasions de parler au travail
+      : une consigne expliquée calmement, un collègue qui corrige sans juger, un chef d''équipe qui accepte
+      quelques minutes de plus au début. Les entreprises disent parfois qu''elles ne peuvent pas se mêler
+      de formation linguistique. Pourtant, elles créent déjà les conditions de l''exclusion ou de l''intégration.
+      Si elles veulent garder leurs salariés, elles ont intérêt à leur donner du temps et des situations
+      concrètes pour progresser.'
+    prompt: Quelle solution défend-il ?
+    options:
+    - Des cours obligatoires le soir.
+    - Un soutien aussi au travail.
+    - Des contrôles plus stricts.
+    - Un apprentissage uniquement en ligne.
+    answer: 1
+    explanation: 'Le locuteur explique que l’apprentissage progresse quand l’entreprise offre du temps
+      et des situations concrètes pour parler. Les autres réponses ne correspondent pas à son argument
+      : il ne propose ni obligation du soir, ni contrôle, ni formation seulement en ligne.'
+- status: fixed
+  issues:
+  - Option 1 is awkward French.
+  item:
+    slug: co-b2-bibliotheque-ouverte
+    cefr: B2
+    origin: generated
+    focus: premier contact
+    audio_text: |-
+      - Dans votre bibliothèque, on voit des ateliers pour les nouveaux arrivants. Est-ce vraiment utile ?
+      - Au début, je me posais la même question. Puis j'ai vu que beaucoup de personnes n'osent pas franchir la porte d'un équipement culturel. Elles viennent pour imprimer un document, chercher une adresse, et repartent si personne ne leur parle.
+      - Et vos ateliers changent cela ?
+      - Oui. Nous proposons des lectures très simples, un club de conversation, parfois des jeux avec les enfants. Ce n'est pas spectaculaire, mais cela donne un premier point d'appui.
+      - Vous pensez donc que la bibliothèque remplit une mission sociale ?
+      - Une mission parmi d'autres. Elle ne remplace ni l'école ni les associations. En revanche, c'est souvent l'endroit où quelqu'un se sent enfin autorisé à poser une question.
+    prompt: Quel est son point de vue sur la bibliothèque ?
+    options:
+    - Elle peut servir de porte d'entrée.
+    - Elle doit remplacer l'école.
+    - Elle est utile seulement pour les enfants.
+    - Elle devrait supprimer les livres difficiles.
+    answer: 0
+    explanation: Il présente la bibliothèque comme un lieu où l’on ose entrer et poser une question, donc
+      comme une porte d’entrée. Il précise aussi qu’elle ne remplace ni l’école ni les associations, ce
+      qui exclut les autres options.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-fete-de-quartier
+    cefr: B2
+    origin: generated
+    focus: fonction du festival
+    audio_text: 'Dans le quartier de Montlierre, le festival de rue attire chaque année des habitants
+      qui ne se parlaient jamais. Les organisateurs y voient un moyen simple de lancer des contacts :
+      une scène, des stands, des repas préparés par des familles venues d''ailleurs et des anciens du
+      quartier. Mais ils se gardent bien de présenter l''événement comme une solution miracle. « Un concert
+      de deux heures ne suffit pas à créer un sentiment d''appartenance », explique le responsable. Selon
+      lui, ce type de fête ouvre la porte, donne envie de revenir, puis il faut des lieux plus réguliers
+      : ateliers sportifs, réunions d''école, jardin partagé. En d''autres termes, le festival n''est
+      pas la fin du travail, c''est le début.'
+    prompt: Quelle est l'attitude du responsable ?
+    options:
+    - Il juge la fête suffisante.
+    - Il préfère supprimer les activités collectives.
+    - Il pense qu'elle coûte trop cher.
+    - Il la voit comme un point de départ.
+    answer: 3
+    explanation: Le responsable dit explicitement que le festival « ouvre la porte » et que « c’est le
+      début », pas la fin. Les autres propositions contredisent cette idée ou ajoutent un reproche financier
+      absent du document.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-theatre-mobile
+    cefr: B2
+    origin: generated
+    focus: public actif
+    audio_text: |-
+      - Votre troupe joue dans des salles minuscules et parfois dans des gymnases. Est-ce un choix par défaut ?
+      - Pas seulement. Nous voulons aller vers des publics qui ne viennent jamais au théâtre. Mais je ne crois pas qu'il suffise d'offrir un spectacle gratuit pour que les gens se sentent concernés.
+      - Qu'est-ce qui manque alors ?
+      - Le temps d'échanger. Après la représentation, nous restons pour discuter, et parfois le public choisit la seconde partie du programme. Quand quelqu'un propose un thème ou raconte ce qu'il a compris, il devient plus qu'un simple spectateur.
+      - Donc vous cherchez moins à remplir la salle qu'à créer une expérience commune ?
+      - Exactement. Si les gens repartent avec l'impression d'avoir été consultés, même un peu, ils reviendront. Sinon, le théâtre n'est qu'une sortie de plus.
+    prompt: Qu'est-ce qui compte le plus pour lui ?
+    options:
+    - La gratuité des spectacles.
+    - La participation du public.
+    - Le nombre de représentations.
+    - La longueur des pièces.
+    answer: 1
+    explanation: Il insiste sur l’échange après la représentation, sur le choix du programme et sur le
+      fait d’être « consultés ». Les autres réponses ne correspondent pas à ce qu’il valorise le plus.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-musee-sans-ennui
+    cefr: B2
+    origin: generated
+    focus: but éducatif
+    audio_text: 'Quand je prépare des visites pour les familles, on me demande souvent si je veux « rendre
+      le musée amusant ». Je réponds que non. Amusant n''est pas un mauvais mot, mais ce n''est pas l''objectif.
+      Si l''on vient seulement pour se distraire, on oublie vite. Mon travail consiste plutôt à donner
+      des repères : comment regarder une peinture, pourquoi une sculpture est placée ici, ce que raconte
+      une œuvre même sans explication compliquée. J''aime quand les enfants posent des questions dérangeantes,
+      parce qu''elles montrent qu''ils observent vraiment. Bien sûr, nous faisons des jeux et des petites
+      activités. Mais ces activités servent à entrer dans les œuvres, pas à les remplacer. Le musée reste
+      un lieu de découverte, pas un parc de loisirs.'
+    prompt: Quelle est sa position sur la visite ?
+    options:
+    - Elle doit surtout divertir.
+    - Elle doit donner des clés de lecture.
+    - Elle convient seulement aux spécialistes.
+    - Elle doit éviter les enfants.
+    answer: 1
+    explanation: 'Il dit que les activités servent à « entrer dans les œuvres » et que son travail est
+      de donner des repères et des clés. Les autres options déforment son propos : il ne réserve pas le
+      musée aux spécialistes et ne veut pas exclure les enfants.'
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-festival-equilibre
+    cefr: B2
+    origin: generated
+    focus: public diversifié
+    audio_text: |-
+      - Vous maintenez des tarifs raisonnables alors que d'autres festivals misent sur des pass très chers. Pourquoi ?
+      - Parce qu'un festival ne vaut pas seulement par son affiche. Si le prix devient trop élevé, on perd les familles, les étudiants, les gens du quartier. Or je veux un public mélangé.
+      - Pourtant vous faites venir des noms connus.
+      - Oui, mais je refuse de programmer uniquement des têtes d'affiche. On réserve une place importante à des groupes qui débutent, et les débats d'après-concert comptent presque autant que la musique.
+      - Ce n'est donc pas un événement réservé aux passionnés ?
+      - Non. C'est une porte d'entrée pour ceux qui aiment déjà la musique, et pour ceux qui la découvrent.
+    prompt: Quelle est sa priorité ?
+    options:
+    - Miser sur les vedettes.
+    - Augmenter les prix.
+    - Garder un public varié.
+    - Réduire les débats.
+    answer: 2
+    explanation: Il dit vouloir un « public mélangé » et explique que le prix et la programmation servent
+      cette diversité. Les autres réponses contredisent directement sa stratégie, puisque les vedettes
+      ne sont pas l’objectif principal et les débats sont au contraire importants.
+- status: ok
+  issues: []
+  item:
+    slug: co-b2-sport-de-rencontre
+    cefr: B2
+    origin: generated
+    focus: conditions de rencontre
+    audio_text: 'On imagine souvent qu''un équipement sportif crée naturellement du lien. C''est faux.
+      Si l''on laisse les nouveaux venus sur le bord du terrain, ils restent entre eux ou n''osent pas
+      revenir. Dans notre centre, nous avons donc modifié les règles : équipes mélangées, séances plus
+      courtes pour les débutants, bénévoles chargés d''expliquer sans juger. Nous invitons aussi les clubs
+      à varier les activités, parce qu''un adulte n''a pas toujours le même rapport au sport qu''un adolescent.
+      Le plus difficile n''est pas d''ouvrir la porte, c''est d''organiser la rencontre. Quand cela marche,
+      on voit des gens qui ne se seraient jamais parlé discuter après l''entraînement. C''est là que le
+      loisir devient un vrai outil d''intégration.'
+    prompt: Selon lui, qu'est-ce qui est indispensable ?
+    options:
+    - Préparer les rencontres.
+    - Laisser chacun pratiquer seul.
+    - Réserver le centre aux licenciés.
+    - Allonger les séances.
+    answer: 0
+    explanation: Le locuteur affirme que le plus important n’est pas d’ouvrir la porte, mais « d’organiser
+      la rencontre ». Les autres propositions vont à l’encontre des mesures décrites dans le document,
+      comme les équipes mélangées et l’accueil des débutants.

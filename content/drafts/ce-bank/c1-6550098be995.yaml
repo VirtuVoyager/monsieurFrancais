@@ -1,0 +1,200 @@
+request: ce-bank
+skill: CE
+cefr: C1
+themes:
+- consommation
+- famille et société
+format: document
+model: gpt-5.4-mini
+key: 6550098be99583d8a8fe2bc13f638e1344b242a5adbe4db4fee64ad1832aed9d
+items:
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-promotions-trompeuses
+    cefr: C1
+    origin: generated
+    focus: implicite critique
+    passage: |-
+      Les promotions qui rassurent
+
+      À première vue, tout incite à croire que le consommateur moderne a gagné en liberté. Il compare, il clique, il fait jouer la concurrence, et les vitrines lui promettent sans relâche des prix « exceptionnels ». Pourtant, cette liberté a une curieuse manière de se présenter sous forme d’itinéraires très balisés. L’application lui suggère ce qu’il « pourrait aimer » ; le site lui rappelle qu’il ne reste plus que deux exemplaires ; la carte de fidélité lui offre une réduction à condition d’acheter davantage. Chaque geste semble relever de la décision personnelle, alors qu’il a souvent été préparé de longue date.
+
+      Ce n’est pas que le consommateur soit dupe à chaque instant. Il sait bien, en théorie, qu’un rabais n’est pas une faveur. Mais il accepte de jouer parce que le jeu lui paraît avantageux : il a le sentiment de gagner du temps, d’économiser, de ne pas être exclu de la circulation générale des objets et des services. C’est là que réside l’efficacité du système : il ne contraint presque jamais de face, il oriente. Il ne dit pas « achetez », il murmure « ce serait dommage de laisser passer cela ».
+
+      On comprend alors pourquoi tant de discours sur la sobriété échouent lorsqu’ils se contentent d’appeler à la raison individuelle. Le problème n’est pas seulement l’absence de retenue ; il tient à une mise en scène de la nécessité. Acheter devient un acte qui se présente comme prudent, puis comme normal, enfin comme inévitable. Le consommateur ne perd pas seulement de l’argent : il perd la possibilité de distinguer clairement le désir du réflexe.
+    prompt: Quelle idée l’auteur défend-il surtout ?
+    options:
+    - Les consommateurs manquent d’éducation.
+    - Les rabais compensent les achats inutiles.
+    - La concurrence a disparu des marchés.
+    - Les vendeurs fabriquent un sentiment de liberté.
+    answer: 3
+    explanation: 'Le texte insiste sur une liberté apparente, « préparée de longue date », puis sur un
+      système qui « oriente » sans contraindre. Les autres propositions sont contredites ou trop absolues
+      : l’auteur ne parle ni d’un manque d’éducation, ni d’un avantage réel des rabais, ni de la disparition
+      de la concurrence.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-dimanches-herites
+    cefr: C1
+    origin: generated
+    focus: valeur implicite du souvenir
+    passage: |-
+      Les dimanches de mon enfance avaient une stabilité trompeuse. On disait que la famille se retrouvait autour de la table, mais en réalité chacun retrouvait surtout sa place. Ma mère quittait la cuisine à peine quelques minutes, le temps d’apporter le plat principal, puis elle repartait vérifier le four, couper le pain, répondre à une demande, replacer une serviette. Mon père parlait, comme on parle quand on est sûr que l’organisation matérielle suivra d’elle-même. Nous, les enfants, attendions la suite avec l’impatience tranquille de ceux qui n’ont pas à se soucier de l’ensemble.
+
+      Longtemps, j’ai pris cette scène pour une évidence affectueuse. Il y avait du bruit, des rires, des phrases interrompues ; de là à voir une répartition inégale du travail, je n’y songeais pas. Ce n’est que plus tard que j’ai compris combien la convivialité peut masquer la mécanique qui la rend possible. Le repas familial est souvent célébré comme un lieu de lien ; on oublie qu’il repose aussi sur une logistique invisible, et que cette logistique repose rarement sur les mêmes épaules.
+
+      Ce souvenir ne m’invite pas à condamner les repas d’autrefois ni à idéaliser ceux d’aujourd’hui. Il montre plutôt qu’une habitude, parce qu’elle est ancienne, se donne facilement les airs de la nature. On finit par croire que certaines personnes « aiment » recevoir, « aiment » préparer, « aiment » servir, alors qu’elles ont surtout appris à tenir la maison debout en silence. La nostalgie, ici, serait une forme de paresse morale.
+    prompt: L’évocation des dimanches d’enfance sert surtout à montrer que...
+    options:
+    - les repas étaient autrefois plus calmes.
+    - les enfants prenaient déjà part aux décisions.
+    - la cuisine était au centre de toutes les disputes.
+    - les rôles domestiques se transmettent sans être questionnés.
+    answer: 3
+    explanation: Le narrateur explique que la scène paraissait naturelle avant de révéler la « mécanique
+      » et la répartition inégale du travail. Les autres choix reprennent des éléments du texte, mais
+      ils ne disent pas ce que ce souvenir démontre.
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-seconde-main
+    cefr: C1
+    origin: generated
+    focus: évolution implicite
+    passage: |-
+      L’essor des objets d’occasion dit beaucoup de notre époque, mais pas forcément ce que l’on croit. On le présente volontiers comme la victoire de la conscience écologique, ce qu’il est en partie. Pourtant, réduire ce mouvement à une réaction de bonne volonté serait méconnaître son attractivité réelle. Acheter un meuble déjà utilisé, un manteau déjà porté ou un appareil déjà réparé n’est plus seulement une manière de faire des économies ; c’est aussi une façon d’affirmer une certaine idée de soi.
+
+      Autrefois, l’occasion était souvent associée à la rareté, à la nécessité, parfois à la gêne. On s’y résignait faute de mieux. Aujourd’hui, le discours a changé : on choisit l’objet avec soin, on en raconte l’histoire, on souligne sa singularité. L’usage précédent n’efface pas la valeur ; il la recompose. Un objet qui a vécu n’est plus seulement moins cher, il devient porteur d’une mémoire, d’un style, d’une continuité que le neuf ne peut pas toujours promettre.
+
+      C’est précisément ce déplacement qui explique le succès du marché. Il ne s’adresse pas uniquement à ceux qui veulent payer moins, mais à ceux qui veulent consommer autrement sans renoncer au plaisir de choisir. Là où la consommation de masse uniformisait les usages, la seconde main autorise une forme de distinction discrète : on se sent responsable, mais pas austère ; raisonnable, mais pas triste. Le paradoxe n’est pas accessoire : plus l’économie du réemploi se développe, plus elle ressemble à une culture du choix.
+    prompt: Selon le texte, pourquoi l’achat d’occasion séduit-il autant aujourd’hui ?
+    options:
+    - Parce qu’il remplace entièrement le neuf.
+    - Parce que les prix n’y comptent plus.
+    - Parce qu’il est devenu un choix culturel.
+    - Parce que les magasins refusent les nouveautés.
+    answer: 2
+    explanation: 'L’auteur dit explicitement que l’occasion n’est plus seulement une nécessité, mais un
+      choix qui donne une image de soi et une distinction discrète. Les autres réponses déforment le texte
+      : le neuf n’est pas remplacé, les prix restent importants et les nouveautés ne sont pas rejetées.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-sur-daidante
+    cefr: C1
+    origin: generated
+    focus: ton du passage
+    passage: |-
+      Quand ma sœur a décidé de s’occuper davantage de notre mère, personne n’a vraiment contesté sa décision. On a simplement commencé à s’en remettre à elle. C’est souvent ainsi que les responsabilités familiales se déposent sur une seule personne : d’abord par reconnaissance, puis par habitude, enfin par oubli des autres. Ma sœur faisait les courses, prenait les rendez-vous, rappelait les médicaments, écoutait les mêmes inquiétudes, reprenait les mêmes explications. De l’extérieur, tout semblait tenir. De l’intérieur, le déséquilibre devenait de plus en plus visible.
+
+      Je me suis longtemps dit qu’il fallait admirer sa patience. C’était vrai, bien sûr. Mais l’admiration n’empêche pas la fatigue, et la fatigue n’excuse pas toujours le silence de ceux qui regardent faire. Dans les réunions de famille, on louait son dévouement avec une sincérité qui avait quelque chose d’élégant : les mots compensaient ce que les gestes n’avaient pas pris en charge. Chacun se montrait soulagé qu’elle sache faire, qu’elle sache prévoir, qu’elle sache encaisser.
+
+      Un jour, elle a cessé de répondre tout de suite au téléphone. Ce n’était pas un caprice ; seulement la première fissure dans une organisation que nous appelions soutien parce qu’il était plus confortable de ne pas l’appeler par son nom : une prise en charge à sens unique. Alors j’ai compris qu’il existe des équilibres familiaux qui ne tiennent pas par la solidarité, mais par la politesse de ceux qui se taisent.
+    prompt: Le ton du passage est surtout...
+    options:
+    - serein et rassuré.
+    - indigné et accusateur.
+    - lucide et légèrement amer.
+    - nostalgique et attendri.
+    answer: 2
+    explanation: Le narrateur observe lucidement le mécanisme du « dévouement » et laisse affleurer une
+      amertume discrète, surtout dans la dernière phrase. Ce n’est ni un ton apaisé, ni une indignation
+      frontale, ni une simple nostalgie.
+- status: rejected
+  issues:
+  - document has 199 words; expected 250 to 400
+  item:
+    slug: ce-c1-courses-programmees
+    cefr: C1
+    origin: generated
+    focus: fonction du paragraphe
+    passage: |-
+      Les applications qui composent automatiquement les menus de la semaine promettent une vie plus simple. En quelques clics, elles proposent des recettes selon le budget, l’âge des enfants, les restes du réfrigérateur ou le temps disponible. L’argument est séduisant : moins d’hésitation, moins de gaspillage, moins de courses inutiles. Pour beaucoup de familles débordées, l’outil a tout d’un allié discret.
+
+      Mais le deuxième mouvement de l’argumentation est moins enthousiaste. À mesure que l’on délègue la préparation des repas à une suite d’algorithmes, le geste d’acheter perd sa part de discussion. On ne décide plus vraiment ensemble ce que l’on mangera ; on valide un programme. Le repas cesse d’être l’aboutissement d’une négociation domestique, d’un compromis entre envies, contraintes et improvisations. Il devient une succession d’options raisonnables, classées par efficacité.
+
+      Cette normalisation a un coût difficile à mesurer. Elle ne prive pas seulement la cuisine de sa spontanéité ; elle modifie la manière dont une famille se représente elle-même. Faire ses courses n’est pas un simple acte technique : c’est aussi choisir quand on accepte de céder, quand on insiste, quand on varie. L’outil promet du temps, mais il réorganise en profondeur ce qui semblait relever des petits désordres ordinaires.
+    prompt: Quel est le rôle du deuxième paragraphe ?
+    options:
+    - Décrire les fonctions techniques.
+    - Montrer la perte de spontanéité.
+    - Rappeler un exemple historique.
+    - Prouver que les familles économisent toujours.
+    answer: 1
+    explanation: 'Le deuxième paragraphe introduit le contre-argument : la délégation aux algorithmes
+      transforme un choix familial en validation de programme. Les autres propositions ne correspondent
+      pas à cette fonction argumentative.'
+- status: ok
+  issues: []
+  item:
+    slug: ce-c1-maison-partagee
+    cefr: C1
+    origin: generated
+    focus: implicite sociétal
+    passage: |-
+      On parle beaucoup du retour des familles sous un même toit, comme s’il s’agissait d’un simple regain de tradition. L’image rassure : des grands-parents, des parents, parfois des adultes revenus après une séparation ou une période d’instabilité, tous réunis dans une même maison. Pourtant, les raisons de ce rapprochement sont rarement sentimentales seules. Elles tiennent autant au prix du logement qu’au besoin de garde, à la fragilité de certains emplois qu’au désir de ne pas vieillir isolé.
+
+      La cohabitation intergénérationnelle est donc moins une restauration du passé qu’un arrangement avec le présent. Elle peut naître d’une contrainte, puis se transformer en ressource. Un couple qui accueille temporairement un parent malade y trouve parfois un soutien imprévu ; un jeune adulte qui revient habiter chez ses parents y cherche parfois une respiration financière ; un grand-parent qui partage les repas peut y gagner une place utile, à condition que cette utilité ne soit pas confondue avec une obligation de service.
+
+      Les tensions ne disparaissent pas pour autant. Elles changent seulement de forme. Ce qui se négocie désormais n’est plus l’autorité d’un chef de famille, mais la frontière entre aide et dépendance, entre intimité et promiscuité, entre protection et intrusion. C’est sans doute pour cela que ces configurations réclament davantage qu’un discours sur la solidarité. Elles demandent une capacité à ajuster les rôles au lieu de les figer. Le foyer partagé n’est pas une solution magique ; c’est un équilibre provisoire que l’on rend vivable par des règles souples.
+    prompt: Que suggère l’auteur à propos de ce retour sous un même toit ?
+    options:
+    - Il relève d’une mode sans lendemain.
+    - Il résout tous les conflits familiaux.
+    - Il concerne surtout les campagnes.
+    - Il répond à des contraintes et à des choix.
+    answer: 3
+    explanation: Le texte insiste sur des causes concrètes — logement, garde, travail, isolement — puis
+      sur des usages variés et ajustés. Les autres propositions sont trop catégoriques ou ne sont jamais
+      établies.
+- status: fixed
+  issues:
+  - 'The document contains a spelling error: ''tant de euros'' should be ''tant d’euros''.'
+  item:
+    slug: ce-c1-cadeau-choisi
+    cefr: C1
+    origin: generated
+    focus: nuance d’opinion
+    passage: |-
+      On se trompe souvent sur le cadeau en le traitant comme un objet comptable : tant d’euros, tant d’effort, tant d’affection supposée. C’est oublier que le geste d’offrir commence bien avant l’emballage. Il commence au moment où l’on prête attention à ce que l’autre aime, redoute, collectionne, oublie, évite ou remet à plus tard. Le cadeau n’est donc pas d’abord une démonstration de richesse ; il est une manière de dire : « je t’ai observé sans te réduire à une formule ».
+
+      Cette idée dérange les industries qui vivent du mécanisme inverse, car elles préfèrent un présent standard, rapide, identifiable, échangeable. Le marché adore les occasions où l’on se sent obligé d’offrir sans savoir quoi choisir : il transforme l’embarras en chiffre d’affaires. Or plus le cadeau devient automatique, plus il risque de perdre ce qui faisait sa portée symbolique. Un objet coûteux peut être admirable ; il n’en est pas pour autant émouvant.
+
+      Bien sûr, il serait naïf de prétendre que le prix n’a aucune importance. Il peut signifier du temps de travail, du soin, parfois un vrai sacrifice. Mais ce qu’un cadeau transmet le plus sûrement, ce n’est ni sa valeur marchande ni sa rareté : c’est l’idée qu’une relation mérite une forme singulière d’attention. C’est pourquoi certains présents modestes restent inoubliables, tandis que d’autres, pourtant somptueux, paraissent aussitôt interchangeables. La logique du don commence là où la consommation cesse de fournir la mesure.
+    prompt: L’auteur pense surtout que...
+    options:
+    - le prix mesure l’affection.
+    - les fêtes devraient éviter tout échange.
+    - la publicité a remplacé les liens familiaux.
+    - le cadeau compte par l’attention qu’il suppose.
+    answer: 3
+    explanation: Le texte affirme que le cadeau vaut surtout par l’attention portée à l’autre, même si
+      le prix peut avoir un sens. Les autres réponses sont soit contredites, soit trop extrêmes par rapport
+      à la position nuancée de l’auteur.
+- status: fixed
+  issues:
+  - 'The document contains a grammatical error: ''ses fatigue'' should be ''sa fatigue''.'
+  item:
+    slug: ce-c1-repas-en-debat
+    cefr: C1
+    origin: generated
+    focus: implicite final
+    passage: |-
+      Dans beaucoup de familles, le repas commun reste présenté comme un refuge. On y parle de la journée, on y règle les petits soucis, on y transmet des habitudes. Mais le même moment peut aussi devenir une scène de friction, surtout quand chacun arrive avec ses horaires, sa fatigue, ses exigences, ses écrans et ses opinions. La table ne garantit pas l’harmonie ; elle offre seulement un lieu où le désaccord ne peut plus tout à fait se cacher.
+
+      Certains regrettent ce qu’ils appellent la disparition du repas « comme avant ». Ils imaginent une époque où les mêmes personnes mangeaient la même chose au même moment dans un silence discipliné. Ce souvenir arrange souvent davantage qu’il ne décrit. Les familles d’hier n’étaient pas forcément plus unies ; elles étaient parfois plus contraintes de faire semblant de l’être. La convivialité contemporaine, avec son désordre, a au moins l’honnêteté de montrer que vivre ensemble suppose de composer, non d’imposer.
+
+      C’est pourquoi les tentatives pour imposer une règle unique — tout le monde à table, tout le monde sans téléphone, tout le monde d’accord — échouent souvent à long terme. Elles confondent paix et suspension de la parole. Or une famille durable n’est pas celle qui évite les tensions, mais celle qui accepte de les traverser sans renoncer à la conversation. En ce sens, le repas ne vaut pas parce qu’il serait silencieux ou parfait ; il vaut parce qu’il rend possible une forme de présence commune qui n’exige pas l’effacement des différences.
+    prompt: La dernière phrase laisse entendre que...
+    options:
+    - les repas doivent rester courts.
+    - les parents imposent toujours leur point de vue.
+    - le désaccord fragilise nécessairement la famille.
+    - l’accord parfait est moins important que la parole partagée.
+    answer: 3
+    explanation: La fin du texte valorise une « présence commune » qui n’exige pas l’effacement des différences,
+      donc la conversation compte plus qu’un accord parfait. Les autres propositions contredisent cette
+      idée ou la réduisent à un détail absent du passage.

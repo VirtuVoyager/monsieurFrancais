@@ -1,0 +1,25 @@
+# The reading bank: about four TCF sections' worth, weighted to the levels around
+# NCLC 7 (B2), with C1 so the ability estimate is not capped. Each batch is written and
+# reviewed once; add a batch (with its own themes) to grow the bank.
+skill: CE
+batches:
+  - {cefr: A1, count: 8, themes: [culture et loisirs, transports]}
+  - {cefr: A1, count: 8, themes: [consommation, famille et société]}
+  - {cefr: A2, count: 8, themes: [alimentation, voyages]}
+  - {cefr: A2, count: 8, themes: [médias, vie associative]}
+  - {cefr: A2, count: 8, themes: [services publics, logement]}
+  - {cefr: A2, count: 8, themes: [travail, santé]}
+  - {cefr: B1, count: 8, themes: [environnement, technologie]}
+  - {cefr: B1, count: 8, themes: [éducation, immigration et intégration]}
+  - {cefr: B1, count: 8, themes: [culture et loisirs, transports]}
+  - {cefr: B1, count: 8, themes: [consommation, famille et société]}
+  - {cefr: B1, count: 8, themes: [alimentation, voyages]}
+  - {cefr: B2, count: 8, themes: [médias, vie associative]}
+  - {cefr: B2, count: 8, themes: [services publics, logement]}
+  - {cefr: B2, count: 8, themes: [travail, santé]}
+  - {cefr: B2, count: 8, themes: [environnement, technologie]}
+  - {cefr: B2, count: 8, themes: [éducation, immigration et intégration]}
+  - {cefr: B2, count: 8, themes: [culture et loisirs, transports]}
+  - {cefr: C1, count: 8, themes: [consommation, famille et société]}
+  - {cefr: C1, count: 8, themes: [alimentation, voyages]}
+  - {cefr: C1, count: 8, themes: [médias, vie associative]}

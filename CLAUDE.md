@@ -17,7 +17,8 @@ Exam-first French app for TCF Canada (target NCLC 7), A1 → C2. The full plan i
 ## Commands
 
 `make check` (lint + typecheck + tests), `make dev-api`, `make dev-web`, `make reset-db`,
-`make gen-api` after any API schema change, `make e2e`, `make up` for Docker (OrbStack).
+`make gen-api` after any API schema change, `make e2e`, `make up` for Docker (OrbStack),
+`make generate REQUEST=…` / `make promote REQUEST=…` for generated exam items (`content/generation/`).
 Backend tests need Postgres with pgvector on :5432 and a `mf_test` database.
 
 ## Rules

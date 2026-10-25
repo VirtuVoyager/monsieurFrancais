@@ -12,6 +12,7 @@ os.environ["MF_GLOSSARY_PROVIDER"] = "fake"
 os.environ["MF_EMBEDDING_PROVIDER"] = "fake"
 os.environ["MF_SPEECH_PROVIDER"] = "fake"
 os.environ["MF_REALTIME_PROVIDER"] = "fake"
+os.environ["MF_CONTENT_PROVIDER"] = "fake"
 os.environ["MF_JOBS_ENABLED"] = "false"
 
 import pytest

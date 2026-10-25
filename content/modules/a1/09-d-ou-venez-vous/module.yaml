@@ -1,0 +1,120 @@
+slug: a1-09-d-ou-venez-vous
+level: A1
+block: 1
+order: 2
+theme: Identité
+title: "D'où venez-vous ?"
+summary: >
+  Dire d'où on vient, où on habite et où on voyage : les pays, les villes et les
+  nationalités. Les prépositions à, en, au, aux et de, du, des, le verbe venir et
+  l'accord des nationalités.
+
+lessons:
+  - slug: grammaire
+    kind: grammar
+    title: Pays, villes et nationalités
+    concept: pays-nationalites
+    exercises:
+      - {kind: cloze, prompt: "Mon frère travaille ___ Japon.", accepted: [au]}
+      - {kind: cloze, prompt: "Nous partons en vacances ___ Italie.", accepted: [en]}
+      - {kind: cloze, prompt: "Elle vient ___ États-Unis.", accepted: [des]}
+      - kind: mcq
+        prompt: "Je suis né ___ Mexique."
+        options: [au, en, à, aux]
+        answer: 0
+        explanation: "Le Mexique se termine par -e, mais il est masculin : au Mexique."
+      - kind: mcq
+        prompt: "Ils viennent ___ Inde."
+        options: ["d'", de, du, des]
+        answer: 0
+        explanation: "L'Inde est féminine et commence par une voyelle : d'Inde."
+      - kind: mcq
+        prompt: "Sofia est mexicaine et son mari est ___."
+        options: [mexicain, mexicaine, mexicainne]
+        answer: 0
+        explanation: "Avec -ain, on ajoute seulement -e au féminin : mexicaine, américaine. On ne double jamais le n."
+      - {kind: order, words: [vient, Il, du, Sénégal.], answer: "Il vient du Sénégal."}
+
+  - slug: vocabulaire
+    kind: vocab
+    title: "Vocabulaire : pays et nationalités"
+
+  - slug: phrases
+    kind: sentences
+    title: Phrases modèles pour parler de ses origines
+
+  - slug: ecoute
+    kind: listening
+    title: "Écoute : au café des langues"
+    transcript: |
+      - Bonjour ! C'est la première fois que vous venez au café des langues ?
+      - Oui. Je m'appelle Ravi, je viens d'Inde.
+      - Moi, c'est Ana. Je suis portugaise, mais j'habite au Canada depuis deux ans.
+      - Vous habitez à Montréal ?
+      - Non, à Québec. Et vous, vous êtes ici pour le travail ?
+      - Oui, je suis ingénieur. Et l'année prochaine, je vais travailler aux États-Unis.
+    questions:
+      - kind: mcq
+        prompt: "D'où vient Ravi ?"
+        options: [Du Portugal, D'Inde, Du Canada, Des États-Unis]
+        answer: 1
+      - kind: mcq
+        prompt: "Où habite Ana ?"
+        options: [À Montréal, Au Portugal, À Québec, À Lisbonne]
+        answer: 2
+      - kind: mcq
+        prompt: "Où Ravi va-t-il travailler l'année prochaine ?"
+        options: [Au Canada, En Inde, Aux États-Unis, Au Portugal]
+        answer: 2
+
+  - slug: lecture
+    kind: reading
+    title: "Lecture : le forum des nouveaux arrivants"
+    text: |
+      Bonjour à tous !
+
+      Je m'appelle Karim, j'ai trente-deux ans et je suis marocain. Je viens de
+      Casablanca, mais j'ai fait mes études en France, à Lyon. Ma femme est
+      sénégalaise : elle vient de Dakar. Nous habitons maintenant au Canada, à
+      Ottawa. Nos voisins sont mexicains et chinois : notre rue, c'est le monde
+      entier ! Vous aussi, vous venez d'arriver ? Écrivez-moi !
+
+      Karim
+    questions:
+      - kind: mcq
+        prompt: "Quelle est la nationalité de Karim ?"
+        options: [Il est sénégalais., Il est français., Il est marocain., Il est canadien.]
+        answer: 2
+      - kind: mcq
+        prompt: "Où Karim a-t-il fait ses études ?"
+        options: [À Casablanca, À Lyon, À Dakar, À Ottawa]
+        answer: 1
+      - kind: mcq
+        prompt: "Pourquoi Karim écrit-il sur le forum ?"
+        options:
+          - Pour trouver un appartement.
+          - Pour rencontrer d'autres nouveaux arrivants.
+          - Pour vendre sa voiture.
+          - Pour présenter son entreprise.
+        answer: 1
+
+  - slug: ecriture
+    kind: writing
+    title: "Écriture : une fiche pour le cours de français"
+    task: EE1
+    prompt: >
+      Vous vous inscrivez à un cours de français. Écrivez un message à votre
+      professeur : votre nationalité, votre pays et votre ville d'origine, où vous
+      habitez maintenant et un pays où vous voulez aller, avec la raison.
+    min_words: 40
+    max_words: 60
+
+  - slug: oral
+    kind: speaking
+    title: "Oral : mes origines"
+    task: EO1
+    prompt: >
+      Dites d'où vous venez : votre pays, votre ville, votre nationalité et vos
+      langues. Où habitez-vous aujourd'hui ? Quels pays connaissez-vous, et où
+      aimeriez-vous aller ?
+    seconds: 60

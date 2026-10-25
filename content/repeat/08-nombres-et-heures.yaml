@@ -1,0 +1,35 @@
+# Repeat after me. `tip` says what to listen for; it is shown to the learner and given to the coach.
+title: Les nombres et l'heure
+focus: How numbers change before a noun - six, dix, huit, neuf and the links with heures and ans
+cefr: A1
+sentences:
+  - fr: Le train part à six heures dix.
+    en: The train leaves at ten past six.
+    tip: six‿heures is linked with a z sound. dix at the end of the phrase keeps its s sound.
+  - fr: J'ai dix-huit ans et mon frère a vingt ans.
+    en: I am eighteen and my brother is twenty.
+    tip: dix-huit‿ans is linked with a t; vingt‿ans with a t too. The t of vingt is heard only in this liaison.
+  - fr: Le magasin ouvre à neuf heures.
+    en: The shop opens at nine.
+    tip: neuf‿heures - the f becomes a v. With ans too - neuf‿ans.
+  - fr: Il y a six personnes et dix chaises.
+    en: There are six people and ten chairs.
+    tip: Before a consonant, six and dix lose their final sound - "si personnes", "di chaises".
+  - fr: Le rendez-vous est à quatorze heures trente.
+    en: The appointment is at 2:30 pm.
+    tip: Formal 24-hour time, as in announcements. Run quatorze into heures. trente has an.
+  - fr: Le vol pour Montréal décolle à vingt et une heures.
+    en: The flight to Montreal takes off at 9 pm.
+    tip: vingt et une - the t of vingt is heard before et. Run une into heures.
+  - fr: Huit étudiants sur dix habitent en ville.
+    en: Eight students out of ten live in town.
+    tip: huit‿étudiants is linked with a t. The h of huit is not linked from before - "les huit", not "les‿z‿huit".
+  - fr: Le bureau ferme à midi et demi.
+    en: The office closes at half past twelve.
+    tip: Informal time with midi. demi has a soft e. midi et demi without a final e.
+  - fr: Mon numéro est le zéro six, quatre-vingt-quinze, soixante-dix.
+    en: My number is 06 95 70.
+    tip: Numbers said in pairs. quatre-vingt-quinze is 4 x 20 + 15; soixante-dix is 60 + 10. No t in quatre-vingt.
+  - fr: Le musée accueille deux cents visiteurs par jour.
+    en: The museum welcomes two hundred visitors a day.
+    tip: deux cents takes an s, but you do not hear it before visiteurs. With a vowel it links - deux cents‿euros.

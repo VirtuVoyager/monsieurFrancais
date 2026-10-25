@@ -1,0 +1,166 @@
+request: ce-bank
+skill: CE
+cefr: A1
+themes:
+- consommation
+- famille et société
+format: document
+model: gpt-5.4-mini
+key: 4115da848758d4e7308ccf4e9a0b3c487ce0255072df8f341dace1ac6afd712e
+items:
+- status: fixed
+  issues:
+  - The document is shorter than the required 20 words.
+  item:
+    slug: ce-a1-menu-du-jour
+    cefr: A1
+    origin: generated
+    focus: prix du menu
+    passage: |-
+      Menu du jour
+      Salade de tomates maison.
+      Poulet grillé ou omelette.
+      Pommes de terre.
+      Compote.
+      Entrée, plat, dessert : douze euros.
+    prompt: Combien coûte le menu complet ?
+    options:
+    - dix euros
+    - quinze euros
+    - douze euros
+    - dix-huit euros
+    answer: 2
+    explanation: Le document indique clairement « douze euros ». Les autres montants ne correspondent
+      pas au prix annoncé.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-anniversaire-a-la-maison
+    cefr: A1
+    origin: generated
+    focus: heure de la fête
+    passage: Salut Noah, j’ai préparé le gâteau. On fête l’anniversaire de ta sœur à la maison à dix-huit
+      heures. À tout à l’heure, Papa.
+    prompt: À quelle heure est la fête ?
+    options:
+    - dix-sept heures
+    - dix-huit heures
+    - dix-neuf heures
+    - vingt heures
+    answer: 1
+    explanation: Le message dit que la fête a lieu « à dix-huit heures ». Les autres heures sont seulement
+      des distracteurs.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-poussette-a-vendre
+    cefr: A1
+    origin: generated
+    focus: objet vendu
+    passage: |-
+      Petite annonce
+      Vends poussette bleue, en bon état, très légère. Prix : trente euros. À retirer rue des Lilas, samedi matin.
+    prompt: Quel objet est vendu ?
+    options:
+    - vélo
+    - poussette
+    - chaise haute
+    - lit bébé
+    answer: 1
+    explanation: L’annonce propose une « poussette ». Les autres objets ne sont pas mentionnés dans le
+      texte.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-horaires-daccueil
+    cefr: A1
+    origin: generated
+    focus: heure de fermeture
+    passage: |-
+      Horaires du point d’accueil
+      Lundi : fermé.
+      Mardi à vendredi : neuf heures à dix-huit heures.
+      Samedi : neuf heures à midi.
+      Dimanche : fermé.
+    prompt: À quelle heure le point d’accueil ferme-t-il le samedi ?
+    options:
+    - dix heures
+    - seize heures
+    - douze heures
+    - dix-huit heures
+    answer: 2
+    explanation: Le samedi, le document dit « neuf heures à midi », donc fermeture à midi. Les autres
+      heures ne sont pas indiquées pour le samedi.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-tri-des-cartons
+    cefr: A1
+    origin: generated
+    focus: jour de l’opération
+    passage: |-
+      Affiche
+      Ce samedi, apportez vos cartons au centre de tri. L’entrée est gratuite de huit heures à onze heures. Des sacs sont offerts aux familles.
+    prompt: Quel jour a lieu l’opération ?
+    options:
+    - jeudi
+    - dimanche
+    - mardi
+    - samedi
+    answer: 3
+    explanation: L’affiche commence par « Ce samedi ». Les autres jours ne sont pas ceux de l’opération.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-garde-des-enfants
+    cefr: A1
+    origin: generated
+    focus: jour de garde
+    passage: Je cherche une personne gentille pour garder deux enfants, chaque mercredi de dix-sept heures
+      à dix-neuf heures, près de la gare de Valmont. Paiement simple.
+    prompt: Quel jour faut-il garder les enfants ?
+    options:
+    - lundi
+    - vendredi
+    - mercredi
+    - dimanche
+    answer: 2
+    explanation: Le texte précise « chaque mercredi ». Les autres jours sont des propositions plausibles
+      mais fausses.
+- status: fixed
+  issues:
+  - The document is shorter than the required 20 words.
+  item:
+    slug: ce-a1-menu-cantine
+    cefr: A1
+    origin: generated
+    focus: dessert proposé
+    passage: 'Aujourd’hui à la cantine : soupe de légumes, poisson avec riz, yaourt nature ou pomme. Formule
+      complète du jour : huit euros cinquante.'
+    prompt: Quel dessert est proposé ?
+    options:
+    - fromage
+    - yaourt nature
+    - gâteau au chocolat
+    - orange
+    answer: 1
+    explanation: Le document propose « yaourt nature ou pomme ». Parmi les options, seul « yaourt nature
+      » est exact.
+- status: ok
+  issues: []
+  item:
+    slug: ce-a1-paiement-au-magasin
+    cefr: A1
+    origin: generated
+    focus: paiement accepté
+    passage: Bienvenue au magasin. Ici, vous pouvez payer en espèces ou avec une carte bancaire. Les chèques
+      ne sont pas acceptés. Merci.
+    prompt: Quel moyen de paiement est accepté ?
+    options:
+    - chèque
+    - carte bancaire
+    - bon d'achat cadeau
+    - virement bancaire
+    answer: 1
+    explanation: Le texte dit qu’on peut payer « avec une carte bancaire ». Le chèque est au contraire
+      refusé, et les autres moyens ne sont pas cités.
